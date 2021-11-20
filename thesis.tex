@@ -1,0 +1,110 @@
+\documentclass[11pt,                   
+               a4paper,                 
+               twoside,                 
+               openright,               
+               italian,
+               article]{book}    
+
+
+\usepackage{cite}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{amsmath,amssymb,amsthm}    % matematica
+\usepackage[T1]{fontenc}  
+\usepackage[utf8]{inputenc}             % codifica di input; anche [latin1] va bene
+\usepackage[italian]{babel}    % per scrivere in italiano e in inglese;
+\usepackage{bookmark}                   % segnalibri
+\usepackage{caption}                    % didascalie
+\usepackage{csquotes}                   % gestisce automaticamente i caratteri (")
+
+\usepackage{emptypage}                  % pagine vuote senza testatina e piede di pagina
+
+\usepackage{epigraph}			% per epigrafi
+
+\usepackage{eurosym}                    % simbolo dell'euro
+
+%\usepackage{indentfirst}               % rientra il primo paragrafo di ogni sezione
+
+\usepackage{graphicx}                   % immagini
+
+\usepackage{hyperref}                   % collegamenti ipertestuali
+
+%\usepackage[binding=5mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm
+
+\usepackage{listings}                   % codici
+
+\usepackage{microtype}                  % microtipografia
+
+\usepackage{mparhack,fixltx2e,relsize}  % finezze tipografiche
+
+\usepackage{nameref}                    % visualizza nome dei riferimenti                                      
+
+\usepackage[font=small]{quoting}        % citazioni
+
+\usepackage[italian]{varioref}          % riferimenti completi della pagina
+
+\usepackage[dvipsnames]{xcolor}         % colori
+
+\usepackage{booktabs}                   % tabelle                                       
+\usepackage{tabularx}                   % tabelle di larghezza prefissata                                    
+\usepackage{longtable}                  % tabelle su più pagine                                        
+\usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
+
+\usepackage[toc, acronym]{glossaries}   % glossario
+                                        % per includerlo nel documento bisogna:
+                                        % 1. compilare una prima volta tesi.tex;
+                                        % 2. eseguire: makeindex -s tesi.ist -t tesi.glg -o tesi.gls tesi.glo
+                                        % 3. eseguire: makeindex -s tesi.ist -t tesi.alg -o tesi.acr tesi.acn
+                                        % 4. compilare due volte tesi.tex.
+
+\captionsetup[figure]{labelsep=period}
+\captionsetup[subfigure]{labelformat=simple} % default is 'parens'
+\renewcommand\thesubfigure{\thefigure.\alph{subfigure}.}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\newtheorem{corollary}{CorollaURry}
+
+%**************************************************************
+% SETTINGS
+%************************************************************** 
+\input{thesis-config.tex}                     
+\usepackage{fancyhdr}
+\usepackage[top=3.6cm,bottom=3.5cm,outer=3.6cm, inner=4.0cm, twoside, a4paper]{geometry}
+%-------------- intestazione e piè di pagina
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\nouppercase\leftmark}
+\fancyfoot[CE,CO]{\thepage}
+
+\begin{document}
+
+\frontmatter
+\pagenumbering{gobble} 
+\input{externals/title_page.tex}
+\newpage
+%\input{}
+%\input{}
+%\input{}
+%\input{}
+%\input{}
+\cleardoublepage
+
+\renewcommand{\contentsname}{\centering Indice}
+\tableofcontents
+
+\mainmatter
+\setcounter{chapter}{0}
+\input{chapters/1 Introduction.tex}           
+\input{chapters/2 State-of-the-art.tex}       
+\input{chapters/3 Methodology.tex}             
+\input{chapters/4 Experimental results.tex}             
+\input{chapters/5 Conclusions.tex}   
+
+\newpage
+\bibliographystyle{abbrv}
+\bibliography{Bibliography}
+
+\end{document}

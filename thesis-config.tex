@@ -1,0 +1,158 @@
+%**************************************************************
+% file contenente le impostazioni della tesi
+%**************************************************************
+
+%**************************************************************
+% Frontespizio
+%**************************************************************
+
+% Autore
+\newcommand{\myName}{Flavio Forenza}                                    
+
+%\HRule \\ [0.4cm] % Horizontal line
+\newcommand{\myTitle}{(TITOLO)}
+%\HRule \\ [1.5cm] % Horizontal line
+
+% Università             
+\newcommand{\myUni}{UNIVERSITÀ DEGLI STUDI DI MILANO}
+
+% Dipartimento
+\newcommand{\myDepartment}{DIPARTIMENTO DI INFORMATICA GIOVANNI DEGLI ANTONI}
+
+% Facoltà       
+\newcommand{\myFaculty}{\emph{Corso di Laurea Magistrale in Informatica}}
+
+% Titolo del relatore
+\newcommand{\profTitle}{Prof.}
+\newcommand{\correlatoreTitle}{Dott.}
+
+% Relatore
+\newcommand{\myProf}{Vincenzo Piuri}
+\newcommand{\myCorrelatore}{Angelo Genovese}
+
+% Luogo
+\newcommand{\myLocation}{Milano}
+
+% Anno accademico
+\newcommand{\myAA}{...}
+
+% Data discussione
+\newcommand{\myTime}{...}
+
+
+%**************************************************************
+% Impostazioni di impaginazione
+% see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm
+%**************************************************************
+
+\setlength{\parindent}{14pt}   % larghezza rientro della prima riga
+\setlength{\parskip}{0pt}   % distanza tra i paragrafi
+
+%**************************************************************
+
+\usepackage{float} %per inserire figure in mezzo al testo
+
+\usepackage{listings} % per inserire codice 
+
+
+
+%**************************************************************
+% Impostazioni di caption
+%**************************************************************
+\captionsetup{
+    tableposition=top,
+    figureposition=bottom,
+    font=small,
+    format=hang,
+    labelfont=bf
+}
+
+%**************************************************************
+% Impostazioni di glossaries
+%**************************************************************
+%\input{glossario} % database di termini
+%\makeglossaries
+
+
+%**************************************************************
+% Impostazioni di graphicx
+%**************************************************************
+\graphicspath{{images/}} % cartella dove sono riposte le immagini
+
+
+%**************************************************************
+% Impostazioni di hyperref
+%**************************************************************
+\hypersetup{
+    %hyperfootnotes=false,
+    %pdfpagelabels,
+    %draft,	% = elimina tutti i link (utile per stampe in bianco e nero)
+    colorlinks=true,
+    linktocpage=true,
+    pdfstartpage=1,
+    pdfstartview=FitV,
+    % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
+    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
+    breaklinks=true,
+    pdfpagemode=UseNone,
+    pageanchor=true,
+    pdfpagemode=UseOutlines,
+    plainpages=false,
+    bookmarksnumbered,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    hypertexnames=true,
+    pdfhighlight=/O,
+    %nesting=true,
+    %frenchlinks,
+    urlcolor=webbrown,
+    linkcolor=Black,
+    citecolor=webgreen,
+    %pagecolor=RoyalBlue,
+    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,
+    pdftitle={\myTitle},
+    pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
+    pdfsubject={},
+    pdfkeywords={},
+    pdfcreator={pdfLaTeX},
+    pdfproducer={LaTeX}
+}
+
+%**************************************************************
+% Impostazioni di itemize
+%**************************************************************
+\renewcommand{\labelitemi}{$\ast$}
+
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\cdot$}
+\renewcommand{\labelitemiii}{$\diamond$}
+\renewcommand{\labelitemiv}{$\ast$}
+
+
+%**************************************************************
+% Impostazioni di listings
+%**************************************************************
+\lstset{
+    language=[LaTeX]Tex,%C++,
+    keywordstyle=\color{RoyalBlue}, %\bfseries,
+    basicstyle=\small\ttfamily,
+    %identifierstyle=\color{NavyBlue},
+    commentstyle=\color{Green}\ttfamily,
+    stringstyle=\rmfamily,
+    numbers=none, %left,%
+    numberstyle=\scriptsize, %\tiny
+    stepnumber=5,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frameround=ftff,
+    frame=single
+} 
+
+
+%**************************************************************
+% Impostazioni di xcolor
+%**************************************************************
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{webbrown}{rgb}{.6,0,0}
+
