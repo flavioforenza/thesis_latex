@@ -56,6 +56,61 @@ verso i layer nascosti (hidden layers) fino a raggiungere il layer finale di out
     \caption{Struttura di una rete neurale a più livelli.}
     \label{network structure}
 \end{figure}
+Una componente importante, riguarda la presenza di un insieme di valori 
+$w=(w_{k1}, \dots, w_{km})$ chiamati pesi. Ogni peso è rappresentato da un numero reale 
+che riflette il grado di importanza di una data connessione, tra due neuroni, in 
+una rete neurale \cite{02}. I pesi possono subire dei cambiamenti in base alla tipologia 
+di apprendimento della rete. Una buona configurazione dei pesi riduce l’errore di 
+predizione e pertanto migliora l’output del modello. Riprendendo il discorso 
+dei neuroni, McCulloch e Pitts  \cite{Chakraverty2019} definirono un modello matematico in grado di 
+rappresentarli. In particolare, il compito di ogni singolo neurone è rappresentato 
+nella figura (\ref{neural neuron}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{artificial neuron.png}
+    \centering
+    \caption{Neurone artificiale.}
+    \label{neural neuron}
+\end{figure}
+Da come possiamo notare, un neurone è una semplice funzione non lineare 
+che riceve in input una serie di input $X_{kn}$ e produce in output una variabile $y_k$. 
+Il calcolo dell’output, di ogni singolo neurone, è composto da una sommatoria 
+degli input, di segno positivo o negativo, moltiplicati prima con i corrispettivi 
+pesi e successivamente sommati con una variabile, chiamata bias (pregiudizio), 
+che corrisponde alla soglia di attivazione del neurone.
+\begin{equation}\label{artificial}
+    a_k = \sum_{j=0}^m w_{kj}x_j + b_k 
+\end{equation}
+Una soglia è utile per determinare se l’informazione in ingresso “$x$” debba essere 
+elaborata oppure scartata. Di solito vi è sempre un input $X_0=1$ che renderebbe 
+il bias $ b_k $ uguale uguale al primo peso $W_0$, pertanto la formula (\ref{artificial}) può anche 
+essere scritta come:
+\begin{equation}\label{artificial without bias}
+    a_k = \sum_{j=0}^m w_{kj}x_j
+\end{equation}
+Per poter determinare il valore $y$, dopo aver ottenuto “$a$”, si utilizza una “\emph{funzione 
+di attivazione}” non lineare $\varphi(\cdot)$:
+\begin{equation}\label{activation function}
+    y_k = \varphi(a) = \varphi(\sum_{i=0}^k w_ix_i)
+\end{equation}
+L’uscita $y$ determinerà l’attivazione del prossimo neurone. Se il valore ricevuto è 
+maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
+\begin{equation}\label{activation function}
+    y_k = \left\{
+        \begin{array}{rl}
+        1 & \mbox{if } a_k \geq 0 \\
+        0 & \mbox{if } a_k < 0
+        \end{array}
+        \right.
+\end{equation}
+Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{activation function}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{activation functions.png}
+    \centering
+    \caption{Varie funzioni di attivazione.}
+    \label{activation functions}
+\end{figure}
 Grazie a questa massiccia interconnessione, le reti neurali artificiali sono in 
 grado non solo di imitare il comportamento del cervello umano ma anche di 
 svolgere diversi compiti grazie a una opportuna fase di apprendimento. 
@@ -128,60 +183,6 @@ si potrebbe partire dallo studio del comportamento di una feed-forward neural
 network. Questa tipologia di rete può essere vista come una funzione matematica 
 non lineare capace di trasformare dei dati di input $x=(x_1, \dots, x_m)$, in dati in 
 output $y=(y_{k1}, \dots, y_{kn})$. Quello che accade è quindi una transizione delle variabili 
-indipendenti ($X_k$) in variabili dipendenti($Y_k$). Un altro componente importante, 
-facente parte della funzione, è costituita da un insieme di valori $w=(w_{k1}, \dots, w_{km})$ 
-chiamati pesi. Ogni peso è rappresentato da un numero reale che riflette il grado 
-di importanza di una data connessione, tra due neuroni, in una rete neurale \cite{02}. I 
-pesi possono subire dei cambiamenti in base alla tipologia di apprendimento della 
-rete. Una buona configurazione dei pesi riduce l’errore di predizione e pertanto 
-migliora l’output del modello. Possiamo quindi considerare la rete come una 
+indipendenti ($X_k$) in variabili dipendenti($Y_k$). Possiamo quindi considerare la rete come una 
 funzione nella forma $y = y(x;w)$, dove $y$ sta a rappresentare una funzione di $x$ 
-e che a sua volta è parametrizzata da $w$. Riprendendo il discorso dei neuroni, 
-McCulloch e Pitts  \cite{Chakraverty2019} definirono un modello matematico in grado di rappresentarli.
-In particolare, il compito di ogni singolo neurone è rappresentato nella figura (\ref{neural neuron}).
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \linewidth]{artificial neuron.png}
-    \centering
-    \caption{Neurone artificiale.}
-    \label{neural neuron}
-\end{figure}
-Da come possiamo notare, un neurone è una semplice funzione non lineare che 
-riceve in input una serie di input $X_{kn}$ e produce in output una variabile $y_k$. Il 
-calcolo dell’output, di ogni singolo neurone, è composto da una sommatoria degli 
-input, di segno positivo o negativo, moltiplicati prima con i corrispettivi pesi 
-e successivamente sommati con una variabile, chiamata bias (pregiudizio), che 
-corrisponde alla soglia di attivazione del neurone.
-\begin{equation}\label{artificial}
-    a_k = \sum_{j=0}^m w_{kj}x_j + b_k 
-\end{equation}
-Una soglia è utile per determinare se l’informazione in ingresso “$x$” debba essere 
-elaborata oppure scartata. Di solito vi è sempre un input $X_0=1$ che renderebbe 
-il bias $ b_k $ uguale uguale al primo peso $W_0$, pertanto la formula (\ref{artificial}) può anche 
-essere scritta come:
-\begin{equation}\label{artificial without bias}
-    a_k = \sum_{j=0}^m w_{kj}x_j
-\end{equation}
-Per poter determinare il valore $y$, dopo aver ottenuto “$a$”, si utilizza una “\emph{funzione di 
-attivazione}” non lineare $\varphi(\cdot)$:
-\begin{equation}\label{activation function}
-    y_k = \varphi(a) = \varphi(\sum_{i=0}^k w_ix_i)
-\end{equation}
-L’uscita $y$ determinerà l’attivazione del prossimo neurone. Se il valore ricevuto è 
-maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
-\begin{equation}\label{activation function}
-    y_k = \left\{
-        \begin{array}{rl}
-        1 & \mbox{if } a_k \geq 0 \\
-        0 & \mbox{if } a_k < 0
-        \end{array}
-        \right.
-\end{equation}
-Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{activation function}).
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \linewidth]{activation functions.png}
-    \centering
-    \caption{Varie funzioni di attivazione.}
-    \label{activation functions}
-\end{figure}
+e che a sua volta è parametrizzata da $w$. 
