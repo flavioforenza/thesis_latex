@@ -120,31 +120,37 @@ Lo scambio di dati tra i vari neuroni consente alla rete neurale di poter genera
 anche con dati mai visti nel training set. Questo processo prende il nome di 
 “\emph{Apprendimento}”. L’apprendimento di un modello di rete è tipicamente effettuato 
 a partire da un insieme di dati di addestramento chiamato training test. All’interno 
-di questi insiemi abbiamo la presenza di esempi formati da coppie $(x^q, y^q)$, con 
-$q=1,…,n$, dove $y^q$ sta a rappresentare il valore di output desiderato in funzione 
-del dato di input $x^q$. Per ricavare il valore target è necessario ricercare gli opportuni 
-valori dei pesi, indispensabili a minimizzare l’errore commesso. Quest’ultimo è 
-associato ad una la \emph{Funzione di Costo} (o di perdita) (\ref{cost function}):
-\begin{equation}\label{cost function}
-    \emph{C}=(a_k-y)^2
+di questi insiemi abbiamo la presenza di esempi formati da coppie $(x^j, y^j)$, con 
+$j=1,…,n$, dove $y^j$ sta a rappresentare il valore di output desiderato in funzione 
+del dato di input $x^j$. Per ricavare il valore target è necessario ricercare gli 
+opportuni valori dei pesi, indispensabili a minimizzare l’errore commesso. La 
+quantità dell’errore commesso, dal singolo neurone $j$, è esprimibile mediante (\ref{error function}):
+\begin{equation}\label{error function}
+    \emph{$e_j$}=\hat{y}_j-y_j
 \end{equation}
-Si può osservare che il calcolo di (\ref{cost function}) è riconducibile alla somma dei quadrati 
-residua tra il valore stimato e quello desiderato. La funzione di costo $C$ risulta 
-essere molto importate nella fase di apprendimento in quanto misura la distanza 
-dalla soluzione ottimale. In generale, la funzione di costo ha diversi minimi (Fig. \ref{minimum and maximum})
+Si può osservare che il calcolo di (\ref{error function}) è riconducibile alla somma dei quadrati 
+residua tra il valore stimato $\hat{y}_j$ e quello desiderato $y_j$. L’errore totale derivato da 
+tutta la rete è calcolabile prendendo in considerazione la \emph{Funzione di Errore}, a 
+volte chiamata anche di \emph{Costo}, esprimibile dal calcolo della seguente formula:
+\begin{equation}\label{error function}
+    \emph{$E$}=\frac{1}{2}\sum_{j=1}^me_j^2
+\end{equation}
+dove $m$ rappresenta il numero totale di neuroni presenti nell’output layer.
+La funzione di errore $E$ risulta essere molto importate nella fase di apprendimento in quanto misura la distanza 
+dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (Fig. \ref{minimum and maximum})
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.7\linewidth]{cost-function.png}
     \centering
-    \caption{Esempio di minimo globale e locale della funzione di costo.}
+    \caption{Esempio di minimo globale ($w^A$) e locale ($w^B$).}
     \label{minimum and maximum}
 \end{figure}
 Per ottenere un valore della funzione relativamente basso, l’obiettivo è racchiuso 
 nella ricerca del minimo globale. Tale ricerca avviene in maniera iterativa, partendo 
 da dei pesi a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
-ottimali avviene mediante calcolo delle derivate parziali sulla funzione di costo, 
-ovvero del suo vettore gradiente $\nabla{C}$. Questo vettore è utile a definire la direzione 
-ed il verso della funzione di costo, in base al set di pesi considerato. Il calcolo delle 
+ottimali avviene mediante calcolo delle derivate parziali sulla funzione di errore, 
+ovvero del suo vettore gradiente $\nabla{E}$. Questo vettore è utile a definire la direzione 
+ed il verso della funzione di errore, in base al set di pesi considerato. Il calcolo delle 
 derivate viene svolto dall’algoritmo di \emph{Back Propagation} (discusso nella sezione X 
 di questo elaborato). Una rete neurale artificiale può avere vari tipi 
 di apprendimento: \emph{Supervisionato, Semi-Supervisionato, Non-Supervisionato} e 
