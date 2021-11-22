@@ -59,7 +59,7 @@ verso i layer nascosti (hidden layers) fino a raggiungere il layer finale di out
 Una componente importante, riguarda la presenza di un insieme di valori 
 $w=(w_{k1}, \dots, w_{km})$ chiamati pesi. Ogni peso è rappresentato da un numero reale 
 che riflette il grado di importanza di una data connessione, tra due neuroni, in 
-una rete neurale \cite{02}. I pesi possono subire dei cambiamenti in base alla tipologia 
+una rete neurale. I pesi possono subire dei cambiamenti in base alla tipologia 
 di apprendimento della rete. Una buona configurazione dei pesi riduce l’errore di 
 predizione e pertanto migliora l’output del modello. Riprendendo il discorso 
 dei neuroni, McCulloch e Pitts  \cite{Chakraverty2019} definirono un modello matematico in grado di 
@@ -198,6 +198,61 @@ dei feedback chiamati appunto rinforzi. Quest’ultimi non hanno nulla a che far
 con etichette o valori di verità, ma rappresentano un livello di qualità delle azioni 
 intraprese dal sistema. Pertanto, differentemente da un sistema supervisionato, 
 non ci sono mappature tra l’input e l’output.
+
+\subsection{Algoritmo di Back-Propagation}
+Il termine \emph{Back-Propagation} è stato introdotto una prima volta quando si è 
+trattato l’argomento dell’apprendimento Supervisionato. Una prima definizione 
+del termine venne data nel 1986 in \cite{03}. L’algoritmo di Back-Propagation agisce 
+durante la fase di training del modello, che a sua volta si suddivide in due fasi:
+\begin{enumerate}
+    \item \emph{Fase in avanti (forward)}: i dati si propagavano dai neuroni di input fino 
+    a raggiungere i neuroni di output. I pesi sono fissati e i cambiamenti sono 
+    limitati.
+    \item \emph{Fase in indietro (backward)}:  si confronta il risultato ottenuto, da un primo 
+    step in avanti, con il risultato atteso. Tale valore rappresenterà l’errore 
+    commesso, descritto in precedenza dalla funzione di errore $E$ (\ref{error function}). A questo 
+    punto, tale errore si propagherà indietro nella rete. Questo meccanismo è 
+    utile ad adeguare i vari pesi presenti nella rete affinché le prossime iterazioni 
+    diano un errore relativamente basso (caso ottimale in cui l’output stimato è 
+    simile all’output desiderato).
+\end{enumerate}
+Sappiamo che una minima variazione ai pesi e al bias comporta allo stesso modo 
+una variazione della funzione di errore E. Tralasciando un’attimo il bias, il discorso 
+che segue è incentrato sulla gestione dei pesi. L’algoritmo di Back-propagation 
+applica una correzione chiamata {\bfseries{Delta Rule ($\Delta{W_{ji}}$)}}  ad ogni peso $w_{ji}$, andando 
+a calcolare, tramite la regola della \emph{Chain Rule} \ref{chain rule}, la derivata parziale della funzione 
+di errore $E$, rispetto alla derivata della parziale del peso $w_{ji}$ in considerazione.
+\begin{equation}\label{chain rule}
+    \frac{\partial E}{\partial w_{ji}} = \frac{\partial E}{\partial e_{j}} 
+    \frac{\partial e_{j}}{\partial y_{j}}
+    \frac{\partial y_{j}}{\partial a_{j}}
+    \frac{\partial a_{j}}{\partial w_{ji}}
+\end{equation}
+dove:
+\begin{equation}\label{derivation solved 1}
+    \frac{\partial E}{\partial e_{j}} = e_j
+\end{equation}
+\begin{equation}\label{derivation solved 2}
+    \frac{\partial e_{j}}{\partial y_{j}} = -1
+\end{equation}
+\begin{equation}\label{derivation solved 3}
+    \frac{\partial y_{j}}{\partial a_{j}} = \varphi_j^{'}(a_j)
+\end{equation}
+\begin{equation}\label{derivation solved 4}
+    \frac{\partial a_{j}}{\partial w_{ji}} = y_i
+\end{equation}
+Ricapitolando, la (\ref{chain rule}) diventa:
+\begin{equation}\label{chain rule update}
+    \frac{\partial E}{\partial w_{ji}} = -e_j\varphi_j^{'}(a_j)y_i
+\end{equation}
+Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{ji}}$) sul peso $w_{ji}$:
+\begin{equation}\label{delta rule 1}
+    \Delta{W_{ji}} = -\alpha \frac{\partial E}{\partial w_{ji}}
+\end{equation}
+dove $-\alpha$ simboleggia un parametro, chiamata \emph{Learning Rate}, che rappresenta un 
+indicatore di velocità di apprendimento della rete. 
+
+
 
 \section{Tipologie di reti neurali}
 Esistono diverse tipologie di reti neurali, tra queste abbiamo:
