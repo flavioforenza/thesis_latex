@@ -249,9 +249,25 @@ Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{j
 \begin{equation}\label{delta rule 1}
     \Delta{W_{ji}} = -\alpha \frac{\partial E}{\partial w_{ji}}
 \end{equation}
-dove $-\alpha$ simboleggia un parametro, chiamata \emph{Learning Rate}, che rappresenta un 
-indicatore di velocità di apprendimento della rete. 
-
+dove $-\alpha$ simboleggia un parametro, chiamata \emph{Learning Rate}, che rappresenta 
+un indicatore di velocità di apprendimento della rete. Il segno negativo è utile 
+per agevolare la discesa del gradiente affinché si riduca il valore della funzione di
+errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente locale $\delta_j$}:
+\begin{eqnarray}\label{local gradient}
+    \delta_j & = & \frac{\partial E}{\partial a_{j}} \nonumber \\
+             & = & \frac{\partial E}{\partial e_{j}} \frac{\partial e_{j}}{\partial y_{j}} \frac{\partial y_{j}}{\partial a_{j}} \nonumber \\
+             & = & e_j\varphi_j^{'}(a_j)
+\end{eqnarray}
+Il gradiente locale sta ad indicare i cambiamenti richiesti nei pesi. Sostituendo in 
+(\ref{chain rule update}) la (\ref{local gradient}), possiamo modificare la (\ref{delta rule 1}) in:
+\begin{equation}\label{delta rule 2}
+    \Delta{W_{ji}} = -\alpha \delta_jy_i 
+\end{equation}
+Infine, grazie alla definizione della \emph{Delta Rule}, nell’iterazione $n+1$ sarà possibile 
+aggiornare il peso $w_{ji}$ in questione, rispetto all’iterazione $n$ precedente:
+\begin{equation}\label{weight change}
+    w_{ji}(n+1) = w_{ji}(n)+\Delta{w_{ji}(n)}
+\end{equation}
 
 
 \section{Tipologie di reti neurali}
