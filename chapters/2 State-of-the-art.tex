@@ -336,6 +336,66 @@ si potrebbe partire dallo studio del comportamento di una feed-forward neural
 network. Questa tipologia di rete può essere vista come una funzione matematica 
 non lineare capace di trasformare dei dati di input $x=(x_1, \dots, x_m)$, in dati in 
 output $y=(y_{j1}, \dots, y_{jn})$. Quello che accade è quindi una transizione delle variabili 
-indipendenti ($X_j$) in variabili dipendenti($Y_j$). Possiamo quindi considerare la rete come una 
-funzione nella forma $y = y(x;w)$, dove $y$ sta a rappresentare una funzione di $x$ 
-e che a sua volta è parametrizzata da $w$. 
+indipendenti ($X_j$) in variabili dipendenti($Y_j$). Possiamo quindi considerare la 
+rete come una funzione nella forma $y = y(x;w)$, dove $y$ sta a rappresentare una funzione di $x$ 
+e che a sua volta è parametrizzata da $w$. In una rete feed-forward, il 
+processo di calcolo è unilaterale, ovvero procede solamente in avanti, raggiungendo 
+l’ultimo layer. Rispetto a una rete semplice, una rete feedforward può essere 
+composta da più layer nascosti in cui vi sono più neuroni nascosti. L’aggiunta 
+di un numero sostanziale di layer nascosti può aiutare ad estrarre statistiche di 
+ordine superiore dai dati di input. Secondo \cite{04}, la presenza di più connessioni 
+sinaptiche tra i neuroni, provoca una maggiore iterazione tra questi che a sua 
+volta aiuta alla rete a raggiungere una prospettiva globale. Una rete che ha più di 
+un layer nascosto, e quindi probabilmente con un alto numero di connessioni, in 
+gergo è chiamata rete \emph{fully connected}. Al contrario, se alcuni collegamenti sono 
+assenti, tale tipologia di rete viene chiamata \emph{partially connected}.
+
+\subsection{Reti neurali Convoluzionali}
+Una rete neurale convoluzionale (CNN o ConvNet) è una tipologia di rete feed-
+forward che si sta affermando come stato dell’arte per una svariata gamma di 
+applicazioni nel campo della computer vision. Una loro prima diffusione avvenne 
+negli anni ’90 grazie a uno studio di LeCun e Boser \cite{NIPS1989_53c3bce6}. L’architettura delle CNN 
+si distinguono grazie al numero di layer presenti.  La loro particolarità sta nel 
+rilevare i tratti più rilevanti e di apprendere i pattern, il tutto con un alto grado di 
+invariata rispetto a traslazione, ridimensionamento, inclinazione e altre forme di 
+distorsione. I primi strati hanno il compito di estrarre le features di basso livello, 
+come per esempio i bordi o i blob, al contrario, gli ultimi strati hanno lo scopo di 
+estrarre le features di alto livello tipo i contorni, classificazione, riconoscimento 
+etc. All’interno di una rete convoluzionale possiamo riconoscere due tipologie di 
+neuroni:
+\begin{itemize}
+    \item \emph{Neuroni di elaborazione}: hanno lo scopo di elaborare una sezione specifica 
+    dell’immagine, comunemente chiamata campo ricettivo, utilizzando 
+    un’operazione di \emph{convoluzione};
+    \item \emph{Neuroni di aggregazione}: hanno lo scopo di eseguire un'operazione di \emph{pooling}.
+\end{itemize}
+I neuroni contenuti in uno strato adibito alla convoluzione, e quelli completamente 
+connessi, dispongono di funzioni di attivazione e di pesi, quest’ultimi sottoposti a 
+processo di aggiornamento durante la fase di apprendimento. Per quanto riguarda 
+gli strati di pooling, questi non dispongo di alcun tipi di peso. Riassumendo, 
+le operazioni svolte dalle CNN sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
+Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}} (nei layer 
+fully connected). 
+
+\subsubsection{Convoluzione}
+Lo scopo del layer di convoluzione è quello di attuare un’operazione di {\bfseries{feature 
+extraction}}. In questa fase ogni neurone prende in input un campo ricettivo 
+locale del layer precedente e da qui ne estrae le feature locali. Un filtro, che in 
+gergo prende il nome di {\bfseries{\emph{kernel}}}, trasla sull’immagine originale con l’intenzione di 
+creare una feature map mediante moltiplicazione tra i valori presenti nel filtro, 
+corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Il numero di 
+feature map sarà uguale al numero di filtri applicato sull’immagine. La generazione 
+di ogni feature map dipende da quattro tipi di parametri, detti \emph{iperparametri}:
+\begin{enumerate}
+    \item \emph{Profondità (depth)}: numero di filtri usati durante la convoluzione;
+    \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
+    porzione dell’immagine che si vuole analizzare;
+    \item \emph{Passo (stride)}: rappresenta il numero di pixel su cui viene fatto traslare il 
+    kernel ogni volta che esegue una moltiplicazione. Per ottenere una buona 
+    feature map è consigliato avere un valore di stride relativamente basso;
+    \item \emph{Riempimento (Padding)}: affinché venga generata una corretta feature map, 
+    la matrice di partenza, rappresentate l’immagine, deve essere riempita di 
+    zeri presso le sue estremità.
+\end{enumerate}
+La scelta degli iperparametri non è standard ma dipende maggiormente dalla 
+tipologia dei dati a disposizione.
