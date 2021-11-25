@@ -411,9 +411,9 @@ dove:
 Dopo aver posizionato il filtro su un campo ricettivo, vero preso ogni valore dal 
 kernel e moltiplicato con i valori corrispondenti al campo ricettivo dell’immagine. 
 Successivamente, il valore risultante verrà inserito nella giusta posizione della 
-feature map.
-Il numero di feature map sarà uguale al numero di filtri applicato sull’immagine. 
-La generazione di ogni feature map dipende da quattro tipi di parametri, detti 
+feature map. Il numero di feature map sarà uguale al numero di filtri applicato 
+sull’immagine. La generazione di ogni feature map dipende da quattro tipi di 
+parametri, detti 
 \emph{iperparametri}:
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
@@ -476,4 +476,34 @@ negativo, mentre per i numeri positivi la derivata è uguale a uno evitando la
 saturazione del gradiente.
 
 \subsubsection{Pooling}
+La tecnica di Pooling, chiamata anche di subsampling o downsamping, ha il 
+compito di ridurre la dimensionali di ogni feature map mantenendo però le 
+informazioni più importanti. Il funzionamento di basa nel far scorrere una finestra, 
+senza alcun tipo di valore o peso al suo interno, di dimensione inferiore rispetto 
+alla grandezza della feature map, con lo scopo di aggregare i valori sottostanti. 
+Esistono varie operazioni di aggregazione, le più comuni sono: somma, massimo, 
+minimo e media. Così come la convoluzione, anche qui gli iperparametri Stride 
+e Kernel size, entrambi solitamente uguale a 2, sono fondamentali al fine di gestire 
+la finestra sovrastante. Ogni neurone, nello strato di pooling, è connesso a un 
+numero limitato di neuroni nello strato precedente
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{pooling tesla.png}
+    \centering
+    \caption{Esempio funzione di operazioni di pooling su una feature map.}
+    \label{pooling}
+\end{figure}
+In (Fig. \ref{pooling}), applicando al funzione di \emph{Max-Pooling} al campo ricettivo in 
+basso a sinistra, verrà selezionato il valore 5 che sarà propagato al prossimo 
+layer. Avendo uno stride pari a 2, la matrice prodotta avrà una dimensione 
+uguale alla metà della matrice di partenza (subsamplig),  che in questo caso è 
+stata arrotondata per difetto. La riduzione delle dimensioni a sua volta riduce 
+il numero di operazioni di calcolo, l’occupazione della memoria e il numero di 
+parametri, limitando anche il rischio di overfitting in quanto si ha un numero 
+minore di paramenti da apprendere. La funzione di Max-Pooling introduce quella che viene 
+chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti di 
+stravolgere il risultato finale, aggiungendo robustezza ai dati.
+
+
+
 
