@@ -387,15 +387,45 @@ corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Il numero 
 feature map sarà uguale al numero di filtri applicato sull’immagine. La generazione 
 di ogni feature map dipende da quattro tipi di parametri, detti \emph{iperparametri}:
 \begin{enumerate}
-    \item \emph{Profondità (depth)}: numero di filtri usati durante la convoluzione;
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
     porzione dell’immagine che si vuole analizzare;
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.9\linewidth]{convolution.png}
+        \centering
+        \caption{Esempio di dimensione filter e di campo ricettivo.}
+        \label{filter dimension}
+    \end{figure}
+    \item \emph{Profondità (depth)}: numero di filtri “$N$” usati durante la convoluzione 
+    ($H \times W \times N$). Ogni filtro produrrà una propria feature map;
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.5\linewidth]{filter.png}
+        \centering
+        \caption{Esempio di profondità composto da più filtri.}
+        \label{filters depth}
+    \end{figure}
     \item \emph{Passo (stride)}: rappresenta il numero di pixel su cui viene fatto traslare il 
     kernel ogni volta che esegue una moltiplicazione. Per ottenere una buona 
     feature map è consigliato avere un valore di stride relativamente basso;
-    \item \emph{Riempimento (Padding)}: affinché venga generata una corretta feature map, 
-    la matrice di partenza, rappresentate l’immagine, deve essere riempita di 
-    zeri presso le sue estremità.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = \linewidth]{stride.png}
+        \centering
+        \caption{Esempio convoluzione con kernel=3x3 e stride=1.}
+        \label{stride}
+    \end{figure}
+    \item \emph{Riempimento (Padding)}: affinché venga generata una corretta feature map 
+    di dimensioni pari ($padding=1$) o maggiore ($padding>1$) a quella dell’immagine 
+    di partenza, la matrice dell’immagine deve essere riempita di valori uguali, 
+    esempio di zeri, presso le sue estremità.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = \linewidth]{padding and stride.png}
+        \centering
+        \caption{Esempio convoluzione con kernel=4x, padding=2 e stride=1.}
+        \label{padding e stride}
+    \end{figure}
 \end{enumerate}
 La scelta degli iperparametri non è standard ma dipende maggiormente dalla 
 tipologia dei dati a disposizione.
