@@ -39,7 +39,7 @@ sinapsi. Avendo multipli collegamenti, ogni neurone effettua una specie di somma
 pesata degli ingressi che, se maggiore di una determinata soglia, può provocare la 
 sua attivazione. 
 
-\section{Reti Neurali Artificiali}
+\section{Reti Neurali Artificiali}\label{Reti neurali}
 Una rete neurale artificiale è un modello computazionale che, a partire da dei dati 
 di input, riesce a produrre un output mediante un meccanismo ispirato a quello 
 del cervello umano. Alla base di questa similitudine, tali reti prendono il nome di 
@@ -103,7 +103,7 @@ maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
         \end{array}
         \right.
 \end{equation}
-Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{activation function}).
+Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{activation functions}).
 \begin{figure}[H]
     \centering
     \includegraphics[width = \linewidth]{activation functions.png}
@@ -376,6 +376,13 @@ gli strati di pooling, questi non dispongo di alcun tipi di peso. Riassumendo,
 le operazioni svolte dalle CNN sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
 Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}} (nei layer 
 fully connected). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{cnn complete.png}
+    \centering
+    \caption{Esempio di architettura di una rete CNN.}
+    \label{CNN complete}
+\end{figure}
 
 \subsubsection{Convoluzione}
 Lo scopo del layer di convoluzione è quello di attuare un’operazione di {\bfseries{feature 
@@ -383,19 +390,35 @@ extraction}}. In questa fase ogni neurone prende in input un campo ricettivo
 locale del layer precedente e da qui ne estrae le feature locali. Un filtro, che in 
 gergo prende il nome di {\bfseries{\emph{kernel}}}, trasla sull’immagine originale con l’intenzione di 
 creare una feature map mediante moltiplicazione tra i valori presenti nel filtro, 
-corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Il numero di 
-feature map sarà uguale al numero di filtri applicato sull’immagine. La generazione 
-di ogni feature map dipende da quattro tipi di parametri, detti \emph{iperparametri}:
+corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Di seguito, i 
+valori di ogni feature map sono calcolati tramite la seguente formula:
+\begin{equation}\label{sum convolution}
+    G=[m,n] = (f*h)[m,n] = \sum_j\sum_kh[j,k]f[m-j,n-k]
+\end{equation}
+dove:
+\begin{itemize}
+    \item $f$: immagine in input
+    \item $h$: kernel
+    \item $m,n$: indici di riga e colonna.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{convolution.png}
+    \centering
+    \caption{Esempio di dimensione filter e di campo ricettivo.}
+    \label{filter dimension}
+\end{figure}
+Dopo aver posizionato il filtro su un campo ricettivo, vero preso ogni valore dal 
+kernel e moltiplicato con i valori corrispondenti al campo ricettivo dell’immagine. 
+Successivamente, il valore risultante verrà inserito nella giusta posizione della 
+feature map.
+Il numero di feature map sarà uguale al numero di filtri applicato sull’immagine. 
+La generazione di ogni feature map dipende da quattro tipi di parametri, detti 
+\emph{iperparametri}:
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
     porzione dell’immagine che si vuole analizzare;
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 0.9\linewidth]{convolution.png}
-        \centering
-        \caption{Esempio di dimensione filter e di campo ricettivo.}
-        \label{filter dimension}
-    \end{figure}
+    
     \item \emph{Profondità (depth)}: numero di filtri “$N$” usati durante la convoluzione 
     ($H \times W \times N$). Ogni filtro produrrà una propria feature map;
     \begin{figure}[H]
@@ -429,3 +452,28 @@ di ogni feature map dipende da quattro tipi di parametri, detti \emph{iperparame
 \end{enumerate}
 La scelta degli iperparametri non è standard ma dipende maggiormente dalla 
 tipologia dei dati a disposizione.
+
+\subsubsection{Rectified Linear Unit (ReLU)}
+Ogni feature map, dopo la convoluzione, è composta da dei valori positivi e negativi. 
+Come brevemente accennato in (\ref{Reti neurali}), esistono varie funzioni di attivazione che, in 
+base all’input ricevuto, decidono se attivare o disattivare un neurone. La 
+funzione di attivazione maggiormente usata è la ReLU (Rectified Linear Unit). 
+Questa funzione esegue delle operazioni non lineari ponendo a zero tutti i valori 
+negativi e lasciando invariati i valori positivi, generando in questo modo delle 
+attivazioni sparse.  L’operazione prende il nome di element-wise su tutti i pixel. 
+L’implementazione di questa funzione, rispetto alle sue concorrenti, è utile ad accelerare 
+il processo di apprendimento (backpropagation) del modello semplificando 
+le operazioni nei vari layer.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{relu.png}
+    \centering
+    \caption{Esempio funzione di attivazione ReLU sui valori di una feature map.}
+    \label{relu}
+\end{figure}
+Rispetto alla sigmoide, la funzione ReLU pone a zero la derivata di un numero 
+negativo, mentre per i numeri positivi la derivata è uguale a uno evitando la 
+saturazione del gradiente.
+
+\subsubsection{Pooling}
+
