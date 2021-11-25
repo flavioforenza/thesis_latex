@@ -504,6 +504,16 @@ minore di paramenti da apprendere. La funzione di Max-Pooling introduce quella c
 chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti di 
 stravolgere il risultato finale, aggiungendo robustezza ai dati.
 
-
+\subsubsection{Fully Connected}
+Il layer \emph{Fully Connected (FC)} è una tradizionale \emph{Multilayer Perceptron (MLP)} 
+che include una funzione di attivazione \emph{Softmax} nel layer di output. Lo scopo di 
+tale layer è quello di utilizzare le feature estratte, dagli strati precedenti, in modo 
+da predire le loro classi di appartenenza precedentemente fornite nel training 
+set. Un vettore di numeri reali conterrà tutte le predizioni che, se sommate tra 
+loro, produrranno un valore uguale a uno. Quest’ultimo passaggio sarà possibile 
+grazie all’utilizzo di una funzione chiamata Softmax, posta alla fine dell’intera 
+rete convoluzionale, che è in grado di “schiacciare” un vettore K-dimensionale 
+a valori reali arbitrali, in un vettore K-dimensionale a valori reali, compresi nel 
+range $(0,1)$. 
 
 
