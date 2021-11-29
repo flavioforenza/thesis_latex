@@ -516,4 +516,166 @@ rete convoluzionale, che è in grado di “schiacciare” un vettore K-dimension
 a valori reali arbitrali, in un vettore K-dimensionale a valori reali, compresi nel 
 range $(0,1)$. 
 
+\section{Utilizzi delle reti neurali}
+L’introduzione delle reti neurali, sia nel campo della computer vision che del deep 
+learning, ha portato vari benefici nel risolvere problemi complessi nella vita reale. 
+Il supporto offerto da questi sistemi è basato su tecniche di elaborazione delle 
+immagini in grado di estrarre diverse informazioni utili per un determinato scopo. 
+I task principali, eseguiti su un’immagine, possono essere:
+\begin{itemize}
+    \item \emph{Image classification}: viene effettuata un’analisi dell’immagine con lo scopo 
+    di assegnare un’etichetta in base al suo contenuto;
+    \item \emph{Object detection}: analisi degli elementi presenti all’interno di un’immagine;
+    \item \emph{Image segmentation}: estrazione di regioni di interesse che identificano il 
+    target in base al contesto;
+    \item \emph{Face recognition}: basato sul riconoscimento facciale delle persone;
+    \item \emph{Action recognition}: analisi incentrata sull’identificazione e sulla descrizione 
+    di azioni compiute da parte di soggetti che interagiscono nel tempo e nello 
+    spazio circostante;
+    \item \emph{Visual Relationship Detection}: analisi mirata alla relazione che intercorre 
+    tra gli oggetti presenti nell’immagine;
+    \item \emph{Emotion Recognition}: processo atto a identificare le emozioni umane mediante 
+    vari fattori come quello vocale e/o visivo;
+    \item \emph{Image editing}: analisi delle immagini che portano l’algoritmo a riconoscere 
+    le parti più rilevanti di un’immagine, come per esempio quelle più sensibili, 
+    ed a attuare delle specifiche azioni, come ad esempio il loro oscuramento.
+\end{itemize}
+Il presente elaborato farà riferimento solamente alle prime tre tecniche, soffermandosi 
+maggiormente sull’object detection e la semantic segmentation (branca 
+dell’image segmentation).
+
+\subsection{Object Detection}
+L’object detection costituisce la base per risolvere compiti di visione complessi, 
+o di alto livello, come la segmentazione, comprensione della scena, tracciamento 
+degli oggetti, rilevamento degli eventi e riconoscimento delle attività. La tecnica 
+di object detection supporta un ampio range di applicazioni, tra queste abbiamo 
+la visione robotica, sicurezza, guida autonoma, segnali stradali, interazione uomo 
+macchina, recupero delle immagini basato sui contenuti, videosorveglianza, realtà 
+aumentata e ambito medico. Dal grafico \ref{obj det performance} possiamo vedere che dopo l’anno 
+2012, periodo corrispondente all’introduzione del deep learning, le prestazioni 
+della tecnica di object detection aumentarono notevolmente.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{obj detection performance.png}
+    \centering
+    \caption{(a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore}
+    \label{obj det performance}
+\end{figure}
+Il rilevamento degli oggetti generici è strettamente correlato a:
+\begin{enumerate}
+    \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell’immagine 
+    un’etichetta corrispondente ad una classe (Fig. \ref{segmentation} (a));
+    \item \emph{Instance segmentation}: tecnica che, al contrario della segmentazione semantica, 
+    mira a distinguere diverse istanze appartenenti alla stessa classe di 
+    oggetti (Fig. \ref{segmentation} (b)).
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{segmentation.png}
+    \centering
+    \caption{Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. }
+    \label{segmentation}
+\end{figure}
+Ogni oggetto è caratterizzato dalle sue proprietà 
+come colore, forma, texture o altri tratti. Lo scopo della tecnica può essere visto 
+come un problema di classificazione in grado di definire se un’immagine contiene 
+un oggetto e, in caso affermativo, indicarne la posizione nell’immagine mediante 
+l’utilizzo di un riquadro di delimitazione chiamato bounding box. Se invece di 
+un’immagine si sta elaborando un insieme di frame, come un video, allora lo 
+scopo è quello di tracciare la posizione e  la dimensione dell’oggetto in tutti i frame 
+(tecnica comunemente chiamata object tracking). Uno dei principali obiettivi 
+in questo campo è scegliere le feature che sono più caratteristiche dell’oggetto 
+ricercato o, in altre parole, che sono altamente discriminanti, in modo da ottenere 
+dei buoni risultati da parte del classificatore. Un aspetto fondamentale da tenere 
+in considerazione è la complessità computazionale a cui i sistemi vanno incontro \cite{cyganek2013object}.
+I primi modelli di object detection basavano il loro funzionamento su delle feature 
+estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi modelli erano molto lenti, imprecisi e 
+non erano in grado di riconoscere i dati mai visti in precedenza. Le reti neurali 
+convoluzionali (CNN) e del deep learning hanno cambiato il panorama della 
+percezione visiva. Il problema di object detection è generalmente visto come 
+un problema di apprendimento supervisionato. Nella computer vision sono stati 
+raggiunti traguardi importanti negli ultimi dieci anni, tuttavia ci sono ancora 
+grandi sfide da superare. Di seguito sono riportate alcune delle sfide chiave 
+affrontate dalle reti neurali \cite{zaidi2021survey}:
+\begin{itemize}
+    \item \emph{Variabilità Intra-classe}: problematica che si verifica quando delle istanze appartenenti allo stesso oggetto differiscono pur appartenendo alla stessa classe. Nello specifico, questa problematica può essere suddivisa in due tipi \cite{liu2020deep}:
+    \begin{enumerate}
+        \item \emph{Fattori intrinseci}: multipli oggetti possono appartenere ad una stessa 
+        categoria. A loro volta, queste istanze possono essere differenti in 
+        termini di colore, consistenza, materiale, forma e dimensione, come per 
+        esempio la categoria automobile (Fig. \ref{auto}):
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 0.9\linewidth]{AUTO.png}
+            \centering
+            \caption{Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)}
+            \label{auto}
+        \end{figure}
+        \item \emph{Condizioni dell’immagine}: Oltre al concetto temporale, i motivi che 
+        portano ad una variabilità intra-calasse possono essere l’occlusione, 
+        l’illuminazione, posa, punto di vista, ambiente circostante, condizioni 
+        meteorologiche etc. Questi fattori influenzanti possono incidere 
+        negativamente sull’aspetto di un oggetto. Ulteriori problematiche possono 
+        riguardare l’aggiunta di artefatti di digitalizzazione, presenza del 
+        rumore, bassa risoluzione e distorsioni varie (Fig. \ref{agenti atmosferici}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 0.9\linewidth]{nebbia.png}
+            \centering
+            \caption{Esempio di immagini con scarsa visibilità e a basso contenuto informativo.}
+            \label{agenti atmosferici}
+        \end{figure}
+
+    \end{enumerate}
+    \item \emph{Numero di categorie}: il numero di classi può rilevarsi un problema quando 
+    queste sono numerose. Un elevato numero di classi, oltre che ad aumentare 
+    la probabilità di avere una bassa variabilità inter-calasse, richiede un alto 
+    numero di etichette che a loro volta sono difficili da reperire. In questo caso 
+    è favorita un’alta variabilità inter-classe (oggetti diversi appartenenti a classi 
+    diverse). Ad oggi, l’utilizzo dell’esatto numero di esempi per addestrare un 
+    modello è una domanda di ricerca ancora aperta;
+    \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso su 
+    dispostivi sprovvisti di elevate risorse di calcolo. La ricerca è rivolta nell’ottimizzazione 
+    di tali modelli affinché questi vengano eseguito anche su dispositivi mobili.
+\end{itemize}
+Le prestazioni di un modello vengono calcolate utilizzando alcune metriche, come 
+per esempio i \emph{Frame Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, ma la più usata è la 
+\emph{mean Average Precision (mAP)}. La precisione misura la percentuale di previsioni 
+corrette mentre il richiamo misura le previsioni corrette rispetto alla verità 
+di base (\emph{ground truth}).
+\begin{eqnarray}\label{precision}
+    Precision & = & \frac{True \ Positive}{True \ Positive + False \ Positive} \nonumber \\
+             & = & \frac{True \ Positive}{All \ Observations}
+\end{eqnarray}
+\begin{eqnarray}\label{recall}
+    Recall & = & \frac{True \ Positive}{True \ Positive + False \ Negative} \nonumber \\
+             & = & \frac{True \ Positive}{All \ Ground \ Truth}
+\end{eqnarray}
+Gli output standard di un rilevatore, su un’immagine di test $I$, al fine di 
+identificare un oggetto $j$, sono:
+\begin{itemize}
+    \item $b_j$: \emph{Bounding-Box (BB)} disegnata sull’oggetto di interesse;
+    \item $c_j$: categoria predetta;
+    \item $p_j$: livello di confidenza che verrò comparato con una soglia $\beta$ per determinare 
+    l’accettabilità o meno dell’etichetta della classe predetta. 
+\end{itemize}
+Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
+\begin{enumerate}
+    \item La categoria predetta $c$ è uguale all’etichetta $c_g$ fornita nel ground truth;
+    \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), tra la bounding box predetta $b$ e la bounding box $b_g$ presente nel ground truth, è maggiore di una soglia predefinita $\epsilon$, tipicamente pari a 0.5, dove $\cap$ e $\cup$ indicano rispettivamente l’intersezione e l’unione delle varie aree. Se l’\emph{IoU} è minore della soglia $\epsilon$, allora il rilevamento viene considerato come Falso Positivo $(FP)$. Se invece il modello non riesce a rilevare un oggetto presente nell’immagine, allora si parlerà di Falso Negativo $(FN)$.
+    \begin{equation}\label{iou}
+        IoU(b,b_g)=\frac{area(b \cap b_g)}{area(b \cup b_g)}
+    \end{equation}
+\end{enumerate}
+L’average Precision viene calcolata separatamente per ogni classe. Come accennato, 
+per confrontare le prestazioni su tutte le categorie di oggetti, come misura finale 
+delle prestazioni viene adottato mean average precision $(mAP)$, mediato su tutte 
+le categorie di oggetti.
+
+
+
+
+
+
+
 
