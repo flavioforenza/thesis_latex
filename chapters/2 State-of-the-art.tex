@@ -561,7 +561,22 @@ della tecnica di object detection aumentarono notevolmente.
     \caption{(a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore}
     \label{obj det performance}
 \end{figure}
-Il rilevamento degli oggetti generici è strettamente correlato a:
+Ogni oggetto è caratterizzato dalle sue proprietà come colore, forma, texture 
+o altri tratti. Lo scopo della tecnica può essere visto come un problema di 
+classificazione in grado di definire se un’immagine contiene un oggetto e, in caso 
+affermativo, indicarne la posizione nell’immagine mediante l’utilizzo di un riquadro 
+di delimitazione chiamato bounding box (Fig. \ref{object detection}). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{object detection.png}
+    \centering
+    \caption{Esempio di object detection.}
+    \label{object detection}
+\end{figure}
+Se invece di un’immagine si sta elaborando un insieme di frame, come un video, 
+allora lo scopo è quello di tracciare la posizione e  la dimensione dell’oggetto in 
+tutti i frame (tecnica comunemente chiamata object tracking). Il rilevamento 
+degli oggetti generici è strettamente correlato a:
 \begin{enumerate}
     \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell’immagine 
     un’etichetta corrispondente ad una classe (Fig. \ref{segmentation} (a));
@@ -576,27 +591,19 @@ Il rilevamento degli oggetti generici è strettamente correlato a:
     \caption{Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. }
     \label{segmentation}
 \end{figure}
-Ogni oggetto è caratterizzato dalle sue proprietà 
-come colore, forma, texture o altri tratti. Lo scopo della tecnica può essere visto 
-come un problema di classificazione in grado di definire se un’immagine contiene 
-un oggetto e, in caso affermativo, indicarne la posizione nell’immagine mediante 
-l’utilizzo di un riquadro di delimitazione chiamato bounding box. Se invece di 
-un’immagine si sta elaborando un insieme di frame, come un video, allora lo 
-scopo è quello di tracciare la posizione e  la dimensione dell’oggetto in tutti i frame 
-(tecnica comunemente chiamata object tracking). Uno dei principali obiettivi 
-in questo campo è scegliere le feature che sono più caratteristiche dell’oggetto 
-ricercato o, in altre parole, che sono altamente discriminanti, in modo da ottenere 
-dei buoni risultati da parte del classificatore. Un aspetto fondamentale da tenere 
-in considerazione è la complessità computazionale a cui i sistemi vanno incontro \cite{cyganek2013object}.
-I primi modelli di object detection basavano il loro funzionamento su delle feature 
-estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi modelli erano molto lenti, imprecisi e 
-non erano in grado di riconoscere i dati mai visti in precedenza. Le reti neurali 
-convoluzionali (CNN) e del deep learning hanno cambiato il panorama della 
-percezione visiva. Il problema di object detection è generalmente visto come 
-un problema di apprendimento supervisionato. Nella computer vision sono stati 
-raggiunti traguardi importanti negli ultimi dieci anni, tuttavia ci sono ancora 
-grandi sfide da superare. Di seguito sono riportate alcune delle sfide chiave 
-affrontate dalle reti neurali \cite{zaidi2021survey}:
+Uno dei principali obiettivi in questo campo è scegliere le feature che sono 
+più caratteristiche dell’oggetto ricercato o, in altre parole, che sono altamente 
+discriminanti, in modo da ottenere dei buoni risultati da parte del classificatore. Un 
+aspetto fondamentale da tenere in considerazione è la complessità computazionale 
+a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi modelli di object detection basavano 
+il loro funzionamento su delle feature estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi 
+modelli erano molto lenti, imprecisi e non erano in grado di riconoscere i dati mai 
+visti in precedenza. Le reti neurali convoluzionali (CNN) e del deep learning hanno 
+cambiato il panorama della percezione visiva. Il problema di object detection è 
+generalmente visto come un problema di apprendimento supervisionato. Nella 
+computer vision sono stati raggiunti traguardi importanti negli ultimi dieci anni, 
+tuttavia ci sono ancora grandi sfide da superare. Di seguito sono riportate alcune 
+delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
 \begin{itemize}
     \item \emph{Variabilità Intra-classe}: problematica che si verifica quando delle istanze appartenenti allo stesso oggetto differiscono pur appartenendo alla stessa classe. Nello specifico, questa problematica può essere suddivisa in due tipi \cite{liu2020deep}:
     \begin{enumerate}
@@ -606,6 +613,7 @@ affrontate dalle reti neurali \cite{zaidi2021survey}:
         esempio la categoria automobile (Fig. \ref{auto}):
         \begin{figure}[H]
             \centering
+            \hspace*{1.5cm}
             \includegraphics[width = 0.9\linewidth]{AUTO.png}
             \centering
             \caption{Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)}
@@ -620,12 +628,12 @@ affrontate dalle reti neurali \cite{zaidi2021survey}:
         rumore, bassa risoluzione e distorsioni varie (Fig. \ref{agenti atmosferici}).
         \begin{figure}[H]
             \centering
-            \includegraphics[width = 0.9\linewidth]{nebbia.png}
+            \hspace*{1.7cm}
+            \includegraphics[width = 0.8\linewidth]{nebbia.png}
             \centering
             \caption{Esempio di immagini con scarsa visibilità e a basso contenuto informativo.}
             \label{agenti atmosferici}
         \end{figure}
-
     \end{enumerate}
     \item \emph{Numero di categorie}: il numero di classi può rilevarsi un problema quando 
     queste sono numerose. Un elevato numero di classi, oltre che ad aumentare 
@@ -663,9 +671,10 @@ Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
 \begin{enumerate}
     \item La categoria predetta $c$ è uguale all’etichetta $c_g$ fornita nel ground truth;
     \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), tra la bounding box predetta $b$ e la bounding box $b_g$ presente nel ground truth, è maggiore di una soglia predefinita $\epsilon$, tipicamente pari a 0.5, dove $\cap$ e $\cup$ indicano rispettivamente l’intersezione e l’unione delle varie aree. Se l’\emph{IoU} è minore della soglia $\epsilon$, allora il rilevamento viene considerato come Falso Positivo $(FP)$. Se invece il modello non riesce a rilevare un oggetto presente nell’immagine, allora si parlerà di Falso Negativo $(FN)$.
-    \begin{equation}\label{iou}
-        IoU(b,b_g)=\frac{area(b \cap b_g)}{area(b \cup b_g)}
-    \end{equation}
+    \begin{eqnarray}\label{iou}
+        IoU(b,b_g) & = & \frac{area(b \cap b_g)}{area(b \cup b_g)} \nonumber \\
+                 & = & \frac{Area \ of \ overlap}{Area \ of \ union}
+    \end{eqnarray}
 \end{enumerate}
 L’average Precision viene calcolata separatamente per ogni classe. Come accennato, 
 per confrontare le prestazioni su tutte le categorie di oggetti, come misura finale 
