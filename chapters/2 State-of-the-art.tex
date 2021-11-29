@@ -670,17 +670,45 @@ identificare un oggetto $j$, sono:
 Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
 \begin{enumerate}
     \item La categoria predetta $c$ è uguale all’etichetta $c_g$ fornita nel ground truth;
-    \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), tra la bounding box predetta $b$ e la bounding box $b_g$ presente nel ground truth, è maggiore di una soglia predefinita $\epsilon$, tipicamente pari a 0.5, dove $\cap$ e $\cup$ indicano rispettivamente l’intersezione e l’unione delle varie aree. Se l’\emph{IoU} è minore della soglia $\epsilon$, allora il rilevamento viene considerato come Falso Positivo $(FP)$. Se invece il modello non riesce a rilevare un oggetto presente nell’immagine, allora si parlerà di Falso Negativo $(FN)$.
+    \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), è maggiore di una soglia $\epsilon$. L'IoU 
+    rappresenta il rapporto tra l'area della bounding box predetta $b$ e l'area 
+    della bounding box $b_g$ presente nel ground truth, dove $\cap$ e $\cup$ indicano 
+    rispettivamente l’intersezione e l’unione delle varie aree.
     \begin{eqnarray}\label{iou}
         IoU(b,b_g) & = & \frac{area(b \cap b_g)}{area(b \cup b_g)} \nonumber \\
                  & = & \frac{Area \ of \ overlap}{Area \ of \ union}
     \end{eqnarray}
+    Quando il modello prevederà una bounding box con un valore IoU maggiore 
+    o uguale alla soglia,  tipicamente pari a 0.5, allora questo vuol dire che ci 
+    sarà un’elevata sovrapposizione tra questa e una delle bounding box presenti 
+    nel ground truth. D’altra parte, quando il valore di IoU è minore della 
+    soglia, questo sintomo sarà ritenuto come una previsione errata da parte 
+    del modello in quanto non c’è sovrapposizione fra le varie bounding box. 
+    Questo comportamento fa si che la regione rilevata venga classificata come 
+    un Falso Positivo \emph{(FP)}. Se invece il modello non riesce a rilevare un oggetto 
+    presente nell’immagine, allora si parlerà di Falso Negativo $(FN)$.
+    \begin{equation}\label{iou values}
+        class(IoU) = \left\{
+            \begin{array}{rl}
+            TP & \mbox{if } IoU \geq \epsilon \\
+            FP & \mbox{if } IoU < \epsilon \\
+            FN & \mbox{if } IoU = \emptyset
+            \end{array}
+            \right.
+    \end{equation}
 \end{enumerate}
-L’average Precision viene calcolata separatamente per ogni classe. Come accennato, 
-per confrontare le prestazioni su tutte le categorie di oggetti, come misura finale 
-delle prestazioni viene adottato mean average precision $(mAP)$, mediato su tutte 
-le categorie di oggetti.
-
+A questo punto, per poter calcolare l’Average Precision, consideriamo la $IoU$ come 
+la nostra precisione. L’average precision, calcolata su una singola classe $i$, sarà 
+quindi definita come:
+\begin{equation}\label{average precision}
+    AP_i = \frac{IoU}{L_i}
+\end{equation}
+Dove $L_i$ rappresenta il numero totale delle label appartenenti a una specifica 
+classe $i$. La \emph{mean Average Precision (mAP)} sarà possibile calcolarla con la seguente formula:
+\begin{equation}\label{mean average precision}
+    mAP = \frac{1}{N}\sum_{i=1}^NAP_i
+\end{equation}
+dove N rappresenta il numero totali di classi.
 
 
 
