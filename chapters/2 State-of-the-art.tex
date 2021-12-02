@@ -790,15 +790,6 @@ ricostruita. Esistono varie tipologie di upsampling, fra queste abbiamo:
     \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l’interpolazione lineare e l’uso dei pixel adiacenti;
     \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l’interpolazione polinomiale. Questa operazione ha un alto tasso computazionale ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
 \end{enumerate}
-Un confronto tra l’operazione di Pooling (downsampling) e di Unpooling (upsampling), 
-o di convoluzione e deconvoluzione, sono mostrate nella Figura \ref{deconvolution}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.7\linewidth]{deconvolution.png}
-    \centering
-    \caption{Esempio di Deconvoluzione e di Unpooling (Upsampling).}
-    \label{deconvolution}
-\end{figure}
 Quando si sarà giunti a un layer di pooling pari alla dimensione di $1 \times 1$, allora 
 si potrà attuare l’upsampling per poter ricostruire l’immagine di partenza (Fig. \ref{FCN}). 
 \begin{figure}[H]
@@ -810,5 +801,39 @@ si potrà attuare l’upsampling per poter ricostruire l’immagine di partenza 
 \end{figure}
 Tale architettura è composta da un \emph{Encoder} e da un \emph{Decoder}.
 \begin{itemize}
-    \item \emph{Decoder}:
+    \item \emph{Encoder}: sezione dell’architettura adibita all’estrazione del contesto dell’immagine. 
+    La sua struttura è composta da livelli di convoluzione e di max 
+    pooling, come una comune CNN, che riducono (down-sample) l’immagine 
+    in ingresso; 
+    \item \emph{Decoder}: sezione dell’architettura adibita alla localizzazione degli elementi 
+    presenti nell’immagine attraverso l’utilizzo di convoluzioni trasposte. Il compito 
+    di un decoder è quello di amplificare le feature map tramite operazioni 
+    di deconvoluzione utili a ricostruire l’immagine di ingresso includendone i 
+    suoi artefatti.
 \end{itemize}
+Esitono diverse reti FCN che adottano questa tipologia di architettura. Per 
+quanto riguarda le operazioni svolte, un confronto tra l’operazione di Pooling 
+(downsampling) e di Unpooling (upsampling), o di convoluzione e deconvoluzione, 
+sono mostrate nella Figura \ref{deconvolution}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\linewidth]{deconvolution.png}
+    \centering
+    \caption{Esempio di Deconvoluzione e di Unpooling (Upsampling).}
+    \label{deconvolution}
+\end{figure}
+In base al numero di layer convoluzionali presenti, esistono diverse architetture 
+di Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
+un encoder che ha il compito di ridurre l’immagine iniziale di 32 volte e da un 
+decoder che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
+disposizione, la rete farà fatica a ricostruire un output simile a all’input, questo si 
+verifica a causa della perdita delle informazione significative nel processo svolto 
+dall’encoder. Per avere una rappresentazione più fedele dell’immagine in output, 
+ci corrono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FCN-8}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{FCN-32.png}
+    \centering
+    \caption{Esempio derivazione delle varie architetture FCN.}
+    \label{FCN-models}
+\end{figure}
