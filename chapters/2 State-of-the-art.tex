@@ -350,7 +350,7 @@ un layer nascosto, e quindi probabilmente con un alto numero di connessioni, in
 gergo è chiamata rete \emph{fully connected}. Al contrario, se alcuni collegamenti sono 
 assenti, tale tipologia di rete viene chiamata \emph{partially connected}.
 
-\subsection{Reti neurali Convoluzionali}
+\subsection{Reti neurali Convoluzionali}\label{RNC}
 Una rete neurale convoluzionale (CNN o ConvNet) è una tipologia di rete feed-
 forward che si sta affermando come stato dell’arte per una svariata gamma di 
 applicazioni nel campo della computer vision. Una loro prima diffusione avvenne 
@@ -418,7 +418,6 @@ parametri, detti
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
     porzione dell’immagine che si vuole analizzare;
-    
     \item \emph{Profondità (depth)}: numero di filtri “$N$” usati durante la convoluzione 
     ($H \times W \times N$). Ogni filtro produrrà una propria feature map;
     \begin{figure}[H]
@@ -703,16 +702,113 @@ quindi definita come:
 \begin{equation}\label{average precision}
     AP_i = \frac{IoU}{L_i}
 \end{equation}
-Dove $L_i$ rappresenta il numero totale delle label appartenenti a una specifica 
-classe $i$. La \emph{mean Average Precision (mAP)} sarà possibile calcolarla con la seguente formula:
+Dove $L_i$ rappresenta il numero totale delle label appartenenti a una specifica classe 
+$i$. La \emph{mean Average Precision (mAP)} sarà possibile calcolarla con la seguente formula:
 \begin{equation}\label{mean average precision}
     mAP = \frac{1}{N}\sum_{i=1}^NAP_i
 \end{equation}
 dove N rappresenta il numero totali di classi.
 
+\subsection{Image Segmentation}
+Nella Figura (\ref{segmentation}) è stato introdotto brevemente l’argomento della segmentazione 
+delle immagini.  I recenti risultati, raggiunti nella segmentazione delle immagini, 
+derivano dai progressi svolti nell’ottimizzazione delle \emph{Deep Convolutional Neural 
+Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN). 
+Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, una rete neurale convoluzionale 
+sviluppata per riconoscere i numeri scritti a mano. Grazie a questa, venne spianata 
+la strada verso il continuo successo delle CNN nello svolgere vari compiti di visione 
+artificiale di alto livello, oltre che a motivare i ricercatori ad esplorare le capacità 
+di tali reti per problemi di classificazione pixel-wise, come la segmentazione delle 
+immagini. La segmentazione di un’immagine è uno dei  compiti indispensabili 
+nella visione artificiale in quanto è utile in diversi campi scientifici, come per 
+esempio la guida autonoma, ambito medico, ambito biometrico, ambito militare, 
+riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
+della classificazione e dell’object detection, è necessario reperire delle informazioni 
+spaziali di basso livello o a livello di pixel.
+L’image segmentation si suddivide in due categorie:
+\begin{enumerate}
+    \item \emph{Semantic segmentation}
+    \item \emph{Instance segmentation}
+\end{enumerate}
+Esiste un’ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata dalla 
+fusione dei risultati provenienti dalle due principali categorie. In questo elaborato 
+verrà discussa solamente la tecnica di Semantic Segmentation. prima di introdurre 
+la tecniche citata, è doveroso specificare che la segmentazione delle immagini è 
+un argomento trattato anche nell’elaborazione dei video.
 
+\subsubsection{Semantic Segmentation}
+Il deep learning ha fortemente promosso la ricerca sulla segmentazione semantica. 
+La comunità industriale sta facendo enormi sforzi nello sviluppo di sistemi avanzati 
+in grado di effettuare una segmentazione semantica. Per esempio, una fotocamera, 
+installata nei diffusi dispositivi mobili, è in grado di produrre un ritratto mediante 
+l’effetto di profondità, comunemente chiamato effetto bokeh, incorporando la tecnica 
+di segmentazione. Nella segmentazione semantica ogni pixel viene classificato 
+in base alla classe di appartenenza dell’oggetto presente nell’immagine (es: strada, 
+automobile, pedone, edificio etc.). In questo caso, i pixel dell’immagine aventi la 
+stessa etichetta, condividono determinate caratteristiche come colore, intensità, 
+consistenza etc. In altre parole, la segmentazione semantica tende a suddividere 
+l’immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
+rappresenta una regione significativa dell’immagine originale. Rispetto alle altre 
+tecniche, la tecnica di semantic segmentation ha esigenze più elevate in quanto 
+non si limita solamente a classificare gli oggetti presenti (image classification) e a 
+rilevarne la loro posizione (object detection) mediante delle bounding box, ma 
+mira a partizionare ogni regione dell’oggetto (foreground) rispetto alla regione 
+di sfondo (background). Per esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono 
+raggruppate come un unica porzione di pixel \cite{aurelien}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{sem seg.png}
+    \centering
+    \caption{Esempio Semantic segmentation.}
+    \label{semantic segmentation}
+\end{figure}
+Allo stato dell’arte esistono varie tipologie di architetture di reti neurali 
+comunemente utilizzate per produrre delle segmentazioni semantiche.
+\begin{enumerate}
+    \item \emph{Fully convolutional networks (FCN)}
+    \item \emph{Dilation/Atrous convolution}
+    \item \emph{Approccio Top-Down/Bottom-up}
+\end{enumerate}
 
-
-
-
-
+\subsubsection{Fully Convolutional Networks}
+Long et al. \cite{fcn} propose la pietra miliare Fully Convolutional Network (FCN), 
+che diede un gran contributo all’incremento dell’accuratezza della segmentazione 
+semantica. Lo studio si basò sull’utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
+VGGNet\cite{vggNet} e GoolgeNet \cite{googleNet}, tutte pre-addestrare con gli stessi dati. 
+Ogni classificatore, come precedentemente spiegato in \ref{RNC}, ha lo scopo di prendere 
+un'immagine in input e ridimensionarla tramite l’attraversamento dei layer 
+convoluzionali, fino a giungere ai layer fully connected (FC). L’output prodotto 
+sarà sotto forma di label predetta (Fig. \ref{CNN complete}). Per convertire questi modelli da 
+classificatori a modelli FCN densi, bisogna sostituire i layer fully connected con 
+layer convoluzionali di dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle 
+classi esistenti in PASCAL VOC (20), più la classe di background. Tramite una 
+procedura di \emph{Upsampling}, viene effettuata un’operazione di \emph{deconvoluzione}, spesso 
+chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l’immagine di partenza 
+ricostruita. Esistono varie tipologie di upsampling, fra queste abbiamo:
+\begin{enumerate}
+    \item \emph{Nearest-Neighboor}: Copia il valore del pixel più vicino;
+    \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l’interpolazione lineare e l’uso dei pixel adiacenti;
+    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l’interpolazione polinomiale. Questa operazione ha un alto tasso computazionale ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
+\end{enumerate}
+Un confronto tra l’operazione di Pooling (downsampling) e di Unpooling (upsampling), 
+o di convoluzione e deconvoluzione, sono mostrate nella Figura \ref{deconvolution}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\linewidth]{deconvolution.png}
+    \centering
+    \caption{Esempio di Deconvoluzione e di Unpooling (Upsampling).}
+    \label{deconvolution}
+\end{figure}
+Quando si sarà giunti a un layer di pooling pari alla dimensione di $1 \times 1$, allora 
+si potrà attuare l’upsampling per poter ricostruire l’immagine di partenza (Fig. \ref{FCN}). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{FCN.png}
+    \centering
+    \caption{Esempio di architettura Fully Convolutional Network}
+    \label{FCN}
+\end{figure}
+Tale architettura è composta da un \emph{Encoder} e da un \emph{Decoder}.
+\begin{itemize}
+    \item \emph{Decoder}:
+\end{itemize}
