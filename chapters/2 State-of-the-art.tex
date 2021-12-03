@@ -393,13 +393,14 @@ creare una feature map mediante moltiplicazione tra i valori presenti nel filtro
 corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Di seguito, i 
 valori di ogni feature map sono calcolati tramite la seguente formula:
 \begin{equation}\label{sum convolution}
-    G=[m,n] = (f*h)[m,n] = \sum_j\sum_kh[j,k]f[m-j,n-k]
+    G[m,n] = (f*h)[m,n] = \sum_j\sum_kh[j,k]f[m-j,n-k]
 \end{equation}
 dove:
 \begin{itemize}
-    \item $f$: immagine in input
-    \item $h$: kernel
-    \item $m,n$: indici di riga e colonna.
+    \item $f$: immagine in input;
+    \item $h$: kernel;
+    \item $m,n$: indici di riga e colonna del campo ricettivo dell'immagine;
+    \item $i,j$: indici di riga e colonna del kernel;
 \end{itemize}
 \begin{figure}[H]
     \centering
@@ -763,11 +764,13 @@ raggruppate come un unica porzione di pixel \cite{aurelien}.
     \label{semantic segmentation}
 \end{figure}
 Allo stato dell’arte esistono varie tipologie di architetture di reti neurali 
-comunemente utilizzate per produrre delle segmentazioni semantiche.
+comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semantic_segmentation_networks}:
 \begin{enumerate}
     \item \emph{Fully convolutional networks (FCN)}
     \item \emph{Dilation/Atrous convolution}
-    \item \emph{Approccio Top-Down/Bottom-up}
+    \item \emph{Top-Down/Bottom-up approach}
+    \item \emph{Global Context}
+    \item \emph{Receptive field enlargement and multi-scale context incorporation}
 \end{enumerate}
 
 \subsubsection{Fully Convolutional Networks}
@@ -837,3 +840,46 @@ ci corrono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FC
     \caption{Esempio derivazione delle varie architetture FCN.}
     \label{FCN-models}
 \end{figure}
+Quest’ultime utilizzano una strategia intelligente per poter ricostruire l’immagine. 
+Per giungere a un buon risultato, oltre che a fare riferimento alla sola feature 
+map, utilizzano i livelli di pooling precedenti nella quale ci sono maggiori informazioni. 
+Per giungere ad un’architettura FCN-8, bisognerà svolgere un processo 
+iterativo che va ad effettuare una somma di ogni singolo elemento (element-wise) 
+tra l’upsampling del pooling layer $n$ con il pooling layer $n-1$. La ricostruzione 
+risultante sarà quella più fedele al ground truth. Questa architettura 
+ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
+\emph{FCN-GoogleNet}.
+
+\subsubsection{Dilatation/Atrous convolution}
+Per rimediare alla bassa qualità prodotta in output da una comune rete CNN, Yu 
+e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione Dilatata}} 
+o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello consentiva di estrarre le informazioni che 
+consentivano una migliore segmentazione che non comportasse a sua volta alla 
+perdita di dati rilevanti. L’idea della Convoluzione dilatata, chiamata anche 
+\emph{Convoluzione Atroce}, deriva dalla decomposizione wavelet. A differenza del 
+tradizionale operatore di convoluzione, la convoluzione dilatata introduce un tasso 
+di dilatazione \emph{(dilated rate)} $l$, utile a saltare alcuni punti, presenti nel 
+campo ricettivo, durante la convoluzione. La formula matematica per il calcolo della 
+convoluzione dilatata è la seguente:
+\begin{equation}
+    (F*_lk)(p) = \sum_{s+lt=p}F(s)k(t)
+\end{equation}
+dove:
+\begin{equation}\label{dilated rate}
+    Conv(l) = \left\{
+        \begin{array}{rl}
+        Standard & \mbox{if } l = 1\\
+        Dilated & \mbox{if } l > 1
+        \end{array}
+        \right.
+\end{equation}
+Con un dilated rate pari a 2, otterremmo la seguente convoluzione dilatata:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{dilated.png}
+    \centering
+    \caption{Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).}
+    \label{dilated}
+\end{figure}
+Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricettivo 
+e minore saranno i calcoli da svolgere. 
