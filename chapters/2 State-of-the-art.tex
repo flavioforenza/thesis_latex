@@ -773,7 +773,7 @@ comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semanti
     \item \emph{Receptive field enlargement and multi-scale context incorporation}
 \end{enumerate}
 
-\subsubsection{Fully Convolutional Networks}
+\subsubsection{FULLY CONVOLUTIONAL NETWORKS}
 Long et al. \cite{fcn} propose la pietra miliare Fully Convolutional Network (FCN), 
 che diede un gran contributo all’incremento dell’accuratezza della segmentazione 
 semantica. Lo studio si basò sull’utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
@@ -850,7 +850,8 @@ risultante sarà quella più fedele al ground truth. Questa architettura
 ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
 \emph{FCN-GoogleNet}.
 
-\subsubsection{Dilatation/Atrous convolution}
+\subsubsection{DILATATION/ATRUS CONVOLUTION}
+\subsubsection{DilatedNet}
 Per rimediare alla bassa qualità prodotta in output da una comune rete CNN, Yu 
 e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione Dilatata}} 
 o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello consentiva di estrarre le informazioni che 
@@ -920,7 +921,7 @@ dimensioni dell’immagine di partenza, verrà applicato il CRF.
     \label{CRF}
 \end{figure}
 
-
+\subsubsection{TOP-DOWN/BOTTOM-UP APPROACH}
 \subsubsection{U-Net}
 La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura a forma 
 di U (Fig. (\ref{unet})) composta anch’essa da un encoder, o percorso di contrazione, e 
@@ -948,3 +949,35 @@ feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteri
 risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta 
 dall’encoder. Successivamente, vengono applicate due operazione di convoluzioni 
 consecutive aventi finestra di dimensione pari a $3 \times 3$.
+
+\subsubsection{SegNet}
+Così come i modelli già visti, anche SegNet ha un’architettura composta da un 
+encoder e un decoder. La parte adibita all’encoder utilizza 13 layer convoluzionali, 
+mentre la parte destinata al decoder contiene anch’essa 13 layer per la deconvoluzione. 
+In ogni layer della sezione encoder, viene utilizzato un banco di filtri 
+per produrre le feature map. Per poter ridurre lo spostamento della covarianza 
+interna, problema legato all’input che porta la rete a non essere abbastanza 
+efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnica 
+nota come batch normalization \cite{batchNorm} seguita da una funzione attivazione ReLU. Su 
+ogni feature map viene applicato un max-pooling con una finestra di dimensioni 
+$2\times 2$ e passo 2. Come già noto, un alto numero di operazioni si sub-sampling 
+comporta una maggiore precisione di classificazione, ma allo stesso tempo provoca 
+una riduzione di ogni feature map che, tradotto in altri termini, causa la perdita 
+dei dati. La riduzione del numero di dati determina la creazione di bordi sfocati 
+il quale rappresenta un problematica centrale per un’operazione di segmentazione. 
+Per risolvere il problema della perdita dei dati, SegNet effettua solo una memorizzazione 
+degli indici di pooling per ciascuna feature map prodotta dall’encoder. 
+Tali indici saranno utili al decoder per effettuare l’operazione di upsampling 
+al fine di costruire delle feature map ad alta risoluzione che avessero l’obiettivo di 
+produrre un’immagine in output avente le stesse dimensioni di quella in input. 
+Per giungere al risultato finale, anche il decoder utilizza un banco di filtri, a loro 
+volta aggiornabili in fase di addestramento, per poter effettuare la deconvoluzione. 
+La feature map prodotta da un decoder verrà inserità in un classificatore softmax 
+multi-classe addestrabile che effettuerà l’etichettatura di ogni singolo pixel.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{segnet.png}
+    \centering
+    \caption{Esempio architettura rete SegNet.}
+    \label{segnet}
+\end{figure}
