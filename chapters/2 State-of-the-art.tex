@@ -885,9 +885,44 @@ Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricet
 e minore saranno i calcoli da svolgere. 
 
 \subsubsection{DeepLab}
+DeepLab è un modello utilizzato allo stato dell’arte per la segmentazione semantica 
+progettato da Google. Per la costruzione della rete sono state affrontate due 
+problematiche: il down-sampling e l’invarianza spaziale. Il primo problema, legato 
+alla riduzione della risoluzione delle feature, è stato risolto grazie all’applicazione 
+dell’algoritmo soprannominato “atroce”. Ogni encoder è composto dalla combinazione 
+di layer di pooling che riducono la risoluzione spaziale delle feature map. 
+Per poter ricostruire le informazioni perse, si può utilizzare la deconvoluzione. 
+Quest’ultima richiede però un quantitativo importante di memoria e di tempo. 
+L’algoritmo atroce offre un metodo alternativo alla deconvoluzione. Il suo scopo 
+è quello di applicare una convoluzione che permetta di allargare efficacemente il 
+campo visivo dei filtri senza aumentare il numero di parametri preservando la 
+quantità di computazione richiesta. La tecnica della convoluzione atrosa può essere 
+vista come come un espediente della tecnica di upsampling. Per poter risolvere il 
+secondo problema, legato alla precisione ridotta a causa dell’invarianza spaziale, 
+questa tipologia di rete, al fine di catturare dettagli più fini, applica un \emph{Conditional 
+Random Field (CRF)} completamente connesso. Questa classe di modelli 
+discriminanti utilizzano le informazioni contestuali delle label per effettuare delle 
+buone previsioni. Restando ad un discorso più ad alto livello, le potenzialità del 
+CRF riguardano l’utilizzo di termini leviganti (\emph{smoothness}) utili a massimizzare la 
+relazione tra le etichette di pixel simili che esaltano il foreground dal background. 
+Questi termini permetto quindi di avere una mappa di segmentazione migliore 
+anche dopo aver applicato poche volte, in maniera iterativa, l’algoritmo del CRF. 
+L’architettura generale di un modello DeepLab consiste nel prendere in input 
+un’immagine e di elaborarla da una comune DCNN in cui ci sono degli strati 
+atrosi, per poter generare una prima Score map su cui verrà fatto l’upsampling 
+con un’interpolazione bilineare. Dopo aver estratto un’immagine avente le stesse
+dimensioni dell’immagine di partenza, verrà applicato il CRF.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{CRF.png}
+    \centering
+    \caption{Esempio architettura DeepLab.}
+    \label{CRF}
+\end{figure}
+
 
 \subsubsection{U-Net}
-La rete U-Net è una rete di segmentazione semantica, con una architettura a forma 
+La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura a forma 
 di U (Fig. (\ref{unet})) composta anch’essa da un encoder, o percorso di contrazione, e 
 un decoder, o percorso di espansione.
 \begin{figure}[H]
@@ -908,4 +943,8 @@ decoder. Questi collegamenti sono utili a velocizzare il processo di up-sampling
 migliorare nel contempo il risultato finale. La sezione dell’encoder è formata da 
 due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione ReLU e 
 da un’operazione di max-pooling avente una finestra di dimensioni $2 \times 2$ con 
-passo 2. Dalla parte del decoder invece abbiamo l’operazione di up-sampling delle feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteristiche risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta dall’encoder. Successivamente, vengono applicate due operazione di convoluzioni consecutive aventi finestra di dimensione pari a $3 \times 3$.
+passo 2. Dalla parte del decoder invece abbiamo l’operazione di up-sampling delle 
+feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteristiche 
+risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta 
+dall’encoder. Successivamente, vengono applicate due operazione di convoluzioni 
+consecutive aventi finestra di dimensione pari a $3 \times 3$.
