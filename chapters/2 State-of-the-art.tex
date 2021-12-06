@@ -873,13 +873,39 @@ dove:
         \end{array}
         \right.
 \end{equation}
-Con un dilated rate pari a 2, otterremmo la seguente convoluzione dilatata:
+Con un dilated rate pari a 2, otterremmo la seguente convoluzione dilatata (Fig. (\ref{dilated})):
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.9\linewidth]{dilated.png}
+    \includegraphics[width = 0.8\linewidth]{dilated.png}
     \centering
     \caption{Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).}
     \label{dilated}
 \end{figure}
 Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricettivo 
 e minore saranno i calcoli da svolgere. 
+
+\subsubsection{DeepLab}
+
+\subsubsection{U-Net}
+La rete U-Net è una rete di segmentazione semantica, con una architettura a forma 
+di U (Fig. (\ref{unet})) composta anch’essa da un encoder, o percorso di contrazione, e 
+un decoder, o percorso di espansione.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{Unet.png}
+    \centering
+    \caption{Esempio architettura rete U-Net.}
+    \label{unet}
+\end{figure}
+Nell’immagine, ogni riquadro blu rappresenta una feature map multicanale. Il 
+numero dei canali (specificati sopra ogni riquadro) e le dimensioni (specificate in 
+basso a sinistra di ogni riquadro), variano in base alla profondità della rete. I 
+riquadri bianchi, presenti nello strato di decoder, stanno a rappresentare le feature 
+map copiate dallo strato dell’encoder. Fra i vari layer esistenti in entrambe le 
+parti, esistono delle connessioni, chiamate \emph{Shortcut connection}, capaci di creare 
+un collegamento utile a trasferire le informazioni estratte dall’encoder verso il 
+decoder. Questi collegamenti sono utili a velocizzare il processo di up-sampling e 
+migliorare nel contempo il risultato finale. La sezione dell’encoder è formata da 
+due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione ReLU e 
+da un’operazione di max-pooling avente una finestra di dimensioni $2 \times 2$ con 
+passo 2. Dalla parte del decoder invece abbiamo l’operazione di up-sampling delle feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteristiche risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta dall’encoder. Successivamente, vengono applicate due operazione di convoluzioni consecutive aventi finestra di dimensione pari a $3 \times 3$.
