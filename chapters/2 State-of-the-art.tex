@@ -981,3 +981,45 @@ multi-classe addestrabile che effettuerà l’etichettatura di ogni singolo pixe
     \caption{Esempio architettura rete SegNet.}
     \label{segnet}
 \end{figure}
+
+\subsubsection{GLOBAL CONTEXT}
+\subsubsection{ParseNet}
+Un significativo miglioramento delle reti FCN ebbe inizio con l’introduzione della 
+rete ParseNet \cite{parsenet}. Codesta, a differenza delle reti FCN, utilizza le informazioni 
+inerenti le feauture globali, o contesto globale, per poter produrre in output una 
+buona segmentazione dell’immagine (Fig. (\ref{global context})).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{gloabal context.png}
+    \centering
+    \caption{Esempio di applicazione del contesto globale alla segmentazione.}
+    \label{global context}
+\end{figure}
+Le feature globali sono utili per poter rappresentare un oggetto nella sua 
+totalità. Per poter ricavare queste informazioni, vengono utilizzate delle feature 
+map sulla quale viene eseguito il pooling mediante una media globale. Dopo aver 
+effettuato il pooling, viene eseguita l’operazione inversa (\emph{un-pooling}) per poter 
+riportare l’immagine alle sue dimensioni di partenza. Successivamente, le feature 
+map di partenza e quelle ricavate vengono combinate per effettuare una previsione 
+sul punteggio di classificazione finale. Ogni feature map appartiene a un layer 
+diverso, pertanto la combinazione di queste sarà formata da feature map diverse 
+in termini di scala e di norma. Affinché tutto funzioni, vengono applicate due 
+normalizzazioni L2 (\ref{L2}), una dopo il pooling globale e l’altra dopo la feature 
+map di partenza estratta contemporaneamente dalla FCN. 
+\begin{equation}\label{L2}
+    \norm{x}_2 = \left(\sum_{i=1}^d \abs{x_i}^2 \right)^\frac{1}{2}
+\end{equation}
+Dove $x$ rappresenta l’input e $d$ rappresenta la sua dimensionalità. Nel percorso 
+inferiore, viene eseguita una normalizzazione L2, a ciasun livello di convoluzione, 
+per ciascun canale. Nel percorso superiore invece, viene effettuato un pooling 
+medio delle feature map in ogni specifico livello di convoluzione. Dopo aver 
+ottenuto le feature globali, viene effettuata una normalizzazione L2. L’unpooling 
+è utile a poter far combaciare le dimensioni dei vettori superiori con i vettori 
+inferiori, in modo che questi possano essere concatenati. La figura (\ref{parsenet}) riassume i passaggi precedenti.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{parsenet.png}
+    \centering
+    \caption{Modulo ParseNet.}
+    \label{parsenet}
+\end{figure}
