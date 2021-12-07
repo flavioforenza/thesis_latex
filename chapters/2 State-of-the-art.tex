@@ -1015,11 +1015,47 @@ per ciascun canale. Nel percorso superiore invece, viene effettuato un pooling
 medio delle feature map in ogni specifico livello di convoluzione. Dopo aver 
 ottenuto le feature globali, viene effettuata una normalizzazione L2. L’unpooling 
 è utile a poter far combaciare le dimensioni dei vettori superiori con i vettori 
-inferiori, in modo che questi possano essere concatenati. La figura (\ref{parsenet}) riassume i passaggi precedenti.
+inferiori, in modo che questi possano essere concatenati. La figura (\ref{parsenet}) riassume 
+i passaggi precedenti.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.9\linewidth]{parsenet.png}
+    \includegraphics[width = 0.8\linewidth]{parsenet.png}
     \centering
     \caption{Modulo ParseNet.}
     \label{parsenet}
 \end{figure}
+
+\subsubsection{GCN}
+La segmentazione semantica basa il suo principio di funzionamento su due aspetti: 
+classificazione e localizzazione. Quest’ultimi sono ritenuti come due concetti 
+di natura opposta in quanto, una piccola trasformazione dell’input, come ad 
+esempio una traslazioni o rotazioni, rende la classificazione invariante mentre, allo 
+stesso tempo, la localizzazione potrebbe risentirne negativamente, pertanto risulta 
+essere più sensitiva rispetto alla classificazione. Per sopperire alle problematiche 
+delle trasformazioni su entrambe le tecniche, venne introdotto il modello \emph{Global 
+Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due principi:
+\begin{enumerate}
+    \item Dal punto di vista della \emph{localizzazione}, la struttura del modello dev’essere 
+    completamente convolutiva per poter mantenere le informazioni utili alla 
+    localizzazione degli oggetti in quanto, se la struttura fosse stata a livelli 
+    completamente connessi (fully-connected layers), o pooling globali, questi 
+    scarterebbero tutte le informazioni spaziali;
+    \item Dal punto di vista della \emph{classificazione}, devono essere utilizzati dei kernel 
+    di grandi dimensioni, circa $15\times 15$, al fine di consentire la realizzazione di 
+    connessioni dense tra le feature map e le classificazioni pixel-wise. Questi 
+    filtri consentono di effettuare delle convoluzioni globali che rendono la rete 
+    invariante alle trasformazioni.
+\end{enumerate}
+Per poter migliorare il contorno della segmentazione, viene utilizzata il blocco 
+\emph{Boundary Refinement (BR)} dopo l’applicazione del modulo GCN e durante 
+il processo di deconvoluzione.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{GCN.png}
+    \centering
+    \caption{Architettura modello GCN.}
+    \label{gcn}
+\end{figure}
+Come visto in Figura (\ref{gcn}), ResNet è la rete che viuene utilizzata come 
+backbone (spina dorsale), pre-addestrata con le immagini contenute nel dataset 
+ImageNet. Sulle mappe dei punteggi di bassa risoluzione viene effettuata un’operazione di upsampling con un layer di deconvoluzione. Le mappe ottenute dalla deconvoluzione verranno aggiunte con quelle più alte per poter generare nuove mappe dei punteggi utili alla segmentazione finale.
