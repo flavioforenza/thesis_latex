@@ -544,7 +544,7 @@ Il presente elaborato farà riferimento solamente alle prime tre tecniche, soffe
 maggiormente sull’object detection e la semantic segmentation (branca 
 dell’image segmentation).
 
-\subsection{Object Detection}
+\subsection{Object Detection}\label{OBJD}
 L’object detection costituisce la base per risolvere compiti di visione complessi, 
 o di alto livello, come la segmentazione, comprensione della scena, tracciamento 
 degli oggetti, rilevamento degli eventi e riconoscimento delle attività. La tecnica 
@@ -646,6 +646,8 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
     dispostivi sprovvisti di elevate risorse di calcolo. La ricerca è rivolta nell’ottimizzazione 
     di tali modelli affinché questi vengano eseguito anche su dispositivi mobili.
 \end{itemize}
+
+\subsubsection{Metriche di valutazione Object detection}
 Le prestazioni di un modello vengono calcolate utilizzando alcune metriche, come 
 per esempio i \emph{Frame Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, ma la più usata è la 
 \emph{mean Average Precision (mAP)}. La precisione misura la percentuale di previsioni 
@@ -708,7 +710,8 @@ $i$. La \emph{mean Average Precision (mAP)} sarà possibile calcolarla con la se
 \begin{equation}\label{mean average precision}
     mAP = \frac{1}{N}\sum_{i=1}^NAP_i
 \end{equation}
-dove N rappresenta il numero totali di classi.
+dove N rappresenta il numero totali di classi e $AP_i$ rappresenta l'\emph{Average Precision} 
+della classe $i$.
 
 \subsection{Image Segmentation}
 Nella Figura (\ref{segmentation}) è stato introdotto brevemente l’argomento della segmentazione 
@@ -1129,3 +1132,80 @@ varie convoluzioni sono sottoposti a processo di upsampling e concatenati con
 le feature map iniziali per poter combinare le informazioni contestuali locali e 
 globali. Infine, l’intera concatenazione sarà convoluta per poter generare una 
 predizione pixel-wise utile a realizzare la segmentazione semantica finale.
+
+\subsubsection{Metriche di valutazione Image Segmentation}
+Così come per l’Object detection, anche l’Image Saegmentation dispone di tecniche 
+per poter valutare la segmentazione effettuata da un modello. Immaginiamo di 
+avere un numero $k$ di classi esistenti e che a questo venga sommata un’ulteriore 
+classe di background, per un totale di $k+1$ classi. Denotiamo inoltre con $Y$ il 
+numero di pixel totali dell’immagine da segmentare. Secondo \cite{metric_semantic_seg}, immaginiamo di dover segmentare i pixel di una classe $i$, definiamo tre 
+tipologie di valori associati a $Y$:
+\begin{enumerate}
+    \item $Y_{ii}$: denotano il numero di pixel predetti appartenenti alla classe $i$ ed 
+    effettivamente corrispondenti alla classe $i$ (\emph{True Positive (TP)});
+    \item $Y_{ij}$: denotano il numero di pixel predetti appartenenti alla classe $j$ e quindi 
+    non corrispondenti alla classe $i$ (\emph{False Positive (FP)});
+    \item $Y_{ji}$: denotano il numero di pixel predetti appartenenti alla classe $i$ ma 
+    corrispondenti alla classe $j$ (\emph{False Negative (FN)});
+\end{enumerate}
+Di seguito vengono elencate le cinque più famose tecniche per poter valutare 
+l’accuratezza della segmentazione semantica:
+\begin{itemize}
+    \item {\bfseries{\emph{Pixel Accuracy (PA)}}}: rappresenta il rapporto tra il numero di pixel 
+    correttamente segmentati e il numero totale di pixel. In altre parole, tale 
+    rapporto può essere rappresentato come $TP/(TP+FN)$. La formula per 
+    ricavare la PA è la seguente:
+    \begin{equation}
+        PA = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}}
+    \end{equation}
+
+    \item {\bfseries{\emph{Mean Pixel Accuracy (MPA)}}}: rappresenta un’estensione della Pixel 
+    Accuracy. Ha lo scopo di calcolare l’accuratezza media dei pixel per ogni 
+    classe. La MAP può essere ottenuta dalla seguente formula:
+    \begin{equation}
+        MPA = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}}
+    \end{equation}
+
+    \item {\bfseries{\emph{Intersection Over Union (IoU)}}}: seppur incontrata nella sezione inerente 
+    l’object detection (\ref{OBJD}), l’IoU per la semantic segmentation non rappresenta 
+    più il rapporto tra la sovrapposizione di una bounding box predetta con 
+    la bounding box del ground truth, ma questa volta sta a rappresentare la 
+    percentuale di sovrapposizione tra la regione predetta e la regione target 
+    appartenente al ground truth (\ref{predSegIoU}). In altre parole, l’IoU può essere rappresentata 
+    come $TP/(TP+FP+FN)$, che da un punto di vista matematica è espresso come:
+    \begin{equation}\label{predSegIoU}
+        IoU = \frac{target\cap prediction}{target\cup prediction}
+    \end{equation}
+    \begin{equation}
+        IoU = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}+\sum_{i=0}^k\sum_{j=0}^kY_{ji}-\sum_{i=0}^kY_{ii}}
+    \end{equation}
+
+    \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l’IoU viene calcolata separatamente 
+    per ogni classe. La MIoU rappresenta la media di tutte le IoU, e 
+    quindi su tutte le classi, utile a fornire un punteggio globale del modello che 
+    può essere calcolato con la seguente formula:
+    \begin{equation}
+        MIoU = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
+    \end{equation}
+
+    \item {\bfseries{\emph{Frequency-Weighted Intersection over Union (FWIoU)}}}: questa metrica 
+    rappresenta un’estensione della MIoU. La FWIoU utilizza la frequenza 
+    di occorrenza per poter regolare l’importanza di ciascuna classe. La formula 
+    per il suo calcolo è la seguente:
+    \begin{equation}
+        FWIoU = \frac{1}{\sum_{i=0}^k\sum_{j=0}^kp_{ij}}\sum_{i=0}^k\frac{\sum_{j=0}^kY_{ij}Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
+    \end{equation}
+\end{itemize}
+Nella segmentazione semantica è importante valutare il modello nella sua efficienza 
+per applicazioni real-time. Per calcolare la complessità di un modello, possono 
+essere tenute in considerazione due metriche come il numero dei parametri e le 
+operazioni in virgola mobile (\emph{Floating Point Operations - FLOPs}). Maggiori 
+sono questi due valori e minori saranno le prestazioni del modello. Entrambe 
+le metriche sono indipendenti dall’ambiente. Per quanto riguarda la velocità di 
+implementazione, possono essere utilizzate due metriche: \emph{Runtime} e, come per 
+la tecnica di Object detection, i \emph{Frame al secondo (Frame Per Second - FPS)}. 
+Quest’ultime due metriche, a differenza delle precedenti, dipendono dall’ambiente 
+software e hardware.
+
+
+
