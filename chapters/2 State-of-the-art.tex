@@ -1207,5 +1207,91 @@ la tecnica di Object detection, i \emph{Frame al secondo (Frame Per Second - FPS
 Quest’ultime due metriche, a differenza delle precedenti, dipendono dall’ambiente 
 software e hardware.
 
+\subsection{Il Deep Learning nella guida autonoma}
+I progressi delle precedenti tecnologie, riportate in questo elaborato, hanno 
+avuto un impatto significativo sulla guida autonoma (\emph{Autonomous Driving 
+(AD)}). Gli scopi comuni sono quelli di migliorare la sicurezza di guida, 
+riducendo al minimo gli sforzi del guidatore, e ridurre il numero di incidenti 
+mortali e non, tramite opportune tecniche avanzate di intelligenza artificiale. 
+Miglioramenti significativi sono stati apportati ai sensori veicolari 
+che consentissero lo svolgimento di attività quali object detection, image 
+segmentation, localizzazione, tracking e varie attività di riconoscimento. 
+In letteratura, i veicoli a guida autonoma, possiedono cinque diversi livelli 
+di automazione, come definito dallo standard internazionale \emph{Society of 
+Automotive Engineers (SAE)} (Fig. (\ref{sae})):
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{5 livelli.png}
+    \centering
+    \caption{Livelli di automazione definiti dalla SAE International.}
+    \label{sae}
+\end{figure}
+\begin{enumerate}
+    \setcounter{enumi}{-1}
+    \item \emph{A guida convenzionale}:  Non esiste alcun tipo di automazione. Il 
+    conducente è responsabile della guida.
+    \item \emph{Guida assistita}: il veicolo è dotato di sistemi di assistenza alla guida 
+    che consentono per esempio il controllo longitudinale (Cruise control) 
+    o trasversale (mantenimento di corsia). Questi assumono il controllo 
+    di alcune funzioni del veicolo, come accelerazione, frenata, parcheggio 
+    e/o sterzata. Tali sistemi si alternano con il guidatore che dev'essere 
+    sempre pronto ad intervenire o a riprendere in maniera autonoma il 
+    controllo del veicolo.
+    \item \emph{Automazione parziale}: il sistema deve assicurare il controllo della 
+    direzione trasversale e longitudinale in situazioni particolari come per 
+    esempio un sorpasso. Anche in questo livello è richiesta l'attenzione 
+    del guidatore.
+    \item \emph{Automazione condizionata}: questo livello corrisponde ad una guida 
+    totalmente automatizzata. In questo caso il conducente non è tenuto 
+    costantemente a sorvegliare il veicolo ma dev'essere comunque pronto 
+    a riprendere la situazione sotto il proprio controllo quando il sistema 
+    lo avvisa.
+    \item \emph{Alta Automazione}: il sistema assume la piena conduzione del veicolo 
+    in maniera del tutto automatica. Questo livello si applica su determinati 
+    tratti stradali, come per esempio in autostrada in quanto meno 
+    complessa. Il veicolo può disattivarsi solo se il conducente riprenderà 
+    il pieno controllo causa arresto sulla corsia di emergenza. 
+    \item \emph{Automazione completa}: massimo livello di automazione raggiunto 
+    dal sistema. Il veicolo assume il totale controllo, a prescindere dalla 
+    tipologia di strada intrapresa, pertanto non richiede la presenza 
+    di alcun conducente.
+\end{enumerate} 
+Un sistema di guida autonoma, per poter garantire la sicurezza, può possedere 
+diverse funzionalità come: Rilevamento della strada (Road Detection), 
+rilevamento della corsia (Lane detection), rilevamento dei veicoli (Vehicle 
+detection), rilevamento dei pedoni (Pedestrian detection), rilevamento della 
+stanchezza/sonnolenza (Drowsiness detection) , prevenzione delle collisioni 
+(Collision avoidance) e il rilevamento della segnaletica stradale (Traffic sign 
+detection).
+\subsubsection{Road Detection}
+Questa tecnica mira a rilevare le aree e i confini in cui un veicolo può circolare 
+in maniera autonoma. Tra le tecniche più utilizzate per il rilevamento 
+della strada è senz'altro quella della segmentazione. Diversi sono stati i 
+lavori proposti incentrati su questa tematica. Per esempio in \cite{Up-conv-Poly} viene 
+introdotto un modello, nominato Up-Conv-Poly, in cui viene combinata una 
+rete FCN con una rete U-Net. Quest'ultimo è in grado di effettuare delle 
+segmentazioni veloci e a un basso costo computazionale grazie alla modifica 
+della distribuzione dei parametri presenti negli strati convoluzionali della 
+rete. In \cite{CALTAGIRONE2019125} è stato prodotto un modello, chiamato LidCamNet, basato su 
+una fully convolutional network per il rilevamento delle immagini stradali 
+che fonde la segmentazione di queste con i dati provenienti da un sensore 
+Ligth Detector And Range (LIDAR). Diversi sono anche stati gli studi che 
+utilizzano le reti FCN che hanno portato ad ottenere le prestazioni migliori 
+in questo campo. La segmentazione della strada è visto come un problema di 
+classificazione binario (strada o non strada). Per citarne un'ultima, abbiamo 
+il modello DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone con una 
+architettura FCN con multipli passaggi di upscaling utili a poter interpolare 
+un'immagine. 
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{road detection.png}
+    \centering
+    \caption{Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il oclore verde indica una segmentazione (True-Positive), rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive}
+    \label{road-det}
+\end{figure}
+La Figura (\ref{road-det}) mostra una i risultati di segmentazione stradale ottenuta 
+dai tre modelli precedenti.
+
+\subsubsection{Lane Detection}
 
 
