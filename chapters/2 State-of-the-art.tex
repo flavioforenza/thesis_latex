@@ -1286,12 +1286,64 @@ un'immagine.
     \centering
     \includegraphics[width = \linewidth]{road detection.png}
     \centering
-    \caption{Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il oclore verde indica una segmentazione (True-Positive), rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive}
+    \caption{Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il colore verde indica una segmentazione True-Positive, rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive.}
     \label{road-det}
 \end{figure}
 La Figura (\ref{road-det}) mostra una i risultati di segmentazione stradale ottenuta 
 dai tre modelli precedenti.
 
 \subsubsection{Lane Detection}
+I sistemi basati sul rilevamento della corsia garantiscono il giusto posizionamento 
+del veicolo nella corretta corsia, o quanto meno avvisano il guidatore, 
+tramite un l'emissione di un segnale acustico, dell'imminente fuoriuscita 
+da essa. Questa tecnica permette di ridurre al minimo la possibilità di 
+collisione con un veicolo circolante in senso opposto. In generale, un sistema 
+di lane detection esegue i seguenti passaggi \cite{lane-steps}:
+\begin{enumerate}
+    \item \emph{Pulizia dell'immagine (Image Cleaning)}: questa è considerata come 
+    una fase di pre-elaborazione che ha diversi obiettivi. Il primo fra 
+    questi è quello di rimuovere il rumore nell'acquisizione dell'immagine 
+    proveniente da una camera installata frontalmente al veicolo. Successivamente, 
+    tramite l'utilizzo di alcuni filtri, vengono migliorate alcune 
+    feature utili per escludere gli ostacoli e ridurre la presenza delle ombre;
+    \item \emph{Rilevamento delle feature (Feature Detection)}: l'obiettivo principale 
+    in questa fase è quello di estrarre le feature rilevanti per poter essere 
+    elaborate nella fase successiva. La segnaletica orizzontale presenta 
+    diverse caratteristiche, come ad esempio la tipologia di linea (continua, 
+    segmentata, doppia o singola) e il colore (bianco, giallo, blu). Particolari 
+    filtri, come quello di Canny e Sobel, vengono impiegati per poter 
+    rilevare queste feature. Un esempio di rilevamento sfrutta informazioni 
+    quali colore e intensità. L'apprendimento di queste caratteristiche ha 
+    permesso in \cite{lane-detection} una segmentazione efficiente delle linee presenti sulla 
+    corsia.
+    \item \emph{Adattamento del modello (Model fitting)}: in questa fase viene applicato 
+    un modello geometrico sull'immagine acquisita utilizzando le 
+    feature estratte precedentemente. La famiglia di modelli disponibili, 
+    ad eccezione di quelli parametrici, possono essere classificati in 
+    modelli semi-parametrici e non parametrici. Un esempio di modello 
+    semi-parametrico può essere rappresentato dalle Splines, mentre un 
+    modello non parametrico non è ancora comune;
+    \item \emph{Tracciamento (Tracking)}: il sistema dev'essere in grado di supportare 
+    il sistema decisionale nel selezionare la migliore linea che meglio rappresenta 
+    la corsia da intraprendere. Questa tecnica è particolarmente 
+    utile per poter ridurre la ROI (Region Of Interest) che corrisponde 
+    alla regione di ricerca all'interno dell'immagine, riducendo a sua volta 
+    il costo computazionale. Grazie ad un confronto effettuato tra i 
+    vari frame, precedente e successivi, il tracciamento delle linee riduce 
+    l'errore di rilevamento delle parti fuorvianti. Esistono vari sensori a 
+    supporto di questa tecnica, come ad esempio i sensori IMU (Inertial 
+    Measurement Unit) o il GPS che, grazie alla fusione dei loro dati, 
+    contribuiscono a stimare la posizione del veicolo, e quindi a definire 
+    la sua odometria, che può essere rilevante nella suddetta tecnica di 
+    tracciamento.
+\end{enumerate}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{lane-detection.png}
+    \centering
+    \caption{Lane detection: (a) ground-truth (b) LaneNet \cite{LaneNet} output (c) model fitting.}
+    \label{lane-det}
+\end{figure}
+In Figura (\ref{lane-det}) è possibile osservare un esempio di lane detection.
 
-
+\subsubsection{Vehicle detection}
