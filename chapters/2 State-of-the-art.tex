@@ -1347,3 +1347,40 @@ di lane detection esegue i seguenti passaggi \cite{lane-steps}:
 In Figura (\ref{lane-det}) è possibile osservare un esempio di lane detection.
 
 \subsubsection{Vehicle detection}
+Esistono innumerevoli sfide nella computer vision per quanto riguarda il 
+compito di rilevamento dei veicoli su strada. Ci sono diversi fattori mutanti 
+che possono incidere sulle performance di un sistema di rilevamento, come 
+per esempio le variazioni di illuminazione, forme, ombre, background etc. 
+La presenza di disordine nella scena può portare all'occlusione parziale di 
+un veicolo, limitandone la visibilità completa con conseguente aumento del 
+rischio di incidenti. L'utilizzo delle sole telecamere comporta delle carenze 
+a livello di sicurezza in quanto queste sono delle tecnologie passive, che 
+non interagiscono in alcun modo con l'ambiente ed inoltre sono altamente 
+influenzate dalle condizioni dell'ambiente esterno. La ricerca pertanto si 
+sta spostando verso l'utilizzo di altri sensori quali telecamere con flash, 
+termocamere e sistemi per la stima della profondità (es: LIDAR). Diversi 
+studi hanno esaltato l'importanza del corretto posizionamento delle camere. 
+Per il rilevamento e il tracciamento dei veicoli, importante risulta essere 
+l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
+è preferito utilizzare altre tipologie di feature. Nello specifico, queste feature 
+si riferiscono all'Istogramma dell'Orientazione del Gradiente (\emph{Histogram 
+of Oriented Gradient (HOG)}) e \emph{Haar-like}, quest'ultime sono feature che 
+devono il loro nome per la loro somiglianza alle wavelet Haar, entrambe molto 
+diffuse in ambito di object detection e per il rilevamento dei veicoli. Un'altra 
+tipologia di feature importanti sono le \emph{Scale Invariant Feature Transform 
+(SIFT)}, ampiamente utilizzate per rimediare alle occlusioni parziali dei 
+veicoli. Anche le Speed up Robust Features (SURF), in combinazione con i 
+bordi rilevati, vengono utilizzate per poter definire delle potenziali regioni 
+di interesse (ROI) in cui potrebbero esserci dei veicoli. Infine, la ricerca si è 
+avvalsa di un'ultima feature largamente utilizzata nel campo della computer 
+vision, si sta parlando della \emph{Principal Component Analysis (PCA)}. Allo 
+stato dell'arte, l'utilizzo di tutte queste feature ha permesso di ottenere i 
+risultati utili a creare dei sistemi di guida autonoma intelligenti. Un esempio 
+di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{vehicle detection.png}
+    \centering
+    \caption{Esempio di Vehicle detection a varie distanze e illuminazioni.}
+    \label{vehicle-det}
+\end{figure}
