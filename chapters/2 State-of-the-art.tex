@@ -1263,7 +1263,7 @@ detection), rilevamento dei pedoni (Pedestrian detection), rilevamento della
 stanchezza/sonnolenza (Drowsiness detection) , prevenzione delle collisioni 
 (Collision avoidance) e il rilevamento della segnaletica stradale (Traffic sign 
 detection).
-\subsubsection{Road Detection}
+\subsubsection{Road detection}
 Questa tecnica mira a rilevare le aree e i confini in cui un veicolo può circolare 
 in maniera autonoma. Tra le tecniche più utilizzate per il rilevamento 
 della strada è senz'altro quella della segmentazione. Diversi sono stati i 
@@ -1292,7 +1292,7 @@ un'immagine.
 La Figura (\ref{road-det}) mostra una i risultati di segmentazione stradale ottenuta 
 dai tre modelli precedenti.
 
-\subsubsection{Lane Detection}
+\subsubsection{Lane detection}
 I sistemi basati sul rilevamento della corsia garantiscono il giusto posizionamento 
 del veicolo nella corretta corsia, o quanto meno avvisano il guidatore, 
 tramite un l'emissione di un segnale acustico, dell'imminente fuoriuscita 
@@ -1385,7 +1385,7 @@ di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}
     \label{vehicle-det}
 \end{figure}
 
-\subsubsection{Pedestrian Detection}
+\subsubsection{Pedestrian detection}
 Per i veicoli a guida autonoma è importante distinguere gli oggetti dagli 
 umani a causa della loro diversa importanza. Oltre che ad evitare possibili 
 collisioni con i veicoli, le telecamere installate sul veicolo servono per 
@@ -1478,3 +1478,73 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
 \end{enumerate}
 Nella Figura (\ref{ped-det}) viene mostrato un riassunto delle precedenti fasi 
 applicate ad un problema di rilevamento dei pedoni.
+
+\subsubsection{Drowsiness detection}
+La tecnologia che sta per essere introdotta riguarda i livelli 1,2, e 3 della guida 
+autonoma in quanto quelli successivi richiedono parzialmente la presenza 
+del conducente (livello 4) o la sua completa assenza (livello 5). La tecnica 
+di \emph{Drowsiness Detection (DDT)} è la tecnica che rivela lo stato del conducente 
+quando questo è alla guida. Quando il sistema rivela che il conducente risulta 
+essere distratto, oppure è in uno stato di sonnolenza, può intraprendere 
+automaticamente determinate azioni necessarie a scongiurare un possibile 
+incidente. I metodi di drowsiness detection sono classificati in 
+tre categorie \cite{drowsiness-detection}:
+\begin{enumerate}
+    \item \emph{Tecniche basate sulla fisiologia;}
+    \item \emph{Tecniche basate sul veicolo;}
+    \item \emph{Tecniche basate sul comportamento.}
+\end{enumerate}
+La prima categoria è in grado di rilevare la sonnolenza in base alle condizioni 
+fisiche dei conducenti come la frequenza cardiaca, frequenza respiratoria, 
+temperatura corporea, etc. Dal punto di vista di sicurezza, questi parametri 
+sono i più affidabili in quanto fanno riferimento a ciò che sta accadendo a livello 
+fisico nel conducente. Queste misure sono invasive in quanto richiedono 
+sensori adatti posizionati appositamente in varie parti del corpo del conducente. 
+In questo elaborato non verrà approfondita questa categoria in quanto 
+non pertinente attinente allo studio proposto. La seconda categoria cerca di 
+rilevare l'affaticamento del conducente in base ai dati veicolari raccolti. Tale 
+tipologia di informazioni possono riguarda il cambio di corsia, la variabilità 
+della velocità, l'angolo di rotazione del volante etc. L'analisi svolta su questi 
+dati permette al sistema di creare dei modelli di guida e determinare se quelli 
+rilevati in real-time si discostano o meno da quelli abituali. Se il sistema 
+riscontrasse delle anomalie dovute a un matching sbagliato fra questi, allora 
+dovrebbe prendere delle iniziative utili a salvaguardare il conducente o i 
+passeggeri presenti nell'abitacolo del veicolo. Tuttavia, tale tecnica può 
+essere limitata da fattori esterni quali le condizioni stradali, che possono 
+provocare sbandamenti insoliti classificati come campanello d'allarme dal 
+sistema, o dalle condizioni meteorologiche. Anche queste tecniche pertanto 
+sono ritenute inaffidabili in questi casi. La ricerca sta puntando sull'ultima 
+categoria, quella delle tecniche basate sul comportamento. Quest'ultime 
+sono ritenute come misure non invasive per il rilevamento della sonnolenza. 
+L'affaticamento del conducente è calcolato in base a vari fattori come il 
+rapporto di chiusura degli occhi (\emph{eye closure ratio}), il battito delle palpebre 
+(\emph{eye blinking}), la posizione della testa (\emph{hand position}), le espressioni facciali 
+(\emph{facial expression}) e gli sbadigli (\emph{yawning}). La metrica più utilizzata per 
+il rilevamento della sonnolenza si basa sull'osservazione dello stato degli 
+occhi, più precisamente alla percentuale di chiusure oculari, soprannominata 
+\emph{PERCLOS}. Grazie a questa ,metrica è possibile determinare se gli occhi 
+sono aperti, chiusi o socchiusi. L'analisi dello sbadiglio viene effettuato 
+monitorando le variazioni della forma geometrica della bocca grazie all'aiuto 
+di camere o stereo-camere. Seppur ritenuta la miglior categoria a livello 
+di sicurezza, questa non è esente dai problemi derivanti dai fattori esterni 
+quali illuminazione e condizioni stradali. Vari sono i sitemi di classificazione 
+che svolgono l'attività di drowsiness detection, fra questi abbiamo i classificatori 
+\emph{Support-Vector-Machines (SVM)}, \emph{l'Hidden Markow Model (HMM)} 
+e le reti neurali convoluzionali (CNN). Essendo questo uno studio incentrato 
+sull'argomentazione delle reti CNN, l'algoritmo di Viola Jones \cite{viola2001rapid} 
+viene molto utilizzato per il riconoscimento del viso. Le immagini di input 
+vengono tutte ritagliate per assumere una dimensione pari a $48\times 48$ su 
+cui verrà sottoposto un banco di 20 filtri che produrranno risultato che saranno 
+tramandati al layer finale Softmax, da cui ne susseguirà la classificazione. 
+Tale rete ha avuto diverse evoluzioni che hanno portato al rilevamento del 
+volto anche durante i movimenti di codesto. Venne introdotto pertanto un 
+rilevamento basato su tecniche 3D che includono altri due filtri oltre a quelli 
+già esistenti. In Figura (\ref{drow-det}) è possibile notare un'idea generale di come un 
+modello effettua una drowsiness detection.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{drowsiness detection.png}
+    \centering
+    \caption{Modello generale del sistema di Drowsiness detection.}
+    \label{drow-det}
+\end{figure}
