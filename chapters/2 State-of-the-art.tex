@@ -1384,3 +1384,97 @@ di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}
     \caption{Esempio di Vehicle detection a varie distanze e illuminazioni.}
     \label{vehicle-det}
 \end{figure}
+
+\subsubsection{Pedestrian Detection}
+Per i veicoli a guida autonoma è importante distinguere gli oggetti dagli 
+umani a causa della loro diversa importanza. Oltre che ad evitare possibili 
+collisioni con i veicoli, le telecamere installate sul veicolo servono per 
+rilevare uno dei principali personaggi della circolazione: il pedone. La rilevazione di 
+questa classe permette una maggiore comprensione semantica della scena. I 
+sistemi avanzati di assistenza alla guida (\emph{Advanced Driver Assistance Systems 
+(ADAS)}) hanno lo scopo di aiutare il conducente a prendere decisioni 
+e a fornire supporto durante le probabili situazioni di pericolo,  ovvero quando 
+entrambi si trovano in una scena popolata da pedoni e veicoli. Esistono 
+specifici sistemi ADAS per il rilevamento dei pedoni, questi prendono il 
+nome di sistemi di protezione dei pedoni (\emph{Pedestrian Protection Systems 
+(PPS)}). L'obiettivo di questa classe di sistemi è quello di rilevare la presenza 
+di persone, sia ferme che in movimento, in una specifica regione di interesse 
+(ROI) attorno al veicolo, ed eventualmente di avvisare il conducente  o eseguire 
+direttamente delle azioni come una franata, o l'apertura dell'airbag, 
+se vi è una possibile collisione. Le sfide principali che i sistemi PPS devono 
+affrontare sono:
+\begin{enumerate}
+    \item \emph{Ridurre la variabilità dell'aspetto}: un pedone non può essere scambiato 
+    con un oggetto se questo ha delle caratteristiche diverse, come per 
+    esempio l'altezza o l'abbigliamento, o se questo assume delle pose 
+    diverse;
+    \item \emph{Capacità di identificazione}: i pedoni devono essere sempre identificabili 
+    in un contesto disordinato, come per esempio in un'area urbana 
+    dove vi sono una moltitudine di protagonisti che possono confondersi 
+    con un pedone. Oltre a questo aspetto, i sistemi devono risolvere la 
+    principale sfida che riguarda l'illuminazione, molte delle volte influenzata 
+    dalle condizioni meteorologiche, che influenza la qualità delle 
+    informazioni rilevate. Un ulteriore sfida riguarda l'identificazione dei 
+    pedoni parzialmente o totalmente occlusi da elementi urbani, come i 
+    veicoli parcheggiati. 
+    \item \emph{Dinamicità}: il sistema deve poter identificare il pedone in scene 
+    altamente dinamiche in cui sia la telecamera e il pedone sono in 
+    movimento. Inoltre il sistema deve funzionare ad una distanza minima 
+    di 25 metri che, corrispondenti a delle patch di pedoni di $30\times 60$ 
+    pixel, utilizzando una fotocamera con lunghezza focale di $6 mm$ che 
+    produrrebbe un'immagine di dimensioni $640\times 480$ pixel.
+    \item \emph{Velocità}: il principale scopo di questi sistemi è quello di reagire in 
+    maniera istantanea, ciò dipenderebbe da delle adeguate prestazioni e 
+    da una buona robustezza da perte del sistema. Ci dev'essere il giusto 
+    trade-off tra velocità e falsi allarmi o tra velocità e identificazioni 
+    errate.
+\end{enumerate}
+Da un punto di vista pratico, per poter rilevare la presenza di uno o più 
+pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detection}, quali:
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Pedestrian-detection.png}
+    \centering
+    \caption{Fasi di elaborazione Pedestrian detection.}
+    \label{ped-det}
+\end{figure}
+\begin{enumerate}
+    \item \emph{Pre-processing}: in questa fase vengono svolte operazioni quali calibrazione 
+    della fotocamera, regolazione della gamma dinamica e correzione 
+    del tempo di esposizione. Questa operazione è di fondamentale importanza 
+    per il sistema PPS in quanto contrasta il cambiamento di 
+    luminosità (per esempio si pensi a quando si intraprende un tunnel o 
+    quando ci si trova nel bel mezzo di un temporale);
+    \item \emph{Foreground segmentation}: fase in cui vengono separati il foreground 
+    (possibili candidati) dal background (sfondo) per dar vita a regioni di 
+    interesse (ROI) che verrano inviate al modulo di classificazione. Lo 
+    scopo principale di questa fase è quello di rilevare tutti i pedoni per 
+    poter ottenere dei risultati dalle fasi successive;
+    \item \emph{Object classification}: dopo aver ricevuto le ROI dal modulo precedente, 
+    questo modulo si occupa di verificare la presenza di un pedone al loro  
+    in modo da ridurre al minimo i falsi positivi e i falsi negativi. In 
+    questa fase vengono utilizzate le stesse feature impiegate nella tecnica 
+    di vehicle detection. 
+    \item \emph{Verification/Refinement}: diversi sistemi contengono un passaggio aggiuntivo 
+    che mira alla verifica e al perfezionamento della classificazione 
+    delle ROI. La fase di verifica funge da filtro per i falsi positivi, mentre 
+    la fase di perfezionamento esegue delle segmentazioni precise del 
+    pedone utili a fornire un'accurata distanza e supportare il successivo 
+    modulo;
+    \item \emph{Tracking}: la fase di tracciamento consente di seguire i pedoni dopo che 
+    questi vengono rilevati nella scena. Lo scopo di questo modulo è quello 
+    di evitare falsi rilevamenti nel tempo, prevedere le future posizioni, in 
+    modo da generare un corretto numero di candidati utili per l'algoritmo 
+    di segmentazione foreground. Un ulteriore utilizzo di questa tecnica 
+    permette di rilevare ed effettuare delle stime sul comportamento di 
+    ogni singolo pedone, come per esempio la previsione della direzione 
+    della sua camminata;
+    \item \emph{Application}: l'ultima fase di un sistema PPS riguarda il prendere 
+    decisioni di alto livello, come per esempio la generazione di un avviso 
+    acustico o una franata di emergenza, basandosi sulle informazioni 
+    ricevute dai moduli precedenti. In questa fase vengono utilizzate 
+    tecniche precedentemente citate, come la fusione dei dati provenienti 
+    dai diversi sensori.
+\end{enumerate}
+Nella Figura (\ref{ped-det}) viene mostrato un riassunto delle precedenti fasi 
+applicate ad un problema di rilevamento dei pedoni.
