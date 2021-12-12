@@ -11,7 +11,7 @@ Il tema della guida autonoma si sta sempre più affermando come importante
 oggetto di studio nella comunità scientifica. Visto il grande impiego di sistemi 
 basati sul Machine Learning, in particolare le reti neurali, in questa sezione 
 verranno introdotti alcuni concetti atti a rappresentare sia la struttura di tali 
-sistemi che la loro influenza nell’ambiente automotive. 
+sistemi che la loro influenza nell'ambiente automotive. 
 
 \section{Reti Neurali Biologiche}
 Il cervello umano ha la capacità di sfruttare la sua struttura di neuroni in modo 
@@ -30,9 +30,9 @@ neurone. In particolare, abbiamo i \emph{dendriti} che rappresentano gli ingress
 neurone mentre le uscite sono rappresentare dagli \emph{assoni}. Su ogni assone viaggia 
 un impulso elettrico generato dal neurone stesso quando questo si trova in uno 
 stato attivo. Ogni neurone è connesso a migliaia di suoi simili ed ogni 
-comunicazione fra questi avviene mediante le sinapsi. Quando l’impulso raggiunge 
+comunicazione fra questi avviene mediante le sinapsi. Quando l'impulso raggiunge 
 proprio le sinapsi, questo provoca il rilascio di sostanze chimiche che attraversano 
-la giunzioni ed entrano all’interno di altri neuroni. Ci sono due tipologie di sinapsi, 
+la giunzioni ed entrano all'interno di altri neuroni. Ci sono due tipologie di sinapsi, 
 eccitatori e inibitori. La prima tipologia permette di aumentare la probabilità che 
 un neurone si attivi. Tale probabilità è determinata dal peso associato ad ogni 
 sinapsi. Avendo multipli collegamenti, ogni neurone effettua una specie di somma 
@@ -44,10 +44,10 @@ Una rete neurale artificiale è un modello computazionale che, a partire da dei 
 di input, riesce a produrre un output mediante un meccanismo ispirato a quello 
 del cervello umano. Alla base di questa similitudine, tali reti prendono il nome di 
 \emph{Artificial Neural Networks (ANN)}. Le prime reti neurali, nate attorno gli anni 
-’50, basavano il loro funzionamento sui cosiddetti \emph{percettroni}, neuroni artificiali in 
+'50, basavano il loro funzionamento sui cosiddetti \emph{percettroni}, neuroni artificiali in 
 grado di apprendere e di accumulare esperienza. Ogni rete neurale è composta da 
 strati di neuroni, comunemente chiamati \emph{layers}. I dati di input saranno processati 
-dai neuroni presenti nell’input layer e da qui, i risultati ottenuti, si propagheranno 
+dai neuroni presenti nell'input layer e da qui, i risultati ottenuti, si propagheranno 
 verso i layer nascosti (hidden layers) fino a raggiungere il layer finale di output (Fig. \ref{network structure}).
 \begin{figure}
     \centering
@@ -60,8 +60,8 @@ Una componente importante, riguarda la presenza di un insieme di valori
 $w=(w_{j1}, \dots, w_{jm})$ chiamati pesi. Ogni peso è rappresentato da un numero reale 
 che riflette il grado di importanza di una data connessione, tra due neuroni, in 
 una rete neurale. I pesi possono subire dei cambiamenti in base alla tipologia 
-di apprendimento della rete. Una buona configurazione dei pesi riduce l’errore di 
-predizione e pertanto migliora l’output del modello. Riprendendo il discorso 
+di apprendimento della rete. Una buona configurazione dei pesi riduce l'errore di 
+predizione e pertanto migliora l'output del modello. Riprendendo il discorso 
 dei neuroni, McCulloch e Pitts  \cite{Chakraverty2019} definirono un modello matematico in grado di 
 rappresentarli. In particolare, il compito di ogni singolo neurone è rappresentato 
 nella figura (\ref{neural neuron}).
@@ -74,14 +74,14 @@ nella figura (\ref{neural neuron}).
 \end{figure}
 Da come possiamo notare, un neurone è una semplice funzione non lineare 
 che riceve in input una serie di input $X_{ji}$ e produce in output una variabile $y_k$. 
-Il calcolo dell’output, di ogni singolo neurone, è composto da una sommatoria 
+Il calcolo dell'output, di ogni singolo neurone, è composto da una sommatoria 
 degli input, di segno positivo o negativo, moltiplicati prima con i corrispettivi 
 pesi e successivamente sommati con una variabile, chiamata bias (pregiudizio), 
 che corrisponde alla soglia di attivazione del neurone.
 \begin{equation}\label{artificial}
     a_j = \sum_{i=0}^m w_{i}x_i + b_i 
 \end{equation}
-Una soglia è utile per determinare se l’informazione in ingresso “$x$” debba essere 
+Una soglia è utile per determinare se l'informazione in ingresso “$x$” debba essere 
 elaborata oppure scartata. Di solito vi è sempre un input $X_0=1$ che renderebbe 
 il bias $ b_i $ uguale uguale al primo peso $W_0$, pertanto la formula (\ref{artificial}) può anche 
 essere scritta come:
@@ -93,7 +93,7 @@ di attivazione}” non lineare $\varphi(\cdot)$:
 \begin{equation}\label{activation function 1}
     y_j = \varphi(a) = \varphi\left(\sum_{i=0}^m w_ix_i\right)
 \end{equation}
-L’uscita $y$ determinerà l’attivazione del prossimo neurone. Se il valore ricevuto è 
+L'uscita $y$ determinerà l'attivazione del prossimo neurone. Se il valore ricevuto è 
 maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
 \begin{equation}\label{activation function 2}
     y_j = \left\{
@@ -118,24 +118,24 @@ svolgere diversi compiti grazie a una opportuna fase di apprendimento.
 \section{Algoritmi di apprendimento}
 Lo scambio di dati tra i vari neuroni consente alla rete neurale di poter generalizzare 
 anche con dati mai visti nel training set. Questo processo prende il nome di 
-“\emph{Apprendimento}”. L’apprendimento di un modello di rete è tipicamente effettuato 
-a partire da un insieme di dati di addestramento chiamato training test. All’interno 
+“\emph{Apprendimento}”. L'apprendimento di un modello di rete è tipicamente effettuato 
+a partire da un insieme di dati di addestramento chiamato training test. All'interno 
 di questi insiemi abbiamo la presenza di esempi formati da coppie $(x^j, y^j)$, con 
-$j=1,…,n$, dove $y^j$ sta a rappresentare il valore di output desiderato in funzione 
+$j=1, \dots ,n$, dove $y^j$ sta a rappresentare il valore di output desiderato in funzione 
 del dato di input $x^j$. Per ricavare il valore target è necessario ricercare gli 
-opportuni valori dei pesi, indispensabili a minimizzare l’errore commesso. La 
-quantità dell’errore commesso, dal singolo neurone $j$, è esprimibile mediante (\ref{error function}):
+opportuni valori dei pesi, indispensabili a minimizzare l'errore commesso. La 
+quantità dell'errore commesso, dal singolo neurone $j$, è esprimibile mediante (\ref{error function}):
 \begin{equation}\label{error function 1}
     \emph{$e_j$}=(\hat{y}_j-y_j)^2
 \end{equation}
 Si può osservare che il calcolo di (\ref{error function 1}) è riconducibile alla somma dei quadrati 
-residua tra il valore stimato $\hat{y}_j$ e quello desiderato $y_j$. L’errore totale derivato da 
+residua tra il valore stimato $\hat{y}_j$ e quello desiderato $y_j$. L'errore totale derivato da 
 tutta la rete è calcolabile prendendo in considerazione la \emph{Funzione di Errore}, a 
 volte chiamata anche di \emph{Costo}, esprimibile dal calcolo della seguente formula:
 \begin{equation}\label{error function}
     \emph{$E$}=\frac{1}{2}\sum_{j=1}^me_j
 \end{equation}
-dove $m$ rappresenta il numero totale di neuroni presenti nell’output layer.
+dove $m$ rappresenta il numero totale di neuroni presenti nell'output layer.
 La funzione di errore $E$ risulta essere molto importate nella fase di apprendimento in quanto misura la distanza 
 dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (Fig. \ref{minimum and maximum})
 \begin{figure}
@@ -145,7 +145,7 @@ dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (
     \caption{Esempio di minimo globale ($w^A$) e locale ($w^B$).}
     \label{minimum and maximum}
 \end{figure}
-Per ottenere un valore della funzione relativamente basso, l’obiettivo è racchiuso 
+Per ottenere un valore della funzione relativamente basso, l'obiettivo è racchiuso 
 nella ricerca del minimo globale. Tale ricerca avviene in maniera iterativa, partendo 
 da dei pesi a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
 ottimali avviene mediante calcolo delle derivate parziali sulla funzione di errore, 
@@ -162,16 +162,16 @@ e con \emph{Rinforzo}. La scelta di quale usare dipende dalla tipologia della re
 suo campo di applicazione.
 
 \subsection{Apprendimento Supervisionato}
-In questa tipologia di apprendimento, l’input fornito alla rete contiene una serie di 
-dati etichettati. L’apprendimento supervisionato è solitamente utilizzato sia nel 
+In questa tipologia di apprendimento, l'input fornito alla rete contiene una serie di 
+dati etichettati. L'apprendimento supervisionato è solitamente utilizzato sia nel 
 conteso della classificazione, dove  si vuole mappare le etichette di input a quelle 
-di output, che nel contesto della regressione, dove si mira a mappare l’input a un 
+di output, che nel contesto della regressione, dove si mira a mappare l'input a un 
 output continuo. La corretta associazione comporta una buona generalizzazione 
-da parte del modello. L’apprendimento migliora grazie ad una continua variazione 
+da parte del modello. L'apprendimento migliora grazie ad una continua variazione 
 dei pesi. Questo tipo di apprendimento è svolto utilizzando la tecnica della 
 \emph{Back-Propagation}. La complessità di questo tipo di apprendimento deriva dalla 
 quantità di dati presenti nel training set. Affinché la rete riesca a generalizzare al 
-meglio, il training set dev’essere composto da un numero di esempi adeguato. La 
+meglio, il training set dev'essere composto da un numero di esempi adeguato. La 
 giusta quantità di esempi è utile a prevenire spiacevoli situazioni di underfitting o 
 di overfitting della rete.
 
@@ -181,7 +181,7 @@ in input dei dati privi di etichettatura o non strutturati. Lo scopo della rete,
 o del modello, è quello di estrarne una rappresentazione e creare dei cluster 
 rappresentativi. Ci sono delle tecniche a supporto di questa tipologia di apprendimento, 
 una fra queste è la riduzione della dimensionalità che è applicata in fase 
-di pre-elaborazione delle features avente l’obiettivo di eliminare il rumore dai dati 
+di pre-elaborazione delle features avente l'obiettivo di eliminare il rumore dai dati 
 quando questi sono presenti in grandi quantità. 
 
 \subsection{Apprendimento Semi-Supervisionato}
@@ -190,23 +190,23 @@ semi-supervisionato. Questa tipologia di apprendimento rappresenta
 un sistema che si interpone tra i due precedentemente spiegati. I modelli che fanno 
 uso di questo approccio di solito utilizzano una piccola quantità di dati etichettati 
 e una grande quantità di dati non etichettati. Tale apprendimento porta alla 
-creazione di un modello più flessibile rispetto a quello ottenuto dall’apprendimento 
+creazione di un modello più flessibile rispetto a quello ottenuto dall'apprendimento 
 supervisionato.
 
 \subsection{Apprendimento con Rinforzo}
-L’ultimo tipo di apprendimento automatico è chiamato Apprendimento con 
+L'ultimo tipo di apprendimento automatico è chiamato Apprendimento con 
 Rinforzo. Il suo scopo è quello di costruire un sistema, comunemente chiamato 
-\emph{agente}, che abbia l’obiettivo di migliorare le sue performance interagendo con 
-l’ambiente che lo circonda. Il miglioramento dell’intero sistema avviene mediante 
-dei feedback chiamati appunto rinforzi. Quest’ultimi non hanno nulla a che fare 
+\emph{agente}, che abbia l'obiettivo di migliorare le sue performance interagendo con 
+l'ambiente che lo circonda. Il miglioramento dell'intero sistema avviene mediante 
+dei feedback chiamati appunto rinforzi. Quest'ultimi non hanno nulla a che fare 
 con etichette o valori di verità, ma rappresentano un livello di qualità delle azioni 
 intraprese dal sistema. Pertanto, differentemente da un sistema supervisionato, 
-non ci sono mappature tra l’input e l’output.
+non ci sono mappature tra l'input e l'output.
 
 \subsection{Algoritmo di Back-Propagation}\label{BP}
 Il termine \emph{Back-Propagation} è stato introdotto una prima volta quando si è 
-trattato l’argomento dell’apprendimento Supervisionato. Una prima definizione 
-del termine venne data nel 1986 in \cite{03}. L’algoritmo di Back-Propagation agisce 
+trattato l'argomento dell'apprendimento Supervisionato. Una prima definizione 
+del termine venne data nel 1986 in \cite{03}. L'algoritmo di Back-Propagation agisce 
 durante la fase di training del modello, che a sua volta si suddivide in due fasi:
 \begin{enumerate}
     \item \emph{Fase in avanti (forward)}: i dati si propagavano dai neuroni di input fino 
@@ -220,12 +220,12 @@ durante la fase di training del modello, che a sua volta si suddivide in due fas
         \label{feedforward net}
     \end{figure}
     \item \emph{Fase in indietro (backward)}:  si confronta il risultato ottenuto, da un primo 
-    step in avanti, con il risultato atteso. Tale valore rappresenterà l’errore 
+    step in avanti, con il risultato atteso. Tale valore rappresenterà l'errore 
     commesso, descritto in precedenza dalla funzione di errore $E$ (\ref{error function}). A questo 
     punto, tale errore si propagherà indietro nella rete. Questo meccanismo è 
     utile ad adeguare i vari pesi presenti nella rete affinché le prossime iterazioni 
-    diano un errore relativamente basso (caso ottimale in cui l’output stimato è 
-    simile all’output desiderato).
+    diano un errore relativamente basso (caso ottimale in cui l'output stimato è 
+    simile all'output desiderato).
     \begin{figure}
         \centering
         \includegraphics[width = 0.7\linewidth]{BP.png}
@@ -235,8 +235,8 @@ durante la fase di training del modello, che a sua volta si suddivide in due fas
     \end{figure}
 \end{enumerate}
 Sappiamo che una minima variazione ai pesi e al bias comporta allo stesso modo 
-una variazione della funzione di errore E. Tralasciando un’attimo il bias, il discorso 
-che segue è incentrato sulla gestione dei pesi. L’algoritmo di Back-propagation 
+una variazione della funzione di errore E. Tralasciando un'attimo il bias, il discorso 
+che segue è incentrato sulla gestione dei pesi. L'algoritmo di Back-propagation 
 applica una correzione chiamata {\bfseries{Delta Rule ($\Delta{W_{ji}}$)}}  ad ogni peso $w_{ji}$, andando 
 a calcolare, tramite la regola della \emph{Chain Rule} \ref{chain rule}, la derivata parziale della funzione 
 di errore $E$, rispetto alla derivata della parziale del peso $w_{ji}$ in considerazione.
@@ -260,7 +260,7 @@ dove:
     \frac{\partial a_{j}}{\partial w_{ji}} = y_i
 \end{equation}
 Ogni elemento definito dalla chain rule sarà utile, oltre che a formare il vettore 
-del gradiente $\nabla{E}$ (\ref{gradient vector}), a determinare la direzione di ricerca all’interno dello spazio 
+del gradiente $\nabla{E}$ (\ref{gradient vector}), a determinare la direzione di ricerca all'interno dello spazio 
 dei pesi, per un singolo peso $w_{ji}$. Questa operazione, in letteratura, è nominata 
 come \emph{“Discesa del gradiente”}. Ricapitolando, la (\ref{chain rule}) diventa:
 \begin{equation}\label{chain rule update}
@@ -295,25 +295,25 @@ Sostituendo in (\ref{chain rule update}) la (\ref{local gradient of output layer
 \begin{equation}\label{delta rule 2}
     \Delta{W_{ji}} = -\alpha \delta_jy_i 
 \end{equation}
-Infine, grazie alla definizione della \emph{Delta Rule}, nell’iterazione $n+1$ sarà possibile 
-aggiornare il peso $w_{ji}$ in questione, rispetto all’iterazione $n$ precedente:
+Infine, grazie alla definizione della \emph{Delta Rule}, nell'iterazione $n+1$ sarà possibile 
+aggiornare il peso $w_{ji}$ in questione, rispetto all'iterazione $n$ precedente:
 \begin{equation}\label{weight change}
     w_{ji}(n+1) = w_{ji}(n)+\Delta{w_{ji}(n)}
 \end{equation}
 In precedenza, si era preferito mettere da parte il concetto di bias per concentrarci 
 maggiormente sui pesi. Essendo la funzione di errore sensibile anche al cambiamento 
-del bias, l’algoritmo di back-propagation ha lo scopo di aggiornare anche i 
+del bias, l'algoritmo di back-propagation ha lo scopo di aggiornare anche i 
 vari bias esistenti integrando, nel vettore gradiente $\nabla{E}$, le derivate parziali della 
 funzione di Errore rispetto al bias $b$:
 \begin{equation}\label{gradient vector with bias}
     \nabla{E}[\vec{b}]\equiv\left[\frac{\partial E}{\partial b_{0}}, \frac{\partial E}{\partial b_{1}}, \dots, \frac{\partial E}{\partial b_{j}}\right]
 \end{equation}
-I successivi calcoli sono identici a quelli dell’aggiornamento dei pesi. Il processo 
+I successivi calcoli sono identici a quelli dell'aggiornamento dei pesi. Il processo 
 di back-propagation avviene in maniera iterativa e si ferma quando vengono 
 soddisfatte le seguenti caratteristiche:
 \begin{enumerate}
     \item Raggiungimento del numero massimo di epoche;
-    \item L’errore è più basso della soglia;
+    \item L'errore è più basso della soglia;
     \item Non vi è nessun cambiamento dei pesi.
 \end{enumerate}
 
@@ -340,8 +340,8 @@ indipendenti ($X_j$) in variabili dipendenti($Y_j$). Possiamo quindi considerare
 rete come una funzione nella forma $y = y(x;w)$, dove $y$ sta a rappresentare una funzione di $x$ 
 e che a sua volta è parametrizzata da $w$. In una rete feed-forward, il 
 processo di calcolo è unilaterale, ovvero procede solamente in avanti, raggiungendo 
-l’ultimo layer. Rispetto a una rete semplice, una rete feedforward può essere 
-composta da più layer nascosti in cui vi sono più neuroni nascosti. L’aggiunta 
+l'ultimo layer. Rispetto a una rete semplice, una rete feedforward può essere 
+composta da più layer nascosti in cui vi sono più neuroni nascosti. L'aggiunta 
 di un numero sostanziale di layer nascosti può aiutare ad estrarre statistiche di 
 ordine superiore dai dati di input. Secondo \cite{04}, la presenza di più connessioni 
 sinaptiche tra i neuroni, provoca una maggiore iterazione tra questi che a sua 
@@ -352,25 +352,25 @@ assenti, tale tipologia di rete viene chiamata \emph{partially connected}.
 
 \subsection{Reti neurali Convoluzionali}\label{RNC}
 Una rete neurale convoluzionale (CNN o ConvNet) è una tipologia di rete feed-
-forward che si sta affermando come stato dell’arte per una svariata gamma di 
+forward che si sta affermando come stato dell'arte per una svariata gamma di 
 applicazioni nel campo della computer vision. Una loro prima diffusione avvenne 
-negli anni ’90 grazie a uno studio di LeCun e Boser \cite{NIPS1989_53c3bce6}. L’architettura delle CNN 
+negli anni '90 grazie a uno studio di LeCun e Boser \cite{NIPS1989_53c3bce6}. L'architettura delle CNN 
 si distinguono grazie al numero di layer presenti.  La loro particolarità sta nel 
 rilevare i tratti più rilevanti e di apprendere i pattern, il tutto con un alto grado di 
 invariata rispetto a traslazione, ridimensionamento, inclinazione e altre forme di 
 distorsione. I primi strati hanno il compito di estrarre le features di basso livello, 
 come per esempio i bordi o i blob, al contrario, gli ultimi strati hanno lo scopo di 
 estrarre le features di alto livello tipo i contorni, classificazione, riconoscimento 
-etc. All’interno di una rete convoluzionale possiamo riconoscere due tipologie di 
+etc. All'interno di una rete convoluzionale possiamo riconoscere due tipologie di 
 neuroni:
 \begin{itemize}
     \item \emph{Neuroni di elaborazione}: hanno lo scopo di elaborare una sezione specifica 
-    dell’immagine, comunemente chiamata campo ricettivo, utilizzando 
-    un’operazione di \emph{convoluzione};
+    dell'immagine, comunemente chiamata campo ricettivo, utilizzando 
+    un'operazione di \emph{convoluzione};
     \item \emph{Neuroni di aggregazione}: hanno lo scopo di eseguire un'operazione di \emph{pooling}.
 \end{itemize}
 I neuroni contenuti in uno strato adibito alla convoluzione, e quelli completamente 
-connessi, dispongono di funzioni di attivazione e di pesi, quest’ultimi sottoposti a 
+connessi, dispongono di funzioni di attivazione e di pesi, quest'ultimi sottoposti a 
 processo di aggiornamento durante la fase di apprendimento. Per quanto riguarda 
 gli strati di pooling, questi non dispongo di alcun tipi di peso. Riassumendo, 
 le operazioni svolte dalle CNN sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
@@ -385,12 +385,12 @@ fully connected).
 \end{figure}
 
 \subsubsection{Convoluzione}
-Lo scopo del layer di convoluzione è quello di attuare un’operazione di {\bfseries{feature 
+Lo scopo del layer di convoluzione è quello di attuare un'operazione di {\bfseries{feature 
 extraction}}. In questa fase ogni neurone prende in input un campo ricettivo 
 locale del layer precedente e da qui ne estrae le feature locali. Un filtro, che in 
-gergo prende il nome di {\bfseries{\emph{kernel}}}, trasla sull’immagine originale con l’intenzione di 
+gergo prende il nome di {\bfseries{\emph{kernel}}}, trasla sull'immagine originale con l'intenzione di 
 creare una feature map mediante moltiplicazione tra i valori presenti nel filtro, 
-corrispondenti ai pesi, e la regione dell’immagine in cui si trova. Di seguito, i 
+corrispondenti ai pesi, e la regione dell'immagine in cui si trova. Di seguito, i 
 valori di ogni feature map sono calcolati tramite la seguente formula:
 \begin{equation}\label{sum convolution}
     G[m,n] = (f*h)[m,n] = \sum_j\sum_kh[j,k]f[m-j,n-k]
@@ -410,15 +410,15 @@ dove:
     \label{filter dimension}
 \end{figure}
 Dopo aver posizionato il filtro su un campo ricettivo, vero preso ogni valore dal 
-kernel e moltiplicato con i valori corrispondenti al campo ricettivo dell’immagine. 
+kernel e moltiplicato con i valori corrispondenti al campo ricettivo dell'immagine. 
 Successivamente, il valore risultante verrà inserito nella giusta posizione della 
 feature map. Il numero di feature map sarà uguale al numero di filtri applicato 
-sull’immagine. La generazione di ogni feature map dipende da quattro tipi di 
+sull'immagine. La generazione di ogni feature map dipende da quattro tipi di 
 parametri, detti 
 \emph{iperparametri}:
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
-    porzione dell’immagine che si vuole analizzare;
+    porzione dell'immagine che si vuole analizzare;
     \item \emph{Profondità (depth)}: numero di filtri “$N$” usati durante la convoluzione 
     ($H \times W \times N$). Ogni filtro produrrà una propria feature map;
     \begin{figure}
@@ -439,8 +439,8 @@ parametri, detti
         \label{stride}
     \end{figure}
     \item \emph{Riempimento (Padding)}: affinché venga generata una corretta feature map 
-    di dimensioni pari ($padding=1$) o maggiore ($padding>1$) a quella dell’immagine 
-    di partenza, la matrice dell’immagine deve essere riempita di valori uguali, 
+    di dimensioni pari ($padding=1$) o maggiore ($padding>1$) a quella dell'immagine 
+    di partenza, la matrice dell'immagine deve essere riempita di valori uguali, 
     esempio di zeri, presso le sue estremità.
     \begin{figure}
         \centering
@@ -456,12 +456,12 @@ tipologia dei dati a disposizione.
 \subsubsection{Rectified Linear Unit (ReLU)}
 Ogni feature map, dopo la convoluzione, è composta da dei valori positivi e negativi. 
 Come brevemente accennato in (\ref{Reti neurali}), esistono varie funzioni di attivazione che, in 
-base all’input ricevuto, decidono se attivare o disattivare un neurone. La 
+base all'input ricevuto, decidono se attivare o disattivare un neurone. La 
 funzione di attivazione maggiormente usata è la ReLU (Rectified Linear Unit). 
 Questa funzione esegue delle operazioni non lineari ponendo a zero tutti i valori 
 negativi e lasciando invariati i valori positivi (Fig. \ref{relu}), generando in questo modo delle 
-attivazioni sparse.  L’operazione prende il nome di element-wise su tutti i pixel. 
-L’implementazione di questa funzione, rispetto alle sue concorrenti, è utile ad accelerare 
+attivazioni sparse.  L'operazione prende il nome di element-wise su tutti i pixel. 
+L'implementazione di questa funzione, rispetto alle sue concorrenti, è utile ad accelerare 
 il processo di apprendimento (backpropagation) del modello semplificando 
 le operazioni nei vari layer.
 \begin{figure}
@@ -498,7 +498,7 @@ basso a sinistra, verrà selezionato il valore 5 che sarà propagato al prossimo
 layer. Avendo uno stride pari a 2, la matrice prodotta avrà una dimensione 
 uguale alla metà della matrice di partenza (subsamplig),  che in questo caso è 
 stata arrotondata per difetto. La riduzione delle dimensioni a sua volta riduce 
-il numero di operazioni di calcolo, l’occupazione della memoria e il numero di 
+il numero di operazioni di calcolo, l'occupazione della memoria e il numero di 
 parametri, limitando anche il rischio di overfitting in quanto si ha un numero 
 minore di paramenti da apprendere. La funzione di Max-Pooling introduce quella che viene 
 chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti di 
@@ -510,49 +510,49 @@ che include una funzione di attivazione \emph{Softmax} nel layer di output. Lo s
 tale layer è quello di utilizzare le feature estratte, dagli strati precedenti, in modo 
 da predire le loro classi di appartenenza precedentemente fornite nel training 
 set. Un vettore di numeri reali conterrà tutte le predizioni che, se sommate tra 
-loro, produrranno un valore uguale a uno. Quest’ultimo passaggio sarà possibile 
-grazie all’utilizzo di una funzione chiamata Softmax, posta alla fine dell’intera 
+loro, produrranno un valore uguale a uno. Quest'ultimo passaggio sarà possibile 
+grazie all'utilizzo di una funzione chiamata Softmax, posta alla fine dell'intera 
 rete convoluzionale, che è in grado di “schiacciare” un vettore K-dimensionale 
 a valori reali arbitrali, in un vettore K-dimensionale a valori reali, compresi nel 
 range $(0,1)$. 
 
 \section{Utilizzi delle reti neurali}
-L’introduzione delle reti neurali, sia nel campo della computer vision che del deep 
+L'introduzione delle reti neurali, sia nel campo della computer vision che del deep 
 learning, ha portato vari benefici nel risolvere problemi complessi nella vita reale. 
 Il supporto offerto da questi sistemi è basato su tecniche di elaborazione delle 
 immagini in grado di estrarre diverse informazioni utili per un determinato scopo. 
-I task principali, eseguiti su un’immagine, possono essere:
+I task principali, eseguiti su un'immagine, possono essere:
 \begin{itemize}
-    \item \emph{Image classification}: viene effettuata un’analisi dell’immagine con lo scopo 
-    di assegnare un’etichetta in base al suo contenuto;
-    \item \emph{Object detection}: analisi degli elementi presenti all’interno di un’immagine;
+    \item \emph{Image classification}: viene effettuata un'analisi dell'immagine con lo scopo 
+    di assegnare un'etichetta in base al suo contenuto;
+    \item \emph{Object detection}: analisi degli elementi presenti all'interno di un'immagine;
     \item \emph{Image segmentation}: estrazione di regioni di interesse che identificano il 
     target in base al contesto;
     \item \emph{Face recognition}: basato sul riconoscimento facciale delle persone;
-    \item \emph{Action recognition}: analisi incentrata sull’identificazione e sulla descrizione 
+    \item \emph{Action recognition}: analisi incentrata sull'identificazione e sulla descrizione 
     di azioni compiute da parte di soggetti che interagiscono nel tempo e nello 
     spazio circostante;
     \item \emph{Visual Relationship Detection}: analisi mirata alla relazione che intercorre 
-    tra gli oggetti presenti nell’immagine;
+    tra gli oggetti presenti nell'immagine;
     \item \emph{Emotion Recognition}: processo atto a identificare le emozioni umane mediante 
     vari fattori come quello vocale e/o visivo;
-    \item \emph{Image editing}: analisi delle immagini che portano l’algoritmo a riconoscere 
-    le parti più rilevanti di un’immagine, come per esempio quelle più sensibili, 
+    \item \emph{Image editing}: analisi delle immagini che portano l'algoritmo a riconoscere 
+    le parti più rilevanti di un'immagine, come per esempio quelle più sensibili, 
     ed a attuare delle specifiche azioni, come ad esempio il loro oscuramento.
 \end{itemize}
 Il presente elaborato farà riferimento solamente alle prime tre tecniche, soffermandosi 
-maggiormente sull’object detection e la semantic segmentation (branca 
-dell’image segmentation).
+maggiormente sull'object detection e la semantic segmentation (branca 
+dell'image segmentation).
 
 \subsection{Object Detection}\label{OBJD}
-L’object detection costituisce la base per risolvere compiti di visione complessi, 
+L'object detection costituisce la base per risolvere compiti di visione complessi, 
 o di alto livello, come la segmentazione, comprensione della scena, tracciamento 
 degli oggetti, rilevamento degli eventi e riconoscimento delle attività. La tecnica 
 di object detection supporta un ampio range di applicazioni, tra queste abbiamo 
 la visione robotica, sicurezza, guida autonoma, segnali stradali, interazione uomo 
 macchina, recupero delle immagini basato sui contenuti, videosorveglianza, realtà 
-aumentata e ambito medico. Dal grafico \ref{obj det performance} possiamo vedere che dopo l’anno 
-2012, periodo corrispondente all’introduzione del deep learning, le prestazioni 
+aumentata e ambito medico. Dal grafico \ref{obj det performance} possiamo vedere che dopo l'anno 
+2012, periodo corrispondente all'introduzione del deep learning, le prestazioni 
 della tecnica di object detection aumentarono notevolmente.
 \begin{figure}
     \centering
@@ -563,8 +563,8 @@ della tecnica di object detection aumentarono notevolmente.
 \end{figure}
 Ogni oggetto è caratterizzato dalle sue proprietà come colore, forma, texture 
 o altri tratti. Lo scopo della tecnica può essere visto come un problema di 
-classificazione in grado di definire se un’immagine contiene un oggetto e, in caso 
-affermativo, indicarne la posizione nell’immagine mediante l’utilizzo di un riquadro 
+classificazione in grado di definire se un'immagine contiene un oggetto e, in caso 
+affermativo, indicarne la posizione nell'immagine mediante l'utilizzo di un riquadro 
 di delimitazione chiamato bounding box (Fig. \ref{object detection}). 
 \begin{figure}
     \centering
@@ -573,13 +573,13 @@ di delimitazione chiamato bounding box (Fig. \ref{object detection}).
     \caption{Esempio di object detection.}
     \label{object detection}
 \end{figure}
-Se invece di un’immagine si sta elaborando un insieme di frame, come un video, 
-allora lo scopo è quello di tracciare la posizione e  la dimensione dell’oggetto in 
+Se invece di un'immagine si sta elaborando un insieme di frame, come un video, 
+allora lo scopo è quello di tracciare la posizione e  la dimensione dell'oggetto in 
 tutti i frame (tecnica comunemente chiamata object tracking). Il rilevamento 
 degli oggetti generici è strettamente correlato a:
 \begin{enumerate}
-    \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell’immagine 
-    un’etichetta corrispondente ad una classe (Fig. \ref{segmentation} (a));
+    \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell'immagine 
+    un'etichetta corrispondente ad una classe (Fig. \ref{segmentation} (a));
     \item \emph{Instance segmentation}: tecnica che, al contrario della segmentazione semantica, 
     mira a distinguere diverse istanze appartenenti alla stessa classe di 
     oggetti (Fig. \ref{segmentation} (b)).
@@ -592,7 +592,7 @@ degli oggetti generici è strettamente correlato a:
     \label{segmentation}
 \end{figure}
 Uno dei principali obiettivi in questo campo è scegliere le feature che sono 
-più caratteristiche dell’oggetto ricercato o, in altre parole, che sono altamente 
+più caratteristiche dell'oggetto ricercato o, in altre parole, che sono altamente 
 discriminanti, in modo da ottenere dei buoni risultati da parte del classificatore. Un 
 aspetto fondamentale da tenere in considerazione è la complessità computazionale 
 a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi modelli di object detection basavano 
@@ -619,12 +619,12 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
             \caption{Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)}
             \label{auto}
         \end{figure}
-        \item \emph{Condizioni dell’immagine}: Oltre al concetto temporale, i motivi che 
-        portano ad una variabilità intra-calasse possono essere l’occlusione, 
-        l’illuminazione, posa, punto di vista, ambiente circostante, condizioni 
+        \item \emph{Condizioni dell'immagine}: Oltre al concetto temporale, i motivi che 
+        portano ad una variabilità intra-calasse possono essere l'occlusione, 
+        l'illuminazione, posa, punto di vista, ambiente circostante, condizioni 
         meteorologiche etc. Questi fattori influenzanti possono incidere 
-        negativamente sull’aspetto di un oggetto. Ulteriori problematiche possono 
-        riguardare l’aggiunta di artefatti di digitalizzazione, presenza del 
+        negativamente sull'aspetto di un oggetto. Ulteriori problematiche possono 
+        riguardare l'aggiunta di artefatti di digitalizzazione, presenza del 
         rumore, bassa risoluzione e distorsioni varie (Fig. \ref{agenti atmosferici}).
         \begin{figure}
             \centering
@@ -639,11 +639,11 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
     queste sono numerose. Un elevato numero di classi, oltre che ad aumentare 
     la probabilità di avere una bassa variabilità inter-calasse, richiede un alto 
     numero di etichette che a loro volta sono difficili da reperire. In questo caso 
-    è favorita un’alta variabilità inter-classe (oggetti diversi appartenenti a classi 
-    diverse). Ad oggi, l’utilizzo dell’esatto numero di esempi per addestrare un 
+    è favorita un'alta variabilità inter-classe (oggetti diversi appartenenti a classi 
+    diverse). Ad oggi, l'utilizzo dell'esatto numero di esempi per addestrare un 
     modello è una domanda di ricerca ancora aperta;
     \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso su 
-    dispostivi sprovvisti di elevate risorse di calcolo. La ricerca è rivolta nell’ottimizzazione 
+    dispostivi sprovvisti di elevate risorse di calcolo. La ricerca è rivolta nell'ottimizzazione 
     di tali modelli affinché questi vengano eseguito anche su dispositivi mobili.
 \end{itemize}
 
@@ -661,34 +661,34 @@ di base (\emph{ground truth}).
     Recall & = & \frac{True \ Positive}{True \ Positive + False \ Negative} \nonumber \\
              & = & \frac{True \ Positive}{All \ Ground \ Truth}
 \end{eqnarray}
-Gli output standard di un rilevatore, su un’immagine di test $I$, al fine di 
+Gli output standard di un rilevatore, su un'immagine di test $I$, al fine di 
 identificare un oggetto $j$, sono:
 \begin{itemize}
-    \item $b_j$: \emph{Bounding-Box (BB)} disegnata sull’oggetto di interesse;
+    \item $b_j$: \emph{Bounding-Box (BB)} disegnata sull'oggetto di interesse;
     \item $c_j$: categoria predetta;
     \item $p_j$: livello di confidenza che verrò comparato con una soglia $\beta$ per determinare 
-    l’accettabilità o meno dell’etichetta della classe predetta. 
+    l'accettabilità o meno dell'etichetta della classe predetta. 
 \end{itemize}
 Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
 \begin{enumerate}
-    \item La categoria predetta $c$ è uguale all’etichetta $c_g$ fornita nel ground truth;
+    \item La categoria predetta $c$ è uguale all'etichetta $c_g$ fornita nel ground truth;
     \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), è maggiore di una soglia $\epsilon$. L'IoU 
     rappresenta il rapporto tra l'area della bounding box predetta $b$ e l'area 
     della bounding box $b_g$ presente nel ground truth, dove $\cap$ e $\cup$ indicano 
-    rispettivamente l’intersezione e l’unione delle varie aree.
+    rispettivamente l'intersezione e l'unione delle varie aree.
     \begin{eqnarray}\label{iou}
         IoU(b,b_g) & = & \frac{area(b \cap b_g)}{area(b \cup b_g)} \nonumber \\
                  & = & \frac{Area \ of \ overlap}{Area \ of \ union}
     \end{eqnarray}
     Quando il modello prevederà una bounding box con un valore IoU maggiore 
     o uguale alla soglia,  tipicamente pari a 0.5, allora questo vuol dire che ci 
-    sarà un’elevata sovrapposizione tra questa e una delle bounding box presenti 
-    nel ground truth. D’altra parte, quando il valore di IoU è minore della 
+    sarà un'elevata sovrapposizione tra questa e una delle bounding box presenti 
+    nel ground truth. D'altra parte, quando il valore di IoU è minore della 
     soglia, questo sintomo sarà ritenuto come una previsione errata da parte 
-    del modello in quanto non c’è sovrapposizione fra le varie bounding box. 
+    del modello in quanto non c'è sovrapposizione fra le varie bounding box. 
     Questo comportamento fa si che la regione rilevata venga classificata come 
     un Falso Positivo \emph{(FP)}. Se invece il modello non riesce a rilevare un oggetto 
-    presente nell’immagine, allora si parlerà di Falso Negativo $(FN)$.
+    presente nell'immagine, allora si parlerà di Falso Negativo $(FN)$.
     \begin{equation}\label{iou values}
         class(IoU) = \left\{
             \begin{array}{rl}
@@ -699,8 +699,8 @@ Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
             \right.
     \end{equation}
 \end{enumerate}
-A questo punto, per poter calcolare l’Average Precision, consideriamo la $IoU$ come 
-la nostra precisione \cite{rosebrock2017deep}. L’average precision, calcolata su una singola classe $i$, sarà 
+A questo punto, per poter calcolare l'Average Precision, consideriamo la $IoU$ come 
+la nostra precisione \cite{rosebrock2017deep}. L'average precision, calcolata su una singola classe $i$, sarà 
 quindi definita come:
 \begin{equation}\label{average precision}
     AP_i = \frac{IoU}{L_i}
@@ -714,49 +714,49 @@ dove N rappresenta il numero totali di classi e $AP_i$ rappresenta l'\emph{Avera
 della classe $i$.
 
 \subsection{Image Segmentation}
-Nella Figura (\ref{segmentation}) è stato introdotto brevemente l’argomento della segmentazione 
+Nella Figura (\ref{segmentation}) è stato introdotto brevemente l'argomento della segmentazione 
 delle immagini.  I recenti risultati, raggiunti nella segmentazione delle immagini, 
-derivano dai progressi svolti nell’ottimizzazione delle \emph{Deep Convolutional Neural 
+derivano dai progressi svolti nell'ottimizzazione delle \emph{Deep Convolutional Neural 
 Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN). 
 Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, una rete neurale convoluzionale 
 sviluppata per riconoscere i numeri scritti a mano. Grazie a questa, venne spianata 
 la strada verso il continuo successo delle CNN nello svolgere vari compiti di visione 
 artificiale di alto livello, oltre che a motivare i ricercatori ad esplorare le capacità 
 di tali reti per problemi di classificazione pixel-wise, come la segmentazione delle 
-immagini. La segmentazione di un’immagine è uno dei  compiti indispensabili 
+immagini. La segmentazione di un'immagine è uno dei  compiti indispensabili 
 nella visione artificiale in quanto è utile in diversi campi scientifici, come per 
 esempio la guida autonoma, ambito medico, ambito biometrico, ambito militare, 
 riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
-della classificazione e dell’object detection, è necessario reperire delle informazioni 
+della classificazione e dell'object detection, è necessario reperire delle informazioni 
 spaziali di basso livello o a livello di pixel.
-L’image segmentation si suddivide in due categorie:
+L'image segmentation si suddivide in due categorie:
 \begin{enumerate}
     \item \emph{Semantic segmentation}
     \item \emph{Instance segmentation}
 \end{enumerate}
-Esiste un’ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata dalla 
+Esiste un'ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata dalla 
 fusione dei risultati provenienti dalle due principali categorie. In questo elaborato 
 verrà discussa solamente la tecnica di Semantic Segmentation. prima di introdurre 
 la tecniche citata, è doveroso specificare che la segmentazione delle immagini è 
-un argomento trattato anche nell’elaborazione dei video.
+un argomento trattato anche nell'elaborazione dei video.
 
 \subsubsection{Semantic Segmentation}
 Il deep learning ha fortemente promosso la ricerca sulla segmentazione semantica. 
 La comunità industriale sta facendo enormi sforzi nello sviluppo di sistemi avanzati 
 in grado di effettuare una segmentazione semantica. Per esempio, una fotocamera, 
 installata nei diffusi dispositivi mobili, è in grado di produrre un ritratto mediante 
-l’effetto di profondità, comunemente chiamato effetto bokeh, incorporando la tecnica 
+l'effetto di profondità, comunemente chiamato effetto bokeh, incorporando la tecnica 
 di segmentazione. Nella segmentazione semantica ogni pixel viene classificato 
-in base alla classe di appartenenza dell’oggetto presente nell’immagine (es: strada, 
-automobile, pedone, edificio etc.). In questo caso, i pixel dell’immagine aventi la 
+in base alla classe di appartenenza dell'oggetto presente nell'immagine (es: strada, 
+automobile, pedone, edificio etc.). In questo caso, i pixel dell'immagine aventi la 
 stessa etichetta, condividono determinate caratteristiche come colore, intensità, 
 consistenza etc. In altre parole, la segmentazione semantica tende a suddividere 
-l’immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
-rappresenta una regione significativa dell’immagine originale. Rispetto alle altre 
+l'immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
+rappresenta una regione significativa dell'immagine originale. Rispetto alle altre 
 tecniche, la tecnica di semantic segmentation ha esigenze più elevate in quanto 
 non si limita solamente a classificare gli oggetti presenti (image classification) e a 
 rilevarne la loro posizione (object detection) mediante delle bounding box, ma 
-mira a partizionare ogni regione dell’oggetto (foreground) rispetto alla regione 
+mira a partizionare ogni regione dell'oggetto (foreground) rispetto alla regione 
 di sfondo (background). Per esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono 
 raggruppate come un unica porzione di pixel \cite{aurelien}.
 \begin{figure}
@@ -766,7 +766,7 @@ raggruppate come un unica porzione di pixel \cite{aurelien}.
     \caption{Esempio Semantic segmentation.}
     \label{semantic segmentation}
 \end{figure}
-Allo stato dell’arte esistono varie tipologie di architetture di reti neurali 
+Allo stato dell'arte esistono varie tipologie di architetture di reti neurali 
 comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semantic_segmentation_networks}:
 \begin{enumerate}
     \item \emph{Fully convolutional networks (FCN)}
@@ -778,26 +778,26 @@ comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semanti
 
 \subsubsection{FULLY CONVOLUTIONAL NETWORKS}
 Long et al. \cite{fcn} propose la pietra miliare Fully Convolutional Network (FCN), 
-che diede un gran contributo all’incremento dell’accuratezza della segmentazione 
-semantica. Lo studio si basò sull’utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
+che diede un gran contributo all'incremento dell'accuratezza della segmentazione 
+semantica. Lo studio si basò sull'utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
 VGGNet\cite{vggNet} e GoolgeNet \cite{googleNet}, tutte pre-addestrare con gli stessi dati. 
 Ogni classificatore, come precedentemente spiegato in \ref{RNC}, ha lo scopo di prendere 
-un'immagine in input e ridimensionarla tramite l’attraversamento dei layer 
-convoluzionali, fino a giungere ai layer fully connected (FC). L’output prodotto 
+un'immagine in input e ridimensionarla tramite l'attraversamento dei layer 
+convoluzionali, fino a giungere ai layer fully connected (FC). L'output prodotto 
 sarà sotto forma di label predetta (Fig. \ref{CNN complete}). Per convertire questi modelli da 
 classificatori a modelli FCN densi, bisogna sostituire i layer fully connected con 
 layer convoluzionali di dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle 
 classi esistenti in PASCAL VOC (20), più la classe di background. Tramite una 
-procedura di \emph{Upsampling}, viene effettuata un’operazione di \emph{deconvoluzione}, spesso 
-chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l’immagine di partenza 
+procedura di \emph{Upsampling}, viene effettuata un'operazione di \emph{deconvoluzione}, spesso 
+chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l'immagine di partenza 
 ricostruita. Esistono varie tipologie di upsampling, fra queste abbiamo:
 \begin{enumerate}
     \item \emph{Nearest-Neighboor}: Copia il valore del pixel più vicino;
-    \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l’interpolazione lineare e l’uso dei pixel adiacenti;
-    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l’interpolazione polinomiale. Questa operazione ha un alto tasso computazionale ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
+    \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l'interpolazione lineare e l'uso dei pixel adiacenti;
+    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l'interpolazione polinomiale. Questa operazione ha un alto tasso computazionale ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
 \end{enumerate}
 Quando si sarà giunti a un layer di pooling pari alla dimensione di $1 \times 1$, allora 
-si potrà attuare l’upsampling per poter ricostruire l’immagine di partenza (Fig. \ref{FCN}). 
+si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig. \ref{FCN}). 
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{FCN.png}
@@ -807,20 +807,21 @@ si potrà attuare l’upsampling per poter ricostruire l’immagine di partenza 
 \end{figure}
 Tale architettura è composta da un \emph{Encoder} e da un \emph{Decoder}.
 \begin{itemize}
-    \item \emph{Encoder}: sezione dell’architettura adibita all’estrazione del contesto dell’immagine. 
+    \item \emph{Encoder}: sezione dell'architettura adibita all'estrazione del contesto dell'immagine. 
     La sua struttura è composta da livelli di convoluzione e di max 
-    pooling, come una comune CNN, che riducono (down-sample) l’immagine 
+    pooling, come una comune CNN, che riducono (down-sample) l'immagine 
     in ingresso; 
-    \item \emph{Decoder}: sezione dell’architettura adibita alla localizzazione degli elementi 
-    presenti nell’immagine attraverso l’utilizzo di convoluzioni trasposte. Il compito 
+    \item \emph{Decoder}: sezione dell'architettura adibita alla localizzazione degli elementi 
+    presenti nell'immagine attraverso l'utilizzo di convoluzioni trasposte. Il compito 
     di un decoder è quello di amplificare le feature map tramite operazioni 
-    di deconvoluzione utili a ricostruire l’immagine di ingresso includendone i 
+    di deconvoluzione utili a ricostruire l'immagine di ingresso includendone i 
     suoi artefatti.
 \end{itemize}
-Esitono diverse reti FCN che adottano questa tipologia di architettura. Per 
-quanto riguarda le operazioni svolte, un confronto tra l’operazione di Pooling 
-(downsampling) e di Unpooling (upsampling), o di convoluzione e deconvoluzione, 
-sono mostrate nella Figura \ref{deconvolution}.
+Esitono diverse reti FCN che adottano questa tipologia di architettura (es: \emph{Autoencoder}). 
+Per quanto riguarda le operazioni 
+svolte, un confronto tra l'operazione di Pooling (downsampling) e di Unpooling 
+(upsampling), o di convoluzione e deconvoluzione, sono mostrate nella 
+Figura \ref{deconvolution}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.7\linewidth]{deconvolution.png}
@@ -830,11 +831,11 @@ sono mostrate nella Figura \ref{deconvolution}.
 \end{figure}
 In base al numero di layer convoluzionali presenti, esistono diverse architetture 
 di Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
-un encoder che ha il compito di ridurre l’immagine iniziale di 32 volte e da un 
+un encoder che ha il compito di ridurre l'immagine iniziale di 32 volte e da un 
 decoder che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
-disposizione, la rete farà fatica a ricostruire un output simile a all’input, questo si 
+disposizione, la rete farà fatica a ricostruire un output simile a all'input, questo si 
 verifica a causa della perdita delle informazione significative nel processo svolto 
-dall’encoder. Per avere una rappresentazione più fedele dell’immagine in output, 
+dall'encoder. Per avere una rappresentazione più fedele dell'immagine in output, 
 vengono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FCN-8}.
 \begin{figure}
     \centering
@@ -843,12 +844,12 @@ vengono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FCN-8
     \caption{Esempio derivazione delle varie architetture FCN.}
     \label{FCN-models}
 \end{figure}
-Quest’ultime utilizzano una strategia intelligente per poter ricostruire l’immagine. 
+Quest'ultime utilizzano una strategia intelligente per poter ricostruire l'immagine. 
 Per giungere a un buon risultato, oltre che a fare riferimento alla sola feature 
 map, utilizzano i livelli di pooling precedenti nella quale ci sono maggiori informazioni. 
-Per giungere ad un’architettura FCN-8, bisognerà svolgere un processo 
+Per giungere ad un'architettura FCN-8, bisognerà svolgere un processo 
 iterativo che va ad effettuare una somma di ogni singolo elemento (element-wise) 
-tra l’upsampling del pooling layer $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
+tra l'upsampling del pooling layer $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
 risultante sarà quella più fedele al ground truth. Questa architettura 
 ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
 \emph{FCN-GoogleNet}.
@@ -859,7 +860,7 @@ Per rimediare alla bassa qualità prodotta in output da una comune rete CNN, Yu
 e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione Dilatata}} 
 o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello consentiva di estrarre le informazioni che 
 consentivano una migliore segmentazione che non comportasse a sua volta alla 
-perdita di dati rilevanti. L’idea della Convoluzione dilatata, chiamata anche 
+perdita di dati rilevanti. L'idea della Convoluzione dilatata, chiamata anche 
 \emph{Convoluzione Dilatata}, o \emph{"Atrous Algorithm"} (il termine deriva dal francese \emph{à trous} che significa "buco" o "foro"),  deriva dalla decomposizione wavelet. A differenza del 
 tradizionale operatore di convoluzione, la convoluzione dilatata introduce un tasso 
 di dilatazione \emph{(dilated rate)} $l$, utile a saltare alcuni punti, presenti nel 
@@ -889,33 +890,33 @@ Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricet
 e minore saranno i calcoli da svolgere. 
 
 \subsubsection{DeepLab}\label{DeepL}
-DeepLab è un modello utilizzato allo stato dell’arte per la segmentazione semantica 
+DeepLab è un modello utilizzato allo stato dell'arte per la segmentazione semantica 
 progettato da Google. Per la costruzione della rete sono state affrontate due 
-problematiche: il down-sampling e l’invarianza spaziale. Il primo problema, legato 
-alla riduzione della risoluzione delle feature, è stato risolto grazie all’applicazione 
-dell’algoritmo soprannominato “atrous”. Ogni encoder è composto dalla combinazione 
+problematiche: il down-sampling e l'invarianza spaziale. Il primo problema, legato 
+alla riduzione della risoluzione delle feature, è stato risolto grazie all'applicazione 
+dell'algoritmo soprannominato “atrous”. Ogni encoder è composto dalla combinazione 
 di layer di pooling che riducono la risoluzione spaziale delle feature map. 
 Per poter ricostruire le informazioni perse, si può utilizzare la deconvoluzione. 
-Quest’ultima richiede però un quantitativo importante di memoria e di tempo. 
-L’algoritmo offre un metodo alternativo alla deconvoluzione. Il suo scopo 
+Quest'ultima richiede però un quantitativo importante di memoria e di tempo. 
+L'algoritmo offre un metodo alternativo alla deconvoluzione. Il suo scopo 
 è quello di applicare una convoluzione che permetta di allargare efficacemente il 
 campo visivo dei filtri senza aumentare il numero di parametri preservando la 
 quantità di computazione richiesta. La tecnica della convoluzione atrosa può essere 
 vista come come un espediente della tecnica di upsampling. Per poter risolvere il 
-secondo problema, legato alla precisione ridotta a causa dell’invarianza spaziale, 
+secondo problema, legato alla precisione ridotta a causa dell'invarianza spaziale, 
 questa tipologia di rete, al fine di catturare dettagli più fini, applica un \emph{Conditional 
 Random Field (CRF)} completamente connesso. Questa classe di modelli 
 discriminanti utilizzano le informazioni contestuali delle label per effettuare delle 
 buone previsioni. Restando ad un discorso più ad alto livello, le potenzialità del 
-CRF riguardano l’utilizzo di termini leviganti (\emph{smoothness}) utili a massimizzare la 
+CRF riguardano l'utilizzo di termini leviganti (\emph{smoothness}) utili a massimizzare la 
 relazione tra le etichette di pixel simili che esaltano il foreground dal background. 
 Questi termini permetto quindi di avere una mappa di segmentazione migliore 
-anche dopo aver applicato poche volte, in maniera iterativa, l’algoritmo del CRF. 
-L’architettura generale di un modello DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input 
-un’immagine e di elaborarla da una comune DCNN in cui ci sono degli strati 
-atrosi, per poter generare una prima Score map su cui verrà fatto l’upsampling 
-con un’interpolazione bilineare. Dopo aver estratto un’immagine avente le stesse
-dimensioni dell’immagine di partenza, verrà applicato il CRF.
+anche dopo aver applicato poche volte, in maniera iterativa, l'algoritmo del CRF. 
+L'architettura generale di un modello DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input 
+un'immagine e di elaborarla da una comune DCNN in cui ci sono degli strati 
+atrosi, per poter generare una prima Score map su cui verrà fatto l'upsampling 
+con un'interpolazione bilineare. Dopo aver estratto un'immagine avente le stesse
+dimensioni dell'immagine di partenza, verrà applicato il CRF.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{CRF.png}
@@ -927,7 +928,7 @@ dimensioni dell’immagine di partenza, verrà applicato il CRF.
 \subsubsection{TOP-DOWN/BOTTOM-UP APPROACH}
 \subsubsection{U-Net}
 La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura a forma 
-di U (Fig. (\ref{unet})) composta anch’essa da un encoder, o percorso di contrazione, e 
+di U (Fig. (\ref{unet})) composta anch'essa da un encoder, o percorso di contrazione, e 
 un decoder, o percorso di espansione.
 \begin{figure}
     \centering
@@ -936,30 +937,30 @@ un decoder, o percorso di espansione.
     \caption{Esempio architettura rete U-Net.}
     \label{unet}
 \end{figure}
-Nell’immagine, ogni riquadro blu rappresenta una feature map multicanale. Il 
+Nell'immagine, ogni riquadro blu rappresenta una feature map multicanale. Il 
 numero dei canali (specificati sopra ogni riquadro) e le dimensioni (specificate in 
 basso a sinistra di ogni riquadro), variano in base alla profondità della rete. I 
 riquadri bianchi, presenti nello strato di decoder, stanno a rappresentare le feature 
-map copiate dallo strato dell’encoder. Fra i vari layer esistenti in entrambe le 
+map copiate dallo strato dell'encoder. Fra i vari layer esistenti in entrambe le 
 parti, esistono delle connessioni, chiamate \emph{Shortcut connection}, capaci di creare 
-un collegamento utile a trasferire le informazioni estratte dall’encoder verso il 
+un collegamento utile a trasferire le informazioni estratte dall'encoder verso il 
 decoder. Questi collegamenti sono utili a velocizzare il processo di up-sampling e 
-migliorare nel contempo il risultato finale. La sezione dell’encoder è formata da 
+migliorare nel contempo il risultato finale. La sezione dell'encoder è formata da 
 due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione ReLU e 
-da un’operazione di max-pooling avente una finestra di dimensioni $2 \times 2$ con 
-passo 2. Dalla parte del decoder invece abbiamo l’operazione di up-sampling delle 
+da un'operazione di max-pooling avente una finestra di dimensioni $2 \times 2$ con 
+passo 2. Dalla parte del decoder invece abbiamo l'operazione di up-sampling delle 
 feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteristiche 
 risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta 
-dall’encoder. Successivamente, vengono applicate due operazione di convoluzioni 
+dall'encoder. Successivamente, vengono applicate due operazione di convoluzioni 
 consecutive aventi finestra di dimensione pari a $3 \times 3$.
 
 \subsubsection{SegNet}
-Così come i modelli già visti, anche SegNet ha un’architettura composta da un 
-encoder e un decoder. La parte adibita all’encoder utilizza 13 layer convoluzionali, 
-mentre la parte destinata al decoder contiene anch’essa 13 layer per la deconvoluzione. 
+Così come i modelli già visti, anche SegNet ha un'architettura composta da un 
+encoder e un decoder. La parte adibita all'encoder utilizza 13 layer convoluzionali, 
+mentre la parte destinata al decoder contiene anch'essa 13 layer per la deconvoluzione. 
 In ogni layer della sezione encoder, viene utilizzato un banco di filtri 
 per produrre le feature map. Per poter ridurre lo spostamento della covarianza 
-interna, problema legato all’input che porta la rete a non essere abbastanza 
+interna, problema legato all'input che porta la rete a non essere abbastanza 
 efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnica 
 nota come batch normalization \cite{batchNorm} seguita da una funzione attivazione ReLU. Su 
 ogni feature map viene applicato un max-pooling con una finestra di dimensioni 
@@ -967,16 +968,16 @@ $2\times 2$ e passo 2. Come già noto, un alto numero di operazioni si sub-sampl
 comporta una maggiore precisione di classificazione, ma allo stesso tempo provoca 
 una riduzione di ogni feature map che, tradotto in altri termini, causa la perdita 
 dei dati. La riduzione del numero di dati determina la creazione di bordi sfocati 
-il quale rappresenta un problematica centrale per un’operazione di segmentazione. 
+il quale rappresenta un problematica centrale per un'operazione di segmentazione. 
 Per risolvere il problema della perdita dei dati, SegNet effettua solo una memorizzazione 
-degli indici di pooling per ciascuna feature map prodotta dall’encoder. 
-Tali indici saranno utili al decoder per effettuare l’operazione di upsampling 
-al fine di costruire delle feature map ad alta risoluzione che avessero l’obiettivo di 
-produrre un’immagine in output avente le stesse dimensioni di quella in input. 
+degli indici di pooling per ciascuna feature map prodotta dall'encoder. 
+Tali indici saranno utili al decoder per effettuare l'operazione di upsampling 
+al fine di costruire delle feature map ad alta risoluzione che avessero l'obiettivo di 
+produrre un'immagine in output avente le stesse dimensioni di quella in input. 
 Per giungere al risultato finale, anche il decoder utilizza un banco di filtri, a loro 
 volta aggiornabili in fase di addestramento, per poter effettuare la deconvoluzione. 
 La feature map prodotta da un decoder verrà inserità in un classificatore softmax 
-multi-classe addestrabile che effettuerà l’etichettatura di ogni singolo pixel (Fig. (\ref{segnet})).
+multi-classe addestrabile che effettuerà l'etichettatura di ogni singolo pixel (Fig. (\ref{segnet})).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{segnet.png}
@@ -987,10 +988,10 @@ multi-classe addestrabile che effettuerà l’etichettatura di ogni singolo pixe
 
 \subsubsection{GLOBAL CONTEXT}
 \subsubsection{ParseNet}
-Un significativo miglioramento delle reti FCN ebbe inizio con l’introduzione della 
+Un significativo miglioramento delle reti FCN ebbe inizio con l'introduzione della 
 rete ParseNet \cite{parsenet}. Codesta, a differenza delle reti FCN, utilizza le informazioni 
 inerenti le feauture globali, o contesto globale, per poter produrre in output una 
-buona segmentazione dell’immagine (Fig. (\ref{global context})).
+buona segmentazione dell'immagine (Fig. (\ref{global context})).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{gloabal context.png}
@@ -1001,22 +1002,22 @@ buona segmentazione dell’immagine (Fig. (\ref{global context})).
 Le feature globali sono utili per poter rappresentare un oggetto nella sua 
 totalità. Per poter ricavare queste informazioni, vengono utilizzate delle feature 
 map sulla quale viene eseguito il pooling mediante una media globale. Dopo aver 
-effettuato il pooling, viene eseguita l’operazione inversa (\emph{un-pooling}) per poter 
-riportare l’immagine alle sue dimensioni di partenza. Successivamente, le feature 
+effettuato il pooling, viene eseguita l'operazione inversa (\emph{un-pooling}) per poter 
+riportare l'immagine alle sue dimensioni di partenza. Successivamente, le feature 
 map di partenza e quelle ricavate vengono combinate per effettuare una previsione 
 sul punteggio di classificazione finale. Ogni feature map appartiene a un layer 
 diverso, pertanto la combinazione di queste sarà formata da feature map diverse 
 in termini di scala e di norma. Affinché tutto funzioni, vengono applicate due 
-normalizzazioni L2 (\ref{L2}), una dopo il pooling globale e l’altra dopo la feature 
+normalizzazioni L2 (\ref{L2}), una dopo il pooling globale e l'altra dopo la feature 
 map di partenza estratta contemporaneamente dalla FCN. 
 \begin{equation}\label{L2}
     \norm{x}_2 = \left(\sum_{i=1}^d \abs{x_i}^2 \right)^\frac{1}{2}
 \end{equation}
-Dove $x$ rappresenta l’input e $d$ rappresenta la sua dimensionalità. Nel percorso 
+Dove $x$ rappresenta l'input e $d$ rappresenta la sua dimensionalità. Nel percorso 
 inferiore, viene eseguita una normalizzazione L2, a ciasun livello di convoluzione, 
 per ciascun canale. Nel percorso superiore invece, viene effettuato un pooling 
 medio delle feature map in ogni specifico livello di convoluzione. Dopo aver 
-ottenuto le feature globali, viene effettuata una normalizzazione L2. L’unpooling 
+ottenuto le feature globali, viene effettuata una normalizzazione L2. L'unpooling 
 è utile a poter far combaciare le dimensioni dei vettori superiori con i vettori 
 inferiori, in modo che questi possano essere concatenati. La figura (\ref{parsenet}) riassume 
 i passaggi precedenti.
@@ -1030,15 +1031,15 @@ i passaggi precedenti.
 
 \subsubsection{GCN}
 La segmentazione semantica basa il suo principio di funzionamento su due aspetti: 
-classificazione e localizzazione. Quest’ultimi sono ritenuti come due concetti 
-di natura opposta in quanto, una piccola trasformazione dell’input, come ad 
+classificazione e localizzazione. Quest'ultimi sono ritenuti come due concetti 
+di natura opposta in quanto, una piccola trasformazione dell'input, come ad 
 esempio una traslazioni o rotazioni, rende la classificazione invariante mentre, allo 
 stesso tempo, la localizzazione potrebbe risentirne negativamente, pertanto risulta 
 essere più sensitiva rispetto alla classificazione. Per sopperire alle problematiche 
 delle trasformazioni su entrambe le tecniche, venne introdotto il modello \emph{Global 
 Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due principi:
 \begin{enumerate}
-    \item Dal punto di vista della \emph{localizzazione}, la struttura del modello dev’essere 
+    \item Dal punto di vista della \emph{localizzazione}, la struttura del modello dev'essere 
     completamente convolutiva per poter mantenere le informazioni utili alla 
     localizzazione degli oggetti in quanto, se la struttura fosse stata a livelli 
     completamente connessi (fully-connected layers), o pooling globali, questi 
@@ -1050,7 +1051,7 @@ Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due prin
     invariante alle trasformazioni.
 \end{enumerate}
 Per poter migliorare il contorno della segmentazione, viene utilizzata il blocco 
-\emph{Boundary Refinement (BR)} dopo l’applicazione del modulo GCN e durante 
+\emph{Boundary Refinement (BR)} dopo l'applicazione del modulo GCN e durante 
 il processo di deconvoluzione.
 \begin{figure}
     \centering
@@ -1061,7 +1062,7 @@ il processo di deconvoluzione.
 \end{figure}
 Come visto in Figura (\ref{gcn}), ResNet è la rete che viene utilizzata come 
 backbone (spina dorsale), pre-addestrata con le immagini contenute nel dataset 
-ImageNet. Sulle mappe dei punteggi di bassa risoluzione viene effettuata un’operazione 
+ImageNet. Sulle mappe dei punteggi di bassa risoluzione viene effettuata un'operazione 
 di upsampling con un layer di deconvoluzione. Le mappe ottenute dalla 
 deconvoluzione verranno aggiunte con quelle più alte per poter generare nuove 
 mappe dei punteggi utili alla segmentazione finale.
@@ -1073,7 +1074,7 @@ portato a dei miglioramenti in termini di performance. Gli stessi autori di
 DeepLab introdussero altre versioni del loro modello, in particolare introdussero 
 DeepLabv2 \cite{deeplabv2} e DeepLabv3 \cite{deeplabv3}. La prima, rispetto alla prima versione, utilizza 
 una tecnologia aggiuntiva chiamata \emph{Atrous Spatial Pyramid Pooling (ASPP)}.  
-Quest’ultima ha il compito di aggregare diverse feature multi-scala per una 
+Quest'ultima ha il compito di aggregare diverse feature multi-scala per una 
 migliore localizzazione. Per ogni tasso di dilatazione $l$ differente, la tecnica 
 effettua una convoluzione dilatata ad ogni feature map di input che unirà con le 
 restanti (Fig. (\ref{aspp})).
@@ -1084,13 +1085,13 @@ restanti (Fig. (\ref{aspp})).
     \caption{Atrous Spatial Pooling Pyramid.}
     \label{aspp}
 \end{figure}
-Oltre a questa, l’architettura di DeepLabv2 utilizza non solo VGGNet come 
+Oltre a questa, l'architettura di DeepLabv2 utilizza non solo VGGNet come 
 backbone , ma utilizza anche ResNet. Per quanto riguarda DeepLabv3, questo 
 modello venne introdotto per poter catturare i bordi degli oggetti mediante il 
 recupero delle informazioni spaziali. Per ottenere quanto detto, DeepLabv3 incorpora 
-un encoder e un decoder con una convoluzione dilatata separata. L’encoder 
+un encoder e un decoder con una convoluzione dilatata separata. L'encoder 
 e il decoder sono utili per poter ricavare i contorni degli oggetti nitidi mentre 
-la convoluzione dilatata viene applicata in profondità per aumentare l’efficienza 
+la convoluzione dilatata viene applicata in profondità per aumentare l'efficienza 
 computazionale. Per ottenere ciò viene fattorizzata una convoluzione standard in 
 una \emph{convoluzione depth-wise}, seguita da una \emph{convoluzione point-wise} (convoluzione 
 con kernel di dimensione 1x1). Una convoluzione di tipo depth-wise ha il compito 
@@ -1098,7 +1099,7 @@ di eseguire una convoluzione spaziale in maniera indipendente su ciascun canale,
 mentre una convoluzione point-wise effettua una combinazione delle uscite della 
 convoluzione depth-wise su tutti i canali contemporaneamente (Fig. (\ref{depth and point})). È bene ricordare 
 che il kernel utilizzato per la convoluzione depth-wise ha un numero di canali pari 
-a quello presenti nell’immagine di input.
+a quello presenti nell'immagine di input.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{depth and point.png}
@@ -1108,8 +1109,8 @@ a quello presenti nell’immagine di input.
 \end{figure}
 
 \subsubsection{PSPNet}
-L’ultima tipologia di rete mostrata è chiamata \emph{Pyramid Scene Parsing Network 
-(PSPNet)} \cite{pspnet}. All’interno di questa rete viene utilizzato il modulo \emph{Pyramid 
+L'ultima tipologia di rete mostrata è chiamata \emph{Pyramid Scene Parsing Network 
+(PSPNet)} \cite{pspnet}. All'interno di questa rete viene utilizzato il modulo \emph{Pyramid 
 Pooling} che ha il compito di effettuare un pooling, su ogni feature map iniziale, 
 utilizzando quattro differenti scale corrispondenti a quattro differenti livelli 
 piramidali, corrispettivamente di dimensione $1\times 1$, $2\times 2$, $3\times 3$ e $6\times 6$, 
@@ -1123,22 +1124,22 @@ come mostrato in Figura (\ref{pspnet}).
 \end{figure}
 Anche in questa rete viene utilizzata ResNet per poter estrarre le feature. La 
 convoluzione dilatata è come quella eseguita in DeepLab. Le dimensioni della 
-feature map è ridotta di circa $1/N$ rispetto all’immagine di input, dove $N$ sta ad 
+feature map è ridotta di circa $1/N$ rispetto all'immagine di input, dove $N$ sta ad 
 indicare i livelli della piramide. Nella figura (\ref{pspnet}), il numero di livelli piramidali 
 è pari a 4, pertanto $N=4$, che a sua volta si traduce in un a riduzione pari a 
-$1/4$ dell’immagine di partenza. Per ridurre le dimensioni dei layer di pooling, 
+$1/4$ dell'immagine di partenza. Per ridurre le dimensioni dei layer di pooling, 
 viene effettuata una convoluzione di dimensioni $1\times 1$. Gli output prodotti dalle 
 varie convoluzioni sono sottoposti a processo di upsampling e concatenati con 
 le feature map iniziali per poter combinare le informazioni contestuali locali e 
-globali. Infine, l’intera concatenazione sarà convoluta per poter generare una 
+globali. Infine, l'intera concatenazione sarà convoluta per poter generare una 
 predizione pixel-wise utile a realizzare la segmentazione semantica finale.
 
 \subsubsection{Metriche di valutazione Image Segmentation}
-Così come per l’Object detection, anche l’Image Saegmentation dispone di tecniche 
+Così come per l'Object detection, anche l'Image Saegmentation dispone di tecniche 
 per poter valutare la segmentazione effettuata da un modello. Immaginiamo di 
-avere un numero $k$ di classi esistenti e che a questo venga sommata un’ulteriore 
+avere un numero $k$ di classi esistenti e che a questo venga sommata un'ulteriore 
 classe di background, per un totale di $k+1$ classi. Denotiamo inoltre con $Y$ il 
-numero di pixel totali dell’immagine da segmentare. Secondo \cite{metric_semantic_seg}, immaginiamo di dover segmentare i pixel di una classe $i$, definiamo tre 
+numero di pixel totali dell'immagine da segmentare. Secondo \cite{metric_semantic_seg}, immaginiamo di dover segmentare i pixel di una classe $i$, definiamo tre 
 tipologie di valori associati a $Y$:
 \begin{enumerate}
     \item $Y_{ii}$: denotano il numero di pixel predetti appartenenti alla classe $i$ ed 
@@ -1149,7 +1150,7 @@ tipologie di valori associati a $Y$:
     corrispondenti alla classe $j$ (\emph{False Negative (FN)});
 \end{enumerate}
 Di seguito vengono elencate le cinque più famose tecniche per poter valutare 
-l’accuratezza della segmentazione semantica:
+l'accuratezza della segmentazione semantica:
 \begin{itemize}
     \item {\bfseries{\emph{Pixel Accuracy (PA)}}}: rappresenta il rapporto tra il numero di pixel 
     correttamente segmentati e il numero totale di pixel. In altre parole, tale 
@@ -1159,19 +1160,19 @@ l’accuratezza della segmentazione semantica:
         PA = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}}
     \end{equation}
 
-    \item {\bfseries{\emph{Mean Pixel Accuracy (MPA)}}}: rappresenta un’estensione della Pixel 
-    Accuracy. Ha lo scopo di calcolare l’accuratezza media dei pixel per ogni 
+    \item {\bfseries{\emph{Mean Pixel Accuracy (MPA)}}}: rappresenta un'estensione della Pixel 
+    Accuracy. Ha lo scopo di calcolare l'accuratezza media dei pixel per ogni 
     classe. La MAP può essere ottenuta dalla seguente formula:
     \begin{equation}
         MPA = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}}
     \end{equation}
 
     \item {\bfseries{\emph{Intersection Over Union (IoU)}}}: seppur incontrata nella sezione inerente 
-    l’object detection (\ref{OBJD}), l’IoU per la semantic segmentation non rappresenta 
+    l'object detection (\ref{OBJD}), l'IoU per la semantic segmentation non rappresenta 
     più il rapporto tra la sovrapposizione di una bounding box predetta con 
     la bounding box del ground truth, ma questa volta sta a rappresentare la 
     percentuale di sovrapposizione tra la regione predetta e la regione target 
-    appartenente al ground truth (\ref{predSegIoU}). In altre parole, l’IoU può essere rappresentata 
+    appartenente al ground truth (\ref{predSegIoU}). In altre parole, l'IoU può essere rappresentata 
     come $TP/(TP+FP+FN)$, che da un punto di vista matematica è espresso come:
     \begin{equation}\label{predSegIoU}
         IoU = \frac{target\cap prediction}{target\cup prediction}
@@ -1180,7 +1181,7 @@ l’accuratezza della segmentazione semantica:
         IoU = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}+\sum_{i=0}^k\sum_{j=0}^kY_{ji}-\sum_{i=0}^kY_{ii}}
     \end{equation}
 
-    \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l’IoU viene calcolata separatamente 
+    \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l'IoU viene calcolata separatamente 
     per ogni classe. La MIoU rappresenta la media di tutte le IoU, e 
     quindi su tutte le classi, utile a fornire un punteggio globale del modello che 
     può essere calcolato con la seguente formula:
@@ -1189,8 +1190,8 @@ l’accuratezza della segmentazione semantica:
     \end{equation}
 
     \item {\bfseries{\emph{Frequency-Weighted Intersection over Union (FWIoU)}}}: questa metrica 
-    rappresenta un’estensione della MIoU. La FWIoU utilizza la frequenza 
-    di occorrenza per poter regolare l’importanza di ciascuna classe. La formula 
+    rappresenta un'estensione della MIoU. La FWIoU utilizza la frequenza 
+    di occorrenza per poter regolare l'importanza di ciascuna classe. La formula 
     per il suo calcolo è la seguente:
     \begin{equation}
         FWIoU = \frac{1}{\sum_{i=0}^k\sum_{j=0}^kp_{ij}}\sum_{i=0}^k\frac{\sum_{j=0}^kY_{ij}Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
@@ -1201,10 +1202,10 @@ per applicazioni real-time. Per calcolare la complessità di un modello, possono
 essere tenute in considerazione due metriche come il numero dei parametri e le 
 operazioni in virgola mobile (\emph{Floating Point Operations - FLOPs}). Maggiori 
 sono questi due valori e minori saranno le prestazioni del modello. Entrambe 
-le metriche sono indipendenti dall’ambiente. Per quanto riguarda la velocità di 
+le metriche sono indipendenti dall'ambiente. Per quanto riguarda la velocità di 
 implementazione, possono essere utilizzate due metriche: \emph{Runtime} e, come per 
 la tecnica di Object detection, i \emph{Frame al secondo (Frame Per Second - FPS)}. 
-Quest’ultime due metriche, a differenza delle precedenti, dipendono dall’ambiente 
+Quest'ultime due metriche, a differenza delle precedenti, dipendono dall'ambiente 
 software e hardware.
 
 \subsection{Il Deep Learning nella guida autonoma}
