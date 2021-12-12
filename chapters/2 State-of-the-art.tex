@@ -1589,3 +1589,68 @@ calcolare il livello di rischio bisogna considerare i tratti umani (stili di gui
 del guidatore affinché venga prodotta una previsione sulle intenzioni dei 
 possibili personaggi che compongono l'ambiente esterno (pedoni e veicoli). 
 In Figura (\ref{coll-avoid}) è possibile notare alcuni sistemi di Collision Avoidance.
+
+\subsubsection{Traffic Sign/Light Detection and Recognition}
+Un'alta percentuale di incidenti stradali è dovuta alla scarsa attenzione verso 
+la segnaletica stradale. Un sistema di guida autonoma, grazie a tecniche di 
+computer vision e grazie al supporto del deep learning, può essere in grado 
+di rilevare segnaletiche stradali quali strisce pedonali, incroci, semafori etc. 
+Come tutte le altre tecniche, la tecnica di \emph{Traffic Sign Recognition (TSR)} e 
+la tecnica di \emph{Traffic Light Recognition (TLR)} hanno il compito di avvisare 
+il guidatore quando questo si trova in prossimità di un'area che richiede 
+attenzione, come per esempio una curva o un incrocio. La rilevazione di 
+queste aree viene fatta grazie all'utilizzo delle \emph{Region Based Convolutional 
+Neural Networks (R-CNN)} \cite{RCNN-TLR}, reti neurali in grado di estrarre le regioni 
+di interesse (ROI). Ogni regione estratta verrà analizzata da una rete 
+convoluzionale per poter identificare gli oggetti al suo interno. In genere, 
+il TSR è diviso in due categorie: Detection e Classification. La detection 
+riguarda la localizzazione della segnaletica stradale nelle varie ROI, mentre la 
+classificazione riguarda al determinazione del tipo di segnale che il sistema 
+ha rilevato. Oltre che a riconoscere i segnali, un TSR dev'essere anche 
+intelligente. Durante il percorso, se il sistema rivela più segnali ridondanti, 
+questo non deve attirare la concentrazione del conducente in quanto non tutti 
+i segnali hanno la stessa importanza. Quando un segnale viene rilevato più 
+volte in maniera consecutiva, il sistema dovrebbe notificarlo una sola volta 
+o quanto meno dovrebbe avvertire solo in caso di segnaletica importante. 
+Oltre a questo aspetto, un TSR dev'essere in grado di rilevare quei segnali 
+che il guidatore non ha colto, a causa di una distrazione, durante il tragitto. 
+I sistemi TSR sono in grado di gestire i falsi positivi e i falsi negativi. Tutto 
+questo è possibile grazie a un confronto fra frame adiacenti in cui vengono 
+rilevati e tracciati i vari segnali. Se un segnale venisse erroneamente rilevato 
+in un solo frame e non in quelli adiacenti, allora potrebbe trattarsi di un 
+falso positivo e pertanto non c'è bisogno di notificarlo al conducente. Oltre 
+alla velocità assunta dal veicolo, che potrebbe influenzare la classificazione, 
+ovviamente ci dev'essere un corretto trade-off tra la velocità di rilevazione e 
+il tempo di riconoscimento del segnale. Quando si confrontano i rilevatori 
+di segnali, è necessario impostare alcune metriche di confronto. Come al 
+solito, la misura più semplice e la più importante è il tasso dei veri positivi.
+La fase di identificazione è di solito suddivisa un due sottofasi \cite{sign-rec}:
+\begin{enumerate}
+    \item \emph{Metodi basati sul colore;}
+    \item \emph{Metodi basati sulla forma.}
+\end{enumerate}
+Il colore e la forma possono contraddistinguere un segnale da un altro.
+Ogni metodo ha i suoi pro e i suoi contro. Se la ricerca è incentrata sul 
+colore allora questa potrebbe essere influenzata da fattori esterni come 
+l'illuminazione o l'aspetto del segnale (presenza di imbrattature, adesivi 
+o semplice sbiadimento). Al contrario, risulta facile ricercare un range di 
+colori all'interno di un'immagine. Per quanto riguarda le forme, queste 
+sono invarianti all'illuminazione e al tempo mentre, d'altra parte se occluse 
+rappresentano una problematica per il rilevamento. Per risolvere i problemi 
+inerenti il rilevamento, viene utilizzata la tecnica di segmentazione che segue 
+una fase di estrazione delle feature per poter successivamente eseguire il 
+rilevamento del segnale. Lo scopo della segmentazione è quello di ottenere 
+un'area approssimativa di dove dovrebbero comparire i segni stradali per 
+poter quindi restringere lo spazio di ricerca nelle fasi successive. La fase 
+di feature extraction ricerca maggiormente elementi appartenenti al set di 
+forme geometriche come angoli, bordi, cerchi, rettangoli etc. Per questo 
+scopo, una delle tecniche maggiormente utilizzate per l'estrazione delle 
+feature è la trasformata di Hough o le già citate wavelet di Haar. Un 
+esempio di Traffic Sign e Light recognition è riportato nella Figura (\ref{traffic sing-ligth}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{traffic sign and ligth.png}
+    \centering
+    \caption{Esempio di Traffic Sign/Light recognition.}
+    \label{traffic sing-ligth}
+\end{figure}
