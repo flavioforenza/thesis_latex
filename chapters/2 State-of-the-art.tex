@@ -1548,3 +1548,44 @@ modello effettua una drowsiness detection.
     \caption{Modello generale del sistema di Drowsiness detection.}
     \label{drow-det}
 \end{figure}
+
+\subsubsection{Collision Avoidance}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{collision-avoidance.png}
+    \includegraphics[width = \linewidth]{collision-avoidance 2.png}
+    \centering
+    \caption{Esempio di alcuni sistemi di Collision Avoidance.}
+    \label{coll-avoid}
+\end{figure}
+Tutte le tecniche precedenti sono in grado di aumentare il livello di sicurezza 
+ponendosi l'obiettivo di tracciare con accuratezza veicoli e pedoni presenti 
+nell'ambiente circostante. Ciò che non è stato ancora spiegato è il chi prende 
+le decisioni importanti e come queste possano trasformarsi in azioni atte a 
+mettere in sicurezza le persone coinvolte. Quando un veicolo è dotato di 
+guida autonoma, la responsabilità nell'intraprendere determinare azioni/decisioni 
+è demandata al sistema di prevenzione delle collisioni (\emph{Collision 
+Avoidance System (CAS)}). Solitamente, tutte le informazioni sull'ambiente 
+circostante relative ad altri veicoli, la segnaletica orizzontale, le informazioni 
+sui segnali stradali e la velocità sono disponibili in un data base centrale 
+dinamico (\emph{Dynamic Data Base (DDB)}). Grazie a questo, gli algoritmi di 
+controllo e pianificazione riescono a comunicare tra loro. Possiamo considerare 
+il CAS come un sistema che, durante la velocità desiderata e il 
+comportamento di guida desiderato, minimizza il rischio di collisioni. Per 
+realizzare ciò, vengono utilizzati due approcci. Il primo viene chiamato 
+il metodo del campo potenziale \cite{col-avoid} che ha il compito di trovare il punto 
+minimo all'interno di una mappa del rischio e allo stesso tempo di manovrare 
+il veicolo in modo appropriato. Il secondo metodo viene chiamato sistema di 
+transazione statale \cite{col-avoid2}. In quest'ultimo vengono considerati tutti i possibili 
+casi, condizioni e situazioni. Diversi sono stati gli studi che hanno portato 
+ad effettuare stime del rischio durante la guida. Una delle principali azioni 
+che è viene considerata altamente rischiosa è quella inerente al cambio corsia. 
+Diversi studi \cite{risk} sono stati applicati per poter minimizzare il rischio riguardante 
+questa problematica. L'utilizzo di reti profonde, nello specifico delle 
+\emph{Recurrent Neural Network (RNN)}, e di opportune tecniche di segmentazione, 
+hanno prodotto una serie di risultati incoraggianti che hanno contributo 
+allo sviluppo di sistemi utili alla minimizzazione del rischio.  Per poter 
+calcolare il livello di rischio bisogna considerare i tratti umani (stili di guida) 
+del guidatore affinché venga prodotta una previsione sulle intenzioni dei 
+possibili personaggi che compongono l'ambiente esterno (pedoni e veicoli). 
+In Figura (\ref{coll-avoid}) è possibile notare alcuni sistemi di Collision Avoidance.
