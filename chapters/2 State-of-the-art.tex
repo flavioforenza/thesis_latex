@@ -565,9 +565,9 @@ tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione
 \end{equation}
 \begin{figure}
     \centering
-    \includegraphics[width = \linewidth]{state RNN.png}
+    \includegraphics[width = 0.9\linewidth]{state RNN.png}
     \centering
-    \caption{Esempio di stato di un neurone in una RNN.}
+    \caption{Esempio di stato $h$ di un neurone in una RNN.}
     \label{state-neuron-rnn}
 \end{figure}
 Individualmente, l'output di ogni neurone corrisponde allo stato stesso 
@@ -591,7 +591,36 @@ in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni
 \end{enumerate}
 
 \subsection{Generative Adversarial Networks}
-
+Le Generative Adversarial Networks (GAN) vennero proposte da Goodfellow 
+nel 2014 \cite{GAN}. Questa famiglia di reti appartiene all'approccio non 
+supervisionato ma vengono utilizzate anche a supporto dei sistemi con 
+apprendimento rinforzato. Gli utilizzi di una GAN riguardano la stima dei 
+modelli generativi attraverso un processo composto da due reti indipendenti, 
+una generativa (G) e l'altra discriminatoria (D). La prima ha il compito di 
+catturare una distribuzione originale mentre la seconda si occupa di stimare 
+la probabilità che un dato provenga dal dataset di riferimento anzichè dalla 
+prima rete G. Spiegata in altri termini, la prima rete viene sottoposta a 
+un processo di training atto a massimizzare la probabilità che la rete D 
+sbagli la sua predizione. Tramite un continuo processo di back and forward, 
+fra il generatore che fornisce dei dati inizialmente casuali e il discriminante 
+che rilascia un feedback che attesti la loro veridicità, le reti di tipo GAN 
+possono essere utilizzate per vari scopi. Fra questi ricadono i metodi di 
+Image enhancement, predizione del traffico stradale a supporto dei veicolo 
+a guida autonoma \cite{GAN-ADAS}, generazione di volti fasulli e generazione di dipinti 
+simili a quelli originali. Il discriminante elabora l'immagine ricevuta dal 
+generatore e produce una probabilità D(x) che ne attesti la sua reale autenticità 
+con l'immagine del training set. A questo punto, lo scopo del 
+generatore è quello appunto di generare più versioni modificate di questa 
+immagine fino a quando la probabilità D è maggiore di una soglia che porti 
+il discriminante a considerare l'immagine come autentica. Un esempio del 
+lavoro svolto da una rete GAN è illustrato nella FIgura (\ref{gan-nn})
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{GAN.png}
+    \centering
+    \caption{Esempio di generatore e discriminante in una rete GAN.}
+    \label{gan-nn}
+\end{figure}
 
 
 \section{Utilizzi delle reti neurali}
