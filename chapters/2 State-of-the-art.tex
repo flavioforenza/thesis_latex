@@ -173,16 +173,24 @@ dei pesi. Questo tipo di apprendimento è svolto utilizzando la tecnica della
 quantità di dati presenti nel training set. Affinché la rete riesca a generalizzare al 
 meglio, il training set dev'essere composto da un numero di esempi adeguato. La 
 giusta quantità di esempi è utile a prevenire spiacevoli situazioni di underfitting o 
-di overfitting della rete.
+di overfitting della rete. In questa categoria di apprendimento fanno parte diversi metodi deep 
+learning, incluse le \emph{Deep Neural Networks (DNN)}, le \emph{Convolutional Neural 
+Networks (CNN)}, le \emph{Recurrent Neural Networks (RNN)} come le \emph{Long 
+Short-Term Memory (LSTM)} \cite{LSTM}.
 
 \subsection{Apprendimento Non-Supervisionato}
-Quando una rete neurale è sottoposta ad un simile apprendimento, questa riceve 
-in input dei dati privi di etichettatura o non strutturati. Lo scopo della rete, 
-o del modello, è quello di estrarne una rappresentazione e creare dei cluster 
-rappresentativi. Ci sono delle tecniche a supporto di questa tipologia di apprendimento, 
-una fra queste è la riduzione della dimensionalità che è applicata in fase 
-di pre-elaborazione delle features avente l'obiettivo di eliminare il rumore dai dati 
-quando questi sono presenti in grandi quantità. 
+Quando una rete neurale è sottoposta ad un simile apprendimento, questa 
+riceve in input dei dati privi di etichettatura o non strutturati. Lo scopo 
+della rete, o del modello, è quello di estrarne una rappresentazione e creare 
+dei cluster rappresentativi. Ci sono delle tecniche a supporto di questa 
+tipologia di apprendimento, una fra queste è la riduzione della dimensionalità 
+che è applicata in fase di pre-elaborazione delle features avente l'obiettivo di 
+eliminare il rumore dai dati quando questi sono presenti in grandi quantità. 
+Nel dominio dell'apprendimento non supervisionato fanno parte quei metodi 
+utili per effettuare il clustering e la riduzione della dimensionalità non lineare, 
+come gli \emph{Auto Encoders (AE)} e le \emph{Generative Adversarial Networks (GAN)}. 
+Anche le RNN, come le LSTM, vengono utilizzate anche per l'apprendimento 
+non supervisionato in molti domini applicativi.  
 
 \subsection{Apprendimento Semi-Supervisionato}
 Un set di input composto da dati etichettati e non, costituisce un sistema di apprendimento 
@@ -191,7 +199,7 @@ un sistema che si interpone tra i due precedentemente spiegati. I modelli che fa
 uso di questo approccio di solito utilizzano una piccola quantità di dati etichettati 
 e una grande quantità di dati non etichettati. Tale apprendimento porta alla 
 creazione di un modello più flessibile rispetto a quello ottenuto dall'apprendimento 
-supervisionato.
+supervisionato. Nel dominio semi-supervisionato, come tipologia di reti troviamo le GAN, le RNN, incluse le LSTM.
 
 \subsection{Apprendimento con Rinforzo}
 L'ultimo tipo di apprendimento automatico è chiamato Apprendimento con 
@@ -201,7 +209,8 @@ l'ambiente che lo circonda. Il miglioramento dell'intero sistema avviene mediant
 dei feedback chiamati appunto rinforzi. Quest'ultimi non hanno nulla a che fare 
 con etichette o valori di verità, ma rappresentano un livello di qualità delle azioni 
 intraprese dal sistema. Pertanto, differentemente da un sistema supervisionato, 
-non ci sono mappature tra l'input e l'output.
+non ci sono mappature tra l'input e l'output. In questo dominio fanno parte le \emph{Deep Q-Netwroks (DQN)}.
+
 
 \subsection{Algoritmo di Back-Propagation}\label{BP}
 Il termine \emph{Back-Propagation} è stato introdotto una prima volta quando si è 
@@ -319,18 +328,19 @@ soddisfatte le seguenti caratteristiche:
 
 \section{Tipologie di reti neurali}
 Esistono diverse tipologie di reti neurali, tra queste abbiamo:
-\begin{itemize}
-    \item \emph{Reti neurali feed forward (FNN)}
-    \item \emph{Reti neurali ricorrenti (RNN)}
-    \item \emph{Reti profonde (DNN)}
-    \item \emph{Reti convoluzionali (CNN)}
-\end{itemize}
-Nel seguente elaborato verranno trattate solamente le reti neurali convoluzionali 
+\begin{enumerate}
+    \item \emph{Feed Forward Neural Netowroks (FNN)}
+    \item \emph{Deep Neural Networks (DNN)}
+    \item \emph{Convolutional Neural Netoworks (CNN)}
+    \item \emph{Recurrent Neural Networks (RNN)}
+    \item \emph{Generative Adversarial Networks (GAN)}
+\end{enumerate}
+Nel seguente elaborato verranno trattate principalmente le reti neurali convoluzionali 
 ma, prima di introdurle, al fine di capire il loro funzionamento, è necessario 
 introdurre prima le reti neurali feed-forward, dette anche reti neurali a catena 
 aperta.
 
-\subsection{Reti neurali Feed-Forward}
+\subsection{Feed Forward Neural Netowroks}
 Per facilitare la comprensione del funzionamento di una comune rete neurale, 
 si potrebbe partire dallo studio del comportamento di una feed-forward neural 
 network. Questa tipologia di rete può essere vista come una funzione matematica 
@@ -350,7 +360,7 @@ un layer nascosto, e quindi probabilmente con un alto numero di connessioni, in
 gergo è chiamata rete \emph{fully connected}. Al contrario, se alcuni collegamenti sono 
 assenti, tale tipologia di rete viene chiamata \emph{partially connected}.
 
-\subsection{Reti neurali Convoluzionali}\label{RNC}
+\subsection{Convolutional Neural Netoworks}\label{RNC}
 Una rete neurale convoluzionale (CNN o ConvNet) è una tipologia di rete feed-
 forward che si sta affermando come stato dell'arte per una svariata gamma di 
 applicazioni nel campo della computer vision. Una loro prima diffusione avvenne 
@@ -515,6 +525,74 @@ grazie all'utilizzo di una funzione chiamata Softmax, posta alla fine dell'inter
 rete convoluzionale, che è in grado di “schiacciare” un vettore K-dimensionale 
 a valori reali arbitrali, in un vettore K-dimensionale a valori reali, compresi nel 
 range $(0,1)$. 
+
+\subsection{Recurrent Neural Networks}
+A differenza delle CNN, le Recurrent Neural Networks consentono operazioni 
+su una sequenza di valori temporali (\emph{Time series}). Uno dei modelli 
+migliori rappresentante le RNN, venne introdotto da Gers and Schmidhuber, 
+intitolato Long Short-Term Memory (LSTM) \cite{LSTM}. La RNN rappresenta 
+una classe di reti artificiali avente lo scopo di effettuare delle previsioni 
+su fattori futuri, come per esempio le variazioni di prezzo di un bene, la 
+traiettoria di un veicolo etc. In particolare, la peculiarità di queste reti 
+sta nel trattare un input di lunghezza arbitraria differenziandosi da altre 
+architetture che richiedono un input a lunghezza prefissata (es: CNN). Nelle 
+reti precedentemente introdotte, l'input veniva trasportato dallo strato di 
+input verso lo strato di output. A differenza di queste, le RNN hanno una 
+connessione simile alle CNN che li permette di retro propagare i dati in direzione 
+opposta. Per capire meglio, immaginiamo che una RNN sia composta 
+da un solo neurone che, all'istante di tempo $t$, prende in input un dato $X_t$, 
+lo elabora e produce un output $Y_{t+1}$ che lo re-invia a se stesso creando una specie di loop (Fig. 
+(\ref{neuron-rnn})).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{RNN.png}
+    \centering
+    \caption{Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.}
+    \label{neuron-rnn}
+\end{figure}
+Seguendo questa ricorsione, nell'istante di tempo successivo, ogni nuovo input $X_t$ corrisponderà 
+all'output $Y_{t-1}$ e così via.  Se considerassimo ogni output, corrispondente all'istante di 
+tempo $t$, in funzione di tutti gli input del precedente istante di tempo, allora possiamo 
+considerare questo concetto di ricorrenza come un concetto di memoria della rete. Ogni 
+neurone quindi rappresenta una cella di memoria capace di preservare qualche stato nel 
+tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione che dipende:
+\begin{itemize}
+    \item dall'input appartenente a un determinato istante di tempo $t$;
+    \item dal suo stato $h$ precedente.
+\end{itemize}
+\begin{equation}
+    h_t = f(h_{t-1}, x_t)
+\end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{state RNN.png}
+    \centering
+    \caption{Esempio di stato di un neurone in una RNN.}
+    \label{state-neuron-rnn}
+\end{figure}
+Individualmente, l'output di ogni neurone corrisponde allo stato stesso 
+(Fig. (\ref{state-neuron-rnn})). Esistono diverse versioni di RNN che differiscono 
+in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni:
+\begin{enumerate}
+    \item \emph{Sequence to Sequence}: utile per quei problemi che richiedono il calcolo 
+    di una previsione futura basandosi sul una serie temporale di dati;
+    \item \emph{Sequence to Vector}: tipologia di RNN che prende una sequenza di 
+    valori input e tiene in considerazione solo un valore di output, ignorando 
+    tutti gli output intermedi;
+    \item \emph{Vector to Sequence}: al contrario del sequence-to-vector, questa volta 
+    si fornisce un solo input e si considerano tutti gli output prodotti ad 
+    ogni istante di tempo;
+    \item \emph{Delayed sequence to sequence}: in questa tipologia abbaino un'architettura 
+    RNN composta da una prima parte chiamata \emph{Encoder} che 
+    effettua operazioni di tipo sequence-to-vector ed una seconda parte 
+    chiamata \emph{Decoder} che si occupa di effettuare la vector-to sequence. 
+    Questa tipologia di rete è molto utilizzata per effettuare le 
+    traduzioni linguistiche. 
+\end{enumerate}
+
+\subsection{Generative Adversarial Networks}
+
+
 
 \section{Utilizzi delle reti neurali}
 L'introduzione delle reti neurali, sia nel campo della computer vision che del deep 
