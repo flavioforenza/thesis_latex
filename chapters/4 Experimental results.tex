@@ -6,5 +6,27 @@
 \chapter{RISULTATI SPERIMENTALI}
 \label{Capitolo4}
 \thispagestyle{empty}
+In questo capitolo vengono riportati tutti i risultati sperimentali effettuati 
+sui metodi proposti. Le specifiche delle architetture di riferimento utilizzate 
+sono riportate nella Tabella (\ref{specifiche}).
+\begin{table}[htbp]
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{Architetture}} & \multicolumn{3}{c||}{\bfseries{Specifiche}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
+        \hline
+        \hline
+        Jetson Nano & 4 x ARM Cortex-A57 @ 1.43 GHz & NVIDIA Maxwell @ 921 MHz & 4 GB 1600 MHz LPDDR4\\
+        \hline
+        Macbook Pro & 8 x Intel Core i9 @ 2.3 GHz & AMD Radeon Pro 5500M @ 8 GB & 32 GB 2667 MHz DDR4\\
+        \hline 
+        Colab & 2 x Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 26 GB DDR4\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Specifiche tecniche delle tre architetture utilizzate.}
+    \label{specifiche}
+\end{table}
 
 \section{VUOTO}
