@@ -12,21 +12,100 @@ sono riportate nella Tabella (\ref{specifiche}).
 \begin{table}[htbp]
     \centering
     \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c|c||}
+    \begin{tabular}{|c||L|L|L||}
         \hline
-        \multirow{2}{*}{\bfseries{Architetture}} & \multicolumn{3}{c||}{\bfseries{Specifiche}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
+        \multirow{2}{*}{\bfseries{Architetture}} & \multicolumn{3}{c||}{\bfseries{Specifiche Tecniche}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
         \hline
         \hline
-        Jetson Nano & 4 x ARM Cortex-A57 @ 1.43 GHz & NVIDIA Maxwell @ 921 MHz & 4 GB 1600 MHz LPDDR4\\
+        {\bfseries{JETSON NANO}} & 4 $\times$ ARM Cortex-A57 @ 1.43 GHz & NVidia Maxwell @ 921 MHz & 4 GB 1600 MHz LPDDR4\\
         \hline
-        Macbook Pro & 8 x Intel Core i9 @ 2.3 GHz & AMD Radeon Pro 5500M @ 8 GB & 32 GB 2667 MHz DDR4\\
+        {\bfseries{MACBOOK PRO}} & 8 $\times$ Intel Core i9 @ 2.3 GHz & AMD Radeon Pro 5500M @ 8 GB & 32 GB 2667 MHz DDR4\\
         \hline 
-        Colab & 2 x Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 26 GB DDR4\\
+        {\bfseries{COLAB}} & 2 $\times$ Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 26 GB DDR4\\
         \hline
     \end{tabular}
     \end{adjustbox}
+    \vspace{0.5cm}
     \caption{Specifiche tecniche delle tre architetture utilizzate.}
     \label{specifiche}
 \end{table}
 
-\section{VUOTO}
+\section{Test Performance}
+Come brevemente accennato nel capitolo precedente, al fine di capire le 
+potenzialità messe a disposizione dalle varie architetture di riferimento, di 
+seguito viene riportato un test riguardante la comparazione dei \emph{Frame-per-
+Second (FPS)} elaborati da ciascuna macchina. In ogni dataset esistono 
+diversi set di immagini, ognuno con diversa risoluzione. Come inferenza, 
+si è deciso di sottoporre in input i frame provenienti da sei diversi video 
+(.mp4) e da due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})).
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{Sorgente}} & \multicolumn{2}{c||}{\bfseries{Specifiche Input}}\\            & \bfseries{Qualità} & \bfseries{FPS}\\
+        \hline
+        \hline
+        \RN{1} Video & 240p & 60\\
+        \hline
+        \RN{2} Video & 360p & 30\\
+        \hline 
+        \RN{3} Video & 480p & 30\\
+        \hline
+        \RN{4} Video & 720p &  30\\
+        \hline
+        \RN{5} Video & 1080p & 30\\
+        \hline
+        \RN{6} Video & 1080p & 60\\
+        \hline
+        \RN{7} Webcam1 & 720p & 30\\
+        \hline
+        \RN{8} Webcam2 & 1080p & 30\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Specifiche sorgenti input.}
+    \label{source}
+\end{table}
+
+\subsection{Test Performance Jetson Nano}
+I test effettuati sulla scheda Jetson Nano sono stati eseguiti utilizzando due 
+tipologie di librerie diverse, queste sono:
+\begin{enumerate}
+    \item {\bfseries{\emph{jetson.utils}}};
+    \item {\bfseries{\emph{OpenCV}}}.
+\end{enumerate}
+Le prime sono librerie sviluppate interamente da NVidia che permettono l'ottimizzazione di sistemi embedded appartenenti alla famiglia Jetson. L'efficienza di questa libreria sta nell'utilizzo dell'SDK \emph{TensorRT} che offre una bassa latenza e un throughtput elevato per inferenze deep learning ad alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate di sola CPU per l'inferenza. Solo le macchine provviste di schede grafiche NVidia possono avere questo beneficio in quanto su di esse vi è presente la tecnologia \emph{CUDA}, un modello di programmazione parallela che consente di ottimizzare l'inferenza grazie a librerie e strumenti di sviluppo basate su \emph{CUDA-X} per l'intelligenza artificiale, macchine a guida autonoma, elaborazioni ad alte prestazioni e grafica. Ritornando alle jetson.utils, queste mettono a disposizione dei modelli utili a compiere svariati compiti, come image recognition, object detection, semantic segmentation e pose estimation. 
+I test svolti con queste librerie riguardano l'object detection (Tab. X) e la semantic segmentation (Tab. Y). A differenza della semantic segmentation, i testi per l'object detection vengono fatti su modelli pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di elementi differenti. I risultati ottenuti corrispondono perfettamente con quelli dichiarati dal produttore [LINK]. Per un dispositivo embedded di fascia economica, questi test raffigurano delle performance promettenti rispetto alla concorrenza.
+
+\begin{landscape}
+    \begin{table}
+        \centering
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{16}{c||}{ \multirow{2}{*}{\bfseries{OBJECT DETECTION (DETECTNET) - JETSON NANO}}}\\
+            & \multicolumn{16}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{Modelli}} 
+            & \multicolumn{2}{c||}{\bfseries{Webcam1}} & \multicolumn{2}{c||}{\bfseries{Webcam2}} & \multicolumn{2}{c||}{\bfseries{\RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\RN{6} Video}}\\            & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net} & \bfseries{Out} & \bfseries{Net}\\
+            \hline
+            SSD-MOBILENET-V1& 16.82 & 34.48 & 16.12 & 33.88 & 18.6 & 34.96 & 18.04 & 34.05 & 17.46 & 33.74 & 15.6 & 34.47 & 11.54 & 34.78 & 11.88 & 34.72\\
+            \hline
+            SSD-MOBILENET-V2& 15.74 & 27.31 & 14.38 & 27.39 & 16.24 & 27.22 & 15.57 & 27.07 & 15.12 & 26.41 & 13.93 & 27 & 11 & 27.06 & 11.09 & 27.17\\
+            \hline 
+            SSD-INCEPTION-V2& 13.77 & 21.55 & 12.38 & 22 & 13.93 & 21.69 & 13.81 & 21.67 & 13.83 & 21.51 & 12.31 & 21.56 & 9.82 & 21.81 & 9.78 & 21.71\\
+            \hline
+            PEDNET& 7.02 & 8.92 & 6.83 & 8.94 & 6.87 & 8.93 & 6.89 & 8.92 & 6.91 & 8.87 & 6.81 & 8.89 & 6.52 & 8.93 & 6.6 & 8.91\\
+            \hline
+            MULTIPEDNET& 7.02 & 9.13 & 6.79 & 9.12 & 7.02 & 9.16 & 6.96 & 9.15 & 6.92 & 9.07 & 6.76 & 9.15 & 6.57 & 9.08 & 6.61 & 9.08\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.5cm}
+        \caption{Specifiche sorgenti input.}
+        \label{ss}
+    \end{table}
+\end{landscape}
+

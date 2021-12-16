@@ -3,8 +3,10 @@
                twoside,                 
                openright,               
                italian,
-               article]{book}    
+               article]{book}   
 
+\usepackage{array} 
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 \usepackage{wrapfig}
 \usepackage{cite}
 \usepackage{color}
@@ -31,6 +33,8 @@
 
 \usepackage{graphicx}                   % immagini
 
+\usepackage{lscape}
+
 \usepackage{hyperref}                   % collegamenti ipertestuali
 
 %\usepackage[binding=5mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm
@@ -53,6 +57,10 @@
 \usepackage{tabularx}                   % tabelle di larghezza prefissata                                    
 \usepackage{longtable}                  % tabelle su più pagine                                        
 \usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
+
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
 
 \usepackage[toc, acronym]{glossaries}   % glossario
                                         % per includerlo nel documento bisogna:
