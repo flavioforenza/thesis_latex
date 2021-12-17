@@ -38,6 +38,12 @@ Second (FPS)} elaborati da ciascuna macchina. In ogni dataset esistono
 diversi set di immagini, ognuno con diversa risoluzione. Come inferenza, 
 si è deciso di sottoporre in input i frame provenienti da sei diversi video 
 (.mp4) e da due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})).
+Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due tipologie di campi:
+\begin{itemize}
+    \item {\bfseries{\emph{Out}}}: indica il numero di FPS visualizzabili a schermo;
+    \item {\bfseries{\emph{Net}}}: indica il numero di FPS elaborati da una specifica rete durante l'inferenza.
+\end{itemize}
+
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -96,6 +102,26 @@ semantic segmentation, i testi per l'object detection vengono fatti su modelli
 pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di 
 elementi differenti. Per un dispositivo embedded di fascia economica, questi test 
 raffigurano delle performance promettenti rispetto alla concorrenza.
+I test effettuati con OpenCV invece vengono effettuati solo per il compito 
+di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
+messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
+tra i diversi framework AI con architetture sottostanti diverse. In poche 
+parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
+in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
+differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
+visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i 
+risultati ottenuti con le jetson.utils, si evince che l'assenza di un 
+ottimizzatore porta il sistema ad ottenere delle performance minori. 
+Per comprendere le potenzialità offerte da modulo GPU, in Tab. 
+(\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance 
+ottenute dalla sua CPU. Per verificare la veridicità dei test effettuati, 
+essendo questi effettuati solamente con le jetson.utils direttamente dal 
+produttore della scheda embedded \cite{performance_obj_det_jetson}. Pertanto vengono 
+riportati, nelle Tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}),  
+i valori degli FPS medi, sia di Output che della Rete, per entrambe le 
+frequenze di FPS in input. Quest'ultime riguardano le performance medie ottenute dall'uso delle jetson.utils, 
+mentre quelle visibili nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg}) rappresentano le performance medie 
+ottenute dall'uso delle OpenCV.
 \begin{landscape}
     \centering
     \begin{table}
@@ -276,24 +302,6 @@ raffigurano delle performance promettenti rispetto alla concorrenza.
     \end{table}
 \end{landscape}
 
-I test effettuati con OpenCV invece vengono effettuati solo per il compito 
-di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
-messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
-tra i diversi framework AI con architetture sottostanti diverse. In poche 
-parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
-in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
-differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
-visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i 
-risultati ottenuti con le jetson.utils, si evince che l'assenza di un 
-ottimizzatore porta il sistema ad ottenere delle performance minori. 
-Per comprendere le potenzialità offerte da modulo GPU, in Tab. 
-(\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance 
-ottenute dalla sua CPU. Per verificare la veridicità dei test effettuati, 
-essendo questi effettuati solamente con le jetson.utils direttamente dal 
-produttore della scheda embedded \cite{performance_obj_det_jetson}. Pertanto vengono 
-riportati, nelle Tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}),  
-i valori degli FPS medi, sia di Output che della Rete, per entrambe le 
-frequenze di FPS in input.
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -318,6 +326,7 @@ frequenze di FPS in input.
     \caption{Performance FPS medi Object Detection Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils obj_det}
 \end{table}
+
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -342,9 +351,6 @@ frequenze di FPS in input.
     \caption{Performance FPS medi Semantic Segmentation Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils sem_seg}
 \end{table}
-Quest'ultime riguardano le performance medie ottenute dall'uso delle jetson.utils, 
-mentre quelle visibili nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg}) rappresentano le performance medie 
-ottenute dall'uso delle OpenCV.
 
 \begin{table}
     \centering
@@ -412,30 +418,7 @@ leggermente migliori, con un costo economico pari a 1/5 del costo della CPU
 del computer. Come per il Jetson Nano, anche per il computer vengono 
 riportate le performance medie, ottenute da ogni modello, per ogni frequenza 
 di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
-\begin{table}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 14.8 & 33.87 & 15.91 & 33.46\\
-        \hline
-        RN18-CS (1024x512) & 6.93 & 10.06 & 7.98 & 10.99\\
-        \hline 
-        RN18-CS (2048x1024) & 2.07 & 2.33 & 2.38 & 2.51\\
-        \hline
-        RN18-VOC (320x320) & 16.68 & 41.14 & 18.52 & 41.33\\
-        \hline
-        RN18-VOC (512x320) & 14.24 & 30.28 & 16.36 & 31.31\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
-    \label{average performance computer CPU sem_seg}
-\end{table}
+
 \begin{landscape}
     \centering
     \begin{table}
@@ -480,6 +463,31 @@ di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
         \caption{Semantic Segmentation CPU performance FPS Computer utilizzando le OpenCV}
         \label{sem_seg_perf_comp}
     \end{table}
+
+    \begin{table}
+        \centering
+        \begin{adjustbox}{max width=\textwidth}
+        \begin{tabular}{|c||c|c||c|c||}
+            \hline
+            \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+            \hline
+            \hline
+            RN18-CS (512x256) & 14.8 & 33.87 & 15.91 & 33.46\\
+            \hline
+            RN18-CS (1024x512) & 6.93 & 10.06 & 7.98 & 10.99\\
+            \hline 
+            RN18-CS (2048x1024) & 2.07 & 2.33 & 2.38 & 2.51\\
+            \hline
+            RN18-VOC (320x320) & 16.68 & 41.14 & 18.52 & 41.33\\
+            \hline
+            RN18-VOC (512x320) & 14.24 & 30.28 & 16.36 & 31.31\\
+            \hline
+        \end{tabular}
+        \end{adjustbox}
+        \vspace{0.2cm}
+        \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+        \label{average performance computer CPU sem_seg}
+    \end{table}
 \end{landscape}
 
 \newpage
@@ -503,6 +511,7 @@ Comparando questi risultati con quelli ottenuti dalla CPU del computer,
 stranamente si evidenza la superiorità di quest'ultimo, evidenziando 
 come Colab sia stato ideato solo per l'esecuzione di modelli deep learning su 
 hardware apposito, come le sue GPU.
+\newpage
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -524,9 +533,10 @@ hardware apposito, come le sue GPU.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+    \caption{Performance FPS medi Semantic Segmentation Computer su Colab (\emph{OpenCV1 - GPU}).}
     \label{average performance Colab GPU sem_seg}
 \end{table}
+
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -548,7 +558,7 @@ hardware apposito, come le sue GPU.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+    \caption{Performance FPS medi Semantic Segmentation Computer su Colab (\emph{OpenCV - CPU}).}
     \label{average performance Colab CPU sem_seg}
 \end{table}
 
