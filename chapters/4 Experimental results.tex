@@ -290,9 +290,10 @@ Per comprendere le potenzialità offerte da modulo GPU, in Tab.
 (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance 
 ottenute dalla sua CPU. Per verificare la veridicità dei test effettuati, 
 essendo questi effettuati solamente con le jetson.utils direttamente dal 
-produttore della scheda embedded \cite{performance_obj_det_jetson}, vengono 
-riportati sia i valori degli fps medi di Output che della Rete, per ogni 
-frequenza di FPS in input (Tab. \ref{average performance jetson utils obj_det}, Tab. (\ref{average performance jetson utils sem_seg})).
+produttore della scheda embedded \cite{performance_obj_det_jetson}. Pertanto vengono 
+riportati, nelle Tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}),  
+i valori degli FPS medi, sia di Output che della Rete, per entrambe le 
+frequenze di FPS in input.
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -314,7 +315,7 @@ frequenza di FPS in input (Tab. \ref{average performance jetson utils obj_det}, 
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance medie Object Detection Jetson Nano (\emph{utils}).}
+    \caption{Performance FPS medi Object Detection Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils obj_det}
 \end{table}
 \begin{table}
@@ -338,11 +339,62 @@ frequenza di FPS in input (Tab. \ref{average performance jetson utils obj_det}, 
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance medie Semantic Segmentation Jetson Nano (\emph{utils}).}
+    \caption{Performance FPS medi Semantic Segmentation Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils sem_seg}
 \end{table}
-Le performance medie eseguite sullo Jetson Nano con OpenCV sono in invece riportate nelle Tabelle X e Y.
+Quest'ultime riguardano le performance medie ottenute dall'uso delle jetson.utils, 
+mentre quelle visibili nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg}) rappresentano le performance medie 
+ottenute dall'uso delle OpenCV.
 
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 8.03 & 19.45 & 10.66 & 19.58\\
+        \hline
+        RN18-CS (1024x512) & 3.52 & 5.11 & 3.94 & 5.37\\
+        \hline 
+        RN18-CS (2048x1024) & 1.20 & 1.45 & 1,17 & 1.46\\
+        \hline
+        RN18-VOC (320x320) & 7.68 &  17.53 & 10.11 & 17.7\\
+        \hline
+        RN18-VOC (512x320) & 6.89 & 14.87 & 8.7 & 14.96\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi Semantic Segmentation Jetson Nano su GPU (\emph{OpenCV}).}
+    \label{average performance jetson opencv GPU sem_seg}
+\end{table}
+
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 1.46 & 1.61 & 1.49 & 1.63\\
+        \hline
+        RN18-CS (1024x512) & 0.37 & 0.38 & 0.39 & 0.4\\
+        \hline 
+        RN18-CS (2048x1024) & 0.09 & 0.09 & 0.09 & 0.09\\
+        \hline
+        RN18-VOC (320x320) & 1.85 &  2.07 & 1.89 & 2.14\\
+        \hline
+        RN18-VOC (512x320) & 1.22 & 1.32 & 1.25 & 1.36\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi Semantic Segmentation Jetson Nano su CPU (\emph{OpenCV}).}
+    \label{average performance jetson opencv CPU sem_seg}
+\end{table}
 
 
 %\subsection{Test Performance Jetson Nano}
