@@ -76,9 +76,28 @@ tipologie di librerie diverse, queste sono:
     \item {\bfseries{\emph{jetson.utils}}};
     \item {\bfseries{\emph{OpenCV}}}.
 \end{enumerate}
-Le prime sono librerie sviluppate interamente da NVidia che permettono l'ottimizzazione di sistemi embedded appartenenti alla famiglia Jetson. L'efficienza di questa libreria sta nell'utilizzo dell'SDK \emph{TensorRT} che offre una bassa latenza e un throughtput elevato per inferenze deep learning ad alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate di sola CPU per l'inferenza. Solo le macchine provviste di schede grafiche NVidia possono avere questo beneficio in quanto su di esse vi è presente la tecnologia \emph{CUDA}, un modello di programmazione parallela che consente di ottimizzare l'inferenza grazie a librerie e strumenti di sviluppo basate su \emph{CUDA-X} per l'intelligenza artificiale, macchine a guida autonoma, elaborazioni ad alte prestazioni e grafica. Ritornando alle jetson.utils, queste mettono a disposizione dei modelli utili a compiere svariati compiti, come image recognition, object detection, semantic segmentation e pose estimation. 
-I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_jetson_utils})) e la semantic segmentation (Tab.(\ref{sem_seg_jetson_utils})). A differenza della semantic segmentation, i testi per l'object detection vengono fatti su modelli pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di elementi differenti. I risultati ottenuti corrispondono perfettamente con quelli dichiarati dal produttore [LINK]. Per un dispositivo embedded di fascia economica, questi test raffigurano delle performance promettenti rispetto alla concorrenza.
-
+Le prime sono librerie sviluppate interamente da NVidia che permettono 
+l'ottimizzazione di sistemi embedded appartenenti alla famiglia Jetson. 
+L'efficienza di questa libreria sta nell'utilizzo dell'SDK \emph{TensorRT} che offre 
+una bassa latenza e un throughtput elevato per inferenze deep learning ad 
+alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono 
+delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate 
+di sola CPU per l'inferenza. Solo le macchine provviste di schede grafiche 
+NVidia possono avere questo beneficio in quanto su di esse vi è presente la 
+tecnologia \emph{CUDA}, un modello di programmazione parallela che consente 
+di ottimizzare l'inferenza grazie a librerie e strumenti di sviluppo basate 
+su \emph{CUDA-X} per l'intelligenza artificiale, macchine a guida autonoma, 
+elaborazioni ad alte prestazioni e grafica. Ritornando alle jetson.utils, 
+queste mettono a disposizione dei modelli utili a compiere svariati compiti, 
+come image recognition, object detection, semantic segmentation e pose estimation. 
+I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_jetson_utils})) 
+e la semantic segmentation (Tab.(\ref{sem_seg_jetson_utils})). A differenza della 
+semantic segmentation, i testi per l'object detection vengono fatti su modelli 
+pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di 
+elementi differenti. I risultati ottenuti corrispondono perfettamente con quelli 
+dichiarati dal produttore \cite{performance_obj_det_jetson}. Per un dispositivo embedded 
+di fascia economica, questi test raffigurano delle performance promettenti rispetto 
+alla concorrenza.
 \begin{landscape}
     \centering
     \begin{table}
@@ -119,15 +138,22 @@ I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_j
             \hline
         \end{tabular}
         }%
-        \vspace{0.5cm}
+        \vspace{0.2cm}
         \caption{Object Detection performance FPS Jetson Nano utilizzando le jetson.utils.}
         \label{obj_jetson_utils}
     \end{table}
 
     \begin{table}
-        \newarray\First
-        \readarray{First}{1&2&3}
-        \centering
+        \newarray\Firsts
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{Firsts}{8.25&48.12&8.37&48.94&20.49&48.92&16.68&48.75&15.7&48.6&9.19&48.24&4.43&48.42&4.63&48.08}
+        \readarray{Second}{5.76&12.27&5.57&12.35&8.22&12.34&7.38&12.27&7.46&12.34&5.46&12.3&4.43&12.21&3.96&12.31}
+        \readarray{Third}{3.79&3.04&2.56&3.06&4.41&3.06&2.38&3.06&4.31&3.06&2.17&3.06&3.58&3.06&1.79&3.02}
+        \readarray{Fourth}{8.96&46.06&7.9&46.44&20.19&46.43&16.37&46.46&15.32&46.63&7.82&46.26&4.78&46.03&4.96&45.98}
+        \readarray{Fifth}{8.4&34.31&8.15&34.92&17.15&34.35&13.52&34.26&13.82&34.43&7.42&34.21&4.5&34.61&4.74&34.44}
         {\scriptsize %
         \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||}
             \hline
@@ -138,21 +164,128 @@ I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_j
             \multirow{2}{*}{\bfseries{\large Modelli}} 
             & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
             \hline
-            SSD-MOBILENET-V1& 16.82 & 34.48 & 16.12 & 33.88 & 18.6 & 34.96 & 18.04 & 34.05 & 17.46 & 33.74 & 15.6 & 34.47 & 11.54 & 34.78 & 11.88 & 34.72\\
+            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            & & & & & & & & & & & & & & & &\\
             \hline
-            SSD-MOBILENET-V2& 15.74 & 27.31 & 14.38 & 27.39 & 16.24 & 27.22 & 15.57 & 27.07 & 15.12 & 26.41 & 13.93 & 27 & 11 & 27.06 & 11.09 & 27.17\\
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
+            & & & & & & & & & & & & & & & &\\
             \hline 
-            SSD-INCEPTION-V2& 13.77 & 21.55 & 12.38 & 22 & 13.93 & 21.69 & 13.81 & 21.67 & 13.83 & 21.51 & 12.31 & 21.56 & 9.82 & 21.81 & 9.78 & 21.71\\
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)} & \multirow{2}{*}{\Third(13)} & \multirow{2}{*}{\Third(14)} & \multirow{2}{*}{\Third(15)} & \multirow{2}{*}{\Third(16)}\\
+            & & & & & & & & & & & & & & & &\\
             \hline
-            PEDNET& 7.02 & 8.92 & 6.83 & 8.94 & 6.87 & 8.93 & 6.89 & 8.92 & 6.91 & 8.87 & 6.81 & 8.89 & 6.52 & 8.93 & 6.6 & 8.91\\
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)} & \multirow{2}{*}{\Fourth(13)} & \multirow{2}{*}{\Fourth(14)} & \multirow{2}{*}{\Fourth(15)} & \multirow{2}{*}{\Fourth(16)}\\
+            & & & & & & & & & & & & & & & &\\
             \hline
-            MULTIPEDNET& 7.02 & 9.13 & 6.79 & 9.12 & 7.02 & 9.16 & 6.96 & 9.15 & 6.92 & 9.07 & 6.76 & 9.15 & 6.57 & 9.08 & 6.61 & 9.08\\
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)} & \multirow{2}{*}{\Fifth(13)} & \multirow{2}{*}{\Fifth(14)} & \multirow{2}{*}{\Fifth(15)} & \multirow{2}{*}{\Fifth(16)}\\
+            & & & & & & & & & & & & & & & &\\
             \hline
         \end{tabular}
         }%
-        \vspace{0.5cm}
+        \vspace{0.2cm}
         \caption{Semantic Segmentation performance FPS Jetson Nano utilizzando le jetson.utils.}
         \label{sem_seg_jetson_utils}
+    \end{table}
+\end{landscape}
+I test effettuati con OpenCV invece vengono effettuati solo per il compito 
+di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
+messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
+tra i diversi framework AI con architetture sottostanti diverse. In poche 
+parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
+in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
+differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
+visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i risultati ottenuti con le jetson.utils, 
+si evince che l'assenza di un ottimizzatore porta il sistema ad ottenere delle 
+performance minori. Per comprendere le potenzialità offerte da modulo 
+GPU, in Tab. (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance ottenute dalla sua CPU.
+
+\begin{landscape}
+    \centering
+    \begin{table}
+        \newarray\Firsts
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{Firsts}{6.19&18.93&2&19.63&16.41&19.81&14.27&19.69&14.24&19.7&6.62&19.53&4.88&19.24&4.91&19.35}
+        \readarray{Second}{3.4&4.99&2&5.53&5.02&5.39&4.75&5.2&4.76&5.2&3.38&4.77&2.86&4.99&2.86&5.36}
+        \readarray{Third}{1.09&1.44&1.24&1.45&1.34&1.46&1.34&1.46&1.31&1.46&1.23&1.45&1&1.46&1&1.46}
+        \readarray{Fourth}{6.02&17.12&2&17.79&15.41&17.91&13.46&17.76&13.43&17.6&6.56&17.6&4.42&17.33&4.81&17.5}
+        \readarray{Fifth}{5.91&14.6&2&14.97&12.9&15.08&11.51&15&11.51&14.98&5.93&14.9&4.51&14.77&4.51&14.85}
+        \centering
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{16}{c||}{ \multirow{3}{*}{\bfseries{\large SEMANTIC SEGMENTATION - JETSON NANO (OPENCV - GPU)}}}\\
+            & \multicolumn{16}{c||}{}\\
+            & \multicolumn{16}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
+            \hline
+            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline 
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)} & \multirow{2}{*}{\Third(13)} & \multirow{2}{*}{\Third(14)} & \multirow{2}{*}{\Third(15)} & \multirow{2}{*}{\Third(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)} & \multirow{2}{*}{\Fourth(13)} & \multirow{2}{*}{\Fourth(14)} & \multirow{2}{*}{\Fourth(15)} & \multirow{2}{*}{\Fourth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)} & \multirow{2}{*}{\Fifth(13)} & \multirow{2}{*}{\Fifth(14)} & \multirow{2}{*}{\Fifth(15)} & \multirow{2}{*}{\Fifth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.2cm}
+        \caption{Semantic Segmentation GPU performance FPS Jetson Nano utilizzando le OpenCV}
+        \label{sem_seg_jetson_utils_opencv_gpu}
+    \end{table}
+
+    \begin{table}
+        \newarray\Firsts
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{Firsts}{1.31&1.48&1.33&1.47&1.68&1.68&1.69&1.74&1.66&1.71&1.51&1.7&1.3&1.59&1.3&1.59}
+        \readarray{Second}{0.35&36&0.35&0.36&0.4&0.4&0.41&0.41&0.4&0.4&0.39&0.41&0.37&0.39&0.38&0.4}
+        \readarray{Third}{0.09&0.069&0.08&0.08&0.09&0.09&0.1&0.1&0.1&0.1&0.1&0.1&0.09&0.1&0.09&0.1}
+        \readarray{Fourth}{1.63&1.88&1.71&1.92&2.18&2.2&2.15&2.22&2.14&2.22&1.88&2.15&1.6&2.06&1.6&2.08}
+        \readarray{Fifth}{1.1&1.22&1.11&1.21&1.39&1.39&1.38&1.42&1.37&1.4&1.26&1.38&1.12&1.33&1.12&1.33}
+        \centering
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{16}{c||}{ \multirow{3}{*}{\bfseries{\large SEMANTIC SEGMENTATION - JETSON NANO (OPENCV - CPU)}}}\\
+            & \multicolumn{16}{c||}{}\\
+            & \multicolumn{16}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
+            \hline
+            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline 
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)} & \multirow{2}{*}{\Third(13)} & \multirow{2}{*}{\Third(14)} & \multirow{2}{*}{\Third(15)} & \multirow{2}{*}{\Third(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)} & \multirow{2}{*}{\Fourth(13)} & \multirow{2}{*}{\Fourth(14)} & \multirow{2}{*}{\Fourth(15)} & \multirow{2}{*}{\Fourth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)} & \multirow{2}{*}{\Fifth(13)} & \multirow{2}{*}{\Fifth(14)} & \multirow{2}{*}{\Fifth(15)} & \multirow{2}{*}{\Fifth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.2cm}
+        \caption{Semantic Segmentation CPU performance FPS Jetson Nano utilizzando le OpenCV}
+        \label{sem_seg_jetson_utils_opencv_cpu}
     \end{table}
 \end{landscape}
 
