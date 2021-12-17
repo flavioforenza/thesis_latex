@@ -396,7 +396,248 @@ ottenute dall'uso delle OpenCV.
     \label{average performance jetson opencv CPU sem_seg}
 \end{table}
 
+\newpage
+\subsection{Test Performance Computer}
+Non disponendo di una scheda grafica NVidia, sul computer di riferimento i 
+test vengono effettuati utilizzando solo la sua CPU utilizzando quindi la sola 
+libreria OpenCV. I test sono riportati nella Tabella (\ref{sem_seg_perf_comp}). Comparando 
+i risultati ottenuti con quelli dello Jetson Nano, i test mostrano come 
+un tale dispositivo, di fascia economica e prestazioni alte, ottenga delle 
+performance migliori. Le considerazioni cambiano quando la comparazione 
+avviene tra le performance ottenute dalle jetson.utils e quelle del PC. In 
+quest'ultimo caso si evidenziano le vere potenzialità dello Jetson Nano. Pur 
+avendo una potenza computazionale di gran lunga minore rispetto a quella 
+della CPU, lo Jetson Nano riesce a raggiungere prestazioni di inferenza 
+leggermente migliori, con un costo economico pari a 1/5 del costo della CPU 
+del computer. Come per il Jetson Nano, anche per il computer vengono 
+riportate le performance medie, ottenute da ogni modello, per ogni frequenza 
+di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 14.8 & 33.87 & 15.91 & 33.46\\
+        \hline
+        RN18-CS (1024x512) & 6.93 & 10.06 & 7.98 & 10.99\\
+        \hline 
+        RN18-CS (2048x1024) & 2.07 & 2.33 & 2.38 & 2.51\\
+        \hline
+        RN18-VOC (320x320) & 16.68 & 41.14 & 18.52 & 41.33\\
+        \hline
+        RN18-VOC (512x320) & 14.24 & 30.28 & 16.36 & 31.31\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+    \label{average performance computer CPU sem_seg}
+\end{table}
+\begin{landscape}
+    \centering
+    \begin{table}
+        \newarray\First
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{First}{13.48&34.7&11.46&35.28&21.32&31.63&19.48&33.46&19.41&32.46&15.14&34.21&9.83&33.12&10.5&35.29}
+        \readarray{Second}{6.04&9.12&6.32&9.54&9.46&10.69&8.02&10.03&7.91&9.91&7.2&10.59&6.1&11.18&6.51&11.29}
+        \readarray{Third}{2.02&2.21&2.17&2.28&2.61&2.5&2.16&2.37&2.12&2.34&2.03&2.36&1.94&2.42&2.16&2.52}
+        \readarray{Fourth}{15.1&41.56&15.23&45.14&25.59&39.46&21.47&39.34&21.79&39.7&16.01&40.74&10.49&40.41&11.45&43.21}
+        \readarray{Fifth}{11.75&28.75&10.3&30.37&21.88&31.72&19.79&31.38&19.46&31.06&14.48&30.54&9.68&29.63&10.85&30.91}
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{16}{c||}{ \multirow{3}{*}{\bfseries{\large SEMANTIC SEGMENTATION - COMPUTER (OPENCV - CPU)}}}\\
+            & \multicolumn{16}{c||}{}\\
+            & \multicolumn{16}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
+            \hline
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\First(1)} & \multirow{2}{*}{\First(2)} & \multirow{2}{*}{\First(3)} & \multirow{2}{*}{\First(4)} & \multirow{2}{*}{\First(5)} & \multirow{2}{*}{\First(6)} & \multirow{2}{*}{\First(7)} & \multirow{2}{*}{\First(8)} & \multirow{2}{*}{\First(9)} & \multirow{2}{*}{\First(10)} & \multirow{2}{*}{\First(11)} & \multirow{2}{*}{\First(12)} & \multirow{2}{*}{\First(13)} & \multirow{2}{*}{\First(14)} & \multirow{2}{*}{\First(15)} & \multirow{2}{*}{\First(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline 
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)} & \multirow{2}{*}{\Third(13)} & \multirow{2}{*}{\Third(14)} & \multirow{2}{*}{\Third(15)} & \multirow{2}{*}{\Third(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)} & \multirow{2}{*}{\Fourth(13)} & \multirow{2}{*}{\Fourth(14)} & \multirow{2}{*}{\Fourth(15)} & \multirow{2}{*}{\Fourth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)} & \multirow{2}{*}{\Fifth(13)} & \multirow{2}{*}{\Fifth(14)} & \multirow{2}{*}{\Fifth(15)} & \multirow{2}{*}{\Fifth(16)}\\
+            & & & & & & & & & & & & & & & &\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.2cm}
+        \caption{Semantic Segmentation CPU performance FPS Computer utilizzando le OpenCV}
+        \label{sem_seg_perf_comp}
+    \end{table}
+\end{landscape}
 
-%\subsection{Test Performance Jetson Nano}
+\newpage
+\subsection{Test Performance Colab}
+L'ultimo test viene svolto sulla piattaforma \emph{Google Colaboratory}. Essendo 
+creata principalmente per l'addestramento di reti neurali, e per applicazioni 
+scientifiche, \emph{Colab} riesce a contraddistinguersi rispetto alle due precedenti 
+architetture. Il merito delle performance ottenute deriva alla presenza delle 
+diverse schede grafiche NVidia messe a disposizione degli utenti. In questo caso, 
+l'architettura della scheda grafica utilizzata offre un processore in 
+grado di erogare fino 3528 CUDA cores che, comparati con i 128 offerti dallo 
+Jetson Nano, hanno portato ad ottenere le performance migliori (Tab. (\ref{sem_seg_colab_gpu})). È 
+giusto osservare che, pur avendo le più alte prestazioni, la configurazione 
+hardware ha un costo maggiore rispetto alle due precedenti, classificando, 
+ancora una volta, lo Jetson Nano come sistema embedded più economico. 
+Essendo una piattaforma online, per questa architettura sono state escluse 
+le fonti di input inerenti le due webcam. Come per gli altri test, anche per 
+Colab sono state ricavare le performance derivanti dalla sola CPU (Tab. (\ref{sem_seg_colab_cpu})). 
+I risultati riguardanti le performance medie invece sono visibili nelle Tabelle (\ref{average performance Colab GPU sem_seg}) e (\ref{average performance Colab CPU sem_seg}).
+Comparando questi risultati con quelli ottenuti dalla CPU del computer, 
+stranamente si evidenza la superiorità di quest'ultimo, evidenziando 
+come Colab sia stato ideato solo per l'esecuzione di modelli deep learning su 
+hardware apposito, come le sue GPU.
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 9.06 & 302.52 & 20.07 & 313.69\\
+        \hline
+        RN18-CS (1024x512) & 8 & 143.22 & 15.54 & 126.88\\
+        \hline 
+        RN18-CS (2048x1024) & 5.66 & 45.45 & 7.78 & 45.82\\
+        \hline
+        RN18-VOC (320x320) & 9.35 & 325.75 & 20.83 & 338.44\\
+        \hline
+        RN18-VOC (512x320) & 9.15 & 293.81 & 20.24 & 302.57\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+    \label{average performance Colab GPU sem_seg}
+\end{table}
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 3.81 & 8.44 & 4.29 & 8.44\\
+        \hline
+        RN18-CS (1024x512) & 1.54 & 2.18 & 1.54 & 2.17\\
+        \hline 
+        RN18-CS (2048x1024) & 0.5 & 0.55 & 0.47 & 0.54\\
+        \hline
+        RN18-VOC (320x320) & 4.26 & 10.7 & 5.09 & 10.5\\
+        \hline
+        RN18-VOC (512x320) & 3.37 & 6.88 & 3.76 & 6.99\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+    \label{average performance Colab CPU sem_seg}
+\end{table}
 
+\begin{landscape}
+    \begin{table}
+        \centering
+        \newarray\First
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{First}{38.33&318.58&15.68&304.25&14.98&304.8&3.94&303.46&1.66&297.6&1.81&308.8}
+        \readarray{Second}{29.32&108.31&13.29&143.85&13.29&143.75&3.76&142.63&1.66&142.65&1.76&145.46}
+        \readarray{Third}{13.86&45.87&8.86&45.54&8.93&45.47&3.28&45.35&1.58&45.44&1.7&45.78}
+        \readarray{Fourth}{39.78&345.36&16.07&330.93&15.55&327.35&4.04&324.61&1.74&320.14&1.88&331.53}
+        \readarray{Fifth}{38.63&307.66&15.64&297.39&15.28&296.42&3.98&290.49&1.73&290.96&1.86&297.49}
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{12}{c||}{ \multirow{3}{*}{\bfseries{\normalsize SEMANTIC SEGMENTATION - COLAB (OPENCV - GPU)}}}\\
+            & \multicolumn{12}{c||}{}\\
+            & \multicolumn{12}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{\normalsize Modelli - Dati}} 
+            & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
+            \hline
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\First(1)} & \multirow{2}{*}{\First(2)} & \multirow{2}{*}{\First(3)} & \multirow{2}{*}{\First(4)} & \multirow{2}{*}{\First(5)} & \multirow{2}{*}{\First(6)} & \multirow{2}{*}{\First(7)} & \multirow{2}{*}{\First(8)} & \multirow{2}{*}{\First(9)} & \multirow{2}{*}{\First(10)} & \multirow{2}{*}{\First(11)} & \multirow{2}{*}{\First(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)}\\
+            & & & & & & & & & & & &\\
+            \hline 
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.2cm}
+        \caption{Semantic Segmentation GPU performance FPS Colab utilizzando le OpenCV}
+        \label{sem_seg_colab_gpu}
+    \end{table}
 
+    \begin{table}
+        \centering
+        \newarray\First
+        \newarray\Second
+        \newarray\Third
+        \newarray\Fourth
+        \newarray\Fifth
+        \readarray{First}{7.08&8.44&5.58&8.45&5.52&8.41&2.73&8.49&1.42&8.41&1.51&8.448}
+        \readarray{Second}{2.1&2.21&1.91&2.18&1.9&2.17&1.41&2.19&0.96&2.18&0.99&2.14}
+        \readarray{Third}{0.54&0.54&0.54&0.55&0.55&0.57&0.5&0.56&0.42&0.54&0.41&0.54}
+        \readarray{Fourth}{8.61&10.71&6.41&10.75&6.29&10.64&2.89&10.75&1.47&10.68&1.57&10.29}
+        \readarray{Fifth}{6.01&6.86&4.74&6.77&4.79&6.82&2.56&7.01&1.41&6.95&1.51&7.12}
+        {\scriptsize %
+        \begin{tabular}{|c||c|c||c|c||c|c||c|c||c|c||c|c||}
+            \hline
+            & \multicolumn{12}{c||}{ \multirow{3}{*}{\bfseries{\normalsize SEMANTIC SEGMENTATION - COLAB (OPENCV - CPU)}}}\\
+            & \multicolumn{12}{c||}{}\\
+            & \multicolumn{12}{c||}{}\\
+            \hline
+            \multirow{2}{*}{\bfseries{\normalsize Modelli - Dati}} 
+            & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
+            \hline
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\First(1)} & \multirow{2}{*}{\First(2)} & \multirow{2}{*}{\First(3)} & \multirow{2}{*}{\First(4)} & \multirow{2}{*}{\First(5)} & \multirow{2}{*}{\First(6)} & \multirow{2}{*}{\First(7)} & \multirow{2}{*}{\First(8)} & \multirow{2}{*}{\First(9)} & \multirow{2}{*}{\First(10)} & \multirow{2}{*}{\First(11)} & \multirow{2}{*}{\First(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)}\\
+            & & & & & & & & & & & &\\
+            \hline 
+            \multirow{2}{*}{RN18-CS (2048x1024)}& \multirow{2}{*}{\Third(1)} & \multirow{2}{*}{\Third(2)} & \multirow{2}{*}{\Third(3)} & \multirow{2}{*}{\Third(4)} & \multirow{2}{*}{\Third(5)} & \multirow{2}{*}{\Third(6)} & \multirow{2}{*}{\Third(7)} & \multirow{2}{*}{\Third(8)} & \multirow{2}{*}{\Third(9)} & \multirow{2}{*}{\Third(10)} & \multirow{2}{*}{\Third(11)} & \multirow{2}{*}{\Third(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (320x320)}& \multirow{2}{*}{\Fourth(1)} & \multirow{2}{*}{\Fourth(2)} & \multirow{2}{*}{\Fourth(3)} & \multirow{2}{*}{\Fourth(4)} & \multirow{2}{*}{\Fourth(5)} & \multirow{2}{*}{\Fourth(6)} & \multirow{2}{*}{\Fourth(7)} & \multirow{2}{*}{\Fourth(8)} & \multirow{2}{*}{\Fourth(9)} & \multirow{2}{*}{\Fourth(10)} & \multirow{2}{*}{\Fourth(11)} & \multirow{2}{*}{\Fourth(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+            \multirow{2}{*}{RN18-VOC (512x320)}& \multirow{2}{*}{\Fifth(1)} & \multirow{2}{*}{\Fifth(2)} & \multirow{2}{*}{\Fifth(3)} & \multirow{2}{*}{\Fifth(4)} & \multirow{2}{*}{\Fifth(5)} & \multirow{2}{*}{\Fifth(6)} & \multirow{2}{*}{\Fifth(7)} & \multirow{2}{*}{\Fifth(8)} & \multirow{2}{*}{\Fifth(9)} & \multirow{2}{*}{\Fifth(10)} & \multirow{2}{*}{\Fifth(11)} & \multirow{2}{*}{\Fifth(12)}\\
+            & & & & & & & & & & & &\\
+            \hline
+        \end{tabular}
+        }%
+        \vspace{0.2cm}
+        \caption{Semantic Segmentation CPU performance FPS Colab utilizzando le OpenCV}
+        \label{sem_seg_colab_cpu}
+    \end{table}
+\end{landscape}
