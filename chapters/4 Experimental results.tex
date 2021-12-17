@@ -94,10 +94,8 @@ I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_j
 e la semantic segmentation (Tab.(\ref{sem_seg_jetson_utils})). A differenza della 
 semantic segmentation, i testi per l'object detection vengono fatti su modelli 
 pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di 
-elementi differenti. I risultati ottenuti corrispondono perfettamente con quelli 
-dichiarati dal produttore \cite{performance_obj_det_jetson}. Per un dispositivo embedded 
-di fascia economica, questi test raffigurano delle performance promettenti rispetto 
-alla concorrenza.
+elementi differenti. Per un dispositivo embedded di fascia economica, questi test 
+raffigurano delle performance promettenti rispetto alla concorrenza.
 \begin{landscape}
     \centering
     \begin{table}
@@ -161,10 +159,10 @@ alla concorrenza.
             & \multicolumn{16}{c||}{}\\
             & \multicolumn{16}{c||}{}\\
             \hline
-            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            \multirow{2}{*}{\bfseries{\large Modelli-Dati}} 
             & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
             \hline
-            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
             & & & & & & & & & & & & & & & &\\
             \hline
             \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
@@ -186,17 +184,6 @@ alla concorrenza.
         \label{sem_seg_jetson_utils}
     \end{table}
 \end{landscape}
-I test effettuati con OpenCV invece vengono effettuati solo per il compito 
-di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
-messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
-tra i diversi framework AI con architetture sottostanti diverse. In poche 
-parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
-in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
-differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
-visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i risultati ottenuti con le jetson.utils, 
-si evince che l'assenza di un ottimizzatore porta il sistema ad ottenere delle 
-performance minori. Per comprendere le potenzialità offerte da modulo 
-GPU, in Tab. (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance ottenute dalla sua CPU.
 
 \begin{landscape}
     \centering
@@ -219,10 +206,10 @@ GPU, in Tab. (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le perfor
             & \multicolumn{16}{c||}{}\\
             & \multicolumn{16}{c||}{}\\
             \hline
-            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            \multirow{2}{*}{\bfseries{\large Modelli-Dati}} 
             & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
             \hline
-            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
             & & & & & & & & & & & & & & & &\\
             \hline
             \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
@@ -263,10 +250,10 @@ GPU, in Tab. (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le perfor
             & \multicolumn{16}{c||}{}\\
             & \multicolumn{16}{c||}{}\\
             \hline
-            \multirow{2}{*}{\bfseries{\large Modelli}} 
+            \multirow{2}{*}{\bfseries{\large Modelli-Dati}} 
             & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam1}} & \multicolumn{2}{c||}{\bfseries{\normalsize Webcam2}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{1} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{2} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{3} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{4} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{5} Video}} & \multicolumn{2}{c||}{\bfseries{\normalsize \RN{6} Video}}\\            & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net} & \bfseries{\footnotesize Out} & \bfseries{\footnotesize Net}\\
             \hline
-            \multirow{2}{*}{RN18-CS (320x320)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
+            \multirow{2}{*}{RN18-CS (512x256)} & \multirow{2}{*}{\Firsts(1)} & \multirow{2}{*}{\Firsts(2)} & \multirow{2}{*}{\Firsts(3)} & \multirow{2}{*}{\Firsts(4)} & \multirow{2}{*}{\Firsts(5)} & \multirow{2}{*}{\Firsts(6)} & \multirow{2}{*}{\Firsts(7)} & \multirow{2}{*}{\Firsts(8)} & \multirow{2}{*}{\Firsts(9)} & \multirow{2}{*}{\Firsts(10)} & \multirow{2}{*}{\Firsts(11)} & \multirow{2}{*}{\Firsts(12)} & \multirow{2}{*}{\Firsts(13)} & \multirow{2}{*}{\Firsts(14)} & \multirow{2}{*}{\Firsts(15)} & \multirow{2}{*}{\Firsts(16)}\\
             & & & & & & & & & & & & & & & &\\
             \hline
             \multirow{2}{*}{RN18-CS (1024x512)}& \multirow{2}{*}{\Second(1)} & \multirow{2}{*}{\Second(2)} & \multirow{2}{*}{\Second(3)} & \multirow{2}{*}{\Second(4)} & \multirow{2}{*}{\Second(5)} & \multirow{2}{*}{\Second(6)} & \multirow{2}{*}{\Second(7)} & \multirow{2}{*}{\Second(8)} & \multirow{2}{*}{\Second(9)} & \multirow{2}{*}{\Second(10)} & \multirow{2}{*}{\Second(11)} & \multirow{2}{*}{\Second(12)} & \multirow{2}{*}{\Second(13)} & \multirow{2}{*}{\Second(14)} & \multirow{2}{*}{\Second(15)} & \multirow{2}{*}{\Second(16)}\\
@@ -288,5 +275,76 @@ GPU, in Tab. (\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le perfor
         \label{sem_seg_jetson_utils_opencv_cpu}
     \end{table}
 \end{landscape}
+
+I test effettuati con OpenCV invece vengono effettuati solo per il compito 
+di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
+messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
+tra i diversi framework AI con architetture sottostanti diverse. In poche 
+parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
+in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
+differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
+visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i 
+risultati ottenuti con le jetson.utils, si evince che l'assenza di un 
+ottimizzatore porta il sistema ad ottenere delle performance minori. 
+Per comprendere le potenzialità offerte da modulo GPU, in Tab. 
+(\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance 
+ottenute dalla sua CPU. Per verificare la veridicità dei test effettuati, 
+essendo questi effettuati solamente con le jetson.utils direttamente dal 
+produttore della scheda embedded \cite{performance_obj_det_jetson}, vengono 
+riportati sia i valori degli fps medi di Output che della Rete, per ogni 
+frequenza di FPS in input (Tab. \ref{average performance jetson utils obj_det}, Tab. (\ref{average performance jetson utils sem_seg})).
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        SSD-MOBILENET-V1 & 15.93 & 34.23 & 15.24 & 34.84\\
+        \hline
+        SSD-MOBILENET-V2 & 14.29 & 27.04 & 13,66 & 27.19\\
+        \hline 
+        SSD-INCEPTION-V2 & 12.65 & 21.68 & 11.85 & 21.7\\
+        \hline
+        PEDNET & 6.83 &  8.91 & 6.73 & 8.92\\
+        \hline
+        MULTIPEDNET & 6.84 & 9.11 & 6.81 & 9.12\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance medie Object Detection Jetson Nano (\emph{utils}).}
+    \label{average performance jetson utils obj_det}
+\end{table}
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 10.43 & 48.51 & 12.56 & 48.5\\
+        \hline
+        RN18-CS (1024x512) & 6.01 & 12.29 & 6.09 & 12.32\\
+        \hline 
+        RN18-CS (2048x1024) & 3,13 & 3,05 & 3.1 & 3.04\\
+        \hline
+        RN18-VOC (320x320) & 10.19 &  46.31 & 12.57 & 46.20\\
+        \hline
+        RN18-VOC (512x320) & 9.30 & 34.45 & 10.94 & 34.39\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance medie Semantic Segmentation Jetson Nano (\emph{utils}).}
+    \label{average performance jetson utils sem_seg}
+\end{table}
+Le performance medie eseguite sullo Jetson Nano con OpenCV sono in invece riportate nelle Tabelle X e Y.
+
+
+
+%\subsection{Test Performance Jetson Nano}
 
 
