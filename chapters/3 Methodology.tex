@@ -7,4 +7,48 @@
 \label{Capitolo3}
 \thispagestyle{empty}
 
-\section{VUOTO}
+Nel capitolo precedente sono stati spiegati tutti i concetti principali che 
+compongono un sistema di visione artificiale, il quale ha lo scopo principale 
+di effettuare la comprensione della scena mediante l'utilizzo di tecniche 
+di object detection e di semantic segmentation. Avendo come obiettivo 
+principale lo sviluppo di un sistema di guida autonoma, nel seguente capitolo 
+vengono riportate tutte le metodologie utilizzate per tale scopo. Il focus 
+principale sarà rivolto verso la tecnica di segmentazione semantica. È 
+proprio quest'ultima tecnica quella ad essere utilizzata maggiormente in 
+questo elaborato. Le risorse computazionali richieste da codesta risultano 
+essere onerose. Essendo un sistema autonomo implementato all'interno di 
+una centralina dedicata, bisogna aver un chiaro prospetto delle potenzialità 
+richieste da un modello di visione artificiale, affinché si raggiunga l'obiettivo 
+finale. Uno degli obiettivi di questo elaborato è basato sull'implementazione 
+di metodi di guida autonoma su un dispositivo, relativamente economico, 
+alla portata di tutti. La centralina presa di riferimento è rappresentata da 
+un nota scheda di elaborazione embedded, che prende il nome di Jetson 
+Nano (NVidia). Le potenzialità messe a disposizione da questa scheda sono 
+state comparate, in termini di Frames-per-Second (FPS), con quelle messe 
+a disposizione sia dal computer del sottoscritto che da Google Colaboratory 
+(Colab). Avendo caratteristiche hardware ben differenti l'uno dall'altro, si è 
+pensato di creare una comparazione standard composta dallo stesso codice 
+eseguito su tutte e tre le diverse architetture. Per la visualizzazione dei 
+risultati ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
+
+\section{Frames-per-Second (FPS)}
+La velocità di inferenza rappresenta un indicatore di performance di ogni 
+modello. Per poterla calcolare, la velocità di inferenza è rappresentata dai 
+\emph{Frames-per-Second (FPS)} \ref{FPS_Count}:
+\begin{equation}\label{FPS_Count}
+    FPS = \frac{1}{Ending \ Time - Starting \ Time}
+\end{equation}
+Questa misura è variabile e serve per rappresentare tre diversi aspetti:
+\begin{itemize}
+    \item {\bfseries{\emph{Input}}}: ogni rete prende in input una sequenza di frame appartenenti 
+    a un video. Ogni video può avere un numero di FPS variabile. In 
+    questo elaborato, vengono testati diversi video a 30FPS e a 60FPS.
+    \item {\bfseries{\emph{Netwrok}}}: la velocità che la rete impiega ad effettuare uno specifico 
+    task, può essere rappresentata dal numero di FPS. Riconoscere e/o 
+    segmentare un oggetto appare essere un'attività onerosa in termini 
+    computazionali, pertanto una rete è considerata veloce se, oltre a 
+    produrre un output adeguato, svolge ogni task in un tempo breve.
+    \item {\bfseries{\emph{Output}}}: il risultato prodotto da una rete è visibile solamente a 
+    schermo. Il video mostrato ha anch'esso una velocità di riproduzione 
+    che è influenzato dal numero di FPS.
+\end{itemize}
