@@ -6,15 +6,17 @@
 \chapter{RISULTATI SPERIMENTALI}
 \label{Capitolo4}
 \thispagestyle{empty}
-In questo capitolo vengono riportati tutti i risultati sperimentali effettuati 
-sui metodi proposti. Le specifiche delle architetture di riferimento utilizzate 
+In questo capitolo verranno introdotti i vari dataset di immagini utilizzati per addestrare i modelli. 
+Successivamente vengono riportati tutti i risultati sperimentali effettuati 
+sui metodi proposti. Le specifiche delle architetture di riferimento, utilizzate per effettuare i vari test, 
 sono riportate nella Tabella (\ref{specifiche}).
 \begin{table}[htbp]
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||L|L|L||}
         \hline
-        \multirow{2}{*}{\bfseries{Architetture}} & \multicolumn{3}{c||}{\bfseries{Specifiche Tecniche}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
+        \multirow{2}{*}{\bfseries{ARCHITETTURE}} & \multicolumn{3}{c||}{\bfseries{SPECIFICHE TECNICHE}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
         \hline
         \hline
         {\bfseries{JETSON NANO}} & 4 $\times$ ARM Cortex-A57 @ 1.43 GHz & NVidia Maxwell @ 921 MHz & 4 GB 1600 MHz LPDDR4\\
@@ -29,6 +31,34 @@ sono riportate nella Tabella (\ref{specifiche}).
     \caption{Specifiche tecniche delle tre architetture utilizzate.}
     \label{specifiche}
 \end{table}
+
+\section{Descrizione dei dataset}
+Diversi sono i dataset utilizzati nell'ambito della guida autonoma.
+Ogni singolo test viene effettuato utilizzando le immagini contenute nei seguenti dataset: 
+\begin{itemize}
+    \item {\bfseries{\emph{CityScapes}}}\cite{Cityscapes}: i dati presenti in questo dataset sono composti da 
+    diversi video stereo registrati nelle strade di 50 città diverse. Esistono 
+    30 classi diverse raggruppate in otto categorie. In queste immagini, 
+    circa 5000 hanno annotazioni di altra qualità a livello di pixel e altre 
+    20.000 hanno annotazioni grossolane. Attualmente, questo dataset 
+    rappresenta la pietra miliare della guida autonoma pertanto viene 
+    utilizzato in molte ricerche. Nel presente elaborato, precisamente 
+    nella sezione dei test di semantic segmentation, vengono utilizzate diverse 
+    immagini appartenenti a codesto dataset, ognuna a risoluzione diversa 
+    ($512\times 256$, $1024\times 512$, $2048\times 1024$).
+    \item {\bfseries{\emph{ PASCAL Visual Object Classes (VOC)}}}\cite{VOC}: il seguente dataset 
+    contiene più di 10.000 immagini contenenti un totale di più di 20.000 
+    oggetti raggruppati in 20 classi diverse. Anche questo dataset, come 
+    il precedente, viene utilizzato nella sezione di test per il task di 
+    semantic segmentation in questo elaborato. Dettagliatamente, vengono 
+    utilizzate delle sue immagini in formato $320\times 320$ e $512\times 320$.
+    \item {\bfseries{\emph{ PASCAL Visual Object Classes (VOC)}}}\cite{COCO}: realizzato da 
+    Microsoft, il dataset contiene più di 300.000 immagini di cui più di 
+    200.000 sono etichettate. Gli oggetti presenti sono più di 1.5 milioni e 
+    sono raggruppati in 80 classi diverse. Principalmente questo dataset 
+    viene utilizzato per attività di object detection, infatti ritorna utile 
+    nella sezione di test successiva.
+\end{itemize}
 
 \section{Test Performance}
 Come brevemente accennato nel capitolo precedente, al fine di capire le 
@@ -45,6 +75,7 @@ Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due
 \end{itemize}
 
 \begin{table}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||c|c||}
@@ -123,6 +154,7 @@ frequenze di FPS in input. Quest'ultime riguardano le performance medie ottenute
 mentre quelle visibili nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg}) rappresentano le performance medie 
 ottenute dall'uso delle OpenCV.
 \begin{landscape}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{table}
         \newarray\First
@@ -163,7 +195,7 @@ ottenute dall'uso delle OpenCV.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Object Detection performance FPS Jetson Nano utilizzando le jetson.utils.}
+        \caption{FPS Performance nell'attività di Object Detection su Jetson Nano (\emph{utils}).}
         \label{obj_jetson_utils}
     \end{table}
 
@@ -206,12 +238,13 @@ ottenute dall'uso delle OpenCV.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation performance FPS Jetson Nano utilizzando le jetson.utils.}
+        \caption{FPS Performance nell'attività di Semantic Segmentation su Jetson Nano (\emph{utils}).}
         \label{sem_seg_jetson_utils}
     \end{table}
 \end{landscape}
 
 \begin{landscape}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{table}
         \newarray\Firsts
@@ -253,7 +286,7 @@ ottenute dall'uso delle OpenCV.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation GPU performance FPS Jetson Nano utilizzando le OpenCV}
+        \caption{FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph{OpenCV - GPU})}
         \label{sem_seg_jetson_utils_opencv_gpu}
     \end{table}
 
@@ -297,12 +330,13 @@ ottenute dall'uso delle OpenCV.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation CPU performance FPS Jetson Nano utilizzando le OpenCV}
+        \caption{FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph{OpenCV - CPU})}
         \label{sem_seg_jetson_utils_opencv_cpu}
     \end{table}
 \end{landscape}
 
 \begin{table}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||c|c||c|c||}
@@ -323,11 +357,12 @@ ottenute dall'uso delle OpenCV.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Object Detection Jetson Nano (\emph{utils}).}
+    \caption{Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils obj_det}
 \end{table}
 
 \begin{table}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||c|c||c|c||}
@@ -348,11 +383,12 @@ ottenute dall'uso delle OpenCV.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Jetson Nano (\emph{utils}).}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{utils}).}
     \label{average performance jetson utils sem_seg}
 \end{table}
 
 \begin{table}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||c|c||c|c||}
@@ -373,11 +409,12 @@ ottenute dall'uso delle OpenCV.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Jetson Nano su GPU (\emph{OpenCV}).}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - GPU}).}
     \label{average performance jetson opencv GPU sem_seg}
 \end{table}
 
 \begin{table}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|c||c|c||c|c||}
@@ -398,7 +435,7 @@ ottenute dall'uso delle OpenCV.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Jetson Nano su CPU (\emph{OpenCV}).}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - CPU}).}
     \label{average performance jetson opencv CPU sem_seg}
 \end{table}
 
@@ -420,6 +457,7 @@ riportate le performance medie, ottenute da ogni modello, per ogni frequenza
 di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
 
 \begin{landscape}
+    \renewcommand{\baselinestretch}{1}
     \centering
     \begin{table}
         \newarray\First
@@ -460,7 +498,7 @@ di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation CPU performance FPS Computer utilizzando le OpenCV}
+        \caption{FPS performance nell'attività di Semantic Segmentation su Computer (\emph{OpenCV - CPU})}
         \label{sem_seg_perf_comp}
     \end{table}
 
@@ -485,7 +523,7 @@ di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
         \end{tabular}
         \end{adjustbox}
         \vspace{0.2cm}
-        \caption{Performance FPS medi Semantic Segmentation Computer su CPU (\emph{OpenCV}).}
+        \caption{Performance FPS medi nell'attività di Semantic Segmentation Computer (\emph{OpenCV - CPU}).}
         \label{average performance computer CPU sem_seg}
     \end{table}
 \end{landscape}
@@ -512,57 +550,8 @@ stranamente si evidenza la superiorità di quest'ultimo, evidenziando
 come Colab sia stato ideato solo per l'esecuzione di modelli deep learning su 
 hardware apposito, come le sue GPU.
 \newpage
-\begin{table}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 9.06 & 302.52 & 20.07 & 313.69\\
-        \hline
-        RN18-CS (1024x512) & 8 & 143.22 & 15.54 & 126.88\\
-        \hline 
-        RN18-CS (2048x1024) & 5.66 & 45.45 & 7.78 & 45.82\\
-        \hline
-        RN18-VOC (320x320) & 9.35 & 325.75 & 20.83 & 338.44\\
-        \hline
-        RN18-VOC (512x320) & 9.15 & 293.81 & 20.24 & 302.57\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Computer su Colab (\emph{OpenCV1 - GPU}).}
-    \label{average performance Colab GPU sem_seg}
-\end{table}
-
-\begin{table}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 3.81 & 8.44 & 4.29 & 8.44\\
-        \hline
-        RN18-CS (1024x512) & 1.54 & 2.18 & 1.54 & 2.17\\
-        \hline 
-        RN18-CS (2048x1024) & 0.5 & 0.55 & 0.47 & 0.54\\
-        \hline
-        RN18-VOC (320x320) & 4.26 & 10.7 & 5.09 & 10.5\\
-        \hline
-        RN18-VOC (512x320) & 3.37 & 6.88 & 3.76 & 6.99\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi Semantic Segmentation Computer su Colab (\emph{OpenCV - CPU}).}
-    \label{average performance Colab CPU sem_seg}
-\end{table}
-
 \begin{landscape}
+    \renewcommand{\baselinestretch}{1}
     \begin{table}
         \centering
         \newarray\First
@@ -603,7 +592,7 @@ hardware apposito, come le sue GPU.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation GPU performance FPS Colab utilizzando le OpenCV}
+        \caption{FPS performance nell'attività di Semantic Segmentation su Colab (\emph{OpenCV - GPU})}
         \label{sem_seg_colab_gpu}
     \end{table}
 
@@ -647,7 +636,59 @@ hardware apposito, come le sue GPU.
         \end{tabular}
         }%
         \vspace{0.2cm}
-        \caption{Semantic Segmentation CPU performance FPS Colab utilizzando le OpenCV}
+        \caption{FPS performance nell'attività di Semantic Segmentation su Colab (\emph{OpenCV - CPU})}
         \label{sem_seg_colab_cpu}
     \end{table}
 \end{landscape}
+
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 9.06 & 302.52 & 20.07 & 313.69\\
+        \hline
+        RN18-CS (1024x512) & 8 & 143.22 & 15.54 & 126.88\\
+        \hline 
+        RN18-CS (2048x1024) & 5.66 & 45.45 & 7.78 & 45.82\\
+        \hline
+        RN18-VOC (320x320) & 9.35 & 325.75 & 20.83 & 338.44\\
+        \hline
+        RN18-VOC (512x320) & 9.15 & 293.81 & 20.24 & 302.57\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Computer su Colab (\emph{OpenCV1 - GPU}).}
+    \label{average performance Colab GPU sem_seg}
+\end{table}
+
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 3.81 & 8.44 & 4.29 & 8.44\\
+        \hline
+        RN18-CS (1024x512) & 1.54 & 2.18 & 1.54 & 2.17\\
+        \hline 
+        RN18-CS (2048x1024) & 0.5 & 0.55 & 0.47 & 0.54\\
+        \hline
+        RN18-VOC (320x320) & 4.26 & 10.7 & 5.09 & 10.5\\
+        \hline
+        RN18-VOC (512x320) & 3.37 & 6.88 & 3.76 & 6.99\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph{OpenCV - CPU}).}
+    \label{average performance Colab CPU sem_seg}
+\end{table}
+
