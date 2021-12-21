@@ -1,0 +1,57 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Composizione di due neuroni biologici.\relax }}{3}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Struttura di una rete neurale a più livelli.\relax }}{5}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Neurone artificiale.\relax }}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Varie funzioni di attivazione.\relax }}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Esempio di minimo globale ($w^A$) e locale ($w^B$).\relax }}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio fase di propagazone dei dati in avanti di una rete \emph {feedforward}.\relax }}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio fase di retropropagazione degli errori.\relax }}{12}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di architettura di una rete CNN.\relax }}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di dimensione filtro e di campo ricettivo.\relax }}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Esempio di profondità composto da più filtri.\relax }}{18}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio convoluzione con kernel=3x3 e stride=1.\relax }}{19}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Esempio convoluzione con kernel=4x, padding=2 e stride=1.\relax }}{19}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Esempio funzione di attivazione ReLU sui valori di una feature map.\relax }}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Esempio funzione di operazioni di pooling su una feature map.\relax }}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.\relax }}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Esempio di stato $h$ di un neurone in una RNN.\relax }}{23}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Esempio di generatore e discriminante in una rete GAN.\relax }}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces (a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore\relax }}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Esempio di object detection.\relax }}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. \relax }}{28}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)\relax }}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Esempio di immagini con scarsa visibilità e a basso contenuto informativo.\relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio Semantic segmentation.\relax }}{34}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Esempio di architettura Fully Convolutional Network\relax }}{35}{figure.caption.33}%
+\contentsline {figure}{\numberline {2.25}{\ignorespaces Esempio di Deconvoluzione e di Unpooling (Upsampling).\relax }}{36}{figure.caption.34}%
+\contentsline {figure}{\numberline {2.26}{\ignorespaces Esempio derivazione delle varie architetture FCN.\relax }}{37}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).\relax }}{38}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.28}{\ignorespaces Esempio architettura DeepLab.\relax }}{39}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Esempio architettura rete U-Net.\relax }}{40}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.30}{\ignorespaces Esempio architettura SegNet.\relax }}{42}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Esempio di applicazione del contesto globale alla segmentazione.\relax }}{42}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Modulo ParseNet.\relax }}{43}{figure.caption.49}%
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Architettura modello GCN.\relax }}{45}{figure.caption.51}%
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Atrous Spatial Pooling Pyramid.\relax }}{46}{figure.caption.54}%
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Differenza tra convoluzione depth-wise (a) e convoluzione point-wise (b).\relax }}{47}{figure.caption.55}%
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Architettura PSPNet.\relax }}{47}{figure.caption.57}%
+\contentsline {figure}{\numberline {2.37}{\ignorespaces Livelli di automazione definiti dalla SAE International.\relax }}{51}{figure.caption.59}%
+\contentsline {figure}{\numberline {2.38}{\ignorespaces Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il colore verde indica una segmentazione True-Positive, rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive.\relax }}{53}{figure.caption.61}%
+\contentsline {figure}{\numberline {2.39}{\ignorespaces Lane detection: (a) ground-truth (b) LaneNet \cite {LaneNet} output (c) model fitting.\relax }}{55}{figure.caption.63}%
+\contentsline {figure}{\numberline {2.40}{\ignorespaces Esempio di Vehicle detection a varie distanze e illuminazioni.\relax }}{56}{figure.caption.65}%
+\contentsline {figure}{\numberline {2.41}{\ignorespaces Fasi di elaborazione Pedestrian detection.\relax }}{58}{figure.caption.67}%
+\contentsline {figure}{\numberline {2.42}{\ignorespaces Modello generale del sistema di Drowsiness detection.\relax }}{62}{figure.caption.69}%
+\contentsline {figure}{\numberline {2.43}{\ignorespaces Esempio di alcuni sistemi di Collision Avoidance.\relax }}{63}{figure.caption.71}%
+\contentsline {figure}{\numberline {2.44}{\ignorespaces Esempio di Traffic Sign/Light recognition.\relax }}{66}{figure.caption.73}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces NVidia Jetson Nano.\relax }}{69}{figure.caption.74}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{70}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{71}{figure.caption.76}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{75}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{76}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{77}{figure.caption.80}%
+\addvspace {10\p@ }
