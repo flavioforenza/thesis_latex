@@ -279,7 +279,7 @@ Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{j
 \begin{equation}\label{delta rule 1}
     \Delta{W_{ji}} = -\alpha \frac{\partial E}{\partial w_{ji}}
 \end{equation}
-dove $-\alpha$ simboleggia un parametro, chiamata \emph{Learning Rate}, che rappresenta 
+dove $-\alpha$ simboleggia un parametro, chiamato \emph{Learning Rate}, che rappresenta 
 un indicatore di velocità di apprendimento della rete. Il segno negativo è utile 
 per agevolare la discesa del gradiente affinché si riduca il valore della funzione di
 errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente locale $\delta_j$}:
@@ -1762,3 +1762,134 @@ esempio di Traffic Sign e Light recognition è riportato nella Figura (\ref{traf
     \caption{Esempio di Traffic Sign/Light recognition.}
     \label{traffic sing-ligth}
 \end{figure}
+
+\section{Tecniche di compressione/ottimizzazione delle reti neurali.}
+Le reti neurali sono largamente diffuse in molteplici dispositivi IoT e sistemi 
+embedded. Purtroppo, alcuni modelli, a causa dell'enorme requisito 
+di calcolo, energia e archiviazione, non possono essere distribuiti su tali 
+dispositivi. Pertanto, negli ultimi anni, sono state proposte diverse tecniche 
+di compressione in grado di implementare suddetti modelli anche su sistemi 
+economici a ridotta potenzialità computazionale. Il principale requisito 
+minimo, da parte di queste tecniche, riguarda il raggiungimento di un compromesso 
+a basso impatto sull'accuratezza di ogni modello. Ciò che si sta 
+cercando di raggiungere è quindi un metodo che sia in grado di ottimizzare 
+sia le performance di un sistema, ospitante un modello deep learning, che la 
+sua riduzione energetica, oltre a determinare un risparmio dello spazio di 
+archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
+\begin{enumerate}
+    \item {\bfseries{\emph{Pruning}}}: La tecnica di pruning ha l'obiettivo di ridurre le dimensioni 
+    di un modello andando a rimuovere componenti superflui quali canali, 
+    filtri, neuroni o interi livelli. La potatura può essere applicata solo in 
+    maniera iterativa su un modello (\emph{Iterative Pruning}) durante il processo 
+    di addestramento, oppure direttamente sul modello pre-addestrato 
+    (\emph{One-shot Pruning}).
+    \item {\bfseries{\emph{Knowledge Distillation}}}: tecnica in grado di trasferire la capacità 
+    di generalizzazione, proveniente da un modello ingombrante chiamato 
+    "\emph{Insegnante}", verso un modello più piccolo chiamato "\emph{Studente}", per 
+    migliorare le prestazioni di quest'ultimo.
+    \item {\bfseries{\emph{Quantization}}}: la riduzione del numero di bit necessari 
+    alla memorizzazione dei pesi rappresenta una tecnica di compressione. Passare da 
+    una precisione FP32 a una INT8 significherebbe ridurre di un quarto 
+    la rappresentazione di un valore.
+\end{enumerate}
+Di seguito vengono riportate le spiegazioni più dettagliate di ciascuna.
+
+\subsection{Pruning}
+Diversi modelli soffrono di una problematica comune: la numerosità 
+dei parametri. I parametri che appaiono insignificanti, a livello di accuratezza, 
+costituiscono un punto dolente dal punto di vista dell'occupazione della memoria e della 
+velocità di inferenza. Prendendo in considerazione i pesi di 
+ogni modello, che a loro volta costituiscono il maggior numero di parametri, 
+questi possono essere considerati rilevanti quando hanno un valore divergente 
+da zero. Uno o più pesi quindi sono da considerarsi irrilevanti quando 
+assumono un valore prossimo allo zero. La sovrabbondanza di quest'ultimi 
+impatta drasticamente sulle performance del modello. Allo stato dell'arte 
+sono stati proposti diversi approcci \cite{salama2019pruning} utili a mitigare la sparsità di tali 
+valori. Tutti questi sforzi hanno dato vita alla tecnica di \emph{Pruning} (Potatura).  
+Esistono diverse tecniche di pruning, ovvero:
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.6\linewidth]{unstructured pruning.png}
+    \centering
+    \caption{Esempio di rete fully connected potata con la tecnica unstructured.}
+    \label{unstruct-prun}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.6\linewidth]{structured pruning.png}
+    \centering
+    \caption{Esempio di rete fully connected potata con la tecnica structured.}
+    \label{struct-prun}
+\end{figure}
+
+\begin{enumerate}
+    \item {\bfseries{\emph{Pruning non-strutturato (Unstructured)}}}: applicato per attività 
+    di "\emph{weight pruning}"\cite{NIPS1989_6c9882bb} \cite{NIPS1992_303ed4c6}. Lo scopo di questa tecnica è quello di 
+    rimuovere interi pesi introducendo quasi sempre un'elevata sparsità 
+    nel modello richiedendo al contempo l'utilizzo di hardware e software 
+    dedicati. La potatura dei pesi comporterebbe l'eliminazione di alcuni 
+    collegamenti tra i vari neuroni, ma non la loro disattivazione (Fig. 
+    \ref{unstruct-prun})
+    \item {\bfseries{\emph{Pruning strutturato (Structured)}}}: tecnica che va a rimuovere interi 
+    filtri (canali), o neuroni, al posto di singoli pesi, alleviando il problema 
+    della sparsità. A questo proposito, \cite{li2017pruning} propose una "\emph{channel-wise 
+    pruning}" in accordo con la norma \emph{L1} del filtro corrispondente. La 
+    potatura strutturata in genere porta a prestazioni di runtime migliori 
+    rispetto alla potatura non strutturata in quanto le operazioni vengono 
+    eseguite su matrici dense. Contrariamente, questa tecnica impatta 
+    pesantemente sull'accuratezza del modello. Questa tecnica, in un 
+    contesto di reti fully connected, va a disattivare tutte le connessioni 
+    di determinati nodi rendendoli obsoleti (Fig. \ref{struct-prun}).
+    \item {\bfseries{\emph{Pruning non strutturato globale (Global Unstructured)}}}: rispetto 
+    alla tecnica non strutturata, la globale applica una potatura su 
+    tutti i parametri specificati in tutti i filtri appartenenti ad ogni layer 
+    in maniera parallela. È importante notare che la tecnica globale di 
+    unstructured pruning consente di potare i layers meno utili (entropia 
+    inferiore) rispetto a quelli più utili (entropia più elevata).
+\end{enumerate}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{structured and unstructured pruning.png}
+    \centering
+    \caption{Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.}
+    \label{filter-pruning}
+\end{figure}
+
+La domanda sorge spontanea. Quali tipi di parametri dovranno essere 
+sottoposti a potatura? Un criterio abbastanza intuitivo ed efficiente riguarda 
+la potatura dei pesi il cui valore assoluto (o magnitudo) è il più piccolo. 
+Sebbene questo criterio sembri banale da implementare in un dominio di 
+unstructured pruning, ci si può chiedere come adattarlo ad una structured 
+pruning. In quest'ultimo caso, per determinare l'importanza di un valore, 
+queste tecniche utilizzano le norme L1 (Geometria dei Taxi/Distanza di 
+Manhattan) e L2 (Distanza Euclidea) come regolarizzatori. Nello specifico, 
+la relativa importanza di un filtro, in ogni layer, viene misurata calcolando 
+la somma dei valori assoluti dei suoi pesi, cioè la sua norma (L1 o L2). 
+Successivamente, questi filtri vengono ordinati in base al precedente risultato 
+e potati se assumo il valore più basso. La potatura di un filtro porta 
+all'azzeramento di un intera feature maps. Rispetto ad una unstructured 
+pruning, dove l'azzeramento di un parametro influenzerebbe minimamente 
+il kernel nel successivo layer, in un contesto structured ciò comporterebbe 
+l'eliminazione del kernel, corrispondente a tale feature maps, presente nel 
+layer successivo (Fig. \ref{filter-pruning}). Attualmente la ricerca è suddivisa su due linee di 
+pensiero. Da una parte si pensa che la tecnica di pruning porti effettivamente 
+al miglioramento delle performance di un modello, dovuto dalla riduzione 
+delle sue dimensioni  \cite{han2015learning} e al conseguente risparmio energetico \cite{yang2017designing}, dall'altra 
+parte invece si afferma tutto il contrario \cite{cheng2020survey}. Un recente studio, intitolato 
+"\emph{The lottery ticket hypothesis}" \cite{frankle2019lottery} ha intensificato l'interesse per le tecniche 
+di potatura. Tale studio sostiene la seguente tesi: 
+\begin{displayquote}
+    \emph{"Una rete neurale densa contiene una sottorete più piccola che 
+    può raggiungere la stessa accuratezza, dell'intera rete originale, 
+    dopo essere stata sottoposta a un processo di addestramento 
+    individuale per lo stesso numero di epoche."}
+\end{displayquote}
+Questa ideologia ha portato gli autori ad attuare la tecnica di pruning 
+iterativa utile a ricavare dei modelli più piccoli (i cosiddetti "\emph{winning 
+tickets}") che hanno pienamente confermato la veridicità della propria tesi.
+Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percentuale di sparsità 
+all'interno di un modello mai ri-addestrato, porterà codesto ad avere un lento 
+apprendimento in fase di training oltre che a un decremento dell'accuratezza.
+

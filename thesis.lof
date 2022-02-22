@@ -46,12 +46,15 @@
 \contentsline {figure}{\numberline {2.42}{\ignorespaces Modello generale del sistema di Drowsiness detection.\relax }}{62}{figure.caption.69}%
 \contentsline {figure}{\numberline {2.43}{\ignorespaces Esempio di alcuni sistemi di Collision Avoidance.\relax }}{63}{figure.caption.71}%
 \contentsline {figure}{\numberline {2.44}{\ignorespaces Esempio di Traffic Sign/Light recognition.\relax }}{66}{figure.caption.73}%
+\contentsline {figure}{\numberline {2.45}{\ignorespaces Esempio di rete fully connected potata con la tecnica unstructured.\relax }}{68}{figure.caption.74}%
+\contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{68}{figure.caption.75}%
+\contentsline {figure}{\numberline {2.47}{\ignorespaces Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.\relax }}{70}{figure.caption.76}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces NVidia Jetson Nano.\relax }}{69}{figure.caption.74}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{70}{figure.caption.75}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{71}{figure.caption.76}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces NVidia Jetson Nano.\relax }}{75}{figure.caption.77}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{76}{figure.caption.78}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{77}{figure.caption.79}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{75}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{76}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{77}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{81}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{82}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{83}{figure.caption.83}%
 \addvspace {10\p@ }
