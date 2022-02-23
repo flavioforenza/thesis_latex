@@ -1795,27 +1795,71 @@ archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
 Di seguito vengono riportate le spiegazioni più dettagliate di ciascuna.
 
 \subsection{Quantization}
-La rappresentazione dei parametri, di una rete neurale, avviene utilizzando un determinato numero di bit. Trovandoci in un contesto di compressione, e di ottimizzazione, diversi sono stati gli studi che hanno avuto l'obiettivo di ridurre la quantità di bit preservando l'accuratezza del modello. Allo stato dell'arte, tutti questi sforzi hanno dato vita allo sviluppo di una tecnica fondamentale: la quantizzazione. La sua popolarità è rapidamente cresciuta grazie agli evidenti miglioramenti delle prestazioni dei modelli. I benchmarks pubblicati in uno studio \cite{quantization_speed} hanno evidenziato come la quantizzazione possa migliorare il proprio throughput di un fattore pari a 10x.
-La compressione effettuata dalla quantizzazione si traduce in una riduzione della precisione Floating-Point durante le operazioni matematiche svolte all'interno della rete. 
-Poiché possiamo avere numeri infinitamente precisi, ma uno spazio limitato in cui memorizzarli, bisogna giungere ad un compromesso tra precisione (il numero di decimali che si vogliono includere in un numero prima di arrotondarlo) e spazio (quantità di bit da utilizzare per salvare il numero). Secondo lo standard tecnico per i numeri a virgola mobile, IEEE-754 stabilisce i seguenti standard:
+La rappresentazione dei parametri, di una rete neurale, avviene utilizzando 
+un determinato numero di bit. Trovandoci in un contesto di compressione, e 
+di ottimizzazione, diversi sono stati gli studi che hanno avuto l'obiettivo di 
+ridurre la quantità di bit preservando l'accuratezza del modello. Allo stato 
+dell'arte, tutti questi sforzi hanno dato vita allo sviluppo di una tecnica 
+fondamentale: la quantizzazione. La sua popolarità è rapidamente cresciuta 
+grazie agli evidenti miglioramenti delle prestazioni dei modelli. I benchmarks 
+pubblicati in uno studio \cite{quantization_speed} hanno evidenziato come la quantizzazione possa 
+migliorare il proprio throughput di un fattore pari a 10x. La compressione 
+effettuata dalla quantizzazione si traduce in una riduzione della precisione 
+Floating-Point durante le operazioni matematiche svolte all'interno della 
+rete. Poiché possiamo avere numeri infinitamente precisi, ma uno spazio 
+limitato in cui memorizzarli, bisogna giungere ad un compromesso tra 
+precisione (il numero di decimali che si vogliono includere in un numero 
+prima di arrotondarlo) e spazio (quantità di bit da utilizzare per salvare 
+il numero). Secondo lo standard tecnico per i numeri a virgola mobile, 
+\emph{IEEE-754} stabilisce i seguenti standard:
 \begin{itemize}
     \item \emph{FP64}: conosciuto come "\emph{double-precision}" o semplicemente "\emph{double}". 
     \item \emph{FP32}: conosciuto come "\emph{single-precision}" o semplicemente "\emph{single}".
     \item \emph{FP32}: conosciuto come "\emph{half-precision}" o semplicemente "\emph{half}".
 \end{itemize}
-La quantizzazione ha l'obiettivo di mappare i valori aventi precisione fp32 in valori a precisione int8. Questo vuol dire passare da una quantità di valori memorizzabili pari a $2^{31}$, a una quantità  corrispondente a un massimo 256 valori, ovvero a $2^8$.
-La riduzione totale porta ad occupare un numero di bit pari a $\frac{1}{4}$ di quelli occupati dalla precisione FP32.
-Tale beneficio, tradotto in termini di performance, dovrebbe portare ad un incremento della velocità di inferenza per un fattore massimo pari a quattro volte. Purtroppo, quest'ultimo evento non sempre è verificabile. Secondo alcuni test \cite{LIANG2021370}, utilizzando frameworks come Google TensorFLow-Lite e NVidia TesnorRt, impostando un basso valore di batch-size, riescono a raggiungere un velocità massima di circa 2-3x. Aumentando il numero di batch-size, solamente TensorRT riesce ad intensificare ulteriormente la velocità di inferenza arrivando a 3-4x.
-Dopo aver convertito i parametri come pesi, input e vettori intermedi, la maggior parte della matematica che segue viene eseguita in int8.
-Una prima dimostrazione di tale tecnica, a precisione int8, venne riportata in una ricerca \cite{37631}, nell'anno 2010. I risultati ottenuti con pesi mappati a una precisione int8 hanno portato a un'accelerazione dell'inferenza senza avere un calo significativo dell'accuratezza.
-Di solito, la precisione utilizzata durante l'allenamento di una rete è la FP32. Per molte reti, una rappresentazione fp32 risulta essere una precisione maggiore del necessario.
-La riduzione della precisione, oltre a comprimere un modello, mira alla riduzione della quantità energetica impiegata dovuta alla ridotta larghezza di banda (bandwidth) utilizzata.
-Esistono tre tiplogie di quantizzazione:
+La quantizzazione ha l'obiettivo di mappare i valori aventi precisione FP32 
+in valori a precisione int8. Questo vuol dire passare da una quantità di valori 
+memorizzabili pari a $2^{31}$, a una quantità  corrispondente a un massimo 256 
+valori, ovvero a $2^8$. La riduzione totale porta ad occupare un numero di bit 
+pari a $\frac{1}{4}$ di quelli occupati dalla precisione FP32. Tale beneficio, tradotto in 
+termini di performance, dovrebbe portare ad un incremento della velocità di 
+inferenza per un fattore massimo pari a quattro volte. Purtroppo, quest'ultimo 
+evento non sempre è verificabile. Secondo alcuni test \cite{LIANG2021370}, utilizzando 
+frameworks come Google TensorFLow-Lite e NVidia TesnorRt, impostando 
+un basso valore di batch-size, riescono a raggiungere un velocità massima 
+di circa 2-3x. Aumentando il numero di batch-size, solamente TensorRT 
+riesce ad intensificare ulteriormente la velocità di inferenza arrivando a 
+3-4x. Dopo aver convertito i parametri come pesi, input e vettori intermedi, 
+la maggior parte della matematica che segue viene eseguita in INT8. Una 
+prima dimostrazione di tale tecnica, a precisione INT8, venne riportata 
+in una ricerca \cite{37631}, nell'anno 2010. I risultati ottenuti con pesi mappati 
+a una precisione INT8 hanno portato a un'accelerazione dell'inferenza 
+senza avere un calo significativo dell'accuratezza. Di solito, la precisione 
+utilizzata durante l'allenamento di una rete è la FP32. Per molte reti, una 
+rappresentazione FP32 risulta essere una precisione maggiore del necessario.
+La riduzione della precisione, oltre a comprimere un modello, mira alla riduzione della 
+quantità energetica impiegata dovuta alla ridotta larghezza 
+di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione:
 \begin{enumerate}
-    \item \emph{Dynamic Quantization}: viene eseguita a runtime su un modello pre-addestrato. L'operazione si basa nel moltiplicare i valori di input per un fattore di scala variabile da cui seguirà un arrotondamento al numero intero più vicino. Successivamente memorizza il risultato ottenuto. I pesi vengono quantizzati immediatamente mentre le attivazioni vengono quantizzate dinamicamente durante l'inferenza. Purtroppo, questo tipo di metodo non è altamente utilizzato in quanto risulta essere la meno performante, ottenendo delle performance negative.
-    \item \emph{Static Quantization}: viene eseguita dopo la fase di allenamento su un modello pre-addestrato. La differenza con la tecnica dinamica riguarda il pre-calcolo delle scale e i punti zero di ogni tensore di attivazione servendosi di dati non strutturati. Oltre ad essere più precisa rispetto alla tecnica dinamica, ottiene delle migliori performance per quanto riguarda l''inferenza della rete.
-    \item \emph{Quantization-Aware-Training (QAT)}: risulta essere la tecnica di quantizzazione più accurata. Viene svolta durante il processo di allenamento ma al contempo ne rallenta i tempi di formazione del modello. L'idea di tale tecnica è quella di tenere conto della perdita che si ha nel processo di allenamento durante la conversione del modello.
-    
+    \item \emph{Dynamic Quantization}: viene eseguita a runtime su un modello pre-addestrato. 
+    L'operazione si basa nel moltiplicare i valori di input 
+    per un fattore di scala variabile da cui seguirà un arrotondamento al 
+    numero intero più vicino. Successivamente memorizza il risultato ottenuto. 
+    I pesi vengono quantizzati immediatamente mentre le attivazioni 
+    vengono quantizzate dinamicamente durante l'inferenza. Purtroppo, 
+    questo tipo di metodo non è altamente utilizzato in quanto risulta 
+    essere la meno performante, ottenendo delle performance negative.
+    \item \emph{Static Quantization}: viene eseguita dopo la fase di allenamento su un 
+    modello pre-addestrato. La differenza con la tecnica dinamica riguarda 
+    il pre-calcolo delle scale e i punti zero di ogni tensore di attivazione 
+    servendosi di dati non strutturati. Oltre ad essere più precisa rispetto 
+    alla tecnica dinamica, ottiene delle migliori performance per quanto 
+    riguarda l''inferenza della rete.
+    \item \emph{Quantization-Aware-Training (QAT)}: risulta essere la tecnica di quantizzazione 
+    più accurata. Viene svolta durante il processo di allenamento 
+    ma al contempo ne rallenta i tempi di formazione del modello. 
+    L'idea di tale tecnica è quella di tenere conto della perdita che si ha 
+    nel processo di allenamento durante la conversione del modello.
 \end{enumerate}
 
 
