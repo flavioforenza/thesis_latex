@@ -1962,3 +1962,162 @@ Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percen
 all'interno di un modello mai ri-addestrato, porterà codesto ad avere un lento 
 apprendimento in fase di training oltre che a un decremento dell'accuratezza.
 
+\subsection{Knowledge Distillation}
+I modelli profondi hanno avuto considerevoli successi, tuttavia l'elevata richiesta 
+computazionale e l'aumento della richiesta di archiviazione, rendono 
+difficile la loro implementazione in applicazioni real-time, specialmente su 
+dispositivi con risorse limitate come la videosorveglianza e la guida autonoma. 
+Questa grande limitazione ha aperto le porte allo sviluppo di una 
+nuova tecnica di compressione/ottimizzazione delle reti neurali chiamata 
+\emph{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 
+per migliorare l'accuratezza di una piccola rete, chiamata "Studente", trasferendo 
+la conoscenza distillata prodotta da una (o anche molteplici) rete 
+più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{KD simple.png}
+    \centering
+    \caption{Il quadro generico insegnante-studente per la distillazione della conoscenza}
+    \label{KD_simple}
+\end{figure}
+È bene non confondere tale 
+argomento con il concetto di "Transfer Learning". L'obiettivo del Transfer 
+Learning è quello di trasferire i pesi da un modello pre-addestrato verso 
+un nuovo modello, entrambi esattamente con la stessa architettura di rete. 
+Questo vuol dire che la nuova rete è profonda e complessa quanto la rete pre-addestrata.
+L'obiettivo della Knowledge distillation è nettamente differente.
+In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare", 
+possono essere trasferite da un insegnante verso uno studente mediante i 
+cosiddetti "\emph{soft targets}". Utilizzando i logits del modello insegnante, che 
+altro non sono che distribuzioni di probabilità sulle classi, si può attuare 
+il principio cardine su cui è basata la knowledge distillation (o \emph{Vanilla 
+Knowledge Distillation}). Il modello studente verrà allenato utilizzando i 
+suddetti logits come conoscenza distillata, con lo scopo di ridurre al minimo 
+l'entropia incrociata tra i logits dell'insegnante e i propri logits prodotti. 
+Prima di introdurre il concetto principale, bisogna ricordare come una 
+funzione Softmax (o funzione di attivazione) trasformi i numeri (logits) in 
+delle probabilità che se sommate producono un valore sempre uguale a 1.  
+Lo scopo di tale funzione quindi è quello di generare un range di valori, 
+compresi tra 0 e 1, in cui il valore più grande rappresenterà la probabilità 
+della classe target. Per calcolare la probabilità individuale di una classe 
+(Softmax), viene utilizzata la seguente formula:
+\begin{equation}\label{softmax_normal}
+    q_j = \frac{exp(z_j)}{\sum_{k=1}^K exp(z_k)}
+\end{equation}
+dove:
+\begin{itemize}
+    \item $q_j$: probabilità della classe $j$-esima;
+    \item $z_J$ logit corrispondente alla classe $j$-esima;
+    \item $\sum_{k=1}^K exp(z_k)$: termine di normalizzazione;
+    \item $K$: numero di classi.
+\end{itemize}
+La formula (\ref{softmax_normal}) calcola il rapporto tra l'esponenziale del valore di input 
+dato e la sommatoria dei valori esponenziali di tutti i valori presenti negli 
+inputs. Le probabilità risultati vengono chiamate "\emph{hard-targets}" (o hard 
+labels). Per allenare il modello studente, bisogna modificare la suddetta 
+formula (Eq. \ref{softmax_normal}) applicata dalla funzione Softmax nella seguente formula:
+\begin{equation}
+    q_j = \frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}
+\end{equation}
+dove:
+\begin{itemize}
+    \item $T>1$: indica un parametro chiamato \emph{Temperatura} \cite{marino2021compact}.
+\end{itemize}
+Le probabilità risultanti da questa softmax modificata, prenderanno il nome 
+di "\emph{soft-targets}" (o soft-labels). Arrivati a questo punto, c'è da porsi la 
+seguente domanda: Qual'è il significato delle soft-targets? Per comprendere 
+questo concetto, guardiamo le figure X e Y.
+\begin{figure}[]
+    \begin{minipage}[t]{.45\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{number1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{.45\textwidth}
+        \centering
+        \includegraphics[width= 0.5\textwidth]{number7.png}
+    \end{minipage}  
+    \caption{Numeri 1 e 7.}
+    \label{numbers_Mnist}
+\end{figure}
+Entrambi sono due numeri, l'1 
+e il 7. Ciò che viene immediatamente notata è la somiglianza tra questi due 
+numeri, ma nonostante ciò sappiamo distinguerli. Avere una buona capacità 
+di distinzione di tali numeri vuol dire avere una buona "\emph{generalizzazione}". 
+\begin{displayquote}
+    \emph{"La generalizzazione è la capacità di ottenere delle predizioni 
+    attendibili su nuovi dati mai utilizzati in fase di allenamento 
+    da parte di un modello."}
+\end{displayquote}
+Quando un modello riuscirà ad intuire una somiglianza tra i due numeri, 
+e allo stesso tempo a distinguerli, vuol dire che ha una buona capacità di 
+generalizzazione. La temperatura è utile a controllare l'importanza di ogni 
+probabilità prodotta utile a determinare il grado di generalizzazione. Dai 
+risultati restituiti dal modello (Fig. \ref{7_1}), si può osservare che la probabilità 
+di predire il numero 7 si "ammorbidisce" all'aumentare della temperatura T.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{graph_numbers.png}
+    \centering
+    \caption{Previsione di probabilità per la cifra del numero '7' a temperature variabili.}
+    \label{7_1}
+\end{figure}
+Seguendo la linea verde, indicante la temperatura T=7, capiremmo già da 
+subito che, con un'alta confidenza, il numero target predetto dal modello è 7 
+ma, allo stesso tempo, notiamo che la probabilità dei numeri 1 e 9 è più alta 
+rispetto a 6. Perché accade ciò? Semplicemente perchè tra il numero 7 e i 
+due numeri 1 e 9, il modello percepisce un livello di somiglianza. Prendendo 
+ora in considerazione le linee blu e arancione, aventi corrispettivamente 
+temperatura T=1 e T=3, si può osservare che il modello prevede giustamente 
+il numero 7, ma contemporaneamente non è più in grado di distinguere se il 
+numero 7 è più vicino a 1 o a 6, in quanto entrambi questi numeri hanno 
+probabilità molto vicine allo zero. L'unica differenza tra un umano e un 
+modello è che quest'ultimo sa quantificare precisamente, attraverso l'utilizzo 
+della temperatura, quanto il numero 7 sembri più vicino a 1. Questo concetto 
+è diffuso sotto il nome di "\emph{Dark Knowledge}" (Conoscenza Oscura). Un 
+modello a bassa temperatura, o verosimilmente i modelli a temperatura 
+T=1, sono molto bravi ad effettuare previsioni difficili ma allo stesso tempo 
+perdono questo concetto di conoscenza oscura. Lo scopo della Knowledge 
+distillation punta a trasmettere questa conoscenza oscura da un insegnante 
+ben addestrato e un modello studente più leggero. Per allenare lo studente 
+sia con le soft-targets che con le hard-targets, gli autori hanno utilizzato la 
+somma ponderata di due perdite. La prima perdita ($L_{soft}$) è quella ricavata 
+dal calcolo dell'entropia incrociata (cross-entropy loss) tra le previsioni del 
+modello studente e le label corrette fornite dal ground-truth. La seconda 
+funzione di perdita ($L_{hard}$) invece si basa sul calcolo di un'entropia incrociata 
+tra le soft-targets prodotte da entrambi i modelli, studente e insegnante, 
+alla stessa quantità di temperatura. Matematicamente parlando, denotiamo 
+corrispettivamente con $v_j$ e $z_j$ i logits di insegnante e studente. Dopo esserci 
+calcolati le probabilità soft-targets $q_j$ e $p_j$ derivanti dalla softmax dello 
+studente e dell'insegnante, ad una stessa temperatura T, possiamo definire 
+la seconda funzione di perdita, ovvero la seconda entropia incrociata, con la 
+seguente formula:
+\begin{equation}\label{cross_entropy_loss}
+    C(z,v) = -\sum_jp_j \log{q_j}
+\end{equation}
+Il gradiente derivante dal calcolo della derivata $dC/dz_J$ sull'entropia incrociata 
+(\ref{cross_entropy_loss}), si ottiene con la seguente formula:
+\begin{equation}\label{cross_entropy_soft}
+    \frac{dC}{dz_j}=\frac{1}{T}(q_j-p_j)=\frac{1}{T}\left(\frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}-\frac{e^{v_j/T}}{\sum_{k=1}^K e^{v_k/T}}\right)
+\end{equation}
+La Formula (\ref{cross_entropy_soft}) permette di minimizzare l'entropia incrociata (\ref{cross_entropy_loss}) 
+e a migliorare le performance dello studente sfruttando la capacità di 
+generalizzazione dell'insegnante. La perdita totale del modello studente è 
+data dalla somma tra la prima e la seconda funzione di perdita. ovvero 
+dalla seguente formula:
+\begin{equation}
+    L= L_{hard}+T^2L_{soft}
+\end{equation}
+Poichè i magnitudi dei gradienti prodotti dai soft-targets scalano a $1/T^2$, 
+è importante moltiplicare la seconda funzione di perdita per $T^2$. A livello 
+grafico, la singola generazione delle due perdite è riportata nella Figura 
+(\ref{l_hard_soft}). Da come possiamo vedere, la funzione di perdita $L_{soft}$ è generata 
+nel blocco "Distillation", mentre la funzione di perdita $L_{hard}$ dello studente 
+è generata nella parte in basso dell'immagine.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{KD_losses.png}
+    \centering
+    \caption{Generazione entropie incrociate $L_{soft}$ (in alto) e $L_{hard}$ (in basso).}
+    \label{l_hard_soft}
+\end{figure}
