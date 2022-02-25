@@ -37,7 +37,7 @@ a disposizione da NVidia, questi hanno costituito le baselines ovvero
 i punti di riferimento da cui partire. Per la visualizzazione dei risultati 
 ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
 
-\section{Jetson Nano}
+\section{NVidia Jetson Nano}
 La Jetson Nano (B01), presentata nel Marzo del 2019,  è una scheda embedded 
 sviluppata da NVidia che rappresenta il prodotto più piccolo della 
 famiglia Jetson. L'utilizzo della scheda è rivolto principalmente verso varie 
@@ -46,29 +46,31 @@ troviamo un processore e una scheda madre che offre una potenza di calcolo
 pari a 128 Cuda cores. L'obiettivo di questa scheda è quello di funzionare 
 con reti neurali e offrire le migliori prestazioni quando viene utilizzata per 
 eseguire inferenze. A differenza di altre architetture, lo Jetson Nano utilizza 
-una precisione a 16-bit che lo rende competitivo rispetto ad altri device 
-embedded. Purtroppo non supporta la precisione a 8-bit ma è comunque in 
-grado di lavorare con qualsiasi rete disponibile e con qualsiasi framework di 
-deep learning popolare (es: Pytorch, TensorFlow, Keras, Caffe etc.). In questo 
-dispositivo è possibile effettuare sia il rilascio (deploy) dell'applicazione 
-che l'addestramento della rete ma, in quest'ultimo caso, risulta essere lento 
-a causa delle prestazioni computazionali ridotte. Oltre ad avere il vantaggio 
-delle dimensioni ridotte, un altro principale vantaggio dello Jetson Nano 
-deriva dall'applicazione dell'ottimizzazione TensorRT. Quest'ultima esegue 
-un processo di quantizzazione che è utile a convertire i pesi e gli input in 
-tipi interi, in modo da preservare la memoria che, su una scheda del genere, 
-rappresenta una limitazione. A tal proposito, il dispositivo non fornisce 
-alcun tipo di memoria integrata, ma esiste la possibilità di aggiungerne una 
-grazie alla presenza di uno slot di espansione in cui è possibile alloggiare 
-una scheda micro-sd. Essendo una scheda embedded, a differenza di altri 
-computer che utilizzano alimentatori da diversi Watts (W), il Jetson Nano 
-può utilizzare due diversi livelli di wattaggio. Il primo, quello da 5W, è 
-raggiungibile grazie alla presenza di una porta micro-usb, mentre il secondo, 
-quello da 10W, è raggiungibile solo grazie all'utilizzo di un alimentatore 
-esterno collegato all'ingresso jack. Il massimo livello di performance, raggiungibile 
-dalla GPU, avviene tramite l'utilizzo dell'alimentatore esterno. 
-Per rendere l'idea delle dimensioni e dell'intera architettura, in Figura (\ref{jetson}) 
-è riportata la Jetson Nano.
+una precisione Floating point (FP) a 16-bit che lo rende competitivo rispetto 
+ad altri device embedded. Purtroppo non supporta la precisione a 8-bit 
+ma è comunque in grado di lavorare con qualsiasi rete disponibile e con 
+qualsiasi framework di deep learning popolare (es: Pytorch, TensorFlow, 
+Keras, Caffe etc.). In questo dispositivo è possibile effettuare sia il rilascio 
+(deploy) dell'applicazione che l'addestramento della rete ma, in quest'ultimo 
+caso, risulta essere lento a causa delle prestazioni computazionali ridotte. 
+Risulta inoltre possibile effetuare operazioni di transfer learning tra i modelli.
+Oltre ad avere il vantaggio delle dimensioni ridotte, un altro principale vantaggio 
+della Jetson Nano deriva dall'applicazione dell'acceleratore TensorRT. 
+Quest'ultimo esegue un processo di quantizzazione che è utile a convertire i 
+pesi e gli input in precisioni Floating Point inferiori, in modo da preservare 
+la memoria che, su una scheda del genere, rappresenta una limitazione. A 
+tal proposito, il dispositivo non fornisce alcun tipo di memoria integrata, 
+ma esiste la possibilità di aggiungerne una grazie alla presenza di uno slot 
+di espansione in cui è possibile alloggiare una scheda micro-sd. Essendo una 
+scheda embedded, a differenza di altri computer che utilizzano alimentatori 
+da diversi Watts (W), la Jetson Nano può utilizzare due diversi livelli di 
+wattaggio. Il primo, quello da 5W, raggiungibile grazie alla presenza di 
+una porta micro-usb, mentre il secondo, quello da 10W, è raggiungibile solo 
+grazie all'utilizzo di un alimentatore esterno collegato tramite l'ingresso 
+jack. Il massimo livello di performance, raggiungibile dalla GPU, avviene 
+proprio tramite l'utilizzo dell'alimentatore esterno. Per rendere l'idea delle 
+dimensioni e dell'intera architettura, in Figura (\ref{jetson}) è riportata la Jetson 
+Nano.
 \begin{figure}[]
     \begin{minipage}[t]{.45\textwidth}
         \centering
@@ -83,7 +85,8 @@ Per rendere l'idea delle dimensioni e dell'intera architettura, in Figura (\ref{
     \label{jetson}
 \end{figure}
 
-\section{TensorRT}
+\section{Test Frameworks}
+\subsection{TensorRT}
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{tensorrtOpt.png}
@@ -144,7 +147,7 @@ modello. Per poterla calcolare, la velocità di inferenza è rappresentata dai
 Questa misura è variabile e serve per rappresentare tre diversi elementi:
 \begin{itemize}
     \item {\bfseries{\emph{Input}}}: ogni rete prende in input una sequenza di frame appartenenti 
-    a un video. Ogni video può avere un numero di FPS variabile. In 
+    a un video/immagini. Ogni sequenza può avere un numero di FPS variabile. In 
     questo elaborato, vengono testati diversi video a 30FPS e a 60FPS.
     \item {\bfseries{\emph{Netwrok}}}: la velocità che la rete impiega ad effettuare uno specifico 
     task, può essere rappresentata dal numero di FPS. Riconoscere e/o 
@@ -152,6 +155,6 @@ Questa misura è variabile e serve per rappresentare tre diversi elementi:
     computazionali, pertanto una rete è considerata veloce se, oltre a 
     produrre un output adeguato, svolge ogni task in un tempo breve.
     \item {\bfseries{\emph{Output}}}: il risultato prodotto da una rete è visibile solamente a 
-    schermo. Il video mostrato ha anch'esso una velocità di riproduzione 
-    che è influenzato dal numero di FPS.
+    schermo. I video/immagini mostrati/e hanno una velocità di riproduzione 
+    che è influenzata dal numero di FPS.
 \end{itemize}
