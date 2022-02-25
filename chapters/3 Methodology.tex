@@ -8,28 +8,34 @@
 \thispagestyle{empty}
 
 Nel capitolo precedente sono stati spiegati tutti i concetti principali che 
-compongono un sistema di visione artificiale, il quale ha lo scopo fondamentale 
-di effettuare la comprensione della scena mediante l'utilizzo di tecniche 
-di object detection e di semantic segmentation. Avendo come obiettivo 
-principale lo sviluppo di un sistema di guida autonoma, nel seguente capitolo 
-vengono riportate tutte le metodologie utilizzate per tale scopo. Il focus 
-principale sarà rivolto verso la tecnica di segmentazione semantica. È 
-proprio quest'ultima tecnica quella ad essere utilizzata maggiormente in 
-questo elaborato. Le risorse computazionali richieste da codesta risultano 
-essere onerose. Essendo un sistema autonomo implementato all'interno di 
-una centralina dedicata, bisogna aver un chiaro prospetto delle potenzialità 
-richieste da un modello di visione artificiale, affinché si raggiunga l'obiettivo 
-finale. Uno degli obiettivi di questo elaborato è basato sull'implementazione 
-di metodi di guida autonoma su un dispositivo, relativamente economico, 
-alla portata di tutti. La centralina presa di riferimento è rappresentata da 
-un nota scheda di elaborazione embedded, che prende il nome di Jetson 
-Nano (NVidia). Le potenzialità messe a disposizione da questa scheda sono 
-state comparate, in termini di Frames-per-Second (FPS), con quelle messe 
-a disposizione sia dal computer del sottoscritto che da Google Colaboratory 
-(Colab). Avendo caratteristiche hardware ben differenti l'uno dall'altro, si è 
-pensato di creare una comparazione standard composta dallo stesso codice 
-eseguito su tutte e tre le diverse architetture. Per la visualizzazione dei 
-risultati ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
+compongono un sistema di visione artificiale, il quale ha lo scopo principale 
+di effettuare la comprensione della scena mediante l'utilizzo di tecniche di 
+object detection e di semantic segmentation. Oltre a questi concetti, sono 
+state definite anche le comuni tecniche di compressione/ottimizzazione che 
+permettono ad un modello di essere eseguito anche su dispositivi a limitate 
+risorse computazionali, relativamente economico, alla portata di tutti. 
+L'obiettivo finale dello studio è basato sull'incremento delle prestazioni di 
+un modello tramite l'utilizzo di una delle tecniche di compressione/ottimizzazione 
+citate nel capitolo precedente. Nel seguente capitolo vengono 
+riportate tutte le metodologie adottate che hanno portato alla realizzazione 
+di un metodo personalizzato avente lo scopo prefissato. Il focus principale 
+sarà rivolto verso la tecnica di object detection. È proprio quest'ultima 
+tecnica ad essere stata utilizzata maggiormente in questo elaborato. Le
+risorse computazionali richieste da codesta risultano essere onerose. Essendo 
+un sistema autonomo implementato all'interno di una centralina dedicata, 
+bisogna aver un chiaro prospetto delle potenzialità richieste da un modello di 
+visione artificiale per poter raggiungere l'obiettivo finale. Il dispositivo preso 
+in riferimento è costituito da un nota scheda di elaborazione embedded, che 
+prende il nome di Nvidia Jetson Nano. Le potenzialità messe a disposizione 
+da questa scheda sono state comparate, in termini di Frames-per-Second 
+(FPS), con quelle messe a disposizione sia dal computer del sottoscritto 
+che da Google Colaboratory (Colab). Avendo caratteristiche hardware ben 
+differenti l'uno dall'altro, si è pensato di creare una comparazione standard 
+composta dallo stesso codice eseguito su tutte e tre le diverse architetture. 
+Dopo aver ottenuto i primi risultati dai modelli pre-addestrati, messi gentilmente 
+a disposizione da NVidia, questi hanno costituito le baselines ovvero 
+i punti di riferimento da cui partire. Per la visualizzazione dei risultati 
+ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
 
 \section{Jetson Nano}
 La Jetson Nano (B01), presentata nel Marzo del 2019,  è una scheda embedded 
