@@ -34,8 +34,17 @@ differenti l'uno dall'altro, si è pensato di creare una comparazione standard
 composta dallo stesso codice eseguito su tutte e tre le diverse architetture. 
 Dopo aver ottenuto i primi risultati dai modelli pre-addestrati, messi gentilmente 
 a disposizione da NVidia, questi hanno costituito le baselines ovvero 
-i punti di riferimento da cui partire. Per la visualizzazione dei risultati 
+i punti di riferimento da cui partire. Per poter ricavare i benchmarks, 
+tutti i modelli, pre-addestrati e proposto, saranno sottoposti al percorso di 
+elaborazione raffigurato in Figura (\ref{flow_chart}). Per la visualizzazione dei risultati 
 ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{flow_chart.png}
+    \centering
+    \caption{Flusso di esecuzione di ogni modello.}
+    \label{flow_chart}
+\end{figure}
 
 \section{NVidia Jetson Nano}
 La Jetson Nano (B01), presentata nel Marzo del 2019,  è una scheda embedded 
