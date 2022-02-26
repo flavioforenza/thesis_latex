@@ -135,6 +135,80 @@ grafica porta alla creazione di errori in fase di inferenza.
     \label{fusion_tensorrt}
 \end{figure}
 
+\subsection{NVidia Jetson utils}\label{utils}
+NVidia dispone di una comunità che supporta l'evoluzione di tutte le sue schede 
+embedded, inclusa la Jetson Nano. Questa associazione ha dato vita 
+a delle librerie utilizzate in ambito di computer vision, nello specifico rivolto 
+alla gestione e alla  progettazione di reti neurali. In ambito di inferenza, una 
+parte di codeste utilizza l'acceleratore TensorRT per distribuire in modo 
+efficiente le reti neurali sulla piattaforma Jetson utilizzata, consentendo 
+un miglioramento delle prestazioni e al contempo una migliore efficienza 
+energetica. Il codice sorgente messo a disposizione, sviluppato sia in linguaggio 
+C++ che in Python (principalmente utilizzato in questo elaborato), 
+è composto da diversi scripts che mirano ad eseguire i modelli per svolgere 
+svariate attività:
+\begin{itemize}
+    \item \emph{ImageNet.py}: per attività di Image Recognition;
+    \item \emph{DetectNet.py}: per attività di Object detection;
+    \item \emph{SegNet.py}: per attività di Semantic Segmentation;
+    \item \emph{PoseNet.py}: per attività di Pose Estimation.
+\end{itemize}
+Ognuno di questi ha lo scopo di eseguire l'inferenza di una apposita rete 
+per produrre l'output inerente una specifica attività. In questa tesi sono 
+stati utilizzati i primi tre scripts in quanto coerenti con lo scopo prefissato. 
+L'input è costituito da uno stream di immagini, video o dati, proveniente 
+da una sorgente esterna come per esempio una webcam esterna, collegata 
+tramite una porta usb, oppure una webcam collegata tramite interfaccia 
+CSI/ISP predisposta direttamente sulla scheda. I frame di input possono 
+provenire da un file avente estensione jpeg, mp4, RTP, RTPS etc. Nel caso 
+in cui l'input provenga da una fonte esterna, verrà utilizzato il protocollo 
+V4L2 che imposterà il maggior numero di frame rate alla massima risoluzione 
+supportata dalla fonte. Per quanto riguarda l'output, questo può 
+essere distribuito nel medesimo formato di input. I codecs supportati dalla 
+piattaforma sono i seguenti:
+\begin{itemize}
+    \item \emph{Decode}: H.264, H.265, VP8, VP9, MPEG-2, MPEG-4 e MJPEG;
+    \item \emph{Encode}: H.264, H.265, VP8, VP9 e MJPEG.
+\end{itemize}
+Le APIs mettono a disposizione anche alcuni scripts che utilizzano il supporto 
+CUDA in grado di gestire e manipolare le immagini, che siano di input o 
+di output. Ritornando agli scripts principali, ImageNet accetta un'immagine 
+in input e restituendone un intervallo di probabilità in output per ogni classe. 
+DetectNet, a differenza di ImageNet, oltre a permette di concentrarsi sul rilevamento 
+di oggetti, specifica la loro posizione tramite delle bounding boxes, 
+all'interno del frame in input. Rispetto alla classificazione delle immagini, 
+le reti utilizzate in questo contesto sono in grado di rilevare multipli oggetti, 
+appartenenti alla stessa categoria e non, nell'input specificato. L'output 
+prodotto è rappresentato da delle coordinate utili a delimitare i riquadri che 
+contraddistinguono ogni singolo oggetto di ogni classe (Fig. \ref{detectnet_result}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{detectnet_result.png}
+    \centering
+    \caption{Esempio di ouput prodotto da DetectNet sulla Jetson Nano.}
+    \label{detectnet_result}
+\end{figure}
+Per quanto 
+riguarda l'attività di segmentazione semantica, questa viene interamente 
+svolta dallo script Python Segnet. L'output prodotto da quest'ultimo si 
+basa in un'immagine in cui vi è applicata una maschera sovrapposta utile a 
+classificare ogni singolo pixel presente nell'immagine di input. Ogni pixel 
+della maschera corrisponderà alla classe dell'oggetto sottostante classificato 
+(Fig. \ref{segnet_result}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{segnet_result.png}
+    \centering
+    \caption{Esempio di ouput prodotto da SegNet sulla Jetson Nano.}
+    \label{segnet_result}
+\end{figure}
+Seppur non consigliata come piattaforma su cui effettuare il 
+training di un modello, nella repository ufficiale \cite{repo_jetson_nano} viene riportato un link ad 
+un'altra repository \cite{repo_pytorch_training} contenente il codice sorgente utile ad addestrare tutti 
+i modelli impiegati nelle varie attività. Esiste una documentazione ufficiale 
+contenente tutte le informazioni riguardanti gli script citati utilizzabili in 
+ogni architettura presente nella famiglia Jetson \cite{Documentation_jetson}. Sia nel training che 
+nell'inferenza di ogni modello, il framework di ML utilizzato è Pytorch.
 
 
 \section{Frames-per-Second (FPS)}
@@ -158,3 +232,7 @@ Questa misura è variabile e serve per rappresentare tre diversi elementi:
     schermo. I video/immagini mostrati/e hanno una velocità di riproduzione 
     che è influenzata dal numero di FPS.
 \end{itemize}
+Tra le API messe a disposizione da NVidia, citate nella sezione \ref{utils}, 
+fondamentale è risultato l'utilizzo dei metodi incaricati di calcolare la 
+velocità d'inferenza, di input e di output raggiunta da ogni modello su ogni 
+attività richiesta. 

@@ -4,20 +4,20 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Specifiche tecniche delle tre architetture utilizzate.\relax }}{85}{table.caption.84}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Specifiche sorgenti input.\relax }}{90}{table.caption.88}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces FPS Performance nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{92}{table.caption.89}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces FPS Performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {utils}).\relax }}{92}{table.caption.90}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - GPU})\relax }}{93}{table.caption.91}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - CPU})\relax }}{93}{table.caption.92}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{94}{table.caption.93}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{95}{table.caption.94}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - GPU}).\relax }}{95}{table.caption.95}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - CPU}).\relax }}{95}{table.caption.96}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Computer (\emph {OpenCV - CPU})\relax }}{96}{table.caption.97}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer (\emph {OpenCV - CPU}).\relax }}{96}{table.caption.98}%
-\contentsline {table}{\numberline {4.13}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU})\relax }}{98}{table.caption.99}%
-\contentsline {table}{\numberline {4.14}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU})\relax }}{98}{table.caption.100}%
-\contentsline {table}{\numberline {4.15}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer su Colab (\emph {OpenCV1 - GPU}).\relax }}{99}{table.caption.101}%
-\contentsline {table}{\numberline {4.16}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU}).\relax }}{99}{table.caption.102}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Specifiche tecniche delle tre architetture utilizzate.\relax }}{89}{table.caption.86}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Specifiche sorgenti input.\relax }}{94}{table.caption.90}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces FPS Performance nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{96}{table.caption.91}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces FPS Performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {utils}).\relax }}{96}{table.caption.92}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - GPU})\relax }}{97}{table.caption.93}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - CPU})\relax }}{97}{table.caption.94}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{98}{table.caption.95}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{99}{table.caption.96}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - GPU}).\relax }}{99}{table.caption.97}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - CPU}).\relax }}{99}{table.caption.98}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Computer (\emph {OpenCV - CPU})\relax }}{100}{table.caption.99}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer (\emph {OpenCV - CPU}).\relax }}{100}{table.caption.100}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU})\relax }}{102}{table.caption.101}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU})\relax }}{102}{table.caption.102}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer su Colab (\emph {OpenCV1 - GPU}).\relax }}{103}{table.caption.103}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU}).\relax }}{103}{table.caption.104}%
 \addvspace {10\p@ }

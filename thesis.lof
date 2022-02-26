@@ -57,8 +57,10 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces NVidia Jetson Nano.\relax }}{81}{figure.caption.81}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{82}{figure.caption.82}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{83}{figure.caption.83}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{85}{figure.caption.84}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{86}{figure.caption.85}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{87}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{88}{figure.caption.86}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{89}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{91}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{92}{figure.caption.88}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{93}{figure.caption.89}%
 \addvspace {10\p@ }
