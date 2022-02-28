@@ -94,7 +94,91 @@ Nano.
     \label{jetson}
 \end{figure}
 
-\section{Test Frameworks}
+\section{Modelli}
+Il lavoro di tesi è incentrato nello studio di diversi modelli profondi e nell'applicazione, del tutto personalizzata, di una nota tecnica di compressione/ottimizzazione su uno di questi. Lo scopo è quello di aumentare la velocità di inferenza, nonché i Frames-Per-Second (FPS), in modo da permettere la sua implementazione su diverse architetture anche con limitate risorse computazionali (es: Jetson Nano). Per arrivare all'obiettivo finale, si è partito dallo studio delle performance ottenute da diversi modelli pre-addestrati messi a disposizione dalla community di NVidia. Dopo aver ottenuto i risultati, lo studio si è incentrato sull'utilizzo di una particolare architettura di rete, nota con il nome di \emph{MobileNet-V1}, con l'obiettivo di migliorarla. Successivamente il focus si è spostato nell'implementazione di tale rete in una seconda architettura, quest'ultima avente il nome di \emph{Single-Shot-Detector (SSD)}. Prima di giungere ai risultati ottenuti, è fondamentale avere un'ampia visione dei modelli utilizzati e di come questi hanno evidenziato le capacità computazionali delle architetture utilizzate. 
+\subsection{Modelli pre-addestrati}
+I modelli messi a disposizione da NVidia hanno permesso da subito di estrarre le vere potenzialità di tutte le architetture di studio. Grazie alla presenza di uno script eseguibile nelle librerie jetson utils (ref Jetson utils), sono stati reperiti diversi modelli, allenati su diverse tipologie di datasets, divisi in due categorie: Object Detection (Tab. \ref{pre_trained_models_obj_det}) e Semantic Segmentation (Tab. \ref{pre_trained_models_sem_seg}).
+Tutti i modelli riportati sono stati testati su tutte le architetture di riferimento. Nuovamente si ricorda al lettore che lo scopo della tesi è aumentare codeste performance. Il produttore ha eseguito alcuni test sulla velocità di inferenza solamente su alcuni dei modelli proposti. Per poter visualizzare i risultati ottenuti, si rimanda la lettura al capitolo successivo.
+\begin{table}[]
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||L|L||}
+        \hline
+        \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{OBJECT DETECTION}}\\            & \bfseries{Dataset} & \bfseries{Risoluzione}\\
+        \hline
+        \hline
+        {\bfseries{SSD-MOBILENET-V1}} & MS COCO & 640$\times$480\\
+        \hline
+        {\bfseries{SSD-MOBILENET-V2}} & MS COCO & 640$\times$480\\
+        \hline 
+        {\bfseries{SSD-INCEPTION-V2}} & MS COCO & 640$\times$480\\
+        \hline
+        {\bfseries{PEDNET}} & MS COCO & 640$\times$480\\
+        \hline
+        {\bfseries{MULTIPEDNET}} & MS COCO & 640$\times$480\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Modelli pre-addestrati utilizzati per l'attività di object detection.}
+    \label{pre_trained_models_obj_det}
+\end{table}
+
+\begin{table}[]
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||L|L||}
+        \hline
+        \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{SEMANTIC SEGMENTATION}}\\            & \bfseries{Dataset} & \bfseries{Risoluzione}\\
+        \hline
+        \hline
+        {\bfseries{FCN-RESNET-18}} & Cityscapes & 512$\times$256\\
+        \hline
+        {\bfseries{FCN-RESNET-18}} & Cityscapes & 1024$\times$512\\
+        \hline 
+        {\bfseries{FCN-RESNET-18}} & Cityscapes & 2048$\times$1024\\
+        \hline
+        {\bfseries{FCN-RESNET-18}} & Pascal Voc & 320$\times$320\\
+        \hline
+        {\bfseries{FCN-RESNET-18}} & Pascal Voc & 512$\times$320\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Modelli pre-addestrati utilizzati per l'attività di semantic segmentation.}
+    \label{pre_trained_models_sem_seg}
+\end{table}
+
+\subsection{Modello base di riferimento}
+Per verificare la veridicità dei risultati ottenuti e quelli dichiarati dal produttore, l'intero lavoro di tesi si è concentrato maggiormente nella ricerca e nella costruzione di un modello "from scratch". Per aver un confronto equo, dopo diversi studi focalizzati sulle varie architetture dei modelli pre-addestrati, la scelta è ricaduta sull'implementazione della rete \emph{MobileNet-V1}. Questa decisione è motivata nelle sezioni più avanti quando si discuterà delle tecniche di compressione/ottimizzazione adottate. 
+Approfondendo il paper scientifico \cite{howard2017mobilenets}, o scopo degli autori è quello di creare un'architettura di rete dinamica, influenzata dalla presenza di diversi iper-parametri, adattabile in diversi dispositivi compresi quelli mobili. L'architettura della rete MobileNet-V1 è raffigurata in Figura \ref{mobilenetV1}:
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{mobilenet_architecture.png}
+    \centering
+    \caption{Architettura MobileNet-V1.}
+    \label{mobilenetV1}
+\end{figure}
+La particolarità che contraddistingue la seguente rete dalle altre è basata sulla presenza di convoluzioni personalizzate chiamate "\emph{Depthwise Separable Convolutions}"  che, a differenza delle comuni convoluzioni, fattorizzano una convoluzione standard prima in una convoluzione profonda e successivamente in una convoluzione 1x1 chiamata "pointwise convolution", formando due layers distinti (Fig. \ref{depth_wise}).
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{depth_wise.png}
+    \centering
+    \caption{La convoluzione standard (a) viene sostituita da due layers: depthwise convolution (b) e pointwise convolution (c) per costruire un depthwise separable filter.}
+    \label{depth_wise}
+\end{figure}
+La prima convoluzione ha l'obiettivo di applicare un singolo filtro per ogni canale in input, mentre la seconda creare una combinazione lineare dell'output. Lo scopo della fattorizzazione è quello di ridurre drasticamente la computazione e le dimensioni del modello. Tutti i livelli sono seguiti da una normalizzazione batch e una funzione di attivazione ReLU, ad eccezione del livello finale che è un completamente connesso. Il tutto termina con una Softmax utile per la classificazione. In totale, MobileNet ha 28 livelli le costituiscono la profondità dell'intera rete. Per costruire una rete a dimensioni ridotte, con un numero di parametri inferiore, beneficiando di un incremento di velocità, gli autori hanno introdotto due tipologie di parametri, uno dei quali risultate molto importanti per raggiungere l'obiettivo di questa tesi. I  due parametri prendono il nome di: 
+\begin{enumerate}
+    \item \emph{Width Multiplier ($\alpha$)}
+    \item \emph{Resolution Multiplier ($p$)}
+\end{enumerate}
+Il ruolo del width multiplier $\alpha$, un valore tra 0 e 1 compreso, è quello di ridurre le dimensioni della rete in modo uniforme su ogni strato. Per quanto riguarda l'iper-parametro Resolution multiplier $p$,  il suo scopo è quello di accelerare l'inferenza della rete andando ad agire sull'immagine in input e nella rappresentazione interna di ogni livello. In poche parole, l'intento di quest'ultimo parametro è quello di ridurre la  risoluzione dell'immagine di input, e delle successive sue elaborazioni, per poter incrementare la velocità. Il decremento portato da questo parametro fa sì che la risoluzione possa raggiungere uno dei seguenti valori $p=\{224, 192, 160, 128\}$.
+Nel complesso, l'utilizzo di questa architettura ha permesso lo svolgimento di attività di object detection. 
+
+
+\section{Supporto Cuda Frameworks}
 \subsection{TensorRT}
 \begin{figure}
     \centering
@@ -217,8 +301,20 @@ un'altra repository \cite{repo_pytorch_training} contenente il codice sorgente u
 i modelli impiegati nelle varie attività. Esiste una documentazione ufficiale 
 contenente tutte le informazioni riguardanti gli script citati utilizzabili in 
 ogni architettura presente nella famiglia Jetson \cite{Documentation_jetson}. Sia nel training che 
-nell'inferenza di ogni modello, il framework di ML utilizzato è Pytorch.
+nell'inferenza di ogni modello, il framework di ML utilizzato è PyTorch.
 
+\subsection{OpenCV}
+Tra le tre architetture utilizzate in questo elaborato, una è sprovvista di una componente fondamentale utile ad accelerare l'allenamento e l'inferenza di un modello. I nuovi macbook pro, nonché il computer del sottoscritto, sono macchine che montano a bordo solo schede grafiche AMD. L'assenza di una scheda grafica NVidia implica l'utilizzo di librerie diverse da TensorRT il quale, a sua volta, fa uso delle librerie CUDA. Quando si verifica una tale limitazione, sia il training che l'inferenza vengono gestiti dalla componente principale di un computer: la CPU. Quando vi è un simile passaggio di elaborazione, le prestazioni computazionali sono nettamente inferiori rispetto a quelle ottenute su una scheda grafica. Ed eccoci giunti alla domanda principale: come può essere eseguito un modello su una piattaforma priva di una scheda grafica NVidia? A questo proposito ci viene in aiuto la nota libreria \emph{OpenCV}.
+Principalmente utilizzata per lo sviluppo di applicazioni real-time rivolte alla visione artificiale e all'intelligenza artificiale. É in grado di fornire molteplici funzioni in grado di acquisire, analizzare e manipolare i dati visivi provenienti da uno specifica sorgete di input. Al suo interno, OpenCV possiede un modulo \emph{Deep Neural Network (DNN)} in grado di eseguire l'inferenza di un modello pre-addestrato direttamente su una CPU.
+Questa libreria ha permesso di risolvere il problema inerente i test da svolgere sull'architettura Apple a disposizione. A partire dalla versione 4.2.0, OpenCV ha introdotto il pieno supporto alle schede grafiche GPU NVidia, sviluppando un nuovo modulo chiamato "\emph{cuDNN}".
+Come ben si intuisce, gli autori hanno permesso di aumentare le performance utilizzando la capacità computazionale messa a disposizione di un hardware apposito. Tutto questo ha permesso di creare una sorta di accelerazione, lato inferenza, dei modelli pre-addestrati. Il supporto si è reso interessante per tutte quelle architetture che dispongono di una scheda grafica NVidia, prive di qualunque acceleratore come TensorRT. In questo elaborato, l'architettura che rientra in questa categoria è Google Colaboratory. A causa dell'impossibilità di installazione di TensorRT, si è preferito utilizzare il supporto messo a disposizione da OpenCV per poter ottenere i benchmarks voluti. Relativamente facile è risultata l'implementazione di questa funzionalità che ha permesso ad OpenCV di utilizzare la GPU messa a disposizione da Google. Le uniche due righe codice da poter aggiungere alla nostra rete (net) sono le seguenti:
+\begin{itemize}
+    \item \emph{net.setPreferableBackend(cv2.dnn.DNN\_BACKEND\_CUDA)}
+    \item \emph{net.setPreferableTarget(cv2.dnn.DNN\_TARGET\_CUDA)}
+\end{itemize}
+Il resto del codice è uguale a quello utilizzato per l'inferenza su CPU.
+Fondamentale risulta la conversione del modello pre-addestrato dal formato \emph{.pth} al formato \emph{.ONNX} per poter essere importato all'interno di OpenCV tramite la funzione \emph{readNetFromONNX()} messa sempre a disposizione nel modulo DNN.
+Il supporto fornito da OpenCV ha permesso quindi di ottenere i benchmarks su entrambi le architetture utilizzate, ovvero sul macbook pro e su Google Colaboratory.
 
 \section{Frames-per-Second (FPS)}
 La velocità di inferenza rappresenta un indicatore di performance di ogni 
