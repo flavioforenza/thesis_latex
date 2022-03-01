@@ -175,7 +175,43 @@ La prima convoluzione ha l'obiettivo di applicare un singolo filtro per ogni can
     \item \emph{Resolution Multiplier ($p$)}
 \end{enumerate}
 Il ruolo del width multiplier $\alpha$, un valore tra 0 e 1 compreso, è quello di ridurre le dimensioni della rete in modo uniforme su ogni strato. Per quanto riguarda l'iper-parametro Resolution multiplier $p$,  il suo scopo è quello di accelerare l'inferenza della rete andando ad agire sull'immagine in input e nella rappresentazione interna di ogni livello. In poche parole, l'intento di quest'ultimo parametro è quello di ridurre la  risoluzione dell'immagine di input, e delle successive sue elaborazioni, per poter incrementare la velocità. Il decremento portato da questo parametro fa sì che la risoluzione possa raggiungere uno dei seguenti valori $p=\{224, 192, 160, 128\}$.
-Nel complesso, l'utilizzo di questa architettura ha permesso lo svolgimento di attività di object detection. 
+Nel complesso, l'utilizzo di questa architettura ha permesso la composizione dell'architettura di rete \emph{Single-Shot-Detector (SSD)}. 
+
+\subsection{Single Shot Detector}
+Nella sezione precedente sono state riportate tutte le caratteristiche che contraddistinguono una rete MobileNet-V1 rispetto alla concorrenza. Tale rete risulta sostanziale per formare l'ultima architettura di rete che sarà utilizzata per ricavare i risultati attesi. Il nuovo modello di rete prende il nome di \emph{Single-Shot-Detector (SSD)}.
+Una SSD è una rete convoluzionale feed-forward in grado di produrre dei riquadri di delimitazione (bounding-boxes o anchor-boxes), di dimensione fissa, con i relativi punteggi associati alle istanze di ogni classe presenti in ognuno dei riquadri. L'ultima operazione applicata, che in gergo viene chiamata "Non-Maximum Suppression" (NMS), è utile per selezionare il riquadro migliore tra tutti quelli prodotti su ogni specifico oggetto. 
+L'architettura una SSD contiene nei primi livelli una "rete base" (backbone), avente il livello di classificazione finale (FC) rimosso, utilizzata per la classificazione delle immagini. Oltre a questa sezione, una SSD si contraddistingue in merito all'aggiunta di ulteriori livelli a seguire, aventi lo scopo di:
+\begin{itemize}
+    \item \emph{Produrre feature-maps multi-scala}: l'idea è quella di produrre previsioni su identificazioni in più scale. Ogni strato convoluzionale aggiunto produrrà una feature map sulla quale si potranno identificare gli oggetti in scale diverse. Le dimensioni di questi livelli diminuiranno all'aumentare della profondità della rete;
+    \item \emph{Generare delle predizioni}: grazie all'inserimento degli ulteriori livelli, si ha la possibilità di produrre un set di predizioni sulle identificazioni tramite l'utilizzo di un insieme di filtri. Con l'applicazione di un filtro convoluzionale di dimensioni $3x3xp$, dove p sta ad indicare i canali, su ogni cella, l'intero modello riesce a produrre un punteggio per ogni categoria, con tanto di coordinate correlate alla regione di delimitazione. Ogni filtro produrrà un numero di punteggi pari al numero di classi (background compreso). Per esempio, in Conv4\_3 (Fig. \ref{SSD_Arch}), viene applicato un filtro 3x3 utile a mappare 512 canali di input in 25 canali di output. Le coordinate prodotte, verranno confrontate rispetto a determinate anchor-boxes associate a diverse posizioni in ogni feature map;
+    \item \emph{Generare dei riquadri di delimitazione}: normalmente vengono associati dei riquadri standard (anchor box) ad ogni feature map risultante dai livelli convoluzionali aggiunti. Il calcolo di un offset permette di generare delle nuove bounding boxes che meglio si adattano all'oggetto nell'immagine. 
+\end{itemize}
+Invece di utilizzare altri metodi, come la finestra scorrevole (sliding windows), per determinare la posizione di ogni oggetto viene sovrapposta una griglia dove, all'interno di ogni cella, è possibile identificare la presenza di un oggetto. Se non vi ci fosse alcun oggetto all'interno di una regione, allora tale cella sarà classificata come "background" e la posizione verrà ignorata. A volte, all'interno di ogni cella, ci possono essere molteplici oggetti, appartenenti a diverse categorie, in forme diverse. Per poterli rilevare, bisogna introdurre i concetti di "\emph{anchor box}" e di "\emph{receptive field}". 
+Un anchor-box è un riquadro, di dimensioni predefinite, responsabile della dimensione e della forma di un oggetto all'interno di una cella che a sua volta può avere più di una anchor-box. Durante l'allenamento di una SSD, viene eseguita una fase di corrispondenza tra il miglior l'anchor-box e il riquadro di delimitazione presente nel ground-truth delimitante uno specifico oggetto. Dopo aver trovato l'anchor-box con il più alto grado di sovrapposizione ad un oggetto, si può procedere alla predizione della classe e alla localizzazione della sua posizione. Ogni anchor-box e determinato sia da un valore di aspect-ratio che da un livello di zoom. L'aspect-ratio determina la forma di una anchor-box in base all'oggetto sottostante. Il parametro zoom invece, è utile per specificare la quantità di ridimensionamento di ogni anchor-box rispetto a ciascuna cella.
+In ogni feature map, per ogni anchor-box verranno calcolati i punteggi di tutte le classi c e 4 offset complessivi relativi alla forma dell'anchor-box nel ground-truth, per un numero totale di output pari a:
+\begin{equation}
+    (c+4)kmn
+\end{equation}
+dove:
+\begin{itemize}
+    \item $c$: numero di classi (compresa la classe background);
+    \item $4$: numero di offsets per ogni anchor-box;
+    \item $k$: numero di anchor-boxes per ogni posizione;
+    \item $m \times n$: dimensione feature map;
+    \item $(c+4)k$: numero di filtri applicati ad ogni posizione della feature map.
+\end{itemize}
+Prendendo sempre in riferimento la Figura \ref{SSD_Arch}, sulla convoluzione 4\_3 di dimensioni $38x38x512$, viene applicato un filtro, di dimensioni $3x3$.
+Successivamente verranno calcolate le 4 anchor-boxes che, in maniera individuale, produrranno un numero di output pari a $(c+4)$. Pertanto, tale livello convoluzionale produrrà un output di $38x38x4x(c+4)$.
+In termini di numero di anchor-boxes, saranno prodotti $38x38x4=5776$ riquadri. Proseguendo con il calcolo, il numero totale di riquadri generati è per ogni classe è pari a 8732.
+La creazione di multiple predizioni sotto forma di riquadri e di punteggi, è chiamata multibox. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\linewidth]{SSD_architecture.png}
+    \centering
+    \caption{Architettura Single-Shot-Detector (SSD).}
+    \label{SSD_Arch}
+\end{figure}
 
 
 \section{Supporto Cuda Frameworks}
