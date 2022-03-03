@@ -280,7 +280,43 @@ dove:
 Il valore del parametro $\alpha$ utilizzato è pari a 0.25. Moltiplicando tale valore al numero di canali di input e di output, si ottiene un modello più piccolo, di un fattore pari a $1/4$, rispetto al modello insegnante concepito con un valore standard $\alpha=1$. Per facilitare i prossimi calcoli, non è stato ritenuto opportuno implementare anche l'iper-parametro "resolution multiplier" (\emph{p}) in quanto interferente con le diverse dimensioni delle feature maps generate nel comparto SSD. Tralasciando questo elemento, gli autori di MobileNet-V1 affermano che un modello ricavato da tale parametro, oltre ad avere delle dimensioni ridotte e un costo computazionale minore, ha un livello di accuratezza leggermente minore rispetto al modello più grande (insegnante). 
 
 \subsubsection{2. Allenamento individuale modelli}
+Giunti a questo punto, i modelli a disposizione sono due; un modello Insegnante e un modello Studente. Per poter eseguire gli steps successivi, occorre allenare entrambi i modello per poter ricavare le loro accuratezze utili in seguito. Pertanto, si il seguente step si basa nell'allenare entrambi i modelli sulle immagini fornite dal dataset "\emph{Open Images}". Le categorie utilizzate, rappresentanti le etichette (labels), essendo in un contesto di guida autonoma, sono le seguenti: Bicicletta, Bus, Auto, Motociclo, Persona, Semaforo, Cartello stradale e Camion. Ogni modello verrà addestrato per un numero totale di 1000 epoche sull'intero set di allenamento (training set). Il reperimento delle immagini è avvenuto grazie a uno script in grado di creare tre diversi insiemi: allenamento, test e valutazione. In totale, il numero di immagini suddiviso per ogni categoria è riportato nella Tabella \ref{images_train}.
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c|c|}
+        \hline
+        \bfseries{Categorie} & \bfseries{\#Immagini}\\
+        \hline
+        \hline
+        Biciclette & 536 \\
+        \hline
+        Bus & 157 \\
+        \hline
+        Auto & 3616 \\
+        \hline
+        Motocicli & 206\\
+        \hline
+        Persone & 12094\\
+        \hline
+        Semafori & 102\\
+        \hline
+        Segnali stradali & 63\\
+        \hline
+        Camion & 159\\
+        \hline
+        \hline
+        {\bfseries{Totale}} & {\bfseries{16933}} \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Numero di immagini per ogni cateogria.}
+    \label{images_train}
+\end{table}
+La somma del numero delle immagini costituisce un insieme di 16933 elementi, tutti suddivisi nei tre insiemi. Tutti gli allenamenti sono stati eseguiti esclusivamente sull'architettura Google Colaboratory Pro per una ragione legata prettamente alla velocità temporale messa a disposizione da un hardware costruito ad hoc. Oltre al parametro $\alpha$, gli iper-parametri utilizzati durante l'allenamento riguardano: batch size = 8, learning rate = 0.1, momento = 0.9 e weigth decay = 1e-4. Per quanto riguarda la risoluzione delle immagini in input, queste venivano ridimensionate a una risoluzione pari a 224x224. Per quanto riguarda i tempi di allenamento, sempre su 1000 epoche, il modello insegnante ha impiegato circa 11 ore per concludere contro le 9 ore impiegate dal modello studente. La riduzione dei tempi di allenamento è dovuta alle ridotte dimensioni del modello studente rispetto al modello insegnante. 
 
+\subsubsection{3. Distillation a temperatura variabile}
 
 \section{Supporto Cuda Frameworks}
 \subsection{TensorRT}
