@@ -332,15 +332,15 @@ Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra
         \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ERRORI}}\\  & \bfseries{$\alpha$} & \bfseries{T}  & \bfseries{Min} & \bfseries{Max} \\
         \hline
         \hline
-        {\bfseries{Insegnante}} & / & / & \color{blue}32 & \color{blue}76\\
+        {\bfseries{Insegnante}} & / & / & \color{blue}{\bfseries{32}} & \color{blue}{\bfseries{76}}\\
         \hline
-        {\bfseries{Studente base}} & 0.25 & / & \color{blue}40 & \color{blue}73\\
+        {\bfseries{Studente base}} & 0.25 & / & \color{blue}{\bfseries{40}} & \color{blue}{\bfseries{73}}\\
         \hline 
         {\bfseries{Studente-Dst}} & 0.25 & 1 & \color{red}36 & \color{red}74\\
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}43 & \color{red}76\\
         \hline
-        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}38 & \color{green}76\\
+        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}{\bfseries{38}} & \color{green}{\bfseries{76}}\\
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}49 & \color{red}73\\
         \hline
@@ -359,7 +359,11 @@ Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra
 Per la scelta del modello migliore, affinché venga soddisfatto il principio di generalizzazione, un primo vincolo ci impone di scegliere un modello ricavato da una temperatura maggiore di uno. La scelta quindi si restringe ad un range di modelli i cui errori, minimo e massimo, fossero compresi tra gli indici di errore del modello insegnante e del modello studente base. Sempre in riferimento alla Tabella \ref{error_rates_T}, il valore di errore minimo deve essere compreso tra io valori 32 e 40 (incluso), mentre il valore massimo deve essere minore o uguale di 76. Il primo modello che rispetta tali condizioni è quello ricavato da una temperatura T=3. Per verificare la giusta scelta del modello, bisogna rimandare la lettura al capitolo successivo dove vengono visualizzate le accuratezze di tutti i modelli e l'andamento della loro curva di apprendimento.
 
 \subsubsection{5. Integrazione SSD}
+Preso singolarmente, un modello studente distillato saprebbe solamente effettuare operazioni di image classification senza essere realmente utile in ambito di guida autonoma o per attività correlate. Nel seguente elaborato, le spiegazioni sull'architettura Single-Shot-Detector (SSD) non sono state inserite per pura casualità, ma sono principalmente utili in questo preciso punto di ricerca. L'idea alla base è quella inserire la rete studente come rete base (backbone) dell'architettura SSD, costituendo uno degli aspetti centrali del seguente lavoro. In letteratura sono pochi i lavori che hanno affrontato tale tematica, pertanto attualmente rappresenta un punto caldo su cui eseguire ricerca.
+Per permettere la fusione tra le due architetture, bisognava modificare il numero dei canali di input e di output dei restanti livelli convoluzionali costituenti la porzione introdotta dalla rete SSD. Tale modifica ha permesso di far combaciare il numero di canali di output dell'ultimo livello della rete base, con il numero dei canali di input del primo livello convoluzionale introdotto dalla SSD. Oltre ai livelli extra, ovviamente sono stati modificati i medesimi parametri delle convoluzioni utilizzate per il calcolo della regressione e della classificazione. Tutte le modifiche fatte nella seconda parte della rete, sono avvenute utilizzando lo stesso iper-parametro $\alpha$, utilizzato precedentemente per definire il modello studente distillato, quest'ultimo ricoprente ora il ruolo di rete base. 
+La nuova rete generata, che il sottoscritto ha deliberatamente intitolato come "{\bfseries{\emph{SSD-Distilled-MobileNet-V1} (SDMV-1)}}", costituisce l'emblema di tutti gli sforzi fin qui fatti. È proprio con questa rete che si cerca di abbattere le limitazioni computazionali presenti sui dispositivi aventi poche risorse a disposizione. Nel proseguire la lettura, si scopriranno tutti i benefici introdotti dalla seguente architettura.
 
+\subsubsection{6. Allenamento congelato}
 
 
 \section{Supporto Cuda Frameworks}
