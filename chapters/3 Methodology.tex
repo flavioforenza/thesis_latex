@@ -317,6 +317,50 @@ Giunti a questo punto, i modelli a disposizione sono due; un modello Insegnante 
 La somma del numero delle immagini costituisce un insieme di 16933 elementi, tutti suddivisi nei tre insiemi. Tutti gli allenamenti sono stati eseguiti esclusivamente sull'architettura Google Colaboratory Pro per una ragione legata prettamente alla velocità temporale messa a disposizione da un hardware costruito ad hoc. Oltre al parametro $\alpha$, gli iper-parametri utilizzati durante l'allenamento riguardano: batch size = 8, learning rate = 0.1, momento = 0.9 e weigth decay = 1e-4. Per quanto riguarda la risoluzione delle immagini in input, queste venivano ridimensionate a una risoluzione pari a 224x224. Per quanto riguarda i tempi di allenamento, sempre su 1000 epoche, il modello insegnante ha impiegato circa 11 ore per concludere contro le 9 ore impiegate dal modello studente. La riduzione dei tempi di allenamento è dovuta alle ridotte dimensioni del modello studente rispetto al modello insegnante. 
 
 \subsubsection{3. Distillation a temperatura variabile}
+Fino a questo punto sono stati elencati gli elementi fondamentali su cui creare una base di partenza. Avendo a disposizione i due principali modelli, si procede con la vera e propria applicazione della tecnica di Knowledge distillation. Prendendo sempre in riferimento tutti i concetti riportati nella sezione \ref{KD_distill} del capitolo 2, l'elemento ritenuto parte integrante di tale tecnica è la temperatura T. Lo scopo è quello avvalersi delle soft-targets per realizzare diversi modelli di studenti a diverse temperature, integrando il trasferimento della conoscenza distillata. 
+Si ricorda che la nozione di temperatura è prettamente legata ad un concetto di generalizzazione. La lista di temperature utilizzate è: $T=\{1, 2, 3, 4, 5, 10, 15\}$.
+Ogni modello generato deriva anch'esso da un allenamento, ognuno di circa 9 ore, su 1000 epoche, in cui sono stati sottoposti gli stessi insiemi di immagini (batch), sia al modello insegnante che al modello studente base. Il passaggio dell'intero training set ad entrambi i modelli ha permesso di migliorare la perdita generale, che ricordo essere la somma delle perdite dei due modelli. Gli iper-parametri, così come l'intero set di immagini, utilizzati per l'allenamento sono gli stessi utilizzati per allenare i modelli base. Ricapitolando, ciò che si vuole ottenere da questo passaggio riguarda la generazione di multipli modelli di studenti su cui si baseranno i prossimi steps. 
+
+\subsubsection{4. Ricerca modello migliore}
+Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra questi scegliere. Per ottenere una risposta, bisogna ricavare i tassi di errori (\emph{Errors rates}) sul set di validazione prodotto da ognuno di loro o, in altri termini, bisogna ricavare la curva di apprendimento di ogni modello. Tale curva mette in risalto gli errori effettuati in fase di validazione in ogni epoca. Il valori minimi e massimi sono gli errori presi in considerazione e sono visibili nella Tabella \ref{error_rates_T}.
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||L|L||L|L|}
+        \hline
+        \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ERRORI}}\\  & \bfseries{$\alpha$} & \bfseries{T}  & \bfseries{Min} & \bfseries{Max} \\
+        \hline
+        \hline
+        {\bfseries{Insegnante}} & / & / & \color{blue}32 & \color{blue}76\\
+        \hline
+        {\bfseries{Studente base}} & 0.25 & / & \color{blue}40 & \color{blue}73\\
+        \hline 
+        {\bfseries{Studente-Dst}} & 0.25 & 1 & \color{red}36 & \color{red}74\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}43 & \color{red}76\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}38 & \color{green}76\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}49 & \color{red}73\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 5 & \color{red}41 & \color{red}73\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 10 & \color{red}50 & \color{red}76\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}53 & \color{red}77\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Errors Rates dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.}
+    \label{error_rates_T}
+\end{table}
+Per la scelta del modello migliore, affinché venga soddisfatto il principio di generalizzazione, un primo vincolo ci impone di scegliere un modello ricavato da una temperatura maggiore di uno. La scelta quindi si restringe ad un range di modelli i cui errori, minimo e massimo, fossero compresi tra gli indici di errore del modello insegnante e del modello studente base. Sempre in riferimento alla Tabella \ref{error_rates_T}, il valore di errore minimo deve essere compreso tra io valori 32 e 40 (incluso), mentre il valore massimo deve essere minore o uguale di 76. Il primo modello che rispetta tali condizioni è quello ricavato da una temperatura T=3. Per verificare la giusta scelta del modello, bisogna rimandare la lettura al capitolo successivo dove vengono visualizzate le accuratezze di tutti i modelli e l'andamento della loro curva di apprendimento.
+
+\subsubsection{5. Integrazione SSD}
+
+
 
 \section{Supporto Cuda Frameworks}
 \subsection{TensorRT}
