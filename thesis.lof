@@ -61,12 +61,12 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Architettura Single-Shot-Detector (SSD).\relax }}{90}{figure.caption.87}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Connessioni tra i livelli della rete base (MobileNet) e i livelli della rete SSD.\relax }}{92}{figure.caption.88}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale.\relax }}{96}{figure.caption.89}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{101}{figure.caption.98}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{103}{figure.caption.99}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{105}{figure.caption.100}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{106}{figure.caption.101}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{102}{figure.caption.98}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{104}{figure.caption.99}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{106}{figure.caption.100}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{107}{figure.caption.101}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{111}{figure.caption.103}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{112}{figure.caption.104}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{113}{figure.caption.105}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{113}{figure.caption.103}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{114}{figure.caption.104}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.105}%
 \addvspace {10\p@ }
