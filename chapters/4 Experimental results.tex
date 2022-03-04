@@ -34,7 +34,7 @@ sono riportate nella Tabella (\ref{specifiche}).
 
 \section{Descrizione dei dataset}
 Diversi sono i dataset utilizzati nell'ambito della guida autonoma.
-Ogni singolo test viene effettuato utilizzando le immagini contenute nei seguenti dataset: 
+Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i seguenti datasets:
 \begin{itemize}
     \item {\bfseries{\emph{CityScapes (CS)}}}\cite{Cityscapes}: i dati presenti in questo dataset sono composti da 
     diversi video stereo registrati nelle strade di 50 città diverse. Esistono 
@@ -79,6 +79,15 @@ Ogni singolo test viene effettuato utilizzando le immagini contenute nei seguent
         \caption{Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).}
         \label{MSCOCO_dataset}
     \end{figure} 
+    Sia l'allenamento del modello base che dell'intero modello proposto, avviene tramite l'utilizzo del seguente dataset:
+    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset utilizzato per lo più in ambito di object detection e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate. Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset più numeroso. 
+    \begin{figure}
+        \centering
+        \includegraphics[width = 0.6\linewidth]{open_images_figure.png}
+        \centering
+        \caption{Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.}
+        \label{openimages_dataset}
+    \end{figure}
 \end{itemize}
 
 \newpage

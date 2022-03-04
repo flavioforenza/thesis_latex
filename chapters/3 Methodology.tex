@@ -36,8 +36,8 @@ Dopo aver ottenuto i primi risultati dai modelli pre-addestrati, messi gentilmen
 a disposizione da NVidia, questi hanno costituito le baselines ovvero 
 i punti di riferimento da cui partire. Per poter ricavare i benchmarks, 
 tutti i modelli, pre-addestrati e proposto, saranno sottoposti al percorso di 
-elaborazione raffigurato in Figura (\ref{flow_chart}). Per la visualizzazione dei risultati 
-ottenuti in ogni test, si rimanda la lettura al capitolo (\ref{Chapter4}).
+elaborazione raffigurato in Figura (\ref{flow_chart}). Per la descrizione dell'inferenza e per 
+visualizzazione dei risultati (benchmarks) ottenuti in ogni test, si rimanda la lettura al prossimo capitolo (\ref{Chapter4}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{flow_chart.png}
@@ -365,6 +365,13 @@ La nuova rete generata, che il sottoscritto ha deliberatamente intitolato come "
 
 \subsubsection{6. Allenamento congelato}
 Di per sé, la nuova rete SDM-V1 non è ancora in grado di svolgere il proprio task in quanto la seconda componente della struttura, ovvero i layers convoluzionali aggiunti, non sono addestrati. Per preservare l'accuratezza della rete base distillata, segue un allenamento "esclusivo" che tiene in considerazione solo i parametri di quei livelli non ancora addestrati. Questa tecnica in letteratura prende il nome di "\emph{freeze}" (congelare). Grazie al suo utilizzo, i parametri dei livelli sottoposti a tale trattamento, non verranno cambiati durante l'allenamento. Normalmente, quando un modello è sottoposto al training, il suo parametro "\emph{requires\_grad}" è impostato su \emph{True}. Codesto parametro è utile per fornire un modo semplice adeguato a includere o escludere ogni singolo parametro dalla rete durante la fase di back-propagation. Quando questo flag viene impostato come "\emph{requires\_grad=False}", esso va ad escludere il parametro di riferimento dal ciclo di allenamento. Nello specifico, un simile valore andrebbe ad escludere il calcolo del gradiente, di un tensore, durante il passaggio all'indietro (backward). Applicando questo concetto a tutti i parametri di un'intera rete, si sta andando a congelare il suo allenamento. A questo punto ci si chiederebbe quale fosse il senso di addestrare una rete che in realtà non è addestrabile. Ad uno stesso input, una rete congelata risponderà con lo stesso output. Questo comportamento non fa altro che preservare l'accuratezza di un modello e infatti è ciò che si vuol fare con la rete base distillata. Mantenendo la rete base con gli stessi valori, l'obiettivo è quello di allenare la restante parte di rete, ovvero i restanti livelli convoluzionali che seguono il modello distillato. Anche questa volta, l'allenamento è svolto interamente in Google Colaboratory, su un totale di 1000 epoche, con learning-rate=0.01, momentum=0.9 e batch-size=8. Ovviamente il dataset utilizzato resta sempre Open Images. Finalmente, si può affermare che il modello finale è stato portato a termine e che su questo verranno eseguiti diversi benchmarks per ricavare i benefici da esso introdotti.  
+
+\section{Coversione modello}
+Tutti i modelli, pre-addestrati e non, fin qui utilizzati, possono essere sottoposti ad inferenza solamente previa conversione del loro formato. Quando un modello viene addestrato, specialmente con il framework PyTorch, comunemente viene salvato con estensione ".pth". Grazie a questo formato, è possibile esportare o importare un qualsiasi modello. Tramite l'utilizzo del metodo \emph{torch.save()}, è possibile generare un modello con tale estensione che includesse il proprio \emph{state\_dict()} da importare in un secondo momento con il metodo \emph{load\_state\_dict()}.
+Dovendo utilizzare diversi tipi di acceleratori, ampiamente discussi nella prossima sezione, è opportuno trovare un formato comune da poter utilizzare in vari framework.  Il formato selezionato, pienamente utilizzato per lo scambio e per la rappresentazione dei modelli machine learning, prende il nome di \emph{ONNX (Open Neural Network Exchange)}.
+Tale formato, del tutto open, definisce un set comune di operatori in grado di garantire interoperabilità tra i diversi framework e un accesso a determinate ottimizzazioni hardware.
+La possibilità di conversione è resa disponibile sempre da PyTorch tramite il suo modulo \emph{torch.onnx.export()}.
+Oltre a questo, ONNX supporta altri tipi di framework quali TensorFlow, Caffe2, Keras, Microsoft, AWS etc. Dovendo far largo uso dell'acceleratore di inferenza come Tensor-RT, o delle librerie OpenCV, sempre discussi nella prossima sezione, possiamo immaginare che una parte dell'elaborazione segua il percorso mostrato in Figura X.
 
 
 \section{Supporto Cuda Frameworks}
