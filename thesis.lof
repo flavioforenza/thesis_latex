@@ -70,4 +70,15 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{114}{figure.caption.104}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.105}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{116}{figure.caption.106}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Perdita globale Structuerd Pruning.\relax }}{118}{figure.caption.107}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Perdita classificazione Structuerd Pruning.\relax }}{119}{figure.caption.108}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Perdita regressione Structuerd Pruning.\relax }}{119}{figure.caption.109}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Perdita globale Unstructuerd Pruning.\relax }}{120}{figure.caption.110}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Perdita classificazione Unstructuerd Pruning.\relax }}{120}{figure.caption.111}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Perdita regressione Unstructuerd Pruning.\relax }}{121}{figure.caption.112}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Perdita complessiva Global Unstructuerd Pruning.\relax }}{121}{figure.caption.113}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Perdita classificazione Global Unstructuerd Pruning.\relax }}{122}{figure.caption.114}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{122}{figure.caption.115}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{123}{figure.caption.116}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{124}{figure.caption.117}%
 \addvspace {10\p@ }

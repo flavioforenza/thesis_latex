@@ -6,11 +6,9 @@
 \chapter{RISULTATI SPERIMENTALI}
 \label{Capitolo4} \label{Chapter4}
 \thispagestyle{empty}
-In questo capitolo verranno introdotti i vari dataset di immagini utilizzati per addestrare i modelli. 
-Successivamente vengono riportati tutti i risultati sperimentali effettuati 
-sui metodi proposti. Le specifiche delle architetture di riferimento, utilizzate per effettuare i vari test, 
-sono riportate nella Tabella (\ref{specifiche}).
-\begin{table}[htbp]
+Nel seguente capitolo vengono riportate le informazioni inerenti i vari datasets utilizzati in fase di addestramento. Oltre a questi, seguiranno tutti i risultati riguardanti le performance e i benefici prodotti dai modelli quando questi vengono sottoposti alle tecniche di compressione e non. Tutti i risultati ottenuti provengono dall'inferenza di vari modelli proiettati solo per il task di object detection.
+Le specifiche delle architetture di riferimento utilizzate sono riportate nella Tabella (\ref{specifiche}).
+\begin{table}
     \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
@@ -23,7 +21,7 @@ sono riportate nella Tabella (\ref{specifiche}).
         \hline
         {\bfseries{MACBOOK PRO}} & 8 $\times$ Intel Core i9 @ 2.3 GHz & AMD Radeon Pro 5500M @ 8 GB & 32 GB 2667 MHz DDR4\\
         \hline 
-        {\bfseries{COLAB}} & 2 $\times$ Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 26 GB DDR4\\
+        {\bfseries{COLAB}} & 2 $\times$ Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 27 GB DDR4\\
         \hline
     \end{tabular}
     \end{adjustbox}
@@ -31,6 +29,8 @@ sono riportate nella Tabella (\ref{specifiche}).
     \caption{Specifiche tecniche delle tre architetture utilizzate.}
     \label{specifiche}
 \end{table}
+Al fine di mostrare i risultati raggiunti, il capitolo si conclude con una comparazione tra le performance dei modelli pre-addestrati e le performance del modello proposto, seguita da una carrellata di esempi prodotti da quest'ultimo.
+
 
 \section{Descrizione dei dataset}
 Diversi sono i dataset utilizzati nell'ambito della guida autonoma.
@@ -71,7 +71,7 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     200.000 sono etichettate (Fig. (\ref{MSCOCO_dataset})). Gli oggetti presenti sono più di 1.5 milioni e 
     sono raggruppati in 150 classi diverse. Principalmente questo dataset 
     viene utilizzato per attività di object detection, infatti ritorna utile 
-    nella sezione di test successiva.
+    nella sezione di test successiva. La risoluzione standard delle immagini presenti è pari a 640x480.
     \begin{figure}
         \centering
         \includegraphics[width = \linewidth]{MSCOCO.png}
@@ -80,7 +80,8 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
         \label{MSCOCO_dataset}
     \end{figure} 
     Sia l'allenamento del modello base che dell'intero modello proposto, avviene tramite l'utilizzo del seguente dataset:
-    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset utilizzato per lo più in ambito di object detection e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate. Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset più numeroso. 
+    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset utilizzato per lo più in ambito di object detection e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate. La risoluzione delle immagini è molto variabile ma, rispetto agli altri datasets, è possibile trovare immagini ad un'alta risoluzione come 3000x2267.
+    Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset più numeroso. 
     \begin{figure}
         \centering
         \includegraphics[width = 0.6\linewidth]{open_images_figure.png}
@@ -90,7 +91,102 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     \end{figure}
 \end{itemize}
 
-\newpage
+\section{Accuratezza tecniche di compressione/ottimizzazione}
+In questa nuova sezione verranno analizzati i livelli di accuratezza raggiunti da entrambe le tecniche di compressione utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse hardware.
+Successivamente verranno mostrati i risultati ottenuti prima sulla tecnica di Pruning e successivamente sulla tecnica di Knowledge Distillation.
+
+\subsection{Accuratezza Pruning}
+Più che accuratezza, la tecnica di pruning è utile a mostrare i risultati inerenti la funzione di perdita di un modello, che a loro volta sono strettamente correlati all'accuratezza raggiunta. Quando l'accuratezza di un modello incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-MobileNet-V1} (Sez. \ref{MBNET}).
+Si ricorda che tale modello è stato costruito da zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, utilizzando le immagini del dataset Open Images.
+Come già accennato nei capitoli precedenti, l'applicazione di tale tecnica può avvenire secondo tre metodi diversi: \emph{Structured}, \emph{Unstructured} e \emph{Global Unstructured}.
+Essendo un modello congruo per l'attività di object detection, per ogni metodo vengono calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione} e di \emph{Regressione}.
+Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. 
+Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La seguente mira direttamente ad azzerare specifici parametri, come pesi e bias, presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che l'accuratezza diverga, l'indice di sparsità aumenta, portandosi a raggiungere un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). Questo sta a significare un netto aumento del numero di parametri che possono essere azzerati e di conseguenza eliminati. 
+Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global Unstructured}. La tecnica si concentra nell'applicare un'intera quantità di sparsità, un'unica volta, in tutto il modello. Considerata tra le più affidabili rispetto alle due precedenti, la tecnica rappresenta un vero e proprio set di parametri che possono essere rimossi dal modello. Dai risultati mostrati, capiamo come molti dei pesi presenti sono in realtà superflui. Prima che l'accuratezza degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. \ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance del modello.
+Tirando le somme, data la significativa grandezza del modello, una tale riduzione, pari a più della metà dei parametri, dimostra come ci sia ancora tanta strada da percorrere per arrivare all'ottenimento un modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i risultati ottenuti non cambierebbero se la rete SSD avesse avuto una rete base diversa da MobileNet-V1.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{structured_Loss.png}
+    \centering
+    \caption{Perdita globale Structuerd Pruning.}
+    \label{struct_loss_global_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{structured_ClassLoss.png}
+    \centering
+    \caption{Perdita classificazione Structuerd Pruning.}
+    \label{struct_loss_class_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7\linewidth]{structured_RegrLoss.png}
+    \centering
+    \caption{Perdita regressione Structuerd Pruning.}
+    \label{struct_loss_regr_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{unstructured_Loss.png}
+    \centering
+    \caption{Perdita globale Unstructuerd Pruning.}
+    \label{unstr_loss_global_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{unstructured_ClassLoss.png}
+    \centering
+    \caption{Perdita classificazione Unstructuerd Pruning.}
+    \label{unstr_loss_class_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{unstructured_RegrLoss.png}
+    \centering
+    \caption{Perdita regressione Unstructuerd Pruning.}
+    \label{unstr_loss_regr_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{global_Loss.png}
+    \centering
+    \caption{Perdita complessiva Global Unstructuerd Pruning.}
+    \label{glob_loss_global_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{global_ClassLoss.png}
+    \centering
+    \caption{Perdita classificazione Global Unstructuerd Pruning.}
+    \label{glob_loss_class_pruning}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{global_RegrLoss.png}
+    \centering
+    \caption{Perdita regressione Global Unstructuerd Pruning.}
+    \label{glob_loss_regr_pruning}
+\end{figure}
+
+\subsection{Accuratezza Knowledge Distillation}
+La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello studente distillato tra quelli generati ad una temperatura variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate nella Figura \ref{accuracy_KD}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Top1 and Top5 Accuracy.png}
+    \centering
+    \caption{Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.}
+    \label{accuracy_KD}
+\end{figure}
+Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento di ogni modello ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
+\begin{figure}
+    \centering
+    \includegraphics[width = 1.5\linewidth, angle=90, origin=c]{learning_curve KD.png}
+    \centering
+    \caption{Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.}
+    \label{lc_KD}
+\end{figure}
+Il grafico dimostra come la scelta del modello studente distillato, ad una temperatura T=3, vada ad interporsi tra le curve di apprendimento dell'insegnante e quelle dello studente base. Tale convergenza (linea viola) sta a significare che il modello studente distillato ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi al contempo dal modello studente base (linea arancione) il quale non ha ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete base nell'architettura Single-Shot-Detector (SSD). 
+
 \section{Test Performance}
 Come brevemente accennato nel capitolo precedente, al fine di capire le 
 potenzialità messe a disposizione dalle varie architetture di riferimento, di 
