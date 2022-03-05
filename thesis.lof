@@ -82,4 +82,6 @@
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{123}{figure.caption.116}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{124}{figure.caption.117}%
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{126}{figure.caption.118}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Riduzione del numero di parametri del modello base via Knowledge distillation.\relax }}{127}{figure.caption.119}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.\relax }}{127}{figure.caption.120}%
 \addvspace {10\p@ }

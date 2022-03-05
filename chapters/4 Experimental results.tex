@@ -192,7 +192,6 @@ Allo stato dell'arte esistono numerosi modelli deep learning che soffrono di una
 \subsection{Riduzione via Pruning}
 I grafici presenti nella sezione precedente, inerenti all'applicazione della tecnica di pruning su un modello SSD, hanno evidenziato come la maggior parte dei parametri utilizzati sia del tutto insignificante. Il modello SSD ha un quantità di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica di Unstructured pruning, i risultati ottenuti precedentemente dimostrano come il 40\% dei pesi possa essere eliminato senza influire sull'accuratezza del modello. Per un tasso di sparsità variabile tra 0 (pesi tutti azzerati) e 100 (pesi tutti diversi da zero), viene riportata in Figura \ref{par_pruning} l'ammontare del numero di parametri allenabili, e quindi diversi da zero, del modello SSD.
 Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo quindi a una quantità totale di $\sim{4.60}$ milioni di parametri. La significativa riduzione non può altro che rappresentare un beneficio per i dispositivi con i limiti precedentemente descritti.
-
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Pruning_Unstructured_parameters.png}
@@ -200,6 +199,25 @@ Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del mode
     \caption{Riduzione del numero di parametri via pruning a sparistà variabile.}
     \label{par_pruning}
 \end{figure}
+\subsection{Riduzione via Knowledge Distillation}
+Al fine di verificare la veridicità della tecnica di Knowledge distillation, premeva la necessità di costruire un modello studente di dimensioni più piccole rispetto al modello insegnante. I meriti per la realizzazione di questa fase non sono da attribuirsi alla tecnica di compressione in questione, ma vanno dati agli autori della rete MobileNet-V1 grazie all'implementazione del parametro width multiplier.
+Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,31\% dei parametri rispetto all'insegnante. Avendo quest'ultimo un numero di parametri maggiore di 3 milioni, il nuovo modello studente si ritrova con $\sim{200}$ mila parametri allenabili (Fig. \ref{base_net_par}).
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{Difference base_nets parameters.png}
+    \centering
+    \caption{Riduzione del numero di parametri del modello base via Knowledge distillation.}
+    \label{base_net_par}
+\end{figure}
+Per quanto riguarda l'intera rete DSSD, composta dalla rete base dello studente distillato e dalla restante parte di livelli convoluzionali a dimensioni ridotte, è stato possibile raggiungere una significativa diminuzione del numero di parametri. Ricordando che il modello insegnante ha un numero di parametri di $\sim{7.64}$ milioni, il modello DSSD proposto raggiunge poco più di $\sim{850}$ mila parametri (Fig. \ref{SSD_par}), discostandosi quindi di una quantità significativa.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{Difference SSD parameters.png}
+    \centering
+    \caption{Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.}
+    \label{SSD_par}
+\end{figure}
+
 
 \section{Test Performance}
 Come brevemente accennato nel capitolo precedente, al fine di capire le 
