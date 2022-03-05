@@ -81,4 +81,5 @@
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{122}{figure.caption.115}%
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{123}{figure.caption.116}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{124}{figure.caption.117}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{126}{figure.caption.118}%
 \addvspace {10\p@ }

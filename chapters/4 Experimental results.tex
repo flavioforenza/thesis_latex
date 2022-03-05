@@ -187,6 +187,20 @@ Per dimostrare la veridicità di tali accuratezze, sono state riportate in un gr
 \end{figure}
 Il grafico dimostra come la scelta del modello studente distillato, ad una temperatura T=3, vada ad interporsi tra le curve di apprendimento dell'insegnante e quelle dello studente base. Tale convergenza (linea viola) sta a significare che il modello studente distillato ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi al contempo dal modello studente base (linea arancione) il quale non ha ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete base nell'architettura Single-Shot-Detector (SSD). 
 
+\section{Riduzione numero di parametri}
+Allo stato dell'arte esistono numerosi modelli deep learning che soffrono di una problematica comune: la numerosità dei parametri. Non è sempre vero che un gran numero dei parametri porti all'aumento dell'accuratezza di un modello. Questo problema non solo comporta maggior occupazione di memoria, ma ricade anche sulle prestazioni del modello, in termini di velocità di inferenza, e sul consumo energetico. In quest'ultimo caso, essendo circondati da dispostivi mobili con a bordo una batteria, difficilmente i modelli di grandi dimensioni troveranno un'implementazione. Questa rappresenta un'altra motivazione che ha consentito l'evoluzione delle tecniche di compressione. Dato che nell'elaborato vengono utilizzate due di queste tecniche, di seguito vengono mostrati i risultati inerenti la riduzione del numero di parametri sui modelli utilizzati.
+\subsection{Riduzione via Pruning}
+I grafici presenti nella sezione precedente, inerenti all'applicazione della tecnica di pruning su un modello SSD, hanno evidenziato come la maggior parte dei parametri utilizzati sia del tutto insignificante. Il modello SSD ha un quantità di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica di Unstructured pruning, i risultati ottenuti precedentemente dimostrano come il 40\% dei pesi possa essere eliminato senza influire sull'accuratezza del modello. Per un tasso di sparsità variabile tra 0 (pesi tutti azzerati) e 100 (pesi tutti diversi da zero), viene riportata in Figura \ref{par_pruning} l'ammontare del numero di parametri allenabili, e quindi diversi da zero, del modello SSD.
+Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo quindi a una quantità totale di $\sim{4.60}$ milioni di parametri. La significativa riduzione non può altro che rappresentare un beneficio per i dispositivi con i limiti precedentemente descritti.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Pruning_Unstructured_parameters.png}
+    \centering
+    \caption{Riduzione del numero di parametri via pruning a sparistà variabile.}
+    \label{par_pruning}
+\end{figure}
+
 \section{Test Performance}
 Come brevemente accennato nel capitolo precedente, al fine di capire le 
 potenzialità messe a disposizione dalle varie architetture di riferimento, di 
