@@ -842,4 +842,61 @@ hardware ad-hoc, come le sue GPU.
 \end{table}
 
 \subsection{Perfomance modello proposto DSSD}
+Considerata molto probabilmente una tra le più importanti sezioni dell'elaborato, finalmente si può affrontare la questione inerente la velocità di inferenza.
+Dopo aver ottenuto tutti i risultati di base, si indaga sulle prestazioni messe a disposizione dal modello proposto DSSD su tutte e tre le architetture. Tutti i risultati mostrati finora, compresi quelli nei prossimi grafici, sono ricavati dalla media di diverse esecuzioni. Il sottoscritto ha preferito intraprendere questa via in quanto non è possibile affidarsi ai valori provenienti da una singola esecuzione a causa delle varie risorse messe a disposizione da ciascuna architettura. 
+
+\subsubsection{Benchmarks DSSD su Jetson Nano}
+La speranza di ottenere performance migliori ricade principalmente su codesta architettura. Questa volta, si fa riferimento alla comparazione tra i frames-per-second (FPS) del modello SSD-MobileNet-V1 pre-addestrato con le performance ottenute dal modello proposto DSSD. I confronti verranno effettuati sia utilizzando TensorRT che OpenCV. In quest'ultimo caso verrano confrontanti anche le differenze provenienti dall'utilizzo, e non, dell'acceleratore cuDNN.
+Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare come le performance ottenute dall'inferenza del modello DSSD, sfruttando TensorRT, eccedono quelle del modello SSD originale.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Mean Difference FPS Jetson TensorRT.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)}
+    \label{bench-jet-tensorrt}
+\end{figure}
+Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con supporto CUDA (cuDNN) (Fig. \ref{bench-jet-cv2-cudnn}) e sia quando OpenCV effettua una semplice inferenza su CPU (Fig. \ref{bench-jet-cv2-CPU}).
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Difference FPS Jetson cv2 Cuda.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - cuDNN)}
+    \label{bench-jet-cv2-cudnn}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Difference FPS Jetson cv2 CPU.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - CPU)}
+    \label{bench-jet-cv2-CPU}
+\end{figure}
+
+\subsubsection{Benchmarks DSSD sul Computer}
+Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ricordarsi che non è possibile utilizzare alcun acceleratore grafico in quanto non vi è un supporto CUDA. Stando a tale limitazione, i test vengono effettuati con l'utilizzo di OpenCV che esegue l'inferenza sulla sola CPU. I risultati ottenuti sono mostrati nella Figura \ref{bench-pc-cv2-CPU}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Mean Difference FPS pc only CPU.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)}
+    \label{bench-pc-cv2-CPU}
+\end{figure}
+
+\subsubsection{Benchmarks DSSD su Google Colaboratory}
+Spostandoci all'ultima architettura, rispetto alle precedenti ha la possibilità di utilizzare solamente OpenCV per l'inferenza dei modelli. In questo caso, vengono effettuate due tipologie di benchmarks, entrambi utilizzando OpenCV. 
+Le performance ottenute dall'inferenza eseguita sulla GPU, e quindi utilizzando il supporto cuDNN di OpenCV, sono riportate nella Figura \ref{bench-colab-cv2-cudnn}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Mean Difference FPS Colab only GPU.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)}
+    \label{bench-colab-cv2-cudnn}
+\end{figure}
+Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre utilizzando OpenCV senza alcun acceleratore, ottenendo delle performance visibili in Figura \ref{bench-colab-cv2-cpu}.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Mean Difference FPS Colab only CPU.png}
+    \centering
+    \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)}
+    \label{bench-colab-cv2-cpu}
+\end{figure}
 
