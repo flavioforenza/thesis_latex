@@ -32,7 +32,7 @@ Le specifiche delle architetture di riferimento utilizzate sono riportate nella 
 Al fine di mostrare i risultati raggiunti, il capitolo si conclude con una comparazione tra le performance dei modelli pre-addestrati e le performance del modello proposto, seguita da una carrellata di esempi prodotti da quest'ultimo.
 
 
-\section{Descrizione dei dataset}
+\section{Descrizione dei dataset}\label{datasets_description}
 Diversi sono i dataset utilizzati nell'ambito della guida autonoma.
 Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i seguenti datasets:
 \begin{itemize}
@@ -218,16 +218,40 @@ Per quanto riguarda l'intera rete DSSD, composta dalla rete base dello studente 
     \label{SSD_par}
 \end{figure}
 
+\section{Riduzione della dimesione occupata}
+Le tecniche di compressione studiate si sono rivelate utili per poter ridurre il numero di parametri all'interno di un modello. Una tale riduzione comporta, a sua volta, un risparmio sull'occupazione della memoria. Oltre che a rappresentare un beneficio per la memoria, a gioire sono i piccoli dispositivi, come per esempio gli indossabili (es: smartwatch), o tutti quei sistemi embedded, la cui disponibilità di memoria rappresenta un punto cruciale per l'ottimizzazione dei vari processi. Il raggiungimento di questo obiettivo permette anche risparmiare anche le risorse energetiche  per la gestione del modello. Passando al concreto, le due tecniche di compressione studiate permetto di raggiungere tale scopo. Seguono delle sezioni contenenti tutti i risultati ottenuti.
+\subsection{Dimensione risultante dal Pruning}
+I modelli ricavati da una tecnica di pruning hanno un numero di parametri minore rispetto al modello sorgente. Purtroppo, attualmente sono pochi i benefici che possono essere sfruttati quando a comprimere un modello sono dei framework incapaci di rimuovere alcun tipo di parametro superfluo. L'unico vantaggio ricercato, riguarda la sottomissione di tali modelli agli algoritmi presenti nei software di compressione (es: gzip). Un tale programma sarebbe in grado di ottimizzare le dimensioni di un file quando questo è composto da numerosi zeri. Prendendo sempre in riferimento il modello SSD, la sua compressione porterebbe alla creazione di un file di dimensioni uguali a 28.8 MB (Fig. \ref{SSD_dim}). Già in questa prima compressione vi è una riduzione delle dimensioni originali pari al 6\%. Se la soglia scelta resta ancora quella del 40\% di sparsità, allora le dimensioni si ridurrebbero a 19.4 MB, per un totale pari al 36\% di riduzione. Tale quantità risparmiata rappresenta un enorme beneficio per i dispositivi a memoria limitata.
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{Unstructured_size_reduction.png}
+    \centering
+    \caption{Riduzione della dimensione del modello SSD via pruning.}
+    \label{SSD_dim}
+\end{figure}
 
-\section{Test Performance}
-Come brevemente accennato nel capitolo precedente, al fine di capire le 
-potenzialità messe a disposizione dalle varie architetture di riferimento, di 
-seguito viene riportato un test riguardante la comparazione dei \emph{Frame-per-
-Second (FPS)} elaborati da ciascuna macchina. In ogni dataset esistono 
-diversi set di immagini, ognuno con diversa risoluzione. Come inferenza, 
-si è deciso di sottoporre in input i frame provenienti da sei diversi video 
-(.mp4) e da due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})).
-Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due tipologie di campi, maggiormente discussi nel capitolo precedente:
+\subsection{Dimensione risultante dalla Knowledge Distillation}
+Dalla riduzione del numero di parametri raggiunta sul modello base, nonché il modello studente distillato, la quantità di memoria risparmiata è davvero significante. Data la notevole dimensione del modello insegnante, si è cercato di ridurre anche la dimensione della sua sottorete  (backbone), rendendola nel complesso più leggera e più veloce dal punto di vista computazionale. Presa singolarmente, la sottorete MobileNet-V1 originale ha una dimensione maggiore ai 12MB. Il modello base studente distillato, è stato in grado di raggiungere una dimensione inferiore del 92.71\%, affiancandosi ad una dimensione leggermente inferiore a 1 MB (Fig. \ref{base_dim}).
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{Different size base_net.png}
+    \centering
+    \caption{Riduzione della dimensione del modello base via Knowledge distillation.}
+    \label{base_dim}
+\end{figure}
+Volendo calcolare la dimensione dell'intera rete DSSD, dopo aver modificato le dimensioni della restante parte formata dai livelli convoluzionali, la dimensione totale raggiunta è inferiore dell'88.60\% rispetto alla rete SSD originale. Rappresentando entrami i modelli sotto forma di dimensioni occupate, l'intero modello SSD occupa 30.7MB contro i 3.4MB del modello DSSD (Fig. \ref{SSD_dim_KD}). E con estrema fermezza, si può confermare che un obiettivo essenziale dell'elaborato è stato portato a termine.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.9\linewidth]{Different size SSD.png}
+    \centering
+    \caption{Riduzione della dimensione del modello SSD via Knowledge distillation.}
+    \label{SSD_dim_KD}
+\end{figure}
+
+\section{Benchmarks}
+Sin dall'inizio, l'obiettivo principale da raggiungere riguardava lo sviluppo di un modello in grado di superare i limiti dei modelli pre-addestrati, ottenendo una di velocità di elaborazione maggiore. Per adempire a questo scopo, bisogna ricavare prima le performance dei modelli pre-addestrati, in modo da avere una base di riferimento costituente il punto di partenza.
+Al fine di capire le potenzialità messe a disposizione dalle varie architetture di riferimento, di seguito vengono riportati dei benchmarks riguardanti la comparazione dei Frame-per-Second (FPS) raggiunti, in fase di inferenza, da ciascuna macchina.
+In ogni dataset esistono diversi set di immagini, ognuno con diversa risoluzione. Per quanto riguarda l'inferenza, l'input sottoposto ad ogni modello proviene da sei diversi video (.mp4) e dallo streaming di due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})). Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due tipologie di campi, maggiormente discussi nel capitolo precedente:
 \begin{itemize}
     \item {\bfseries{\emph{Out}}}: indica il numero di FPS visualizzabili a schermo;
     \item {\bfseries{\emph{Net}}}: indica il numero di FPS elaborati da una specifica rete durante l'inferenza.
@@ -265,53 +289,125 @@ Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due
     \label{source}
 \end{table}
 
-\subsection{Test Performance Jetson Nano}
-I test effettuati sulla scheda Jetson Nano sono stati eseguiti utilizzando due 
-tipologie di librerie diverse, queste sono:
-\begin{enumerate}
-    \item {\bfseries{\emph{jetson.utils}}};
-    \item {\bfseries{\emph{OpenCV}}}.
-\end{enumerate}
-Le prime sono librerie sviluppate interamente da NVidia che permettono 
-l'ottimizzazione di sistemi embedded appartenenti alla famiglia Jetson. 
-L'efficienza di questa libreria sta nell'utilizzo dell'SDK \emph{TensorRT} che offre 
-una bassa latenza e un throughtput elevato per inferenze deep learning ad 
-alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono 
-delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate 
-di sola CPU per l'inferenza. Solo le macchine provviste di schede grafiche 
-NVidia possono avere questo beneficio in quanto su di esse vi è presente la 
-tecnologia \emph{CUDA}, un modello di programmazione parallela che consente 
-di ottimizzare l'inferenza grazie a librerie e strumenti di sviluppo basate 
-su \emph{CUDA-X} per l'intelligenza artificiale, macchine a guida autonoma, 
-elaborazioni ad alte prestazioni e grafica. Ritornando alle jetson.utils, 
-queste mettono a disposizione dei modelli utili a compiere svariati compiti, 
-come image recognition, object detection, semantic segmentation e pose estimation. 
-I test svolti con queste librerie riguardano l'object detection (Tab.(\ref{obj_jetson_utils})) 
-e la semantic segmentation (Tab.(\ref{sem_seg_jetson_utils})). A differenza della 
-semantic segmentation, i testi per l'object detection vengono fatti su modelli 
-pre-addestrati sulle immagine contenute nel dataset MS COCO avente 91 classi di 
-elementi differenti. Per un dispositivo embedded di fascia economica, questi test 
-raffigurano delle performance promettenti rispetto alla concorrenza.
-I test effettuati con OpenCV invece vengono effettuati solo per il compito 
-di semantic segmentation in quanto utilizzano file aventi formato \emph{ONNX}, 
-messi a disposizione dalla community NVidia, che consentono l'interoperabilità 
-tra i diversi framework AI con architetture sottostanti diverse. In poche 
-parole, possiamo creare un modello già pre-addestrato e possiamo esportarlo 
-in formato .ONNX ed eseguirlo su un'altra macchina con specifiche hardware 
-differenti. Le performance ottenute con OpenCV per lo Jetson Nano sono 
-visibili nella Tabella (\ref{sem_seg_jetson_utils_opencv_gpu}). Confrontando i 
-risultati ottenuti con le jetson.utils, si evince che l'assenza di un 
-ottimizzatore porta il sistema ad ottenere delle performance minori. 
-Per comprendere le potenzialità offerte da modulo GPU, in Tab. 
-(\ref{sem_seg_jetson_utils_opencv_cpu}) vengono riportate le performance 
-ottenute dalla sua CPU. Per verificare la veridicità dei test effettuati, 
-essendo questi effettuati solamente con le jetson.utils direttamente dal 
-produttore della scheda embedded \cite{performance_obj_det_jetson}. Pertanto vengono 
-riportati, nelle Tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}),  
-i valori degli FPS medi, sia di Output che della Rete, per entrambe le 
-frequenze di FPS in input. Quest'ultime riguardano le performance medie ottenute dall'uso delle jetson.utils, 
-mentre quelle visibili nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg}) rappresentano le performance medie 
-ottenute dall'uso delle OpenCV.
+\subsection{Perfomance modelli pre-addestrati}
+I primi risultati ottenuti riguardano le performance raggiunte, in fase di inferenza, dai modelli pre-addestrati. I valori ricavati rappresentano il limite minimo da raggiungere da parte del modello proposto DSSD. Le tre architetture di riferimento hanno permesso di ottenere le performance descritte nei sotto-paragrafi successivi.
+
+\subsubsection{Benchmarks Jetson Nano}
+I test effettuati sulla scheda Jetson Nano, sono stati eseguiti utilizzando i framework ampiamente descritti nella sezione \ref{acceleratori}.
+Per ottenere una comparazione tra i due acceleratori, vengono effettuati due benchmarks distinti, uno per l'attività di object detection e il secondo per l'attività di semantic segmentation.
+Ricapitolando, le librerie sviluppate interamente da NVidia, permettono l'ottimizzazione delle performance dei sistemi embedded appartenenti alla famiglia Jetson. L'efficienza di questo set di librerie proviene dall'utilizzo dell'SDK TensorRT, utile ad offrire una bassa latenza e un throughtput elevato per inferenze deep learning ad alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate di sola CPU. Solo le macchine provviste di schede grafiche NVidia possono godere di tale beneficio. A bordo di queste è presente la tecnologia CUDA, un modello di programmazione parallela specializzato nell'ottimizzazione dell'inferenza che si avvale di librerie e strumenti di sviluppo fondate su CUDA-X. Quest'ultime sono molto utilizzate  in ambiti di intelligenza artificiale, guida autonoma, elaborazioni ad alte prestazioni e gestione della grafica. 
+I benchmarks svolti con il supporto di queste librerie, riguardano le attività di object detection (Tab. \ref{obj_jetson_utils}) e semantic segmentation (Tab. \ref{sem_seg_jetson_utils}).
+Per la loro formazione, i modelli pre-addestrati sulla tecnica di semantic segmentation hanno utilizzato le immagini contenute nei dataset Cityscapes e Pascal Voc. Per quanto riguarda invece i modelli pre-addestrati nell'attività di object detection, questi si sono serviti delle immagini presenti nei restanti datasets descritti nella sezione \ref{datasets_description}.
+Per un dispositivo embedded di fascia economica, questi risultati rappresentano delle performance promettenti rispetto alla concorrenza.
+Le performance ottenute con OpenCV tramite l'utilizzo dell'acceleratore cuDNN sono visibili nella Tabella \ref{sem_seg_jetson_utils_opencv_gpu}, mentre in Tabella \ref{sem_seg_jetson_utils_opencv_cpu} vengono riportate le performance riguardanti l'inferenza avvenuta sulla CPU.
+Confrontando i risultati ottenuti con le jetson.utils, si evince che l'assenza di un ottimizzatore ad hoc, porti l'intero sistema a raggiungere delle performance inferiori.
+Per verificare la veridicità dei benchmarks effettuati con le jetson utils, è possibile svolgere una comparazione con i risultati dichiarati direttamente dal produttore \cite{performance_obj_det_jetson}.
+Per entrambe le attività, nelle tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}) vengono riportate le medie degli FPS ricavate dall'utilizzo delle jetson utils, mentre nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg})  vengono riportati i corrispettivi valori medi raggiunti utilizzando OpenCV.
+
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        SSD-MOBILENET-V1 & 15.93 & 34.23 & 15.24 & 34.84\\
+        \hline
+        SSD-MOBILENET-V2 & 14.29 & 27.04 & 13,66 & 27.19\\
+        \hline 
+        SSD-INCEPTION-V2 & 12.65 & 21.68 & 11.85 & 21.7\\
+        \hline
+        PEDNET & 6.83 &  8.91 & 6.73 & 8.92\\
+        \hline
+        MULTIPEDNET & 6.84 & 9.11 & 6.81 & 9.12\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph{utils}).}
+    \label{average performance jetson utils obj_det}
+\end{table}
+
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 10.43 & 48.51 & 12.56 & 48.5\\
+        \hline
+        RN18-CS (1024x512) & 6.01 & 12.29 & 6.09 & 12.32\\
+        \hline 
+        RN18-CS (2048x1024) & 3,13 & 3,05 & 3.1 & 3.04\\
+        \hline
+        RN18-VOC (320x320) & 10.19 &  46.31 & 12.57 & 46.20\\
+        \hline
+        RN18-VOC (512x320) & 9.30 & 34.45 & 10.94 & 34.39\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{utils}).}
+    \label{average performance jetson utils sem_seg}
+\end{table}
+
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 8.03 & 19.45 & 10.66 & 19.58\\
+        \hline
+        RN18-CS (1024x512) & 3.52 & 5.11 & 3.94 & 5.37\\
+        \hline 
+        RN18-CS (2048x1024) & 1.20 & 1.45 & 1,17 & 1.46\\
+        \hline
+        RN18-VOC (320x320) & 7.68 &  17.53 & 10.11 & 17.7\\
+        \hline
+        RN18-VOC (512x320) & 6.89 & 14.87 & 8.7 & 14.96\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - GPU}).}
+    \label{average performance jetson opencv GPU sem_seg}
+\end{table}
+
+\begin{table}
+    \renewcommand{\baselinestretch}{1}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||c|c||c|c||}
+        \hline
+        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
+        \hline
+        \hline
+        RN18-CS (512x256) & 1.46 & 1.61 & 1.49 & 1.63\\
+        \hline
+        RN18-CS (1024x512) & 0.37 & 0.38 & 0.39 & 0.4\\
+        \hline 
+        RN18-CS (2048x1024) & 0.09 & 0.09 & 0.09 & 0.09\\
+        \hline
+        RN18-VOC (320x320) & 1.85 &  2.07 & 1.89 & 2.14\\
+        \hline
+        RN18-VOC (512x320) & 1.22 & 1.32 & 1.25 & 1.36\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - CPU}).}
+    \label{average performance jetson opencv CPU sem_seg}
+\end{table}
+
 \begin{landscape}
     \renewcommand{\baselinestretch}{1}
     \centering
@@ -321,7 +417,7 @@ ottenute dall'uso delle OpenCV.
         \newarray\Third
         \newarray\Fourth
         \newarray\Fifth
-        \readarray{First}{16.82&34.48&16.12&33.88&18.6&34.96&18.04&34.05&17.46&33.74&15.6&34.47&11.54&34.78&11.88&34.72}
+        \readarray{First}{20&44.83&20.49&45.13&20.47&45.10&19.19&44.89&17.75&44.68&17.52&44.22&17.52&44.43&15.78&44.60}
         \readarray{Second}{15.74&27.31&14.38&27.39&16.24&27.22&15.57&27.07&15.12&26.41&13.93&27&11&27.06&11.09&27.17}
         \readarray{Third}{13.77&21.55&12.38&22&13.93&21.69&13.81&21.67&13.83&21.51&12.31&21.56&9.82&21.81&9.78&21.71}
         \readarray{Fourth}{7.02&8.92&6.83&8.94&6.87&8.93&6.89&8.92&6.91&8.87&6.81&8.89&6.52&8.93&6.6&8.91}
@@ -494,114 +590,9 @@ ottenute dall'uso delle OpenCV.
     \end{table}
 \end{landscape}
 
-\begin{table}
-    \renewcommand{\baselinestretch}{1}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        SSD-MOBILENET-V1 & 15.93 & 34.23 & 15.24 & 34.84\\
-        \hline
-        SSD-MOBILENET-V2 & 14.29 & 27.04 & 13,66 & 27.19\\
-        \hline 
-        SSD-INCEPTION-V2 & 12.65 & 21.68 & 11.85 & 21.7\\
-        \hline
-        PEDNET & 6.83 &  8.91 & 6.73 & 8.92\\
-        \hline
-        MULTIPEDNET & 6.84 & 9.11 & 6.81 & 9.12\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph{utils}).}
-    \label{average performance jetson utils obj_det}
-\end{table}
-
-\begin{table}
-    \renewcommand{\baselinestretch}{1}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 10.43 & 48.51 & 12.56 & 48.5\\
-        \hline
-        RN18-CS (1024x512) & 6.01 & 12.29 & 6.09 & 12.32\\
-        \hline 
-        RN18-CS (2048x1024) & 3,13 & 3,05 & 3.1 & 3.04\\
-        \hline
-        RN18-VOC (320x320) & 10.19 &  46.31 & 12.57 & 46.20\\
-        \hline
-        RN18-VOC (512x320) & 9.30 & 34.45 & 10.94 & 34.39\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{utils}).}
-    \label{average performance jetson utils sem_seg}
-\end{table}
-
-\begin{table}
-    \renewcommand{\baselinestretch}{1}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 8.03 & 19.45 & 10.66 & 19.58\\
-        \hline
-        RN18-CS (1024x512) & 3.52 & 5.11 & 3.94 & 5.37\\
-        \hline 
-        RN18-CS (2048x1024) & 1.20 & 1.45 & 1,17 & 1.46\\
-        \hline
-        RN18-VOC (320x320) & 7.68 &  17.53 & 10.11 & 17.7\\
-        \hline
-        RN18-VOC (512x320) & 6.89 & 14.87 & 8.7 & 14.96\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - GPU}).}
-    \label{average performance jetson opencv GPU sem_seg}
-\end{table}
-
-\begin{table}
-    \renewcommand{\baselinestretch}{1}
-    \centering
-    \begin{adjustbox}{max width=\textwidth}
-    \begin{tabular}{|c||c|c||c|c||}
-        \hline
-        \multirow{2}{*}{\bfseries{\Large Modelli-Dataset}} & \multicolumn{2}{c||}{\bfseries{30 FPS}} & \multicolumn{2}{c||}{\bfseries{60 FPS}}\\            & \bfseries{Output} & \bfseries{Network} & \bfseries{Output} & \bfseries{Network}\\
-        \hline
-        \hline
-        RN18-CS (512x256) & 1.46 & 1.61 & 1.49 & 1.63\\
-        \hline
-        RN18-CS (1024x512) & 0.37 & 0.38 & 0.39 & 0.4\\
-        \hline 
-        RN18-CS (2048x1024) & 0.09 & 0.09 & 0.09 & 0.09\\
-        \hline
-        RN18-VOC (320x320) & 1.85 &  2.07 & 1.89 & 2.14\\
-        \hline
-        RN18-VOC (512x320) & 1.22 & 1.32 & 1.25 & 1.36\\
-        \hline
-    \end{tabular}
-    \end{adjustbox}
-    \vspace{0.5cm}
-    \caption{Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph{OpenCV - CPU}).}
-    \label{average performance jetson opencv CPU sem_seg}
-\end{table}
-
-\newpage
-\subsection{Test Performance Computer}
+\subsubsection{Benchmarks Computer}
 Non disponendo di una scheda grafica NVidia, sul computer di riferimento i 
-test vengono effettuati utilizzando solo la sua CPU utilizzando quindi la sola 
+test vengono effettuati utilizzando solo la sua CPU utilizzando quindi la 
 libreria OpenCV. I test sono riportati nella Tabella (\ref{sem_seg_perf_comp}). Comparando 
 i risultati ottenuti con quelli dello Jetson Nano, i test mostrano come 
 un tale dispositivo, di fascia economica e prestazioni alte, ottenga delle 
@@ -609,7 +600,7 @@ performance migliori. Le considerazioni cambiano quando la comparazione
 avviene tra le performance ottenute dalle jetson.utils e quelle del PC. In 
 quest'ultimo caso si evidenziano le vere potenzialità dello Jetson Nano. Pur 
 avendo una potenza computazionale di gran lunga minore rispetto a quella 
-della CPU, lo Jetson Nano riesce a raggiungere prestazioni di inferenza 
+della CPU del computer, lo Jetson Nano riesce a raggiungere prestazioni di inferenza 
 leggermente migliori, con un costo economico pari a 1/5 del costo della CPU 
 del computer. Come per il Jetson Nano, anche per il computer vengono 
 riportate le performance medie, ottenute da ogni modello, per ogni frequenza 
@@ -687,8 +678,7 @@ di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
     \end{table}
 \end{landscape}
 
-\newpage
-\subsection{Test Performance Colab}
+\subsubsection{Benchmarks Google Colab}
 L'ultimo test viene svolto sulla piattaforma \emph{Google Colaboratory}. Essendo 
 creata principalmente per l'addestramento di reti neurali, e per applicazioni 
 scientifiche, \emph{Colab} riesce a contraddistinguersi rispetto alle due precedenti 
@@ -701,14 +691,14 @@ giusto osservare che, pur avendo le più alte prestazioni, la configurazione
 hardware ha un costo maggiore rispetto alle due precedenti, classificando, 
 ancora una volta, lo Jetson Nano come sistema embedded più economico. 
 Essendo una piattaforma online, per questa architettura sono state escluse 
-le fonti di input inerenti le due webcam. Come per gli altri test, anche per 
+le fonti di input provenienti dalle due webcam. Come per gli altri test, anche per 
 Colab sono state ricavare le performance derivanti dalla sola CPU (Tab. (\ref{sem_seg_colab_cpu})). 
 I risultati riguardanti le performance medie invece sono visibili nelle Tabelle (\ref{average performance Colab GPU sem_seg}) e (\ref{average performance Colab CPU sem_seg}).
 Comparando questi risultati con quelli ottenuti dalla CPU del computer, 
 stranamente si evidenza la superiorità di quest'ultimo, evidenziando 
 come Colab sia stato ideato solo per l'esecuzione di modelli deep learning su 
-hardware apposito, come le sue GPU.
-\newpage
+hardware ad-hoc, come le sue GPU.
+
 \begin{landscape}
     \renewcommand{\baselinestretch}{1}
     \begin{table}
@@ -822,7 +812,7 @@ hardware apposito, come le sue GPU.
     \end{tabular}
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Performance FPS medi nell'attività di Semantic Segmentation Computer su Colab (\emph{OpenCV1 - GPU}).}
+    \caption{Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph{OpenCV - GPU}).}
     \label{average performance Colab GPU sem_seg}
 \end{table}
 
@@ -850,4 +840,6 @@ hardware apposito, come le sue GPU.
     \caption{Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph{OpenCV - CPU}).}
     \label{average performance Colab CPU sem_seg}
 \end{table}
+
+\subsection{Perfomance modello proposto DSSD}
 
