@@ -94,4 +94,5 @@
 \contentsline {figure}{\numberline {4.25}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)\relax }}{146}{figure.caption.148}%
 \contentsline {figure}{\numberline {4.26}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)\relax }}{147}{figure.caption.150}%
 \contentsline {figure}{\numberline {4.27}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)\relax }}{148}{figure.caption.151}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparazione visiva output SSD insegnante (a) e output DSSD (b).\relax }}{149}{figure.caption.152}%
 \addvspace {10\p@ }

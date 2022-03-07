@@ -900,3 +900,45 @@ Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre u
     \label{bench-colab-cv2-cpu}
 \end{figure}
 
+\section{Esempi Object Detection modello DSSD}
+Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di tale rete su varie architetture embedded e non. Dal punto di vista pratico però, non sono state ancora dimostrare le effettive funzionalità offerte dal modello. Nella seguente sezione, che termina il capitolo corrente, vengono mostrati alcuni esempi, inerenti l'attività di object detection, prodotti dal modello DSSD. Per capire meglio le differenze in tale attività, rispetto al modello insegnante SSD, vengono confrontati i risultati ottenuti sulle stesse immagini in cui saranno visibili i riquadri di delimitazione di ogni oggetto (bounding-boxes) e i corrispettivi valori percentuali attribuiti ad ogni classe predetta. 
+Le immagini utilizzate provengono dal dataset Open Images.
+Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura influenzante la generazione delle soft-labels. 
+Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation riesca quasi a preservare l'accuratezza proveniente dal modello insegnante. 
+\begin{figure}[ht] 
+    \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=0.9\linewidth]{Compare 1 T.png} 
+      \label{fig7:a} 
+    \end{subfigure}%% 
+    \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=0.9\linewidth]{Compare 1 S.png} 
+      \label{fig7:b} 
+    \end{subfigure} 
+    \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=0.9\linewidth]{Compare 2 T.png} 
+      \label{fig7:c} 
+    \end{subfigure}%%
+    \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=0.9\linewidth]{Compare 2 S.png} 
+      \label{fig7:d} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Compare 3 T.png} 
+        \caption{Output SSD Insegnante} 
+        \label{fig7:d} 
+    \end{subfigure}%%
+    \begin{subfigure}[b]{0.5\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Compare 3 S.png} 
+        \caption{Output DSSD} 
+        \label{fig7:d} 
+    \end{subfigure}
+    \caption{Comparazione visiva output SSD insegnante (a) e output DSSD (b).}
+    \label{fig7} 
+\end{figure}
+
