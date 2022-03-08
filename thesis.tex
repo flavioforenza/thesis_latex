@@ -35,7 +35,15 @@
 
 \usepackage{lscape}
 
-\usepackage{hyperref}                   % collegamenti ipertestuali
+\usepackage{tocbibind}
+
+%\usepackage{hyperref}                   % collegamenti ipertestuali
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage{hyperref}
+\makeindex[columns=2, options= -s index_style.ist]
 
 %\usepackage[binding=5mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm
 
@@ -58,11 +66,13 @@
 \usepackage{longtable}                  % tabelle su più pagine                                        
 \usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
 
+\usepackage[totoc]{idxlayout}
+
 \newcommand{\RN}[1]{%
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
 
-\usepackage[toc, acronym]{glossaries}   % glossario
+%\usepackage[toc, acronym]{glossaries}   % glossario
                                         % per includerlo nel documento bisogna:
                                         % 1. compilare una prima volta tesi.tex;
                                         % 2. eseguire: makeindex -s tesi.ist -t tesi.glg -o tesi.gls tesi.glo
@@ -116,20 +126,13 @@
 \input{chapters/4 Experimental results.tex}             
 \input{chapters/5 Conclusions.tex}   
 
-\newpage
-\cleardoublepage
-\addcontentsline{toc}{chapter}{BIBLIOGRAFIA}
+\afterpage{\blankpage}
+
 \bibliographystyle{abbrv}
 \bibliography{Bibliography}
-
-\cleardoublepage
-\addcontentsline{toc}{chapter}{ELENCO DELLE FIGURE}
 \listoffigures
-\cleardoublepage
-\addcontentsline{toc}{chapter}{ELENCO DELLE TABELLE}
 \listoftables
-\cleardoublepage
-\addcontentsline{toc}{chapter}{INDICE ANALITICO}
+
 \printindex
 
 

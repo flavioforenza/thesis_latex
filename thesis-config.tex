@@ -55,11 +55,13 @@
 
 \usepackage{listings} % per inserire codice 
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{imakeidx}
-\makeindex[columns=2, options= -s index_style.ist]
-
+\usepackage{afterpage}
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{+1}
+    \newpage
+    }
 
 %**************************************************************
 % Impostazioni di caption
@@ -98,6 +100,7 @@
     pdfstartview=FitV,
     % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
     %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
+    linktoc=all,
     breaklinks=true,
     pdfpagemode=UseNone,
     pageanchor=true,
