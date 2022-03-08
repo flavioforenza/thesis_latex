@@ -1777,13 +1777,13 @@ sia le performance di un sistema, ospitante un modello deep learning, che la
 sua riduzione energetica, oltre a determinare un risparmio dello spazio di 
 archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
 \begin{enumerate}
-    \item {\bfseries{\emph{Pruning}}}: La tecnica di pruning ha l'obiettivo di ridurre le dimensioni 
+    \item {\bfseries{\emph{Pruning}}}\index{Pruning}: La tecnica di pruning ha l'obiettivo di ridurre le dimensioni 
     di un modello andando a rimuovere componenti superflui quali canali, 
     filtri, neuroni o interi livelli. La potatura può essere applicata solo in 
     maniera iterativa su un modello (\emph{Iterative Pruning}) durante il processo 
     di addestramento, oppure direttamente sul modello pre-addestrato 
     (\emph{One-shot Pruning}).
-    \item {\bfseries{\emph{Knowledge Distillation}}}: tecnica in grado di trasferire la capacità 
+    \item {\bfseries{\emph{Knowledge Distillation}}} \index{Knowledge Distillation}: tecnica in grado di trasferire la capacità 
     di generalizzazione, proveniente da un modello ingombrante chiamato 
     "\emph{Insegnante}", verso un modello più piccolo chiamato "\emph{Studente}", per 
     migliorare le prestazioni di quest'ultimo.
@@ -1962,14 +1962,14 @@ Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percen
 all'interno di un modello mai ri-addestrato, porterà codesto ad avere un lento 
 apprendimento in fase di training oltre che a un decremento dell'accuratezza.
 
-\subsection{Knowledge Distillation}\label{KD_distill}
+\subsection{Knowledge Distillation}\index{Knowledge Distillation}\label{KD_distill}
 I modelli profondi hanno avuto considerevoli successi, tuttavia l'elevata richiesta 
 computazionale e l'aumento della richiesta di archiviazione, rendono 
 difficile la loro implementazione in applicazioni real-time, specialmente su 
 dispositivi con risorse limitate come la videosorveglianza e la guida autonoma. 
 Questa grande limitazione ha aperto le porte allo sviluppo di una 
 nuova tecnica di compressione/ottimizzazione delle reti neurali chiamata 
-\emph{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 
+\emph{Knowledge Distillation}\index{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 
 per migliorare l'accuratezza di una piccola rete, chiamata "Studente", trasferendo 
 la conoscenza distillata prodotta da una (o anche molteplici) rete 
 più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
@@ -1985,13 +1985,13 @@ argomento con il concetto di "Transfer Learning". L'obiettivo del Transfer
 Learning è quello di trasferire i pesi da un modello pre-addestrato verso 
 un nuovo modello, entrambi esattamente con la stessa architettura di rete. 
 Questo vuol dire che la nuova rete è profonda e complessa quanto la rete pre-addestrata.
-L'obiettivo della Knowledge distillation è nettamente differente.
+L'obiettivo della Knowledge distillation\index{Knowledge Distillation} è nettamente differente.
 In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare", 
 possono essere trasferite da un insegnante verso uno studente mediante i 
 cosiddetti "\emph{soft targets}". Utilizzando i logits del modello insegnante, che 
 altro non sono che distribuzioni di probabilità sulle classi, si può attuare 
-il principio cardine su cui è basata la knowledge distillation (o \emph{Vanilla 
-Knowledge Distillation}). Il modello studente verrà allenato utilizzando i 
+il principio cardine su cui è basata la knowledge distillation\index{Knowledge Distillation} (o \emph{Vanilla 
+Knowledge Distillation})\index{Knowledge Distillation}. Il modello studente verrà allenato utilizzando i 
 suddetti logits come conoscenza distillata, con lo scopo di ridurre al minimo 
 l'entropia incrociata tra i logits dell'insegnante e i propri logits prodotti. 
 Prima di introdurre il concetto principale, bisogna ricordare come una 
@@ -2074,11 +2074,11 @@ numero 7 è più vicino a 1 o a 6, in quanto entrambi questi numeri hanno
 probabilità molto vicine allo zero. L'unica differenza tra un umano e un 
 modello è che quest'ultimo sa quantificare precisamente, attraverso l'utilizzo 
 della temperatura, quanto il numero 7 sembri più vicino a 1. Questo concetto 
-è diffuso sotto il nome di "\emph{Dark Knowledge}" (Conoscenza Oscura). Un 
+è diffuso sotto il nome di "\emph{Dark Knowledge}"\index{Knowledge Distillation} (Conoscenza Oscura). Un 
 modello a bassa temperatura, o verosimilmente i modelli a temperatura 
 T=1, sono molto bravi ad effettuare previsioni difficili ma allo stesso tempo 
 perdono questo concetto di conoscenza oscura. Lo scopo della Knowledge 
-distillation punta a trasmettere questa conoscenza oscura da un insegnante 
+distillation\index{Knowledge Distillation} punta a trasmettere questa conoscenza oscura da un insegnante 
 ben addestrato e un modello studente più leggero. Per allenare lo studente 
 sia con le soft-targets che con le hard-targets, gli autori hanno utilizzato la 
 somma ponderata di due perdite. La prima perdita ($L_{soft}$) è quella ricavata 
