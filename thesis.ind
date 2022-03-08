@@ -3,13 +3,15 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{K}\par\nopagebreak
 
- \item \small Knowledge Distillation \hfill 69, 75, 76, 79, 97, 100
+ \item \small Knowledge Distillation \hfill \hyperpage{69}, 
+		\hyperpage{75, 76}, \hyperpage{79}, \hyperpage{97}, 
+		\hyperpage{100}
 
   \indexspace
 
 \centering\large\sffamily\bfseries%
 \noindent\textbf{P}\par\nopagebreak
 
- \item \small Pruning \hfill 69
+ \item \small Pruning \hfill \hyperpage{69}
 
 \end{theindex}
