@@ -169,7 +169,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
 \end{figure}
 
 \subsection{Accuratezza Knowledge Distillation}\index{Knowledge Distillation}
-La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello studente distillato tra quelli generati ad una temperatura variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate nella Figura \ref{accuracy_KD}.
+La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello studente distillato tra quelli generati ad una temperatura variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate sia sottoforma di grafico (Fig. \ref{accuracy_KD} che tabellare (Tab. \ref{accuracy_models_dist}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Top1 and Top5 Accuracy.png}
@@ -177,6 +177,41 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
     \caption{Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.}
     \label{accuracy_KD}
 \end{figure}
+%tabella accuratezze
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|c||L|L||L|L|}
+        \hline
+        \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ACCURATEZZA}}\\  & \bfseries{$\alpha$} & \bfseries{T}  & \bfseries{TOP-1} & \bfseries{TOP-5} \\
+        \hline
+        \hline
+        {\bfseries{Insegnante}} & 1 & / & \color{blue}{\bfseries{53.42}} & \color{blue}{\bfseries{98.63}}\\
+        \hline
+        {\bfseries{Studente base}} & 0.25 & / & \color{blue}{\bfseries{45.21}} & \color{blue}{\bfseries{95.89}}\\
+        \hline 
+        {\bfseries{Studente-Dst}} & 0.25 & 1 & \color{red}53.42 & \color{red}95.89\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}42.47 & \color{red}95.89\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}{\bfseries{50.68}} & \color{green}{\bfseries{98.63}}\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}34.25 & \color{red}98.63\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 5 & \color{red}47.95 & \color{red}97.26\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 10 & \color{red}35.62 & \color{red}89.04\\
+        \hline
+        {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}27.4 & \color{red}91.78\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.}
+    \label{accuracy_models_dist}
+\end{table}
+
+
 Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento di ogni modello ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
 \begin{figure}
     \centering
