@@ -1783,7 +1783,7 @@ archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
     maniera iterativa su un modello (\emph{Iterative Pruning}) durante il processo 
     di addestramento, oppure direttamente sul modello pre-addestrato 
     (\emph{One-shot Pruning}).
-    \item {\bfseries{\emph{Knowledge Distillation}}} \index{Knowledge Distillation}: tecnica in grado di trasferire la capacità 
+    \item {\bfseries{\emph{Knowledge Distillation}}}\index{Knowledge Distillation}: tecnica in grado di trasferire la capacità 
     di generalizzazione, proveniente da un modello ingombrante chiamato 
     "\emph{Insegnante}", verso un modello più piccolo chiamato "\emph{Studente}", per 
     migliorare le prestazioni di quest'ultimo.
@@ -1863,7 +1863,7 @@ di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione:
 \end{enumerate}
 
 
-\subsection{Pruning}
+\subsection{Pruning}\index{Pruning}
 Diversi modelli soffrono di una problematica comune: la numerosità 
 dei parametri. I parametri che appaiono insignificanti, a livello di accuratezza, 
 costituiscono un punto dolente dal punto di vista dell'occupazione della memoria e della 
@@ -1874,7 +1874,7 @@ da zero. Uno o più pesi quindi sono da considerarsi irrilevanti quando
 assumono un valore prossimo allo zero. La sovrabbondanza di quest'ultimi 
 impatta drasticamente sulle performance del modello. Allo stato dell'arte 
 sono stati proposti diversi approcci \cite{salama2019pruning} utili a mitigare la sparsità di tali 
-valori. Tutti questi sforzi hanno dato vita alla tecnica di \emph{Pruning} (Potatura).  
+valori. Tutti questi sforzi hanno dato vita alla tecnica di \emph{Pruning} (Potatura)\index{Pruning}.  
 Esistono diverse tecniche di pruning, ovvero:
 \begin{figure}
     \centering
@@ -1893,14 +1893,14 @@ Esistono diverse tecniche di pruning, ovvero:
 \end{figure}
 
 \begin{enumerate}
-    \item {\bfseries{\emph{Pruning non-strutturato (Unstructured)}}}: applicato per attività 
+    \item {\bfseries{\emph{Pruning non-strutturato (Unstructured)}}}\index{Pruning}: applicato per attività 
     di "\emph{weight pruning}"\cite{NIPS1989_6c9882bb} \cite{NIPS1992_303ed4c6}. Lo scopo di questa tecnica è quello di 
     rimuovere interi pesi introducendo quasi sempre un'elevata sparsità 
     nel modello richiedendo al contempo l'utilizzo di hardware e software 
     dedicati. La potatura dei pesi comporterebbe l'eliminazione di alcuni 
     collegamenti tra i vari neuroni, ma non la loro disattivazione (Fig. 
     \ref{unstruct-prun})
-    \item {\bfseries{\emph{Pruning strutturato (Structured)}}}: tecnica che va a rimuovere interi 
+    \item {\bfseries{\emph{Pruning strutturato (Structured)}}}\index{Pruning}: tecnica che va a rimuovere interi 
     filtri (canali), o neuroni, al posto di singoli pesi, alleviando il problema 
     della sparsità. A questo proposito, \cite{li2017pruning} propose una "\emph{channel-wise 
     pruning}" in accordo con la norma \emph{L1} del filtro corrispondente. La 
@@ -1910,7 +1910,7 @@ Esistono diverse tecniche di pruning, ovvero:
     pesantemente sull'accuratezza del modello. Questa tecnica, in un 
     contesto di reti fully connected, va a disattivare tutte le connessioni 
     di determinati nodi rendendoli obsoleti (Fig. \ref{struct-prun}).
-    \item {\bfseries{\emph{Pruning non strutturato globale (Global Unstructured)}}}: rispetto 
+    \item {\bfseries{\emph{Pruning non strutturato globale (Global Unstructured)}}}\index{Pruning}: rispetto 
     alla tecnica non strutturata, la globale applica una potatura su 
     tutti i parametri specificati in tutti i filtri appartenenti ad ogni layer 
     in maniera parallela. È importante notare che la tecnica globale di 
@@ -1930,8 +1930,8 @@ La domanda sorge spontanea. Quali tipi di parametri dovranno essere
 sottoposti a potatura? Un criterio abbastanza intuitivo ed efficiente riguarda 
 la potatura dei pesi il cui valore assoluto (o magnitudo) è il più piccolo. 
 Sebbene questo criterio sembri banale da implementare in un dominio di 
-unstructured pruning, ci si può chiedere come adattarlo ad una structured 
-pruning. In quest'ultimo caso, per determinare l'importanza di un valore, 
+unstructured pruning\index{Pruning}, ci si può chiedere come adattarlo ad una structured 
+pruning\index{Pruning}. In quest'ultimo caso, per determinare l'importanza di un valore, 
 queste tecniche utilizzano le norme L1 (Geometria dei Taxi/Distanza di 
 Manhattan) e L2 (Distanza Euclidea) come regolarizzatori. Nello specifico, 
 la relativa importanza di un filtro, in ogni layer, viene misurata calcolando 
@@ -1939,11 +1939,11 @@ la somma dei valori assoluti dei suoi pesi, cioè la sua norma (L1 o L2).
 Successivamente, questi filtri vengono ordinati in base al precedente risultato 
 e potati se assumo il valore più basso. La potatura di un filtro porta 
 all'azzeramento di un intera feature maps. Rispetto ad una unstructured 
-pruning, dove l'azzeramento di un parametro influenzerebbe minimamente 
+pruning\index{Pruning}, dove l'azzeramento di un parametro influenzerebbe minimamente 
 il kernel nel successivo layer, in un contesto structured ciò comporterebbe 
 l'eliminazione del kernel, corrispondente a tale feature maps, presente nel 
-layer successivo (Fig. \ref{filter-pruning}). Attualmente la ricerca è suddivisa su due linee di 
-pensiero. Da una parte si pensa che la tecnica di pruning porti effettivamente 
+layer successivo (Fig. \ref{filter-pruning})\index{Pruning}. Attualmente la ricerca è suddivisa su due linee di 
+pensiero. Da una parte si pensa che la tecnica di pruning\index{Pruning} porti effettivamente 
 al miglioramento delle performance di un modello, dovuto dalla riduzione 
 delle sue dimensioni  \cite{han2015learning} e al conseguente risparmio energetico \cite{yang2017designing}, dall'altra 
 parte invece si afferma tutto il contrario \cite{cheng2020survey}. Un recente studio, intitolato 

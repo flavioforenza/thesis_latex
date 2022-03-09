@@ -93,7 +93,7 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
 
 \section{Accuratezza tecniche di compressione/ottimizzazione}
 In questa nuova sezione verranno analizzati i livelli di accuratezza raggiunti da entrambe le tecniche di compressione utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse hardware.
-Successivamente verranno mostrati i risultati ottenuti prima sulla tecnica di Pruning e successivamente sulla tecnica di Knowledge Distillation.
+Successivamente verranno mostrati i risultati ottenuti prima sulla tecnica di Pruning e successivamente sulla tecnica di Knowledge Distillation\index{Knowledge Distillation}.
 
 \subsection{Accuratezza Pruning}
 Più che accuratezza, la tecnica di pruning è utile a mostrare i risultati inerenti la funzione di perdita di un modello, che a loro volta sono strettamente correlati all'accuratezza raggiunta. Quando l'accuratezza di un modello incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-MobileNet-V1} (Sez. \ref{MBNET}).
@@ -168,7 +168,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \label{glob_loss_regr_pruning}
 \end{figure}
 
-\subsection{Accuratezza Knowledge Distillation}
+\subsection{Accuratezza Knowledge Distillation}\index{Knowledge Distillation}
 La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello studente distillato tra quelli generati ad una temperatura variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate nella Figura \ref{accuracy_KD}.
 \begin{figure}
     \centering
@@ -199,7 +199,7 @@ Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del mode
     \caption{Riduzione del numero di parametri via pruning a sparistà variabile.}
     \label{par_pruning}
 \end{figure}
-\subsection{Riduzione via Knowledge Distillation}
+\subsection{Riduzione via Knowledge Distillation}\index{Knowledge Distillation}
 Al fine di verificare la veridicità della tecnica di Knowledge distillation, premeva la necessità di costruire un modello studente di dimensioni più piccole rispetto al modello insegnante. I meriti per la realizzazione di questa fase non sono da attribuirsi alla tecnica di compressione in questione, ma vanno dati agli autori della rete MobileNet-V1 grazie all'implementazione del parametro width multiplier.
 Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,31\% dei parametri rispetto all'insegnante. Avendo quest'ultimo un numero di parametri maggiore di 3 milioni, il nuovo modello studente si ritrova con $\sim{200}$ mila parametri allenabili (Fig. \ref{base_net_par}).
 \begin{figure}
@@ -230,7 +230,7 @@ I modelli ricavati da una tecnica di pruning hanno un numero di parametri minore
     \label{SSD_dim}
 \end{figure}
 
-\subsection{Dimensione risultante dalla Knowledge Distillation}
+\subsection{Dimensione risultante dalla Knowledge Distillation}\index{Knowledge Distillation}
 Dalla riduzione del numero di parametri raggiunta sul modello base, nonché il modello studente distillato, la quantità di memoria risparmiata è davvero significante. Data la notevole dimensione del modello insegnante, si è cercato di ridurre anche la dimensione della sua sottorete  (backbone), rendendola nel complesso più leggera e più veloce dal punto di vista computazionale. Presa singolarmente, la sottorete MobileNet-V1 originale ha una dimensione maggiore ai 12MB. Il modello base studente distillato, è stato in grado di raggiungere una dimensione inferiore del 92.71\%, affiancandosi ad una dimensione leggermente inferiore a 1 MB (Fig. \ref{base_dim}).
 \begin{figure}
     \centering
@@ -903,8 +903,8 @@ Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre u
 \section{Esempi Object Detection modello DSSD}
 Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di tale rete su varie architetture embedded e non. Dal punto di vista pratico però, non sono state ancora dimostrare le effettive funzionalità offerte dal modello. Nella seguente sezione, che termina il capitolo corrente, vengono mostrati alcuni esempi, inerenti l'attività di object detection, prodotti dal modello DSSD. Per capire meglio le differenze in tale attività, rispetto al modello insegnante SSD, vengono confrontati i risultati ottenuti sulle stesse immagini in cui saranno visibili i riquadri di delimitazione di ogni oggetto (bounding-boxes) e i corrispettivi valori percentuali attribuiti ad ogni classe predetta. 
 Le immagini utilizzate provengono dal dataset Open Images.
-Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura influenzante la generazione delle soft-labels. 
-Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation riesca quasi a preservare l'accuratezza proveniente dal modello insegnante. 
+Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation\index{Knowledge Distillation}, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura influenzante la generazione delle soft-labels. 
+Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca quasi a preservare l'accuratezza proveniente dal modello insegnante. 
 \begin{figure}[ht] 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
