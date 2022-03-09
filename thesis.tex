@@ -60,7 +60,7 @@
 \usepackage{tabularx}                   % tabelle di larghezza prefissata                                    
 \usepackage{longtable}                  % tabelle su più pagine                                        
 \usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
-
+\usepackage{acronym}  
 \usepackage{imakeidx}
 \usepackage{hyperref}
 \makeindex[columns=2, options= -s index_style.ist, intoc]
@@ -68,6 +68,12 @@
 \newcommand{\RN}[1]{%
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+
+\usepackage[toc, acronym]{glossaries}
+% Generate the glossary
+\makeglossaries
+\newacronym{kd}{KD}{Knowledge Distillation}
+
 
 %\usepackage[toc, acronym]{glossaries}   % glossario
                                         % per includerlo nel documento bisogna:
@@ -121,7 +127,12 @@
 \input{chapters/2 State-of-the-art.tex}       
 \input{chapters/3 Methodology.tex}             
 \input{chapters/4 Experimental results.tex}             
-\input{chapters/5 Conclusions.tex}   
+\input{chapters/5 Conclusions.tex} 
+
+%\section{Acronimi}
+%\begin{acronym}
+%  \acro{KD}{Knowledge Distillation}
+%\end{acronym}
 
 \afterpage{\blankpage}
 
@@ -130,6 +141,10 @@
 \listoffigures
 \listoftables
 \printindex
+
+\printglossary[type=\acronymtype, title=Abbreviations]
+
+
 
 
 \end{document}

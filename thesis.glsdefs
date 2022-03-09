@@ -1,0 +1,30 @@
+\ifglsentryexists{kd}{}%
+{%
+\gls@defglossaryentry{kd}%
+{%
+name={KD},%
+sort={KD},%
+type={acronym},%
+first={Knowledge Distillation\glsspace (KD)},%
+firstplural={Knowledge Distillation\glstextup {s}\glsspace (KD\glstextup {s})},%
+text={KD},%
+plural={KD\glstextup {s}},%
+description={Knowledge Distillation},%
+descriptionplural={Knowledge Distillation\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Knowledge Distillation},%
+longplural={Knowledge Distillations},%
+short={KD},%
+shortplural={KDs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
