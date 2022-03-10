@@ -2,97 +2,97 @@
 \babel@toc {italian}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Composizione di due neuroni biologici.\relax }}{5}{figure.caption.3}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Struttura di una rete neurale a più livelli.\relax }}{7}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Neurone artificiale.\relax }}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Varie funzioni di attivazione.\relax }}{9}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Esempio di minimo globale ($w^A$) e locale ($w^B$).\relax }}{10}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio fase di propagazone dei dati in avanti di una rete \emph {feedforward}.\relax }}{13}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio fase di retropropagazione degli errori.\relax }}{14}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di architettura di una rete CNN.\relax }}{18}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di dimensione filtro e di campo ricettivo.\relax }}{20}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Esempio di profondità composto da più filtri.\relax }}{20}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio convoluzione con kernel=3x3 e stride=1.\relax }}{21}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Esempio convoluzione con kernel=4x, padding=2 e stride=1.\relax }}{21}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Esempio funzione di attivazione ReLU sui valori di una feature map.\relax }}{22}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Esempio funzione di operazioni di pooling su una feature map.\relax }}{23}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.\relax }}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Esempio di stato $h$ di un neurone in una RNN.\relax }}{25}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Esempio di generatore e discriminante in una rete GAN.\relax }}{27}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.18}{\ignorespaces (a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore\relax }}{29}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Esempio di object detection.\relax }}{29}{figure.caption.25}%
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. \relax }}{30}{figure.caption.26}%
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)\relax }}{31}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Esempio di immagini con scarsa visibilità e a basso contenuto informativo.\relax }}{32}{figure.caption.28}%
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio Semantic segmentation.\relax }}{36}{figure.caption.31}%
-\contentsline {figure}{\numberline {2.24}{\ignorespaces Esempio di architettura Fully Convolutional Network\relax }}{37}{figure.caption.33}%
-\contentsline {figure}{\numberline {2.25}{\ignorespaces Esempio di Deconvoluzione e di Unpooling (Upsampling).\relax }}{38}{figure.caption.34}%
-\contentsline {figure}{\numberline {2.26}{\ignorespaces Esempio derivazione delle varie architetture FCN.\relax }}{39}{figure.caption.35}%
-\contentsline {figure}{\numberline {2.27}{\ignorespaces Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).\relax }}{40}{figure.caption.38}%
-\contentsline {figure}{\numberline {2.28}{\ignorespaces Esempio architettura DeepLab.\relax }}{41}{figure.caption.40}%
-\contentsline {figure}{\numberline {2.29}{\ignorespaces Esempio architettura rete U-Net.\relax }}{42}{figure.caption.43}%
-\contentsline {figure}{\numberline {2.30}{\ignorespaces Esempio architettura SegNet.\relax }}{44}{figure.caption.45}%
-\contentsline {figure}{\numberline {2.31}{\ignorespaces Esempio di applicazione del contesto globale alla segmentazione.\relax }}{44}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.32}{\ignorespaces Modulo ParseNet.\relax }}{45}{figure.caption.49}%
-\contentsline {figure}{\numberline {2.33}{\ignorespaces Architettura modello GCN.\relax }}{47}{figure.caption.51}%
-\contentsline {figure}{\numberline {2.34}{\ignorespaces Atrous Spatial Pooling Pyramid.\relax }}{48}{figure.caption.54}%
-\contentsline {figure}{\numberline {2.35}{\ignorespaces Differenza tra convoluzione depth-wise (a) e convoluzione point-wise (b).\relax }}{49}{figure.caption.55}%
-\contentsline {figure}{\numberline {2.36}{\ignorespaces Architettura PSPNet.\relax }}{49}{figure.caption.57}%
-\contentsline {figure}{\numberline {2.37}{\ignorespaces Livelli di automazione definiti dalla SAE International.\relax }}{53}{figure.caption.59}%
-\contentsline {figure}{\numberline {2.38}{\ignorespaces Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il colore verde indica una segmentazione True-Positive, rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive.\relax }}{55}{figure.caption.61}%
-\contentsline {figure}{\numberline {2.39}{\ignorespaces Lane detection: (a) ground-truth (b) LaneNet \cite {LaneNet} output (c) model fitting.\relax }}{57}{figure.caption.63}%
-\contentsline {figure}{\numberline {2.40}{\ignorespaces Esempio di Vehicle detection a varie distanze e illuminazioni.\relax }}{58}{figure.caption.65}%
-\contentsline {figure}{\numberline {2.41}{\ignorespaces Fasi di elaborazione Pedestrian detection.\relax }}{60}{figure.caption.67}%
-\contentsline {figure}{\numberline {2.42}{\ignorespaces Modello generale del sistema di Drowsiness detection.\relax }}{64}{figure.caption.69}%
-\contentsline {figure}{\numberline {2.43}{\ignorespaces Esempio di alcuni sistemi di Collision Avoidance.\relax }}{65}{figure.caption.71}%
-\contentsline {figure}{\numberline {2.44}{\ignorespaces Esempio di Traffic Sign/Light recognition.\relax }}{68}{figure.caption.73}%
-\contentsline {figure}{\numberline {2.45}{\ignorespaces Esempio di rete fully connected potata con la tecnica unstructured.\relax }}{72}{figure.caption.74}%
-\contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{72}{figure.caption.75}%
-\contentsline {figure}{\numberline {2.47}{\ignorespaces Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.\relax }}{74}{figure.caption.76}%
-\contentsline {figure}{\numberline {2.48}{\ignorespaces Il quadro generico insegnante-studente per la distillazione della conoscenza\relax }}{76}{figure.caption.77}%
-\contentsline {figure}{\numberline {2.49}{\ignorespaces Numeri 1 e 7.\relax }}{77}{figure.caption.78}%
-\contentsline {figure}{\numberline {2.50}{\ignorespaces Previsione di probabilità per la cifra del numero '7' a temperature variabili.\relax }}{78}{figure.caption.79}%
-\contentsline {figure}{\numberline {2.51}{\ignorespaces Generazione entropie incrociate $L_{soft}$ (in alto) e $L_{hard}$ (in basso).\relax }}{80}{figure.caption.80}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Composizione di due neuroni biologici.\relax }}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Struttura di una rete neurale a più livelli.\relax }}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Neurone artificiale.\relax }}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Varie funzioni di attivazione.\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Esempio di minimo globale ($w^A$) e locale ($w^B$).\relax }}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio fase di propagazone dei dati in avanti di una rete \emph {feedforward}.\relax }}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio fase di retropropagazione degli errori.\relax }}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di architettura di una rete CNN.\relax }}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di dimensione filtro e di campo ricettivo.\relax }}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Esempio di profondità composto da più filtri.\relax }}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio convoluzione con kernel=3x3 e stride=1.\relax }}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Esempio convoluzione con kernel=4x, padding=2 e stride=1.\relax }}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Esempio funzione di attivazione ReLU sui valori di una feature map.\relax }}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Esempio funzione di operazioni di pooling su una feature map.\relax }}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.\relax }}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Esempio di stato $h$ di un neurone in una RNN.\relax }}{25}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Esempio di generatore e discriminante in una rete GAN.\relax }}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces (a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore\relax }}{29}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Esempio di object detection.\relax }}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. \relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)\relax }}{31}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Esempio di immagini con scarsa visibilità e a basso contenuto informativo.\relax }}{32}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio Semantic segmentation.\relax }}{36}{figure.caption.33}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Esempio di architettura Fully Convolutional Network\relax }}{37}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.25}{\ignorespaces Esempio di Deconvoluzione e di Unpooling (Upsampling).\relax }}{38}{figure.caption.36}%
+\contentsline {figure}{\numberline {2.26}{\ignorespaces Esempio derivazione delle varie architetture FCN.\relax }}{39}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).\relax }}{40}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.28}{\ignorespaces Esempio architettura DeepLab.\relax }}{41}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Esempio architettura rete U-Net.\relax }}{42}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.30}{\ignorespaces Esempio architettura SegNet.\relax }}{44}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Esempio di applicazione del contesto globale alla segmentazione.\relax }}{44}{figure.caption.50}%
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Modulo ParseNet.\relax }}{45}{figure.caption.51}%
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Architettura modello GCN.\relax }}{47}{figure.caption.53}%
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Atrous Spatial Pooling Pyramid.\relax }}{48}{figure.caption.56}%
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Differenza tra convoluzione depth-wise (a) e convoluzione point-wise (b).\relax }}{49}{figure.caption.57}%
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Architettura PSPNet.\relax }}{49}{figure.caption.59}%
+\contentsline {figure}{\numberline {2.37}{\ignorespaces Livelli di automazione definiti dalla SAE International.\relax }}{53}{figure.caption.61}%
+\contentsline {figure}{\numberline {2.38}{\ignorespaces Road Segmentation proveniente dai diversi modelli: (a) Up-Conv-Poly, (b) LidCamNet e (c) DEEP-DIG. Il colore verde indica una segmentazione True-Positive, rosso indica una rilevazione False-Negative e Blu una rilevazione False-Positive.\relax }}{55}{figure.caption.63}%
+\contentsline {figure}{\numberline {2.39}{\ignorespaces Lane detection: (a) ground-truth (b) LaneNet \cite {LaneNet} output (c) model fitting.\relax }}{57}{figure.caption.65}%
+\contentsline {figure}{\numberline {2.40}{\ignorespaces Esempio di Vehicle detection a varie distanze e illuminazioni.\relax }}{58}{figure.caption.67}%
+\contentsline {figure}{\numberline {2.41}{\ignorespaces Fasi di elaborazione Pedestrian detection.\relax }}{60}{figure.caption.69}%
+\contentsline {figure}{\numberline {2.42}{\ignorespaces Modello generale del sistema di Drowsiness detection.\relax }}{64}{figure.caption.71}%
+\contentsline {figure}{\numberline {2.43}{\ignorespaces Esempio di alcuni sistemi di Collision Avoidance.\relax }}{65}{figure.caption.73}%
+\contentsline {figure}{\numberline {2.44}{\ignorespaces Esempio di Traffic Sign/Light recognition.\relax }}{68}{figure.caption.75}%
+\contentsline {figure}{\numberline {2.45}{\ignorespaces Esempio di rete fully connected potata con la tecnica unstructured.\relax }}{72}{figure.caption.76}%
+\contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{72}{figure.caption.77}%
+\contentsline {figure}{\numberline {2.47}{\ignorespaces Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.\relax }}{74}{figure.caption.78}%
+\contentsline {figure}{\numberline {2.48}{\ignorespaces Il quadro generico insegnante-studente per la distillazione della conoscenza\relax }}{76}{figure.caption.79}%
+\contentsline {figure}{\numberline {2.49}{\ignorespaces Numeri 1 e 7.\relax }}{77}{figure.caption.80}%
+\contentsline {figure}{\numberline {2.50}{\ignorespaces Previsione di probabilità per la cifra del numero '7' a temperature variabili.\relax }}{78}{figure.caption.81}%
+\contentsline {figure}{\numberline {2.51}{\ignorespaces Generazione entropie incrociate $L_{soft}$ (in alto) e $L_{hard}$ (in basso).\relax }}{80}{figure.caption.82}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Flusso di esecuzione di ogni modello.\relax }}{83}{figure.caption.81}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces NVidia Jetson Nano.\relax }}{84}{figure.caption.82}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Architettura MobileNet-V1.\relax }}{87}{figure.caption.85}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces La convoluzione standard (a) viene sostituita da due layers: depthwise convolution (b) e pointwise convolution (c) per costruire un depthwise separable filter.\relax }}{89}{figure.caption.86}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Architettura Single-Shot-Detector (SSD).\relax }}{92}{figure.caption.87}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Connessioni tra i livelli della rete base (MobileNet) e i livelli della rete SSD.\relax }}{94}{figure.caption.88}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale.\relax }}{98}{figure.caption.89}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Flusso di conversione di ogni modello.\relax }}{105}{figure.caption.98}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{105}{figure.caption.99}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{107}{figure.caption.100}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{109}{figure.caption.101}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{110}{figure.caption.102}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Flusso di esecuzione di ogni modello.\relax }}{83}{figure.caption.83}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces NVidia Jetson Nano.\relax }}{84}{figure.caption.84}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Architettura MobileNet-V1.\relax }}{87}{figure.caption.87}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces La convoluzione standard (a) viene sostituita da due layers: depthwise convolution (b) e pointwise convolution (c) per costruire un depthwise separable filter.\relax }}{89}{figure.caption.88}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Architettura Single-Shot-Detector (SSD).\relax }}{92}{figure.caption.89}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Connessioni tra i livelli della rete base (MobileNet) e i livelli della rete SSD.\relax }}{94}{figure.caption.90}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale.\relax }}{98}{figure.caption.91}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Flusso di conversione di ogni modello.\relax }}{105}{figure.caption.100}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{105}{figure.caption.101}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{107}{figure.caption.102}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{109}{figure.caption.103}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{110}{figure.caption.104}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.104}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{116}{figure.caption.105}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{117}{figure.caption.106}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{118}{figure.caption.107}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Perdita globale Structuerd Pruning.\relax }}{120}{figure.caption.108}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Perdita classificazione Structuerd Pruning.\relax }}{121}{figure.caption.109}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Perdita regressione Structuerd Pruning.\relax }}{121}{figure.caption.110}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Perdita globale Unstructuerd Pruning.\relax }}{122}{figure.caption.111}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Perdita classificazione Unstructuerd Pruning.\relax }}{122}{figure.caption.112}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Perdita regressione Unstructuerd Pruning.\relax }}{123}{figure.caption.113}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Perdita complessiva Global Unstructuerd Pruning.\relax }}{123}{figure.caption.114}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Perdita classificazione Global Unstructuerd Pruning.\relax }}{124}{figure.caption.115}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{124}{figure.caption.116}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{125}{figure.caption.117}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{126}{figure.caption.119}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{129}{figure.caption.120}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Riduzione del numero di parametri del modello base via Knowledge distillation.\relax }}{129}{figure.caption.121}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.\relax }}{130}{figure.caption.122}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Riduzione della dimensione del modello SSD via pruning.\relax }}{131}{figure.caption.123}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Riduzione della dimensione del modello base via Knowledge distillation.\relax }}{132}{figure.caption.124}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Riduzione della dimensione del modello SSD via Knowledge distillation.\relax }}{133}{figure.caption.125}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)\relax }}{145}{figure.caption.145}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - cuDNN)\relax }}{146}{figure.caption.146}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - CPU)\relax }}{147}{figure.caption.147}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)\relax }}{147}{figure.caption.149}%
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)\relax }}{148}{figure.caption.151}%
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)\relax }}{149}{figure.caption.152}%
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparazione visiva output SSD insegnante (a) e output DSSD (b).\relax }}{150}{figure.caption.153}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.106}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{116}{figure.caption.107}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{117}{figure.caption.108}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{118}{figure.caption.109}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Perdita globale Structuerd Pruning.\relax }}{121}{figure.caption.110}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Perdita classificazione Structuerd Pruning.\relax }}{122}{figure.caption.111}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Perdita regressione Structuerd Pruning.\relax }}{122}{figure.caption.112}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Perdita globale Unstructuerd Pruning.\relax }}{123}{figure.caption.114}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Perdita regressione Unstructuerd Pruning.\relax }}{124}{figure.caption.115}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Perdita classificazione Unstructuerd Pruning.\relax }}{124}{figure.caption.116}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Perdita complessiva Global Unstructuerd Pruning.\relax }}{125}{figure.caption.118}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{126}{figure.caption.119}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Perdita classificazione Global Unstructuerd Pruning.\relax }}{126}{figure.caption.120}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{127}{figure.caption.122}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{128}{figure.caption.124}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{131}{figure.caption.125}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Riduzione del numero di parametri del modello base via Knowledge distillation.\relax }}{131}{figure.caption.126}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.\relax }}{132}{figure.caption.127}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Riduzione della dimensione del modello SSD via pruning.\relax }}{133}{figure.caption.128}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Riduzione della dimensione del modello base via Knowledge distillation.\relax }}{134}{figure.caption.129}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Riduzione della dimensione del modello SSD via Knowledge distillation.\relax }}{135}{figure.caption.130}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)\relax }}{147}{figure.caption.150}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - cuDNN)\relax }}{148}{figure.caption.151}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - CPU)\relax }}{149}{figure.caption.152}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)\relax }}{149}{figure.caption.154}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)\relax }}{150}{figure.caption.156}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)\relax }}{151}{figure.caption.157}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparazione visiva output SSD insegnante (a) e output DSSD (b).\relax }}{152}{figure.caption.158}%
 \addvspace {10\p@ }
