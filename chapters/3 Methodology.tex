@@ -327,6 +327,7 @@ Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra
     \renewcommand{\baselinestretch}{1}
     \centering
     \begin{adjustbox}{max width=\textwidth}
+    {\Large
     \begin{tabular}{|c||L|L||L|L|}
         \hline
         \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ERRORI}}\\  & \bfseries{$\alpha$} & \bfseries{T}  & \bfseries{Min} & \bfseries{Max} \\
@@ -340,7 +341,7 @@ Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}43 & \color{red}76\\
         \hline
-        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}{\bfseries{38}} & \color{green}{\bfseries{76}}\\
+        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{OliveGreen}{\bfseries{38}} & \color{OliveGreen}{\bfseries{76}}\\
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}49 & \color{red}73\\
         \hline
@@ -351,6 +352,7 @@ Dopo aver generato i sette nuovi modelli distillati, bisogna chiedersi quale tra
         {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}53 & \color{red}77\\
         \hline
     \end{tabular}
+    }
     \end{adjustbox}
     \vspace{0.5cm}
     \caption{Errors Rates dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.}

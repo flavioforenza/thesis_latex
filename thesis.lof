@@ -62,7 +62,7 @@
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Connessioni tra i livelli della rete base (MobileNet) e i livelli della rete SSD.\relax }}{94}{figure.caption.90}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale.\relax }}{98}{figure.caption.91}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Flusso di conversione di ogni modello.\relax }}{105}{figure.caption.100}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{105}{figure.caption.101}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{106}{figure.caption.101}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{107}{figure.caption.102}%
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Esempio di ouput prodotto da DetectNet sulla Jetson Nano.\relax }}{109}{figure.caption.103}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Esempio di ouput prodotto da SegNet sulla Jetson Nano.\relax }}{110}{figure.caption.104}%
@@ -78,21 +78,21 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Perdita regressione Unstructuerd Pruning.\relax }}{124}{figure.caption.115}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Perdita classificazione Unstructuerd Pruning.\relax }}{124}{figure.caption.116}%
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Perdita complessiva Global Unstructuerd Pruning.\relax }}{125}{figure.caption.118}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{126}{figure.caption.119}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Perdita regressione Global Unstructuerd Pruning.\relax }}{125}{figure.caption.119}%
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Perdita classificazione Global Unstructuerd Pruning.\relax }}{126}{figure.caption.120}%
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Accuratezze Top-1 e Top-5 di tutti i modelli impiegati per la Knowledge Distillation, ad una temperatura T variabile.\relax }}{127}{figure.caption.122}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.\relax }}{128}{figure.caption.124}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{131}{figure.caption.125}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Riduzione del numero di parametri via pruning a sparistà variabile.\relax }}{130}{figure.caption.125}%
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Riduzione del numero di parametri del modello base via Knowledge distillation.\relax }}{131}{figure.caption.126}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.\relax }}{132}{figure.caption.127}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Riduzione del numero di parametri del modello proposto DSSD via Knowledge distillation.\relax }}{131}{figure.caption.127}%
 \contentsline {figure}{\numberline {4.19}{\ignorespaces Riduzione della dimensione del modello SSD via pruning.\relax }}{133}{figure.caption.128}%
 \contentsline {figure}{\numberline {4.20}{\ignorespaces Riduzione della dimensione del modello base via Knowledge distillation.\relax }}{134}{figure.caption.129}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Riduzione della dimensione del modello SSD via Knowledge distillation.\relax }}{135}{figure.caption.130}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)\relax }}{147}{figure.caption.150}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - cuDNN)\relax }}{148}{figure.caption.151}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - CPU)\relax }}{149}{figure.caption.152}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)\relax }}{149}{figure.caption.154}%
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)\relax }}{150}{figure.caption.156}%
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)\relax }}{151}{figure.caption.157}%
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparazione visiva output SSD insegnante (a) e output DSSD (b).\relax }}{152}{figure.caption.158}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Riduzione della dimensione del modello SSD via Knowledge distillation.\relax }}{134}{figure.caption.130}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)\relax }}{146}{figure.caption.150}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - cuDNN)\relax }}{147}{figure.caption.151}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (OpenCV - CPU)\relax }}{148}{figure.caption.152}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Apple Macbook Pro (OpenCV - CPU)\relax }}{148}{figure.caption.154}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)\relax }}{149}{figure.caption.156}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - CPU)\relax }}{150}{figure.caption.157}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Comparazione visiva output SSD insegnante (a) e output DSSD (b).\relax }}{151}{figure.caption.158}%
 \addvspace {10\p@ }

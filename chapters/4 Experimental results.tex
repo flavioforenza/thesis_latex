@@ -221,8 +221,8 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
 
 \begin{figure}
     \centering
-    \hspace*{-1.5cm}
-    \includegraphics[width = 1.2\linewidth]{global_Loss.png}
+    \hspace*{-0.5cm}
+    \includegraphics[width = 1.1\linewidth]{global_Loss.png}
     \centering
     \caption{Perdita complessiva Global Unstructuerd Pruning.}
     \label{glob_loss_global_pruning}
@@ -291,6 +291,7 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
 \begin{table}
     \centering
     \begin{adjustbox}{max width=\textwidth}
+    {\Large
     \begin{tabular}{|c||L|L||L|L|}
         \hline
         \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ACCURATEZZA}}\\  & \bfseries{$\alpha$} & \bfseries{T}  & \bfseries{TOP-1} & \bfseries{TOP-5} \\
@@ -304,7 +305,7 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}42.47 & \color{red}95.89\\
         \hline
-        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{green}{\bfseries{50.68}} & \color{green}{\bfseries{98.63}}\\
+        {\bfseries{Studente-Dst}} & 0.25 & 3 & \color{OliveGreen}{\bfseries{50.68}} & \color{OliveGreen}{\bfseries{98.63}}\\
         \hline
         {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}34.25 & \color{red}98.63\\
         \hline
@@ -315,6 +316,7 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
         {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}27.4 & \color{red}91.78\\
         \hline
     \end{tabular}
+    }
     \end{adjustbox}
     \vspace{0.5cm}
     \caption{Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.}
@@ -325,7 +327,7 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
 Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento di ogni modello ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
 \begin{figure}
     \centering
-    \includegraphics[width = 1.5\linewidth, angle=90, origin=c]{learning_curve KD.png}
+    \includegraphics[width = 1.5\linewidth, height=12cm, angle=90, origin=c]{learning_curve KD.png}
     \centering
     \caption{Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.}
     \label{lc_KD}
