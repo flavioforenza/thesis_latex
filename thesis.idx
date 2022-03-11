@@ -96,7 +96,9 @@
 \indexentry{peso|hyperpage}{10}
 \indexentry{back-propagation|hyperpage}{10}
 \indexentry{apprendimento|hyperpage}{11}
+\indexentry{classificazione|hyperpage}{11}
 \indexentry{etichetta|hyperpage}{11}
+\indexentry{regressione|hyperpage}{11}
 \indexentry{modello|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{peso|hyperpage}{11}
@@ -165,12 +167,14 @@
 \indexentry{architettura|hyperpage}{17}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{17}
 \indexentry{layer|hyperpage}{17}
+\indexentry{classificazione|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
 \indexentry{funzione di attivazione|hyperpage}{18}
 \indexentry{apprendimento|hyperpage}{18}
 \indexentry{peso|hyperpage}{18}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{18}
+\indexentry{classificazione|hyperpage}{18}
 \indexentry{layer|hyperpage}{18}
 \indexentry{layer|hyperpage}{19}
 \indexentry{neurone|hyperpage}{19}
@@ -212,6 +216,7 @@
 \indexentry{autonoma|hyperpage}{28}
 \indexentry{deep learning|hyperpage}{29}
 \indexentry{object detection|hyperpage}{29}
+\indexentry{classificazione|hyperpage}{29}
 \indexentry{rilevamento|hyperpage}{30}
 \indexentry{etichetta|hyperpage}{30}
 \indexentry{computazionale|hyperpage}{30}
@@ -233,8 +238,10 @@
 \indexentry{ottimizzazione|hyperpage}{34}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{34}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{34}
+\indexentry{classificazione|hyperpage}{34}
 \indexentry{visione artificiale|hyperpage}{34}
 \indexentry{autonoma|hyperpage}{34}
+\indexentry{classificazione|hyperpage}{34}
 \indexentry{object detection|hyperpage}{34}
 \indexentry{semantic segmentation|hyperpage}{35}
 \indexentry{semantic segmentation|hyperpage}{35}
@@ -277,13 +284,19 @@
 \indexentry{architettura|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
+\indexentry{classificazione|hyperpage}{43}
+\indexentry{classificazione|hyperpage}{45}
 \indexentry{layer|hyperpage}{45}
+\indexentry{classificazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
+\indexentry{classificazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
+\indexentry{classificazione|hyperpage}{46}
 \indexentry{modello|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
+\indexentry{classificazione|hyperpage}{46}
 \indexentry{dataset|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
 \indexentry{modello|hyperpage}{47}
@@ -316,6 +329,7 @@
 \indexentry{computazionale|hyperpage}{54}
 \indexentry{parametro|hyperpage}{54}
 \indexentry{modello|hyperpage}{54}
+\indexentry{classificazione|hyperpage}{55}
 \indexentry{modello|hyperpage}{55}
 \indexentry{architettura|hyperpage}{55}
 \indexentry{rilevamento|hyperpage}{55}
@@ -338,14 +352,18 @@
 \indexentry{rilevamento|hyperpage}{59}
 \indexentry{identificare|hyperpage}{60}
 \indexentry{telecamere|hyperpage}{60}
+\indexentry{classificazione|hyperpage}{61}
+\indexentry{classificazione|hyperpage}{61}
 \indexentry{rilevamento|hyperpage}{62}
 \indexentry{autonoma|hyperpage}{62}
 \indexentry{modello|hyperpage}{63}
 \indexentry{rilevamento|hyperpage}{63}
 \indexentry{stereo-camera|hyperpage}{63}
+\indexentry{classificazione|hyperpage}{63}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{63}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{63}
 \indexentry{layer|hyperpage}{64}
+\indexentry{classificazione|hyperpage}{64}
 \indexentry{rilevamento|hyperpage}{64}
 \indexentry{rilevamento|hyperpage}{64}
 \indexentry{modello|hyperpage}{64}
@@ -355,7 +373,9 @@
 \indexentry{deep learning|hyperpage}{66}
 \indexentry{identificare|hyperpage}{66}
 \indexentry{localizzazione|hyperpage}{66}
+\indexentry{classificazione|hyperpage}{66}
 \indexentry{intelligenza|hyperpage}{66}
+\indexentry{classificazione|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
 \indexentry{ottimizzazione|hyperpage}{68}

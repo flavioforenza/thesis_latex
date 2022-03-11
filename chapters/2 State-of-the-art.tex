@@ -172,20 +172,21 @@ Semi-Supervisionato, Non-Supervisionato} e con \emph{Rinforzo}. La scelta di qua
 usare dipende dalla tipologia della rete e dal suo campo di applicazione.
 
 \subsection{Apprendimento Supervisionato}
-In questa tipologia di apprendimento\index{apprendimento}, l'input fornito alla rete contiene una serie di 
-dati etichettati. L'apprendimento supervisionato è solitamente utilizzato sia nel 
-conteso della classificazione, dove  si vuole mappare le etichette\index{etichetta} di input a quelle 
-di output, che nel contesto della regressione, dove si mira a mappare l'input a un 
-output continuo. La corretta associazione comporta una buona generalizzazione 
-da parte del modello\index{modello}. L'apprendimento\index{apprendimento} migliora grazie ad una continua variazione 
-dei pesi\index{peso}. Questo tipo di apprendimento è svolto utilizzando la tecnica della 
-\emph{Back-Propagation}\index{back-propagation}. La complessità di questo tipo di apprendimento deriva dalla 
-quantità di dati presenti nel training set. Affinché la rete riesca a \index{generalizzare} al 
-meglio, il training set dev'essere composto da un numero di esempi adeguato. La 
-giusta quantità di esempi è utile a prevenire spiacevoli situazioni di underfitting o 
-di overfitting della rete. In questa categoria di apprendimento\index{apprendimento} fanno parte diversi metodi deep 
-learning\index{deep learning}, incluse le \emph{Deep Neural Networks (DNN)}, le \emph{Convolutional Neural 
-Networks (CNN)}\index{Convolutional Neural Netwrok - CNN}, le \emph{Recurrent Neural Networks (RNN)} come le \emph{Long 
+In questa tipologia di apprendimento\index{apprendimento}, l'input fornito alla rete contiene una 
+serie di dati etichettati. L'apprendimento supervisionato è solitamente 
+utilizzato sia nel conteso della classificazione\index{classificazione}, dove  si vuole mappare le 
+etichette\index{etichetta} di input a quelle di output, che nel contesto della regressione\index{regressione}, 
+dove si mira a mappare l'input a un valore di output continuo. La corretta 
+associazione comporta una buona generalizzazione da parte del modello\index{modello}. 
+L'apprendimento\index{apprendimento} migliora grazie ad una continua variazione dei pesi\index{peso}. Questo 
+tipo di apprendimento è svolto utilizzando la tecnica della \emph{Back-Propagation}\index{back-propagation}. 
+La complessità di questo tipo di apprendimento deriva dalla quantità di dati 
+presenti nel training set. Affinché la rete riesca a \index{generalizzare} al meglio, il training set 
+dev'essere composto da un numero di esempi adeguato. La giusta quantità di 
+esempi è utile a prevenire spiacevoli situazioni di underfitting o di overfitting 
+della rete. In questa categoria di apprendimento\index{apprendimento} fanno parte diversi metodi 
+deep learning\index{deep learning}, incluse le \emph{Deep Neural Networks (DNN)}, le \emph{Convolutional 
+Neural Networks (CNN)}\index{Convolutional Neural Netwrok - CNN}, le \emph{Recurrent Neural Networks (RNN)} come le \emph{Long 
 Short-Term Memory (LSTM)} \cite{LSTM}.
 
 \subsection{Apprendimento Non-Supervisionato}
@@ -380,7 +381,7 @@ rilevare i tratti più rilevanti e di apprendere i pattern, il tutto con un alto
 invariata rispetto a traslazione, ridimensionamento, inclinazione e altre forme di 
 distorsione. I primi strati hanno il compito di estrarre le features di basso livello, 
 come per esempio i bordi o i blob, al contrario, gli ultimi strati hanno lo scopo di 
-estrarre le features di alto livello tipo i contorni, classificazione, riconoscimento 
+estrarre le features di alto livello tipo i contorni, classificazione\index{classificazione}, riconoscimento 
 etc. All'interno di una rete convoluzionale possiamo riconoscere due tipologie di 
 neuroni:
 \begin{itemize}
@@ -394,7 +395,7 @@ connessi, dispongono di funzioni di attivazione\index{funzione di attivazione} e
 processo di aggiornamento durante la fase di apprendimento\index{apprendimento}. Per quanto riguarda 
 gli strati di pooling, questi non dispongo di alcun tipi di peso\index{peso}. Riassumendo, 
 le operazioni svolte dalle CNN\index{Convolutional Neural Netwrok - CNN} sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
-Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}} (nei layer\index{layer} 
+Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}}\index{classificazione} (nei layer\index{layer} 
 fully connected). 
 \begin{figure}
     \centering
@@ -680,7 +681,7 @@ della tecnica di object detection\index{object detection} aumentarono notevolmen
 \end{figure}
 Ogni oggetto è caratterizzato dalle sue proprietà come colore, forma, texture 
 o altri tratti. Lo scopo della tecnica può essere visto come un problema di 
-classificazione in grado di definire se un'immagine contiene un oggetto e, in caso 
+classificazione\index{classificazione} in grado di definire se un'immagine contiene un oggetto e, in caso 
 affermativo, indicarne la posizione nell'immagine mediante l'utilizzo di un riquadro 
 di delimitazione chiamato bounding box (Fig. \ref{object detection}). 
 \begin{figure}
@@ -839,12 +840,12 @@ Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, una rete neurale 
 sviluppata per riconoscere i numeri scritti a mano. Grazie a questa, venne spianata 
 la strada verso il continuo successo delle CNN\index{Convolutional Neural Netwrok - CNN} nello svolgere vari compiti di visione 
 artificiale di alto livello, oltre che a motivare i ricercatori ad esplorare le capacità 
-di tali reti per problemi di classificazione pixel-wise, come la segmentazione delle 
+di tali reti per problemi di classificazione\index{classificazione} pixel-wise, come la segmentazione delle 
 immagini. La segmentazione di un'immagine è uno dei  compiti indispensabili 
 nella visione artificiale\index{visione artificiale} in quanto è utile in diversi campi scientifici, come per 
 esempio la guida autonoma\index{autonoma}, ambito medico, ambito biometrico, ambito militare, 
 riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
-della classificazione e dell'object detection\index{object detection}, è necessario reperire delle informazioni 
+della classificazione\index{classificazione} e dell'object detection\index{object detection}, è necessario reperire delle informazioni 
 spaziali di basso livello o a livello di pixel.
 L'image segmentation si suddivide in due categorie:
 \begin{enumerate}
@@ -1082,7 +1083,7 @@ efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnic
 nota come batch normalization \cite{batchNorm} seguita da una funzione attivazione ReLU. Su 
 ogni feature map viene applicato un max-pooling con una finestra di dimensioni 
 $2\times 2$ e passo 2. Come già noto, un alto numero di operazioni si sub-sampling 
-comporta una maggiore precisione di classificazione, ma allo stesso tempo provoca 
+comporta una maggiore precisione di classificazione\index{classificazione}, ma allo stesso tempo provoca 
 una riduzione di ogni feature map che, tradotto in altri termini, causa la perdita 
 dei dati. La riduzione del numero di dati determina la creazione di bordi sfocati 
 il quale rappresenta un problematica centrale per un'operazione di segmentazione. 
@@ -1122,7 +1123,7 @@ map sulla quale viene eseguito il pooling mediante una media globale. Dopo aver
 effettuato il pooling, viene eseguita l'operazione inversa (\emph{un-pooling}) per poter 
 riportare l'immagine alle sue dimensioni di partenza. Successivamente, le feature 
 map di partenza e quelle ricavate vengono combinate per effettuare una previsione 
-sul punteggio di classificazione finale. Ogni feature map appartiene a un layer\index{layer} 
+sul punteggio di classificazione\index{classificazione} finale. Ogni feature map appartiene a un layer\index{layer} 
 diverso, pertanto la combinazione di queste sarà formata da feature map diverse 
 in termini di scala e di norma. Affinché tutto funzioni, vengono applicate due 
 normalizzazioni L2 (\ref{L2}), una dopo il pooling globale e l'altra dopo la feature 
@@ -1148,11 +1149,11 @@ i passaggi precedenti.
 
 \subsubsection{GCN}
 La segmentazione semantica basa il suo principio di funzionamento su due aspetti: 
-classificazione e localizzazione\index{localizzazione} . Quest'ultimi sono ritenuti come due concetti 
+classificazione\index{classificazione} e localizzazione\index{localizzazione} . Quest'ultimi sono ritenuti come due concetti 
 di natura opposta in quanto, una piccola trasformazione dell'input, come ad 
-esempio una traslazioni o rotazioni, rende la classificazione invariante mentre, allo 
+esempio una traslazioni o rotazioni, rende la classificazione\index{classificazione} invariante mentre, allo 
 stesso tempo, la localizzazione\index{localizzazione}  potrebbe risentirne negativamente, pertanto risulta 
-essere più sensitiva rispetto alla classificazione. Per sopperire alle problematiche 
+essere più sensitiva rispetto alla classificazione\index{classificazione}. Per sopperire alle problematiche 
 delle trasformazioni su entrambe le tecniche, venne introdotto il modello\index{modello} \emph{Global 
 Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due principi:
 \begin{enumerate}
@@ -1161,7 +1162,7 @@ Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due prin
     localizzazione\index{localizzazione}  degli oggetti in quanto, se la struttura fosse stata a livelli 
     completamente connessi (fully-connected layers)\index{layer}, o pooling globali, questi 
     scarterebbero tutte le informazioni spaziali;
-    \item Dal punto di vista della \emph{classificazione}, devono essere utilizzati dei kernel 
+    \item Dal punto di vista della \emph{classificazione}\index{classificazione}, devono essere utilizzati dei kernel 
     di grandi dimensioni, circa $15\times 15$, al fine di consentire la realizzazione di 
     connessioni dense tra le feature map e le classificazioni pixel-wise. Questi 
     filtri consentono di effettuare delle convoluzioni globali che rendono la rete 
@@ -1396,7 +1397,7 @@ che fonde la segmentazione di queste con i dati provenienti da un sensore
 Ligth Detector And Range (LIDAR). Diversi sono anche stati gli studi che 
 utilizzano le reti FCN che hanno portato ad ottenere le prestazioni migliori 
 in questo campo. La segmentazione della strada è visto come un problema di 
-classificazione binario (strada o non strada). Per citarne un'ultima, abbiamo 
+\index{classificazione} binaria (strada o non strada). Per citarne un'ultima, abbiamo 
 il modello\index{modello} DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone con una 
 architettura\index{architettura} FCN con multipli passaggi di upscaling utili a poter interpolare 
 un'immagine. 
@@ -1565,7 +1566,7 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
     quando ci si trova nel bel mezzo di un temporale);
     \item \emph{Foreground segmentation}: fase in cui vengono separati il foreground 
     (possibili candidati) dal background (sfondo) per dar vita a regioni di 
-    interesse (ROI) che verrano inviate al modulo di classificazione. Lo 
+    interesse (ROI) che verrano inviate al modulo di classificazione\index{classificazione}. Lo 
     scopo principale di questa fase è quello di rilevare tutti i pedoni per 
     poter ottenere dei risultati dalle fasi successive;
     \item \emph{Object classification}: dopo aver ricevuto le ROI dal modulo precedente, 
@@ -1574,7 +1575,7 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
     questa fase vengono utilizzate le stesse feature impiegate nella tecnica 
     di vehicle detection. 
     \item \emph{Verification/Refinement}: diversi sistemi contengono un passaggio aggiuntivo 
-    che mira alla verifica e al perfezionamento della classificazione 
+    che mira alla verifica e al perfezionamento della classificazione\index{classificazione} 
     delle ROI. La fase di verifica funge da filtro per i falsi positivi, mentre 
     la fase di perfezionamento esegue delle segmentazioni precise del 
     pedone utili a fornire un'accurata distanza e supportare il successivo 
@@ -1645,7 +1646,7 @@ sono aperti, chiusi o socchiusi. L'analisi dello sbadiglio viene effettuato
 monitorando le variazioni della forma geometrica della bocca grazie all'aiuto 
 di camere o stereo-camere\index{stereo-camera}. Seppur ritenuta la miglior categoria a livello 
 di sicurezza, questa non è esente dai problemi derivanti dai fattori esterni 
-quali illuminazione e condizioni stradali. Vari sono i sitemi di classificazione 
+quali illuminazione e condizioni stradali. Vari sono i sitemi di classificazione\index{classificazione} 
 che svolgono l'attività di drowsiness detection, fra questi abbiamo i classificatori 
 \emph{Support-Vector-Machines (SVM)}, \emph{l'Hidden Markow Model (HMM)} 
 e le reti neurali convoluzionali (CNN)\index{Convolutional Neural Netwrok - CNN}. Essendo questo uno studio incentrato 
@@ -1653,7 +1654,7 @@ sull'argomentazione delle reti CNN\index{Convolutional Neural Netwrok - CNN}, l'
 viene molto utilizzato per il riconoscimento del viso. Le immagini di input 
 vengono tutte ritagliate per assumere una dimensione pari a $48\times 48$ su 
 cui verrà sottoposto un banco di 20 filtri che produrranno risultato che saranno 
-tramandati al layer\index{layer} finale Softmax, da cui ne susseguirà la classificazione. 
+tramandati al layer\index{layer} finale Softmax, da cui ne susseguirà la classificazione\index{classificazione}. 
 Tale rete ha avuto diverse evoluzioni che hanno portato al rilevamento\index{rilevamento} del 
 volto anche durante i movimenti di codesto. Venne introdotto pertanto un 
 rilevamento\index{rilevamento} basato su tecniche 3D che includono altri due filtri oltre a quelli 
@@ -1723,7 +1724,7 @@ di interesse (ROI). Ogni regione estratta verrà analizzata da una rete
 convoluzionale per poter identificare\index{identificare} gli oggetti al suo interno. In genere, 
 il TSR è diviso in due categorie: Detection e Classification. La detection 
 riguarda la localizzazione\index{localizzazione}  della segnaletica stradale nelle varie ROI, mentre la 
-classificazione riguarda al determinazione del tipo di segnale che il sistema 
+classificazione\index{classificazione} riguarda al determinazione del tipo di segnale che il sistema 
 ha rilevato. Oltre che a riconoscere i segnali, un TSR dev'essere anche 
 intelligente\index{intelligenza}. Durante il percorso, se il sistema rivela più segnali ridondanti, 
 questo non deve attirare la concentrazione del conducente in quanto non tutti 
@@ -1737,7 +1738,7 @@ questo è possibile grazie a un confronto fra frame adiacenti in cui vengono
 rilevati e tracciati i vari segnali. Se un segnale venisse erroneamente rilevato 
 in un solo frame e non in quelli adiacenti, allora potrebbe trattarsi di un 
 falso positivo e pertanto non c'è bisogno di notificarlo al conducente. Oltre 
-alla velocità assunta dal veicolo, che potrebbe influenzare la classificazione, 
+alla velocità assunta dal veicolo, che potrebbe influenzare la classificazione\index{classificazione}, 
 ovviamente ci dev'essere un corretto trade-off tra la velocità di rilevazione e 
 il tempo di riconoscimento del segnale. Quando si confrontano i rilevatori 
 di segnali, è necessario impostare alcune metriche di confronto. Come al 

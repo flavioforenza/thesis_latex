@@ -40,6 +40,10 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{C}\par\nopagebreak
 
+ \item \small classificazione \hfill \hyperpage{11}, \hyperpage{18}, 
+		\hyperpage{29}, \hyperpage{34}, \hyperpage{43}, 
+		\hyperpage{45, 46}, \hyperpage{55}, \hyperpage{61}, 
+		\hyperpage{63, 64}, \hyperpage{66, 67}
  \item \small compressione \hfill \hyperpage{1}, \hyperpage{68, 69}, 
 		\hyperpage{75}
  \item \small computazionale \hfill \hyperpage{3}, \hyperpage{6}, 
@@ -188,6 +192,7 @@
 \noindent\textbf{R}\par\nopagebreak
 
  \item \small radar \hfill \hyperpage{3}
+ \item \small regressione \hfill \hyperpage{11}
  \item \small rilascio \hfill \hyperpage{3}
  \item \small rilevamento \hfill \hyperpage{3}, \hyperpage{28}, 
 		\hyperpage{30}, \hyperpage{54--59}, \hyperpage{62--64}, 
