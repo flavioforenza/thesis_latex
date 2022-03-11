@@ -7,17 +7,30 @@
 \label{Capitolo2}
 \thispagestyle{empty}
 
-Il tema della guida autonoma si sta sempre più affermando come importante 
+Il tema della guida autonoma\index{autonoma} si sta sempre più affermando come importante 
 oggetto di studio nella comunità scientifica. Visto il grande impiego di sistemi 
 basati sul Machine Learning, in particolare le reti neurali, in questa sezione 
 verranno introdotti alcuni concetti atti a rappresentare sia la struttura di tali 
 sistemi che la loro influenza nell'ambiente automotive. 
 
 \section{Reti Neurali Biologiche}
-Il cervello umano ha la capacità di sfruttare la sua struttura di neuroni in modo 
-da eseguire più calcoli rispetto a un comune computer. Mediamente ogni cervello 
-contiene un numero di neuroni pari a $10^{11}$. La struttura di un neurone biologico 
-è quello mostrata in figura (\ref{biological neuron}):
+Il cervello umano ha la capacità di sfruttare la sua struttura di neuroni in 
+modo da eseguire più calcoli rispetto a un comune computer. Mediamente 
+ogni cervello contiene un numero di neuroni pari a $10^{11}$. La struttura di un 
+neurone\index{neurone} biologico è quello mostrata in figura (\ref{biological neuron}). Da come possiamo notare, 
+esistono vari componenti che costituiscono un neurone\index{neurone}. In particolare, 
+abbiamo i \emph{dendriti} che rappresentano gli ingressi di un neurone\index{neurone} mentre le 
+uscite sono rappresentare dagli \emph{assoni}. Su ogni assone viaggia un impulso 
+elettrico generato dal neurone\index{neurone} stesso quando questo si trova in uno stato attivo. 
+Ogni neurone\index{neurone} è connesso a migliaia di suoi simili ed ogni comunicazione 
+fra questi avviene mediante le sinapsi\index{sinapsi}. Quando l'impulso raggiunge proprio 
+le sinapsi, questo provoca il rilascio di sostanze chimiche che attraversano 
+la giunzioni e vanno all'interno di altri neuroni. Ci sono due tipologie di 
+sinapsi, \emph{eccitatori} e \emph{inibitori}. La prima tipologia permette di aumentare 
+la probabilità che un neurone\index{neurone} si attivi. Tale probabilità è determinata dal 
+peso\index{peso} associato ad ogni sinapsi\index{sinapsi}. Avendo multipli collegamenti, ogni neurone\index{neurone} 
+effettua una specie di somma pesata degli ingressi che, se maggiore di una 
+determinata soglia, può provocare la sua attivazione. 
 \begin{figure}
     \centering
     \includegraphics[width = 0.6 \linewidth]{images/biological neuron.png}
@@ -25,30 +38,19 @@ contiene un numero di neuroni pari a $10^{11}$. La struttura di un neurone biolo
     \caption{Composizione di due neuroni biologici.}
     \label{biological neuron}
 \end{figure}
-Da come possiamo notare, esistono vari componenti che costituiscono un 
-neurone. In particolare, abbiamo i \emph{dendriti} che rappresentano gli ingressi di un 
-neurone mentre le uscite sono rappresentare dagli \emph{assoni}. Su ogni assone viaggia 
-un impulso elettrico generato dal neurone stesso quando questo si trova in uno 
-stato attivo. Ogni neurone è connesso a migliaia di suoi simili ed ogni 
-comunicazione fra questi avviene mediante le sinapsi. Quando l'impulso raggiunge 
-proprio le sinapsi, questo provoca il rilascio di sostanze chimiche che attraversano 
-la giunzioni ed entrano all'interno di altri neuroni. Ci sono due tipologie di sinapsi, 
-eccitatori e inibitori. La prima tipologia permette di aumentare la probabilità che 
-un neurone si attivi. Tale probabilità è determinata dal peso associato ad ogni 
-sinapsi. Avendo multipli collegamenti, ogni neurone effettua una specie di somma 
-pesata degli ingressi che, se maggiore di una determinata soglia, può provocare la 
-sua attivazione. 
 
 \section{Reti Neurali Artificiali}\label{Reti neurali}
-Una rete neurale artificiale è un modello computazionale che, a partire da dei dati 
-di input, riesce a produrre un output mediante un meccanismo ispirato a quello 
-del cervello umano. Alla base di questa similitudine, tali reti prendono il nome di 
-\emph{Artificial Neural Networks (ANN)}. Le prime reti neurali, nate attorno gli anni 
-'50, basavano il loro funzionamento sui cosiddetti \emph{percettroni}, neuroni artificiali in 
-grado di apprendere e di accumulare esperienza. Ogni rete neurale è composta da 
-strati di neuroni, comunemente chiamati \emph{layers}. I dati di input saranno processati 
-dai neuroni presenti nell'input layer e da qui, i risultati ottenuti, si propagheranno 
-verso i layer nascosti (hidden layers) fino a raggiungere il layer finale di output (Fig. \ref{network structure}).
+Una rete neurale artificiale è un modello\index{modello} computazionale\index{computazionale} che, a partire da 
+dei dati di input, riesce a produrre un output mediante un meccanismo 
+ispirato a quello del cervello umano. Alla base di questa similitudine, 
+tali reti prendono il nome di \emph{Artificial Neural Networks (ANN)}\index{Artificial Neural Networks (ANN)}. Le prime 
+reti neurali, nate attorno gli anni '50, basavano il loro funzionamento 
+sui cosiddetti \emph{percettroni}, neuroni\index{neurone} artificiali in grado di apprendere e di 
+accumulare esperienza. Ogni rete neurale è composta da strati di neuroni, 
+comunemente chiamati \emph{layers}\index{layer}. I dati di input saranno processati dai neuroni\index{neurone} 
+presenti nell'input layer e da qui, i risultati ottenuti, si propagheranno verso 
+i layer nascosti (\emph{hidden layers}) fino a raggiungere il layer\index{layer} finale di output 
+(Fig. \ref{network structure}).
 \begin{figure}
     \centering
     \includegraphics[width = 0.6 \linewidth]{images/netwrok structure.png}
@@ -56,15 +58,15 @@ verso i layer nascosti (hidden layers) fino a raggiungere il layer finale di out
     \caption{Struttura di una rete neurale a più livelli.}
     \label{network structure}
 \end{figure}
-Una componente importante, riguarda la presenza di un insieme di valori 
-$w=(w_{j1}, \dots, w_{jm})$ chiamati pesi. Ogni peso è rappresentato da un numero reale 
-che riflette il grado di importanza di una data connessione, tra due neuroni, in 
-una rete neurale. I pesi possono subire dei cambiamenti in base alla tipologia 
-di apprendimento della rete. Una buona configurazione dei pesi riduce l'errore di 
-predizione e pertanto migliora l'output del modello. Riprendendo il discorso 
-dei neuroni, McCulloch e Pitts  \cite{Chakraverty2019} definirono un modello matematico in grado di 
-rappresentarli. In particolare, il compito di ogni singolo neurone è rappresentato 
-nella figura (\ref{neural neuron}).
+Una componente importante, riguarda la presenza di un insieme 
+di valori $w=(w_{j1}, \dots, w_{jm})$ chiamati pesi\index{peso}. Ogni peso è rappresentato da un 
+numero reale che riflette il grado di importanza di una data connessione, tra 
+due neuroni\index{neurone}, in una rete neurale. I pesi possono subire dei cambiamenti in 
+base alla tipologia di apprendimento\index{apprendimento} della rete. Una buona configurazione 
+dei pesi\index{peso} riduce l'errore di predizione e pertanto migliora l'output del modello\index{modello}. 
+Riprendendo il discorso dei neuroni, McCulloch e Pitts  \cite{Chakraverty2019} definirono un 
+modello matematico in grado di rappresentarli. In particolare, il compito di 
+ogni singolo neurone\index{neurone} è rappresentato nella figura (\ref{neural neuron}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{artificial neuron.png}
@@ -72,29 +74,31 @@ nella figura (\ref{neural neuron}).
     \caption{Neurone artificiale.}
     \label{neural neuron}
 \end{figure}
-Da come possiamo notare, un neurone è una semplice funzione non lineare 
-che riceve in input una serie di input $X_{ji}$ e produce in output una variabile $y_k$. 
-Il calcolo dell'output, di ogni singolo neurone, è composto da una sommatoria 
-degli input, di segno positivo o negativo, moltiplicati prima con i corrispettivi 
-pesi e successivamente sommati con una variabile, chiamata bias (pregiudizio), 
-che corrisponde alla soglia di attivazione del neurone.
+Da come possiamo 
+notare, un neurone\index{neurone} è una semplice funzione non lineare che riceve una serie 
+di input $X_{ji}$ e produce in output una variabile $y_k$. Il calcolo dell'output, 
+di ogni singolo neurone, è composto da una sommatoria degli input, di 
+segno positivo o negativo, moltiplicati prima con i corrispettivi pesi\index{peso} e 
+successivamente sommati con una variabile, chiamata bias\index{bias} (pregiudizio), 
+che corrisponde alla soglia di attivazione del neurone\index{neurone}.
 \begin{equation}\label{artificial}
     a_j = \sum_{i=0}^m w_{i}x_i + b_i 
 \end{equation}
-Una soglia è utile per determinare se l'informazione in ingresso “$x$” debba essere 
-elaborata oppure scartata. Di solito vi è sempre un input $X_0=1$ che renderebbe 
-il bias $ b_i $ uguale uguale al primo peso $W_0$, pertanto la formula (\ref{artificial}) può anche 
-essere scritta come:
+Una soglia è utile per determinare se l'informazione in ingresso “$x$” debba 
+essere elaborata oppure scartata. Di solito vi è sempre un input $X_0=1$ 
+che renderebbe il bias\index{bias} $ b_i $ uguale al primo peso\index{peso} $W_0$, pertanto la formula (\ref{artificial}) 
+può anche essere scritta come:
 \begin{equation}\label{artificial without bias}
     a_j = \sum_{i=0}^m w_{i}x_i
 \end{equation}
-Per poter determinare il valore $y$, dopo aver ottenuto “$a$”, si utilizza una “\emph{funzione 
-di attivazione}” non lineare $\varphi(\cdot)$:
+Per poter determinare il valore $y$, dopo aver ottenuto “$a$”, si utilizza una 
+“\emph{funzione di attivazione}”\index{funzione di attivazione} non lineare $\varphi(\cdot)$:
 \begin{equation}\label{activation function 1}
     y_j = \varphi(a) = \varphi\left(\sum_{i=0}^m w_ix_i\right)
 \end{equation}
-L'uscita $y$ determinerà l'attivazione del prossimo neurone. Se il valore ricevuto è 
-maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
+L'uscita $y$ determinerà l'attivazione del prossimo neurone\index{neurone}. Se il valore 
+ricevuto è maggiore di zero, allora il neurone si attiverà, altrimenti resterà 
+spento.
 \begin{equation}\label{activation function 2}
     y_j = \left\{
         \begin{array}{rl}
@@ -103,7 +107,8 @@ maggiore di zero, allora il neurone si attiverà, altrimenti resterà spento.
         \end{array}
         \right.
 \end{equation}
-Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{activation functions}).
+Esistono varie funzioni di attivazione\index{funzione di attivazione}, tra cui diverse sono elencate 
+in figura (\ref{activation functions}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{activation functions.png}
@@ -111,20 +116,21 @@ Esistono varie funzioni di attivazione, diverse sono elencate in figura (\ref{ac
     \caption{Varie funzioni di attivazione.}
     \label{activation functions}
 \end{figure}
-Grazie a questa massiccia interconnessione, le reti neurali artificiali sono in 
-grado non solo di imitare il comportamento del cervello umano ma anche di 
-svolgere diversi compiti grazie a una opportuna fase di apprendimento. 
+Grazie a questa massiccia interconnessione, le reti neurali 
+artificiali sono in grado non solo di imitare il comportamento del cervello 
+umano ma anche di svolgere diversi compiti grazie a una opportuna fase di 
+apprendimento\index{apprendimento}. 
 
-\section{Algoritmi di apprendimento}
-Lo scambio di dati tra i vari neuroni consente alla rete neurale di poter generalizzare 
+\section{Algoritmi di apprendimento}\index{apprendimento}
+Lo scambio di dati tra i vari neuroni\index{neurone} consente alla rete neurale di poter generalizzare 
 anche con dati mai visti nel training set. Questo processo prende il nome di 
-“\emph{Apprendimento}”. L'apprendimento di un modello di rete è tipicamente effettuato 
+“\emph{Apprendimento}”. L'apprendimento\index{apprendimento} di un modell\index{modello} di rete è tipicamente effettuato 
 a partire da un insieme di dati di addestramento chiamato training test. All'interno 
 di questi insiemi abbiamo la presenza di esempi formati da coppie $(x^j, y^j)$, con 
 $j=1, \dots ,n$, dove $y^j$ sta a rappresentare il valore di output desiderato in funzione 
 del dato di input $x^j$. Per ricavare il valore target è necessario ricercare gli 
-opportuni valori dei pesi, indispensabili a minimizzare l'errore commesso. La 
-quantità dell'errore commesso, dal singolo neurone $j$, è esprimibile mediante (\ref{error function}):
+opportuni valori dei pesi\index{peso}, indispensabili a minimizzare l'errore commesso. La 
+quantità dell'errore commesso, dal singolo neurone\index{neurone} $j$, è esprimibile mediante (\ref{error function}):
 \begin{equation}\label{error function 1}
     \emph{$e_j$}=(\hat{y}_j-y_j)^2
 \end{equation}
@@ -135,8 +141,8 @@ volte chiamata anche di \emph{Costo}, esprimibile dal calcolo della seguente for
 \begin{equation}\label{error function}
     \emph{$E$}=\frac{1}{2}\sum_{j=1}^me_j
 \end{equation}
-dove $m$ rappresenta il numero totale di neuroni presenti nell'output layer.
-La funzione di errore $E$ risulta essere molto importate nella fase di apprendimento in quanto misura la distanza 
+dove $m$ rappresenta il numero totale di neuroni\index{neurone} presenti nell'output layer\index{layer}.
+La funzione di errore $E$ risulta essere molto importate nella fase di apprendimento\index{apprendimento} in quanto misura la distanza 
 dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (Fig. \ref{minimum and maximum})
 \begin{figure}
     \centering
@@ -147,14 +153,14 @@ dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (
 \end{figure}
 Per ottenere un valore della funzione relativamente basso, l'obiettivo è racchiuso 
 nella ricerca del minimo globale. Tale ricerca avviene in maniera iterativa, partendo 
-da dei pesi a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
+da dei pesi\index{peso} a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
 ottimali avviene mediante calcolo delle derivate parziali sulla funzione di errore, 
 ovvero del suo vettore gradiente $\nabla{E}$ (\ref{gradient vector}). 
 \begin{equation}\label{gradient vector}
     \nabla{E}[\vec{w}]\equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \dots, \frac{\partial E}{\partial w_{j}}\right]
 \end{equation}
 Questo vettore è utile a definire la direzione ed il verso della funzione di errore, 
-in base al set di pesi considerato. Il calcolo delle derivate viene svolto da una ben 
+in base al set di pesi\index{peso} considerato. Il calcolo delle derivate viene svolto da una ben 
 nota tecnica presente allo stato dell'arte, chiamata \emph{Back Propagation} (discussa 
 nella sezione \ref{BP} di questo elaborato). Una rete neurale artificiale può avere vari 
 tipi di apprendimento: \emph{Supervisionato, Semi-Supervisionato, Non-Supervisionato} 
@@ -162,64 +168,64 @@ e con \emph{Rinforzo}. La scelta di quale usare dipende dalla tipologia della re
 suo campo di applicazione.
 
 \subsection{Apprendimento Supervisionato}
-In questa tipologia di apprendimento, l'input fornito alla rete contiene una serie di 
+In questa tipologia di apprendimento\index{apprendimento}, l'input fornito alla rete contiene una serie di 
 dati etichettati. L'apprendimento supervisionato è solitamente utilizzato sia nel 
-conteso della classificazione, dove  si vuole mappare le etichette di input a quelle 
+conteso della classificazione, dove  si vuole mappare le etichette\index{etichetta} di input a quelle 
 di output, che nel contesto della regressione, dove si mira a mappare l'input a un 
 output continuo. La corretta associazione comporta una buona generalizzazione 
-da parte del modello. L'apprendimento migliora grazie ad una continua variazione 
-dei pesi. Questo tipo di apprendimento è svolto utilizzando la tecnica della 
+da parte del modello\index{modello}. L'apprendimento\index{apprendimento} migliora grazie ad una continua variazione 
+dei pesi\index{peso}. Questo tipo di apprendimento è svolto utilizzando la tecnica della 
 \emph{Back-Propagation}. La complessità di questo tipo di apprendimento deriva dalla 
 quantità di dati presenti nel training set. Affinché la rete riesca a generalizzare al 
 meglio, il training set dev'essere composto da un numero di esempi adeguato. La 
 giusta quantità di esempi è utile a prevenire spiacevoli situazioni di underfitting o 
-di overfitting della rete. In questa categoria di apprendimento fanno parte diversi metodi deep 
-learning, incluse le \emph{Deep Neural Networks (DNN)}, le \emph{Convolutional Neural 
-Networks (CNN)}, le \emph{Recurrent Neural Networks (RNN)} come le \emph{Long 
+di overfitting della rete. In questa categoria di apprendimento\index{apprendimento} fanno parte diversi metodi deep 
+learning\index{deep learning}, incluse le \emph{Deep Neural Networks (DNN)}, le \emph{Convolutional Neural 
+Networks (CNN)}\index{Convolutional Neural Netwrok - CNN}, le \emph{Recurrent Neural Networks (RNN)} come le \emph{Long 
 Short-Term Memory (LSTM)} \cite{LSTM}.
 
 \subsection{Apprendimento Non-Supervisionato}
-Quando una rete neurale è sottoposta ad un simile apprendimento, questa 
+Quando una rete neurale è sottoposta ad un simile apprendimento\index{apprendimento}, questa 
 riceve in input dei dati privi di etichettatura o non strutturati. Lo scopo 
-della rete, o del modello, è quello di estrarne una rappresentazione e creare 
+della rete, o del modello\index{modello}, è quello di estrarne una rappresentazione e creare 
 dei cluster rappresentativi. Ci sono delle tecniche a supporto di questa 
-tipologia di apprendimento, una fra queste è la riduzione della dimensionalità 
+tipologia di apprendimento\index{apprendimento}, una fra queste è la riduzione della dimensionalità 
 che è applicata in fase di pre-elaborazione delle features avente l'obiettivo di 
 eliminare il rumore dai dati quando questi sono presenti in grandi quantità. 
-Nel dominio dell'apprendimento non supervisionato fanno parte quei metodi 
+Nel dominio dell'apprendimento\index{apprendimento} non supervisionato fanno parte quei metodi 
 utili per effettuare il clustering e la riduzione della dimensionalità non lineare, 
 come gli \emph{Auto Encoders (AE)} e le \emph{Generative Adversarial Networks (GAN)}. 
-Anche le RNN, come le LSTM, vengono utilizzate anche per l'apprendimento 
+Anche le RNN, come le LSTM, vengono utilizzate anche per l'apprendimento\index{apprendimento} 
 non supervisionato in molti domini applicativi.  
 
 \subsection{Apprendimento Semi-Supervisionato}
-Un set di input composto da dati etichettati e non, costituisce un sistema di apprendimento 
-semi-supervisionato. Questa tipologia di apprendimento rappresenta 
+Un set di input composto da dati etichettati\index{etichetta} e non, costituisce un sistema di apprendimento 
+semi-supervisionato. Questa tipologia di apprendimento\index{apprendimento} rappresenta 
 un sistema che si interpone tra i due precedentemente spiegati. I modelli che fanno 
 uso di questo approccio di solito utilizzano una piccola quantità di dati etichettati 
-e una grande quantità di dati non etichettati. Tale apprendimento porta alla 
-creazione di un modello più flessibile rispetto a quello ottenuto dall'apprendimento 
+e una grande quantità di dati non etichettati. Tale apprendimento\index{apprendimento} porta alla 
+creazione di un modello\index{modello} più flessibile rispetto a quello ottenuto dall'apprendimento\index{apprendimento} 
 supervisionato. Nel dominio semi-supervisionato, come tipologia di reti troviamo le GAN, le RNN, incluse le LSTM.
 
 \subsection{Apprendimento con Rinforzo}
-L'ultimo tipo di apprendimento automatico è chiamato Apprendimento con 
+L'ultimo tipo di apprendimento\index{apprendimento} automatico è chiamato Apprendimento con 
 Rinforzo. Il suo scopo è quello di costruire un sistema, comunemente chiamato 
-\emph{agente}, che abbia l'obiettivo di migliorare le sue performance interagendo con 
+\emph{agente}, che abbia l'obiettivo di migliorare le sue performance\index{performance} interagendo con 
 l'ambiente che lo circonda. Il miglioramento dell'intero sistema avviene mediante 
 dei feedback chiamati appunto rinforzi. Quest'ultimi non hanno nulla a che fare 
-con etichette o valori di verità, ma rappresentano un livello di qualità delle azioni 
+con etichette\index{etichetta} o valori di verità, ma rappresentano un livello di qualità delle azioni 
 intraprese dal sistema. Pertanto, differentemente da un sistema supervisionato, 
 non ci sono mappature tra l'input e l'output. In questo dominio fanno parte le \emph{Deep Q-Netwroks (DQN)}.
 
 
 \subsection{Algoritmo di Back-Propagation}\label{BP}
 Il termine \emph{Back-Propagation} è stato introdotto una prima volta quando si è 
-trattato l'argomento dell'apprendimento Supervisionato. Una prima definizione 
+trattato l'argomento dell'apprendimento\index{apprendimento} Supervisionato. Una prima definizione 
 del termine venne data nel 1986 in \cite{03}. L'algoritmo di Back-Propagation agisce 
-durante la fase di training del modello, che a sua volta si suddivide in due fasi:
+durante la fase di training del modello\index{modello}, che a sua volta si suddivide in due fasi:
 \begin{enumerate}
     \item \emph{Fase in avanti (forward)}: i dati si propagavano dai neuroni di input fino 
-    a raggiungere i neuroni di output. I pesi sono fissati e i cambiamenti sono 
+    a raggiungere i neuroni\index{neurone} di output. I pesi\index{peso} sono fissati e i cambiamenti sono 
     limitati.
     \begin{figure}
         \centering
@@ -232,7 +238,7 @@ durante la fase di training del modello, che a sua volta si suddivide in due fas
     step in avanti, con il risultato atteso. Tale valore rappresenterà l'errore 
     commesso, descritto in precedenza dalla funzione di errore $E$ (\ref{error function}). A questo 
     punto, tale errore si propagherà indietro nella rete. Questo meccanismo è 
-    utile ad adeguare i vari pesi presenti nella rete affinché le prossime iterazioni 
+    utile ad adeguare i vari pesi\index{peso} presenti nella rete affinché le prossime iterazioni 
     diano un errore relativamente basso (caso ottimale in cui l'output stimato è 
     simile all'output desiderato).
     \begin{figure}
@@ -243,12 +249,12 @@ durante la fase di training del modello, che a sua volta si suddivide in due fas
         \label{BP error}
     \end{figure}
 \end{enumerate}
-Sappiamo che una minima variazione ai pesi e al bias comporta allo stesso modo 
-una variazione della funzione di errore E. Tralasciando un'attimo il bias, il discorso 
+Sappiamo che una minima variazione ai pesi\index{peso} e al bias\index{bias} comporta allo stesso modo 
+una variazione della funzione di errore E. Tralasciando un'attimo il bias\index{bias}, il discorso 
 che segue è incentrato sulla gestione dei pesi. L'algoritmo di Back-propagation 
 applica una correzione chiamata {\bfseries{Delta Rule ($\Delta{W_{ji}}$)}}  ad ogni peso $w_{ji}$, andando 
 a calcolare, tramite la regola della \emph{Chain Rule} \ref{chain rule}, la derivata parziale della funzione 
-di errore $E$, rispetto alla derivata della parziale del peso $w_{ji}$ in considerazione.
+di errore $E$, rispetto alla derivata della parziale del peso\index{peso} $w_{ji}$ in considerazione.
 \begin{equation}\label{chain rule}
     \frac{\partial E}{\partial w_{ji}} = \frac{\partial E}{\partial e_{j}} 
     \frac{\partial e_{j}}{\partial y_{j}}
@@ -270,17 +276,17 @@ dove:
 \end{equation}
 Ogni elemento definito dalla chain rule sarà utile, oltre che a formare il vettore 
 del gradiente $\nabla{E}$ (\ref{gradient vector}), a determinare la direzione di ricerca all'interno dello spazio 
-dei pesi, per un singolo peso $w_{ji}$. Questa operazione, in letteratura, è nominata 
+dei pesi, per un singolo peso\index{peso} $w_{ji}$. Questa operazione, in letteratura, è nominata 
 come \emph{“Discesa del gradiente”}. Ricapitolando, la (\ref{chain rule}) diventa:
 \begin{equation}\label{chain rule update}
     \frac{\partial E}{\partial w_{ji}} = -e_j\varphi_j^{'}(a_j)y_i
 \end{equation}
-Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{ji}}$) sul peso $w_{ji}$:
+Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{ji}}$) sul peso\index{peso} $w_{ji}$:
 \begin{equation}\label{delta rule 1}
     \Delta{W_{ji}} = -\alpha \frac{\partial E}{\partial w_{ji}}
 \end{equation}
-dove $-\alpha$ simboleggia un parametro, chiamato \emph{Learning Rate}, che rappresenta 
-un indicatore di velocità di apprendimento della rete. Il segno negativo è utile 
+dove $-\alpha$ simboleggia un parametro\index{parametro}, chiamato \emph{Learning Rate}, che rappresenta 
+un indicatore di velocità di apprendimento\index{apprendimento} della rete. Il segno negativo è utile 
 per agevolare la discesa del gradiente affinché si riduca il valore della funzione di
 errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente locale $\delta_j$}:
 \begin{eqnarray}\label{local gradient of output layer}
@@ -288,13 +294,13 @@ errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente loca
              & = & \frac{\partial E}{\partial e_{j}} \frac{\partial e_{j}}{\partial y_{j}} \frac{\partial y_{j}}{\partial a_{j}} \nonumber \\
              & = & e_j\varphi_j^{'}(a_j)
 \end{eqnarray}
-Il gradiente locale sta ad indicare i cambiamenti richiesti nei pesi e questo dipende 
-dalla tipologia di neurone:
+Il gradiente locale sta ad indicare i cambiamenti richiesti nei pesi\index{peso} e questo dipende 
+dalla tipologia di neurone\index{neurone}:
 \begin{enumerate}
     \item Se il neurone \emph{j} è un neurone di output, $\delta_j$ è uguale al prodotto della derivata 
     $\varphi_j^{'}(a_j)$ e il singolo errore $e_{j}$, entrambi associati al neurone $j$ (\ref{local gradient of output layer});
     \item Se il neurone \emph{j} è un neurone nascosto, $\delta_j$ è uguale al prodotto tra la derivata 
-    $\varphi_j^{'}(a_j)$ e la sommatoria dei vari $\delta$ calcolati sui neuroni posti nel layer nascosto, 
+    $\varphi_j^{'}(a_j)$ e la sommatoria dei vari $\delta$ calcolati sui neuroni posti nel layer\index{layer} nascosto, 
     o nel layer di output, connessi al neurone \emph{j} (\ref{local gradient of hidden neuron}).
     \begin{equation}\label{local gradient of hidden neuron}
         \delta_j = \varphi_j^{'}(a_j)\sum_{k}\delta_kw_{kj}
@@ -305,25 +311,25 @@ Sostituendo in (\ref{chain rule update}) la (\ref{local gradient of output layer
     \Delta{W_{ji}} = -\alpha \delta_jy_i 
 \end{equation}
 Infine, grazie alla definizione della \emph{Delta Rule}, nell'iterazione $n+1$ sarà possibile 
-aggiornare il peso $w_{ji}$ in questione, rispetto all'iterazione $n$ precedente:
+aggiornare il peso\index{peso} $w_{ji}$ in questione, rispetto all'iterazione $n$ precedente:
 \begin{equation}\label{weight change}
     w_{ji}(n+1) = w_{ji}(n)+\Delta{w_{ji}(n)}
 \end{equation}
-In precedenza, si era preferito mettere da parte il concetto di bias per concentrarci 
-maggiormente sui pesi. Essendo la funzione di errore sensibile anche al cambiamento 
-del bias, l'algoritmo di back-propagation ha lo scopo di aggiornare anche i 
-vari bias esistenti integrando, nel vettore gradiente $\nabla{E}$, le derivate parziali della 
-funzione di Errore rispetto al bias $b$:
+In precedenza, si era preferito mettere da parte il concetto di bias\index{bias} per concentrarci 
+maggiormente sui pesi\index{peso}. Essendo la funzione di errore sensibile anche al cambiamento 
+del bias\index{bias}, l'algoritmo di back-propagation ha lo scopo di aggiornare anche i 
+vari bias\index{bias} esistenti integrando, nel vettore gradiente $\nabla{E}$, le derivate parziali della 
+funzione di Errore rispetto al bias\index{bias} $b$:
 \begin{equation}\label{gradient vector with bias}
     \nabla{E}[\vec{b}]\equiv\left[\frac{\partial E}{\partial b_{0}}, \frac{\partial E}{\partial b_{1}}, \dots, \frac{\partial E}{\partial b_{j}}\right]
 \end{equation}
-I successivi calcoli sono identici a quelli dell'aggiornamento dei pesi. Il processo 
+I successivi calcoli sono identici a quelli dell'aggiornamento dei pesi\index{peso}. Il processo 
 di back-propagation avviene in maniera iterativa e si ferma quando vengono 
 soddisfatte le seguenti caratteristiche:
 \begin{enumerate}
     \item Raggiungimento del numero massimo di epoche;
     \item L'errore è più basso della soglia;
-    \item Non vi è nessun cambiamento dei pesi.
+    \item Non vi è nessun cambiamento dei pesi\index{peso}.
 \end{enumerate}
 
 \section{Tipologie di reti neurali}
@@ -331,7 +337,7 @@ Esistono diverse tipologie di reti neurali, tra queste abbiamo:
 \begin{enumerate}
     \item \emph{Feed Forward Neural Networks (FNN)}
     \item \emph{Deep Neural Networks (DNN)}
-    \item \emph{Convolutional Neural Netoworks (CNN)}
+    \item \emph{Convolutional Neural Netoworks (CNN)}\index{Convolutional Neural Netwrok - CNN}
     \item \emph{Recurrent Neural Networks (RNN)}
     \item \emph{Generative Adversarial Networks (GAN)}
 \end{enumerate}
@@ -350,22 +356,22 @@ indipendenti ($X_j$) in variabili dipendenti($Y_j$). Possiamo quindi considerare
 rete come una funzione nella forma $y = y(x;w)$, dove $y$ sta a rappresentare una funzione di $x$ 
 e che a sua volta è parametrizzata da $w$. In una rete feed-forward, il 
 processo di calcolo è unilaterale, ovvero procede solamente in avanti, raggiungendo 
-l'ultimo layer. Rispetto a una rete semplice, una rete feedforward può essere 
-composta da più layer nascosti in cui vi sono più neuroni nascosti. L'aggiunta 
-di un numero sostanziale di layer nascosti può aiutare ad estrarre statistiche di 
+l'ultimo layer\index{layer}. Rispetto a una rete semplice, una rete feedforward può essere 
+composta da più layer nascosti in cui vi sono più neuroni\index{neurone} nascosti. L'aggiunta 
+di un numero sostanziale di layer\index{layer} nascosti può aiutare ad estrarre statistiche di 
 ordine superiore dai dati di input. Secondo \cite{04}, la presenza di più connessioni 
-sinaptiche tra i neuroni, provoca una maggiore iterazione tra questi che a sua 
+sinaptiche tra i neuroni\index{neurone}, provoca una maggiore iterazione tra questi che a sua 
 volta aiuta alla rete a raggiungere una prospettiva globale. Una rete che ha più di 
-un layer nascosto, e quindi probabilmente con un alto numero di connessioni, in 
+un layer\index{layer} nascosto, e quindi probabilmente con un alto numero di connessioni, in 
 gergo è chiamata rete \emph{fully connected}. Al contrario, se alcuni collegamenti sono 
 assenti, tale tipologia di rete viene chiamata \emph{partially connected}.
 
 \subsection{Convolutional Neural Networks}\label{RNC}
-Una rete neurale convoluzionale (CNN o ConvNet) è una tipologia di rete feed-
+Una rete neurale convoluzionale (CNN o ConvNet)\index{Convolutional Neural Netwrok - CNN} è una tipologia di rete feed-
 forward che si sta affermando come stato dell'arte per una svariata gamma di 
 applicazioni nel campo della computer vision. Una loro prima diffusione avvenne 
-negli anni '90 grazie a uno studio di LeCun e Boser \cite{NIPS1989_53c3bce6}. L'architettura delle CNN 
-si distinguono grazie al numero di layer presenti.  La loro particolarità sta nel 
+negli anni '90 grazie a uno studio di LeCun e Boser \cite{NIPS1989_53c3bce6}. L'architettura\index{architettura} delle CNN\index{Convolutional Neural Netwrok - CNN} 
+si distinguono grazie al numero di layer\index{layer} presenti.  La loro particolarità sta nel 
 rilevare i tratti più rilevanti e di apprendere i pattern, il tutto con un alto grado di 
 invariata rispetto a traslazione, ridimensionamento, inclinazione e altre forme di 
 distorsione. I primi strati hanno il compito di estrarre le features di basso livello, 
@@ -374,17 +380,17 @@ estrarre le features di alto livello tipo i contorni, classificazione, riconosci
 etc. All'interno di una rete convoluzionale possiamo riconoscere due tipologie di 
 neuroni:
 \begin{itemize}
-    \item \emph{Neuroni di elaborazione}: hanno lo scopo di elaborare una sezione specifica 
+    \item \emph{Neuroni\index{neurone} di elaborazione}: hanno lo scopo di elaborare una sezione specifica 
     dell'immagine, comunemente chiamata campo ricettivo, utilizzando 
     un'operazione di \emph{convoluzione};
-    \item \emph{Neuroni di aggregazione}: hanno lo scopo di eseguire un'operazione di \emph{pooling}.
+    \item \emph{Neuroni\index{neurone} di aggregazione}: hanno lo scopo di eseguire un'operazione di \emph{pooling}.
 \end{itemize}
 I neuroni contenuti in uno strato adibito alla convoluzione, e quelli completamente 
-connessi, dispongono di funzioni di attivazione e di pesi, quest'ultimi sottoposti a 
-processo di aggiornamento durante la fase di apprendimento. Per quanto riguarda 
-gli strati di pooling, questi non dispongo di alcun tipi di peso. Riassumendo, 
-le operazioni svolte dalle CNN sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
-Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}} (nei layer 
+connessi, dispongono di funzioni di attivazione\index{funzione di attivazione} e di pesi, quest'ultimi sottoposti a 
+processo di aggiornamento durante la fase di apprendimento\index{apprendimento}. Per quanto riguarda 
+gli strati di pooling, questi non dispongo di alcun tipi di peso\index{peso}. Riassumendo, 
+le operazioni svolte dalle CNN\index{Convolutional Neural Netwrok - CNN} sono essenzialmente quattro: {\bfseries{Convoluzione}}, {\bfseries{Non 
+Linearità (ReLU)}}, {\bfseries{Pooling (o Sub Sampling)}} e {\bfseries{Classificazione}} (nei layer\index{layer} 
 fully connected). 
 \begin{figure}
     \centering
@@ -395,12 +401,12 @@ fully connected).
 \end{figure}
 
 \subsubsection{Convoluzione}
-Lo scopo del layer di convoluzione è quello di attuare un'operazione di {\bfseries{feature 
-extraction}}. In questa fase ogni neurone prende in input un campo ricettivo 
-locale del layer precedente e da qui ne estrae le feature locali. Un filtro, che in 
+Lo scopo del layer\index{layer} di convoluzione è quello di attuare un'operazione di {\bfseries{feature 
+extraction}}. In questa fase ogni neurone\index{neurone} prende in input un campo ricettivo 
+locale del layer\index{layer} precedente e da qui ne estrae le feature locali. Un filtro, che in 
 gergo prende il nome di {\bfseries{\emph{kernel}}}, trasla sull'immagine originale con l'intenzione di 
 creare una feature map mediante moltiplicazione tra i valori presenti nel filtro, 
-corrispondenti ai pesi, e la regione dell'immagine in cui si trova. Di seguito, i 
+corrispondenti ai pesi\index{peso}, e la regione dell'immagine in cui si trova. Di seguito, i 
 valori di ogni feature map sono calcolati tramite la seguente formula:
 \begin{equation}\label{sum convolution}
     G[m,n] = (f*h)[m,n] = \sum_j\sum_kh[j,k]f[m-j,n-k]
@@ -424,7 +430,7 @@ kernel e moltiplicato con i valori corrispondenti al campo ricettivo dell'immagi
 Successivamente, il valore risultante verrà inserito nella giusta posizione della 
 feature map. Il numero di feature map sarà uguale al numero di filtri applicato 
 sull'immagine. La generazione di ogni feature map dipende da quattro tipi di 
-parametri, detti 
+parametri\index{parametro}, detti 
 \emph{iperparametri}:
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo ovvero della 
@@ -465,15 +471,15 @@ tipologia dei dati a disposizione.
 
 \subsubsection{Rectified Linear Unit (ReLU)}
 Ogni feature map, dopo la convoluzione, è composta da dei valori positivi e negativi. 
-Come brevemente accennato in (\ref{Reti neurali}), esistono varie funzioni di attivazione che, in 
-base all'input ricevuto, decidono se attivare o disattivare un neurone. La 
-funzione di attivazione maggiormente usata è la ReLU (Rectified Linear Unit). 
+Come brevemente accennato in (\ref{Reti neurali}), esistono varie funzioni di attivazione\index{funzione di attivazione} che, in 
+base all'input ricevuto, decidono se attivare o disattivare un neurone\index{neurone}. La 
+funzione di attivazione\index{funzione di attivazione} maggiormente usata è la ReLU (Rectified Linear Unit). 
 Questa funzione esegue delle operazioni non lineari ponendo a zero tutti i valori 
 negativi e lasciando invariati i valori positivi (Fig. \ref{relu}), generando in questo modo delle 
 attivazioni sparse.  L'operazione prende il nome di element-wise su tutti i pixel. 
 L'implementazione di questa funzione, rispetto alle sue concorrenti, è utile ad accelerare 
-il processo di apprendimento (backpropagation) del modello semplificando 
-le operazioni nei vari layer.
+il processo di apprendimento\index{apprendimento} (backpropagation) del modello\index{modello} semplificando 
+le operazioni nei vari layer\index{layer}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\linewidth]{relu.png}
@@ -489,12 +495,12 @@ saturazione del gradiente.
 La tecnica di Pooling, chiamata anche di subsampling o downsamping, ha il 
 compito di ridurre la dimensionali di ogni feature map mantenendo però le 
 informazioni più importanti. Il funzionamento di basa nel far scorrere una finestra, 
-senza alcun tipo di valore o peso al suo interno, di dimensione inferiore rispetto 
+senza alcun tipo di valore o peso\index{peso} al suo interno, di dimensione inferiore rispetto 
 alla grandezza della feature map, con lo scopo di aggregare i valori sottostanti. 
 Esistono varie operazioni di aggregazione, le più comuni sono: somma, massimo, 
 minimo e media. Così come la convoluzione, anche qui gli iperparametri Stride 
 e Kernel size, entrambi solitamente uguale a 2, sono fondamentali al fine di gestire 
-la finestra sovrastante. Ogni neurone, nello strato di pooling, è connesso a un 
+la finestra sovrastante. Ogni neurone\index{neurone}, nello strato di pooling, è connesso a un 
 numero limitato di neuroni nello strato precedente
 \begin{figure}
     \centering
@@ -505,19 +511,19 @@ numero limitato di neuroni nello strato precedente
 \end{figure}
 In (Fig. \ref{pooling}), applicando al funzione di \emph{Max-Pooling} al campo ricettivo in 
 basso a sinistra, verrà selezionato il valore 5 che sarà propagato al prossimo 
-layer. Avendo uno stride pari a 2, la matrice prodotta avrà una dimensione 
+layer\index{layer}. Avendo uno stride pari a 2, la matrice prodotta avrà una dimensione 
 uguale alla metà della matrice di partenza (subsamplig),  che in questo caso è 
 stata arrotondata per difetto. La riduzione delle dimensioni a sua volta riduce 
 il numero di operazioni di calcolo, l'occupazione della memoria e il numero di 
-parametri, limitando anche il rischio di overfitting in quanto si ha un numero 
+parametri\index{parametro}, limitando anche il rischio di overfitting in quanto si ha un numero 
 minore di paramenti da apprendere. La funzione di Max-Pooling introduce quella che viene 
 chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti di 
 stravolgere il risultato finale, aggiungendo robustezza ai dati.
 
 \subsubsection{Fully Connected}
-Il layer \emph{Fully Connected (FC)} è una tradizionale \emph{Multilayer Perceptron (MLP)} 
-che include una funzione di attivazione \emph{Softmax} nel layer di output. Lo scopo di 
-tale layer è quello di utilizzare le feature estratte, dagli strati precedenti, in modo 
+Il layer\index{layer} \emph{Fully Connected (FC)} è una tradizionale \emph{Multilayer Perceptron (MLP)} 
+che include una funzione di attivazione\index{funzione di attivazione} \emph{Softmax} nel layer di output. Lo scopo di 
+tale layer\index{layer} è quello di utilizzare le feature estratte, dagli strati precedenti, in modo 
 da predire le loro classi di appartenenza precedentemente fornite nel training 
 set. Un vettore di numeri reali conterrà tutte le predizioni che, se sommate tra 
 loro, produrranno un valore uguale a uno. Quest'ultimo passaggio sarà possibile 
@@ -535,12 +541,12 @@ una classe di reti artificiali avente lo scopo di effettuare delle previsioni
 su fattori futuri, come per esempio le variazioni di prezzo di un bene, la 
 traiettoria di un veicolo etc. In particolare, la peculiarità di queste reti 
 sta nel trattare un input di lunghezza arbitraria differenziandosi da altre 
-architetture che richiedono un input a lunghezza prefissata (es: CNN). Nelle 
+architetture\index{architettura} che richiedono un input a lunghezza prefissata (es: CNN). Nelle 
 reti precedentemente introdotte, l'input veniva trasportato dallo strato di 
 input verso lo strato di output. A differenza di queste, le RNN hanno una 
-connessione simile alle CNN che li permette di retro propagare i dati in direzione 
+connessione simile alle CNN\index{Convolutional Neural Netwrok - CNN} che li permette di retro propagare i dati in direzione 
 opposta. Per capire meglio, immaginiamo che una RNN sia composta 
-da un solo neurone che, all'istante di tempo $t$, prende in input un dato $X_t$, 
+da un solo neurone\index{neurone} che, all'istante di tempo $t$, prende in input un dato $X_t$, 
 lo elabora e produce un output $Y_{t+1}$ che lo re-invia a se stesso creando una specie di loop (Fig. 
 (\ref{neuron-rnn})).
 \begin{figure}
@@ -554,7 +560,7 @@ Seguendo questa ricorsione, nell'istante di tempo successivo, ogni nuovo input $
 all'output $Y_{t-1}$ e così via.  Se considerassimo ogni output, corrispondente all'istante di 
 tempo $t$, in funzione di tutti gli input del precedente istante di tempo, allora possiamo 
 considerare questo concetto di ricorrenza come un concetto di memoria della rete. Ogni 
-neurone quindi rappresenta una cella di memoria capace di preservare qualche stato nel 
+neurone\index{neurone} quindi rappresenta una cella di memoria capace di preservare qualche stato nel 
 tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione che dipende:
 \begin{itemize}
     \item dall'input appartenente a un determinato istante di tempo $t$;
@@ -570,7 +576,7 @@ tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione
     \caption{Esempio di stato $h$ di un neurone in una RNN.}
     \label{state-neuron-rnn}
 \end{figure}
-Individualmente, l'output di ogni neurone corrisponde allo stato stesso 
+Individualmente, l'output di ogni neurone\index{neurone} corrisponde allo stato stesso 
 (Fig. (\ref{state-neuron-rnn})). Esistono diverse versioni di RNN che differiscono 
 in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni:
 \begin{enumerate}
@@ -582,7 +588,7 @@ in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni
     \item \emph{Vector to Sequence}: al contrario del sequence-to-vector, questa volta 
     si fornisce un solo input e si considerano tutti gli output prodotti ad 
     ogni istante di tempo;
-    \item \emph{Delayed sequence to sequence}: in questa tipologia abbaino un'architettura 
+    \item \emph{Delayed sequence to sequence}: in questa tipologia abbaino un'architettura\index{architettura} 
     RNN composta da una prima parte chiamata \emph{Encoder} che 
     effettua operazioni di tipo sequence-to-vector ed una seconda parte 
     chiamata \emph{Decoder} che si occupa di effettuare la vector-to sequence. 
@@ -594,11 +600,11 @@ in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni
 Le Generative Adversarial Networks (GAN) vennero proposte da Goodfellow 
 nel 2014 \cite{GAN}. Questa famiglia di reti appartiene all'approccio non 
 supervisionato ma vengono utilizzate anche a supporto dei sistemi con 
-apprendimento rinforzato. Gli utilizzi di una GAN riguardano la stima dei 
+apprendimento\index{apprendimento} rinforzato. Gli utilizzi di una GAN riguardano la stima dei 
 modelli generativi attraverso un processo composto da due reti indipendenti, 
 una generativa (G) e l'altra discriminatoria (D). La prima ha il compito di 
 catturare una distribuzione originale mentre la seconda si occupa di stimare 
-la probabilità che un dato provenga dal dataset di riferimento anzichè dalla 
+la probabilità che un dato provenga dal dataset\index{dataset} di riferimento anzichè dalla 
 prima rete G. Spiegata in altri termini, la prima rete viene sottoposta a 
 un processo di training atto a massimizzare la probabilità che la rete D 
 sbagli la sua predizione. Tramite un continuo processo di back and forward, 
@@ -606,7 +612,7 @@ fra il generatore che fornisce dei dati inizialmente casuali e il discriminante
 che rilascia un feedback che attesti la loro veridicità, le reti di tipo GAN 
 possono essere utilizzate per vari scopi. Fra questi ricadono i metodi di 
 Image enhancement, predizione del traffico stradale a supporto dei veicolo 
-a guida autonoma \cite{GAN-ADAS}, generazione di volti fasulli e generazione di dipinti 
+a guida autonoma\index{autonoma} \cite{GAN-ADAS}, generazione di volti fasulli e generazione di dipinti 
 simili a quelli originali. Il discriminante elabora l'immagine ricevuta dal 
 generatore e produce una probabilità D(x) che ne attesti la sua reale autenticità 
 con l'immagine del training set. A questo punto, lo scopo del 
@@ -625,14 +631,14 @@ lavoro svolto da una rete GAN è illustrato nella FIgura (\ref{gan-nn})
 
 \section{Utilizzi delle reti neurali}
 L'introduzione delle reti neurali, sia nel campo della computer vision che del deep 
-learning, ha portato vari benefici nel risolvere problemi complessi nella vita reale. 
+learning\index{deep learning}, ha portato vari benefici nel risolvere problemi complessi nella vita reale. 
 Il supporto offerto da questi sistemi è basato su tecniche di elaborazione delle 
 immagini in grado di estrarre diverse informazioni utili per un determinato scopo. 
 I task principali, eseguiti su un'immagine, possono essere:
 \begin{itemize}
     \item \emph{Image classification}: viene effettuata un'analisi dell'immagine con lo scopo 
-    di assegnare un'etichetta in base al suo contenuto;
-    \item \emph{Object detection}: analisi degli elementi presenti all'interno di un'immagine;
+    di assegnare un'etichetta\index{etichetta} in base al suo contenuto;
+    \item \emph{Object detection}\index{object detection}: analisi degli elementi presenti all'interno di un'immagine;
     \item \emph{Image segmentation}: estrazione di regioni di interesse che identificano il 
     target in base al contesto;
     \item \emph{Face recognition}: basato sul riconoscimento facciale delle persone;
@@ -641,26 +647,26 @@ I task principali, eseguiti su un'immagine, possono essere:
     spazio circostante;
     \item \emph{Visual Relationship Detection}: analisi mirata alla relazione che intercorre 
     tra gli oggetti presenti nell'immagine;
-    \item \emph{Emotion Recognition}: processo atto a identificare le emozioni umane mediante 
+    \item \emph{Emotion Recognition}: processo atto a identificare\index{identificare} le emozioni umane mediante 
     vari fattori come quello vocale e/o visivo;
     \item \emph{Image editing}: analisi delle immagini che portano l'algoritmo a riconoscere 
     le parti più rilevanti di un'immagine, come per esempio quelle più sensibili, 
     ed a attuare delle specifiche azioni, come ad esempio il loro oscuramento.
 \end{itemize}
 Il presente elaborato farà riferimento solamente alle prime tre tecniche, soffermandosi 
-maggiormente sull'object detection e la semantic segmentation (branca 
+maggiormente sull'object detection\index{object detection} e la semantic segmentation\index{semantic segmentation} (branca 
 dell'image segmentation).
 
 \subsection{Object Detection}\label{OBJD}
-L'object detection costituisce la base per risolvere compiti di visione complessi, 
+L'object detection\index{object detection} costituisce la base per risolvere compiti di visione complessi, 
 o di alto livello, come la segmentazione, comprensione della scena, tracciamento 
-degli oggetti, rilevamento degli eventi e riconoscimento delle attività. La tecnica 
+degli oggetti, rilevamento\index{rilevamento} degli eventi e riconoscimento delle attività. La tecnica 
 di object detection supporta un ampio range di applicazioni, tra queste abbiamo 
-la visione robotica, sicurezza, guida autonoma, segnali stradali, interazione uomo 
+la visione robotica, sicurezza, guida autonoma\index{autonoma}, segnali stradali, interazione uomo 
 macchina, recupero delle immagini basato sui contenuti, videosorveglianza, realtà 
 aumentata e ambito medico. Dal grafico \ref{obj det performance} possiamo vedere che dopo l'anno 
-2012, periodo corrispondente all'introduzione del deep learning, le prestazioni 
-della tecnica di object detection aumentarono notevolmente.
+2012, periodo corrispondente all'introduzione del deep learning\index{deep learning}, le prestazioni 
+della tecnica di object detection\index{object detection} aumentarono notevolmente.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{obj detection performance.png}
@@ -682,11 +688,11 @@ di delimitazione chiamato bounding box (Fig. \ref{object detection}).
 \end{figure}
 Se invece di un'immagine si sta elaborando un insieme di frame, come un video, 
 allora lo scopo è quello di tracciare la posizione e  la dimensione dell'oggetto in 
-tutti i frame (tecnica comunemente chiamata object tracking). Il rilevamento 
+tutti i frame (tecnica comunemente chiamata object tracking). Il rilevamento\index{rilevamento} 
 degli oggetti generici è strettamente correlato a:
 \begin{enumerate}
     \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell'immagine 
-    un'etichetta corrispondente ad una classe (Fig. \ref{segmentation} (a));
+    un'etichetta\index{etichetta} corrispondente ad una classe (Fig. \ref{segmentation} (a));
     \item \emph{Instance segmentation}: tecnica che, al contrario della segmentazione semantica, 
     mira a distinguere diverse istanze appartenenti alla stessa classe di 
     oggetti (Fig. \ref{segmentation} (b)).
@@ -701,13 +707,13 @@ degli oggetti generici è strettamente correlato a:
 Uno dei principali obiettivi in questo campo è scegliere le feature che sono 
 più caratteristiche dell'oggetto ricercato o, in altre parole, che sono altamente 
 discriminanti, in modo da ottenere dei buoni risultati da parte del classificatore. Un 
-aspetto fondamentale da tenere in considerazione è la complessità computazionale 
-a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi modelli di object detection basavano 
+aspetto fondamentale da tenere in considerazione è la complessità computazionale\index{computazionale} 
+a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi modelli\index{modello} di object detection basavano 
 il loro funzionamento su delle feature estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi 
 modelli erano molto lenti, imprecisi e non erano in grado di riconoscere i dati mai 
-visti in precedenza. Le reti neurali convoluzionali (CNN) e del deep learning hanno 
-cambiato il panorama della percezione visiva. Il problema di object detection è 
-generalmente visto come un problema di apprendimento supervisionato. Nella 
+visti in precedenza. Le reti neurali convoluzionali (CNN)\index{Convolutional Neural Netwrok - CNN} e del deep learning\index{deep learning} hanno 
+cambiato il panorama della percezione visiva. Il problema di object detection\index{object detection} è 
+generalmente visto come un problema di apprendimento\index{apprendimento} supervisionato. Nella 
 computer vision sono stati raggiunti traguardi importanti negli ultimi dieci anni, 
 tuttavia ci sono ancora grandi sfide da superare. Di seguito sono riportate alcune 
 delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
@@ -745,17 +751,17 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
     \item \emph{Numero di categorie}: il numero di classi può rilevarsi un problema quando 
     queste sono numerose. Un elevato numero di classi, oltre che ad aumentare 
     la probabilità di avere una bassa variabilità inter-calasse, richiede un alto 
-    numero di etichette che a loro volta sono difficili da reperire. In questo caso 
+    numero di etichette\index{etichetta} che a loro volta sono difficili da reperire. In questo caso 
     è favorita un'alta variabilità inter-classe (oggetti diversi appartenenti a classi 
     diverse). Ad oggi, l'utilizzo dell'esatto numero di esempi per addestrare un 
-    modello è una domanda di ricerca ancora aperta;
+    modello\index{modello} è una domanda di ricerca ancora aperta;
     \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso su 
-    dispostivi sprovvisti di elevate risorse di calcolo. La ricerca è rivolta nell'ottimizzazione 
+    dispostivi sprovvisti di elevate risorse\index{risorse} di calcolo. La ricerca è rivolta nell'ottimizzazione\index{ottimizzazione} 
     di tali modelli affinché questi vengano eseguito anche su dispositivi mobili.
 \end{itemize}
 
-\subsubsection{Metriche di valutazione Object detection}
-Le prestazioni di un modello vengono calcolate utilizzando alcune metriche, come 
+\subsubsection{Metriche di valutazione Object detection}\index{object detection}
+Le prestazioni di un modello\index{modello} vengono calcolate utilizzando alcune metriche, come 
 per esempio i \emph{Frame Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, ma la più usata è la 
 \emph{mean Average Precision (mAP)}. La precisione misura la percentuale di previsioni 
 corrette mentre il richiamo misura le previsioni corrette rispetto alla verità 
@@ -769,16 +775,16 @@ di base (\emph{ground truth}).
              & = & \frac{True \ Positive}{All \ Ground \ Truth}
 \end{eqnarray}
 Gli output standard di un rilevatore, su un'immagine di test $I$, al fine di 
-identificare un oggetto $j$, sono:
+identificare\index{identificare} un oggetto $j$, sono:
 \begin{itemize}
     \item $b_j$: \emph{Bounding-Box (BB)} disegnata sull'oggetto di interesse;
     \item $c_j$: categoria predetta;
     \item $p_j$: livello di confidenza che verrò comparato con una soglia $\beta$ per determinare 
-    l'accettabilità o meno dell'etichetta della classe predetta. 
+    l'accettabilità o meno dell'etichetta\index{etichetta} della classe predetta. 
 \end{itemize}
 Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
 \begin{enumerate}
-    \item La categoria predetta $c$ è uguale all'etichetta $c_g$ fornita nel ground truth;
+    \item La categoria predetta $c$ è uguale all'etichetta\index{etichetta} $c_g$ fornita nel ground truth;
     \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), è maggiore di una soglia $\epsilon$. L'IoU 
     rappresenta il rapporto tra l'area della bounding box predetta $b$ e l'area 
     della bounding box $b_g$ presente nel ground truth, dove $\cap$ e $\cup$ indicano 
@@ -792,7 +798,7 @@ Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
     sarà un'elevata sovrapposizione tra questa e una delle bounding box presenti 
     nel ground truth. D'altra parte, quando il valore di IoU è minore della 
     soglia, questo sintomo sarà ritenuto come una previsione errata da parte 
-    del modello in quanto non c'è sovrapposizione fra le varie bounding box. 
+    del modello\index{modello} in quanto non c'è sovrapposizione fra le varie bounding box. 
     Questo comportamento fa si che la regione rilevata venga classificata come 
     un Falso Positivo \emph{(FP)}. Se invece il modello non riesce a rilevare un oggetto 
     presente nell'immagine, allora si parlerà di Falso Negativo $(FN)$.
@@ -823,32 +829,32 @@ della classe $i$.
 \subsection{Image Segmentation}
 Nella Figura (\ref{segmentation}) è stato introdotto brevemente l'argomento della segmentazione 
 delle immagini.  I recenti risultati, raggiunti nella segmentazione delle immagini, 
-derivano dai progressi svolti nell'ottimizzazione delle \emph{Deep Convolutional Neural 
-Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN). 
+derivano dai progressi svolti nell'ottimizzazione\index{ottimizzazione} delle \emph{Deep Convolutional Neural 
+Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN)\index{Convolutional Neural Netwrok - CNN}. 
 Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, una rete neurale convoluzionale 
 sviluppata per riconoscere i numeri scritti a mano. Grazie a questa, venne spianata 
-la strada verso il continuo successo delle CNN nello svolgere vari compiti di visione 
+la strada verso il continuo successo delle CNN\index{Convolutional Neural Netwrok - CNN} nello svolgere vari compiti di visione 
 artificiale di alto livello, oltre che a motivare i ricercatori ad esplorare le capacità 
 di tali reti per problemi di classificazione pixel-wise, come la segmentazione delle 
 immagini. La segmentazione di un'immagine è uno dei  compiti indispensabili 
-nella visione artificiale in quanto è utile in diversi campi scientifici, come per 
-esempio la guida autonoma, ambito medico, ambito biometrico, ambito militare, 
+nella visione artificiale\index{visione artificiale} in quanto è utile in diversi campi scientifici, come per 
+esempio la guida autonoma\index{autonoma}, ambito medico, ambito biometrico, ambito militare, 
 riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
-della classificazione e dell'object detection, è necessario reperire delle informazioni 
+della classificazione e dell'object detection\index{object detection}, è necessario reperire delle informazioni 
 spaziali di basso livello o a livello di pixel.
 L'image segmentation si suddivide in due categorie:
 \begin{enumerate}
-    \item \emph{Semantic segmentation}
+    \item \emph{Semantic segmentation}\index{semantic segmentation}
     \item \emph{Instance segmentation}
 \end{enumerate}
 Esiste un'ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata dalla 
 fusione dei risultati provenienti dalle due principali categorie. In questo elaborato 
-verrà discussa solamente la tecnica di Semantic Segmentation. prima di introdurre 
+verrà discussa solamente la tecnica di \index{semantic segmentation}. prima di introdurre 
 la tecniche citata, è doveroso specificare che la segmentazione delle immagini è 
 un argomento trattato anche nell'elaborazione dei video.
 
-\subsubsection{Semantic Segmentation}
-Il deep learning ha fortemente promosso la ricerca sulla segmentazione semantica. 
+\subsubsection{Semantic Segmentation}\index{semantic segmentation}
+Il deep learning\index{deep learning} ha fortemente promosso la ricerca sulla segmentazione semantica. 
 La comunità industriale sta facendo enormi sforzi nello sviluppo di sistemi avanzati 
 in grado di effettuare una segmentazione semantica. Per esempio, una fotocamera, 
 installata nei diffusi dispositivi mobili, è in grado di produrre un ritratto mediante 
@@ -856,13 +862,13 @@ l'effetto di profondità, comunemente chiamato effetto bokeh, incorporando la te
 di segmentazione. Nella segmentazione semantica ogni pixel viene classificato 
 in base alla classe di appartenenza dell'oggetto presente nell'immagine (es: strada, 
 automobile, pedone, edificio etc.). In questo caso, i pixel dell'immagine aventi la 
-stessa etichetta, condividono determinate caratteristiche come colore, intensità, 
+stessa etichetta\index{etichetta}, condividono determinate caratteristiche come colore, intensità, 
 consistenza etc. In altre parole, la segmentazione semantica tende a suddividere 
 l'immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
 rappresenta una regione significativa dell'immagine originale. Rispetto alle altre 
-tecniche, la tecnica di semantic segmentation ha esigenze più elevate in quanto 
+tecniche, la tecnica di semantic segmentation\index{semantic segmentation} ha esigenze più elevate in quanto 
 non si limita solamente a classificare gli oggetti presenti (image classification) e a 
-rilevarne la loro posizione (object detection) mediante delle bounding box, ma 
+rilevarne la loro posizione (object detection)\index{object detection} mediante delle bounding box, ma 
 mira a partizionare ogni regione dell'oggetto (foreground) rispetto alla regione 
 di sfondo (background). Per esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono 
 raggruppate come un unica porzione di pixel \cite{aurelien}.
@@ -873,7 +879,7 @@ raggruppate come un unica porzione di pixel \cite{aurelien}.
     \caption{Esempio Semantic segmentation.}
     \label{semantic segmentation}
 \end{figure}
-Allo stato dell'arte esistono varie tipologie di architetture di reti neurali 
+Allo stato dell'arte esistono varie tipologie di architetture\index{architettura} di reti neurali 
 comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semantic_segmentation_networks}:
 \begin{enumerate}
     \item \emph{Fully convolutional networks (FCN)}
@@ -885,15 +891,15 @@ comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semanti
 
 \subsubsection{FULLY CONVOLUTIONAL NETWORKS}
 Long et al. \cite{fcn} propose la pietra miliare Fully Convolutional Network (FCN), 
-che diede un gran contributo all'incremento dell'accuratezza della segmentazione 
+che diede un gran contributo all'incremento dell'accuratezza\index{accuratezza} della segmentazione 
 semantica. Lo studio si basò sull'utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
 VGGNet\cite{vggNet} e GoolgeNet \cite{googleNet}, tutte pre-addestrare con gli stessi dati. 
 Ogni classificatore, come precedentemente spiegato in \ref{RNC}, ha lo scopo di prendere 
 un'immagine in input e ridimensionarla tramite l'attraversamento dei layer 
-convoluzionali, fino a giungere ai layer fully connected (FC). L'output prodotto 
-sarà sotto forma di label predetta (Fig. \ref{CNN complete}). Per convertire questi modelli da 
+convoluzionali, fino a giungere ai layer\index{layer} fully connected (FC). L'output prodotto 
+sarà sotto forma di label predetta (Fig. \ref{CNN complete}). Per convertire questi modelli\index{modello} da 
 classificatori a modelli FCN densi, bisogna sostituire i layer fully connected con 
-layer convoluzionali di dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle 
+layer\index{layer} convoluzionali di dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle 
 classi esistenti in PASCAL VOC (20), più la classe di background. Tramite una 
 procedura di \emph{Upsampling}, viene effettuata un'operazione di \emph{deconvoluzione}, spesso 
 chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l'immagine di partenza 
@@ -901,9 +907,9 @@ ricostruita. Esistono varie tipologie di upsampling, fra queste abbiamo:
 \begin{enumerate}
     \item \emph{Nearest-Neighboor}: Copia il valore del pixel più vicino;
     \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l'interpolazione lineare e l'uso dei pixel adiacenti;
-    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l'interpolazione polinomiale. Questa operazione ha un alto tasso computazionale ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
+    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l'interpolazione polinomiale. Questa operazione ha un alto tasso computazionale\index{computazionale} ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
 \end{enumerate}
-Quando si sarà giunti a un layer di pooling pari alla dimensione di $1 \times 1$, allora 
+Quando si sarà giunti a un layer\index{layer} di pooling pari alla dimensione di $1 \times 1$, allora 
 si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig. \ref{FCN}). 
 \begin{figure}
     \centering
@@ -912,19 +918,19 @@ si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig
     \caption{Esempio di architettura Fully Convolutional Network}
     \label{FCN}
 \end{figure}
-Tale architettura è composta da un \emph{Encoder} e da un \emph{Decoder}.
+Tale architettura\index{architettura} è composta da un \emph{Encoder} e da un \emph{Decoder}.
 \begin{itemize}
-    \item \emph{Encoder}: sezione dell'architettura adibita all'estrazione del contesto dell'immagine. 
+    \item \emph{Encoder}: sezione dell'architettura\index{architettura} adibita all'estrazione del contesto dell'immagine. 
     La sua struttura è composta da livelli di convoluzione e di max 
-    pooling, come una comune CNN, che riducono (down-sample) l'immagine 
+    pooling, come una comune CNN\index{Convolutional Neural Netwrok - CNN}, che riducono (down-sample) l'immagine 
     in ingresso; 
-    \item \emph{Decoder}: sezione dell'architettura adibita alla localizzazione degli elementi 
+    \item \emph{Decoder}: sezione dell'architettura\index{architettura} adibita alla localizzazione\index{localizzazione}  degli elementi 
     presenti nell'immagine attraverso l'utilizzo di convoluzioni trasposte. Il compito 
     di un decoder è quello di amplificare le feature map tramite operazioni 
     di deconvoluzione utili a ricostruire l'immagine di ingresso includendone i 
     suoi artefatti.
 \end{itemize}
-Esitono diverse reti FCN che adottano questa tipologia di architettura (es: \emph{Autoencoder}). 
+Esitono diverse reti FCN che adottano questa tipologia di architettura\index{architettura} (es: \emph{Autoencoder}). 
 Per quanto riguarda le operazioni 
 svolte, un confronto tra l'operazione di Pooling (downsampling) e di Unpooling 
 (upsampling), o di convoluzione e deconvoluzione, sono mostrate nella 
@@ -936,14 +942,14 @@ Figura \ref{deconvolution}.
     \caption{Esempio di Deconvoluzione e di Unpooling (Upsampling).}
     \label{deconvolution}
 \end{figure}
-In base al numero di layer convoluzionali presenti, esistono diverse architetture 
+In base al numero di layer\index{layer} convoluzionali presenti, esistono diverse architetture\index{architettura}
 di Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
 un encoder che ha il compito di ridurre l'immagine iniziale di 32 volte e da un 
 decoder che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
 disposizione, la rete farà fatica a ricostruire un output simile a all'input, questo si 
 verifica a causa della perdita delle informazione significative nel processo svolto 
 dall'encoder. Per avere una rappresentazione più fedele dell'immagine in output, 
-vengono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FCN-8}.
+vengono in auto altre due tipologie di architetture\index{architettura}: \emph{FCN-16} e \emph{FCN-8}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{FCN-32.png}
@@ -951,21 +957,21 @@ vengono in auto altre due tipologie di architetture: \emph{FCN-16} e \emph{FCN-8
     \caption{Esempio derivazione delle varie architetture FCN.}
     \label{FCN-models}
 \end{figure}
-Quest'ultime utilizzano una strategia intelligente per poter ricostruire l'immagine. 
+Quest'ultime utilizzano una strategia intelligente\index{intelligenza} per poter ricostruire l'immagine. 
 Per giungere a un buon risultato, oltre che a fare riferimento alla sola feature 
 map, utilizzano i livelli di pooling precedenti nella quale ci sono maggiori informazioni. 
-Per giungere ad un'architettura FCN-8, bisognerà svolgere un processo 
+Per giungere ad un'architettura\index{architettura} FCN-8, bisognerà svolgere un processo 
 iterativo che va ad effettuare una somma di ogni singolo elemento (element-wise) 
-tra l'upsampling del pooling layer $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
-risultante sarà quella più fedele al ground truth. Questa architettura 
+tra l'upsampling del pooling layer\index{layer} $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
+risultante sarà quella più fedele al ground truth. Questa architettura\index{architettura} 
 ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
 \emph{FCN-GoogleNet}.
 
 \subsubsection{DILATATION/ATROUS CONVOLUTION}
 \subsubsection{DilatedNet}
-Per rimediare alla bassa qualità prodotta in output da una comune rete CNN, Yu 
+Per rimediare alla bassa qualità prodotta in output da una comune rete CNN\index{Convolutional Neural Netwrok - CNN}, Yu 
 e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione Dilatata}} 
-o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello consentiva di estrarre le informazioni che 
+o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello\index{modello} consentiva di estrarre le informazioni che 
 consentivano una migliore segmentazione che non comportasse a sua volta alla 
 perdita di dati rilevanti. L'idea della Convoluzione dilatata, chiamata anche 
 \emph{Convoluzione Dilatata}, o \emph{"Atrous Algorithm"} (il termine deriva dal francese \emph{à trous} che significa "buco" o "foro"),  deriva dalla decomposizione wavelet. A differenza del 
@@ -997,17 +1003,17 @@ Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricet
 e minore saranno i calcoli da svolgere. 
 
 \subsubsection{DeepLab}\label{DeepL}
-DeepLab è un modello utilizzato allo stato dell'arte per la segmentazione semantica 
+DeepLab è un modello\index{modello} utilizzato allo stato dell'arte per la segmentazione semantica 
 progettato da Google. Per la costruzione della rete sono state affrontate due 
 problematiche: il down-sampling e l'invarianza spaziale. Il primo problema, legato 
 alla riduzione della risoluzione delle feature, è stato risolto grazie all'applicazione 
 dell'algoritmo soprannominato “atrous”. Ogni encoder è composto dalla combinazione 
-di layer di pooling che riducono la risoluzione spaziale delle feature map. 
+di layer\index{layer} di pooling che riducono la risoluzione spaziale delle feature map. 
 Per poter ricostruire le informazioni perse, si può utilizzare la deconvoluzione. 
 Quest'ultima richiede però un quantitativo importante di memoria e di tempo. 
 L'algoritmo offre un metodo alternativo alla deconvoluzione. Il suo scopo 
 è quello di applicare una convoluzione che permetta di allargare efficacemente il 
-campo visivo dei filtri senza aumentare il numero di parametri preservando la 
+campo visivo dei filtri senza aumentare il numero di parametri\index{parametro} preservando la 
 quantità di computazione richiesta. La tecnica della convoluzione atrosa può essere 
 vista come come un espediente della tecnica di upsampling. Per poter risolvere il 
 secondo problema, legato alla precisione ridotta a causa dell'invarianza spaziale, 
@@ -1016,10 +1022,10 @@ Random Field (CRF)} completamente connesso. Questa classe di modelli
 discriminanti utilizzano le informazioni contestuali delle label per effettuare delle 
 buone previsioni. Restando ad un discorso più ad alto livello, le potenzialità del 
 CRF riguardano l'utilizzo di termini leviganti (\emph{smoothness}) utili a massimizzare la 
-relazione tra le etichette di pixel simili che esaltano il foreground dal background. 
+relazione tra le etichette\index{etichetta} di pixel simili che esaltano il foreground dal background. 
 Questi termini permetto quindi di avere una mappa di segmentazione migliore 
 anche dopo aver applicato poche volte, in maniera iterativa, l'algoritmo del CRF. 
-L'architettura generale di un modello DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input 
+L'architettura\index{architettura} generale di un modello\index{modello} DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input 
 un'immagine e di elaborarla da una comune DCNN in cui ci sono degli strati 
 atrosi, per poter generare una prima Score map su cui verrà fatto l'upsampling 
 con un'interpolazione bilineare. Dopo aver estratto un'immagine avente le stesse
@@ -1034,7 +1040,7 @@ dimensioni dell'immagine di partenza, verrà applicato il CRF.
 
 \subsubsection{TOP-DOWN/BOTTOM-UP APPROACH}
 \subsubsection{U-Net}
-La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura a forma 
+La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura\index{architettura} a forma 
 di U (Fig. (\ref{unet})) composta anch'essa da un encoder, o percorso di contrazione, e 
 un decoder, o percorso di espansione.
 \begin{figure}
@@ -1048,12 +1054,12 @@ Nell'immagine, ogni riquadro blu rappresenta una feature map multicanale. Il
 numero dei canali (specificati sopra ogni riquadro) e le dimensioni (specificate in 
 basso a sinistra di ogni riquadro), variano in base alla profondità della rete. I 
 riquadri bianchi, presenti nello strato di decoder, stanno a rappresentare le feature 
-map copiate dallo strato dell'encoder. Fra i vari layer esistenti in entrambe le 
+map copiate dallo strato dell'encoder. Fra i vari layer\index{layer} esistenti in entrambe le 
 parti, esistono delle connessioni, chiamate \emph{Shortcut connection}, capaci di creare 
 un collegamento utile a trasferire le informazioni estratte dall'encoder verso il 
 decoder. Questi collegamenti sono utili a velocizzare il processo di up-sampling e 
 migliorare nel contempo il risultato finale. La sezione dell'encoder è formata da 
-due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione ReLU e 
+due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione\index{funzione di attivazione} ReLU e 
 da un'operazione di max-pooling avente una finestra di dimensioni $2 \times 2$ con 
 passo 2. Dalla parte del decoder invece abbiamo l'operazione di up-sampling delle 
 feature map seguita da una deconvoluzione $2 \times 2$. La mappa delle caratteristiche 
@@ -1062,10 +1068,10 @@ dall'encoder. Successivamente, vengono applicate due operazione di convoluzioni
 consecutive aventi finestra di dimensione pari a $3 \times 3$.
 
 \subsubsection{SegNet}
-Così come i modelli già visti, anche SegNet ha un'architettura composta da un 
-encoder e un decoder. La parte adibita all'encoder utilizza 13 layer convoluzionali, 
+Così come i modelli già visti, anche SegNet ha un'architettura\index{architettura} composta da un 
+encoder e un decoder. La parte adibita all'encoder utilizza 13 layer\index{layer} convoluzionali, 
 mentre la parte destinata al decoder contiene anch'essa 13 layer per la deconvoluzione. 
-In ogni layer della sezione encoder, viene utilizzato un banco di filtri 
+In ogni layer\index{layer} della sezione encoder, viene utilizzato un banco di filtri 
 per produrre le feature map. Per poter ridurre lo spostamento della covarianza 
 interna, problema legato all'input che porta la rete a non essere abbastanza 
 efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnica 
@@ -1112,7 +1118,7 @@ map sulla quale viene eseguito il pooling mediante una media globale. Dopo aver
 effettuato il pooling, viene eseguita l'operazione inversa (\emph{un-pooling}) per poter 
 riportare l'immagine alle sue dimensioni di partenza. Successivamente, le feature 
 map di partenza e quelle ricavate vengono combinate per effettuare una previsione 
-sul punteggio di classificazione finale. Ogni feature map appartiene a un layer 
+sul punteggio di classificazione finale. Ogni feature map appartiene a un layer\index{layer} 
 diverso, pertanto la combinazione di queste sarà formata da feature map diverse 
 in termini di scala e di norma. Affinché tutto funzioni, vengono applicate due 
 normalizzazioni L2 (\ref{L2}), una dopo il pooling globale e l'altra dopo la feature 
@@ -1138,18 +1144,18 @@ i passaggi precedenti.
 
 \subsubsection{GCN}
 La segmentazione semantica basa il suo principio di funzionamento su due aspetti: 
-classificazione e localizzazione. Quest'ultimi sono ritenuti come due concetti 
+classificazione e localizzazione\index{localizzazione} . Quest'ultimi sono ritenuti come due concetti 
 di natura opposta in quanto, una piccola trasformazione dell'input, come ad 
 esempio una traslazioni o rotazioni, rende la classificazione invariante mentre, allo 
-stesso tempo, la localizzazione potrebbe risentirne negativamente, pertanto risulta 
+stesso tempo, la localizzazione\index{localizzazione}  potrebbe risentirne negativamente, pertanto risulta 
 essere più sensitiva rispetto alla classificazione. Per sopperire alle problematiche 
-delle trasformazioni su entrambe le tecniche, venne introdotto il modello \emph{Global 
+delle trasformazioni su entrambe le tecniche, venne introdotto il modello\index{modello} \emph{Global 
 Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due principi:
 \begin{enumerate}
-    \item Dal punto di vista della \emph{localizzazione}, la struttura del modello dev'essere 
+    \item Dal punto di vista della \emph{localizzazione}\index{localizzazione} , la struttura del modello dev'essere 
     completamente convolutiva per poter mantenere le informazioni utili alla 
-    localizzazione degli oggetti in quanto, se la struttura fosse stata a livelli 
-    completamente connessi (fully-connected layers), o pooling globali, questi 
+    localizzazione\index{localizzazione}  degli oggetti in quanto, se la struttura fosse stata a livelli 
+    completamente connessi (fully-connected layers)\index{layer}, o pooling globali, questi 
     scarterebbero tutte le informazioni spaziali;
     \item Dal punto di vista della \emph{classificazione}, devono essere utilizzati dei kernel 
     di grandi dimensioni, circa $15\times 15$, al fine di consentire la realizzazione di 
@@ -1168,21 +1174,21 @@ il processo di deconvoluzione.
     \label{gcn}
 \end{figure}
 Come visto in Figura (\ref{gcn}), ResNet è la rete che viene utilizzata come 
-backbone (spina dorsale), pre-addestrata con le immagini contenute nel dataset 
+backbone (spina dorsale), pre-addestrata con le immagini contenute nel dataset\index{dataset} 
 ImageNet. Sulle mappe dei punteggi di bassa risoluzione viene effettuata un'operazione 
-di upsampling con un layer di deconvoluzione. Le mappe ottenute dalla 
+di upsampling con un layer\index{layer} di deconvoluzione. Le mappe ottenute dalla 
 deconvoluzione verranno aggiunte con quelle più alte per poter generare nuove 
 mappe dei punteggi utili alla segmentazione finale.
 
 \subsubsection{RECEPTIVE FIELD ENLARGEMENT AND MULTI-SCALE CONTEXT INCORPORATION}
 \subsubsection{DeepLabv2 e DeepLabv3}
-La prima versione del modello DeepLab ha subito delle modifiche che hanno 
-portato a dei miglioramenti in termini di performance. Gli stessi autori di 
+La prima versione del modello\index{modello} DeepLab ha subito delle modifiche che hanno 
+portato a dei miglioramenti in termini di performance\index{performance}. Gli stessi autori di 
 DeepLab introdussero altre versioni del loro modello, in particolare introdussero 
 DeepLabv2 \cite{deeplabv2} e DeepLabv3 \cite{deeplabv3}. La prima, rispetto alla prima versione, utilizza 
 una tecnologia aggiuntiva chiamata \emph{Atrous Spatial Pyramid Pooling (ASPP)}.  
 Quest'ultima ha il compito di aggregare diverse feature multi-scala per una 
-migliore localizzazione. Per ogni tasso di dilatazione $l$ differente, la tecnica 
+migliore localizzazione\index{localizzazione} . Per ogni tasso di dilatazione $l$ differente, la tecnica 
 effettua una convoluzione dilatata ad ogni feature map di input che unirà con le 
 restanti (Fig. (\ref{aspp})).
 \begin{figure}
@@ -1192,14 +1198,14 @@ restanti (Fig. (\ref{aspp})).
     \caption{Atrous Spatial Pooling Pyramid.}
     \label{aspp}
 \end{figure}
-Oltre a questa, l'architettura di DeepLabv2 utilizza non solo VGGNet come 
+Oltre a questa, l'architettura\index{architettura} di DeepLabv2 utilizza non solo VGGNet come 
 backbone , ma utilizza anche ResNet. Per quanto riguarda DeepLabv3, questo 
-modello venne introdotto per poter catturare i bordi degli oggetti mediante il 
+modello\index{modello} venne introdotto per poter catturare i bordi degli oggetti mediante il 
 recupero delle informazioni spaziali. Per ottenere quanto detto, DeepLabv3 incorpora 
 un encoder e un decoder con una convoluzione dilatata separata. L'encoder 
 e il decoder sono utili per poter ricavare i contorni degli oggetti nitidi mentre 
 la convoluzione dilatata viene applicata in profondità per aumentare l'efficienza 
-computazionale. Per ottenere ciò viene fattorizzata una convoluzione standard in 
+computazionale\index{computazionale}. Per ottenere ciò viene fattorizzata una convoluzione standard in 
 una \emph{convoluzione depth-wise}, seguita da una \emph{convoluzione point-wise} (convoluzione 
 con kernel di dimensione 1x1). Una convoluzione di tipo depth-wise ha il compito 
 di eseguire una convoluzione spaziale in maniera indipendente su ciascun canale, 
@@ -1234,7 +1240,7 @@ convoluzione dilatata è come quella eseguita in DeepLab. Le dimensioni della
 feature map è ridotta di circa $1/N$ rispetto all'immagine di input, dove $N$ sta ad 
 indicare i livelli della piramide. Nella figura (\ref{pspnet}), il numero di livelli piramidali 
 è pari a 4, pertanto $N=4$, che a sua volta si traduce in un a riduzione pari a 
-$1/4$ dell'immagine di partenza. Per ridurre le dimensioni dei layer di pooling, 
+$1/4$ dell'immagine di partenza. Per ridurre le dimensioni dei layer\index{layer} di pooling, 
 viene effettuata una convoluzione di dimensioni $1\times 1$. Gli output prodotti dalle 
 varie convoluzioni sono sottoposti a processo di upsampling e concatenati con 
 le feature map iniziali per poter combinare le informazioni contestuali locali e 
@@ -1242,8 +1248,8 @@ globali. Infine, l'intera concatenazione sarà convoluta per poter generare una
 predizione pixel-wise utile a realizzare la segmentazione semantica finale.
 
 \subsubsection{Metriche di valutazione Image Segmentation}
-Così come per l'Object detection, anche l'Image Saegmentation dispone di tecniche 
-per poter valutare la segmentazione effettuata da un modello. Immaginiamo di 
+Così come per l'Object detection\index{object detection}, anche l'Image Saegmentation dispone di tecniche 
+per poter valutare la segmentazione effettuata da un modello\index{modello}. Immaginiamo di 
 avere un numero $k$ di classi esistenti e che a questo venga sommata un'ulteriore 
 classe di background, per un totale di $k+1$ classi. Denotiamo inoltre con $Y$ il 
 numero di pixel totali dell'immagine da segmentare. Secondo \cite{metric_semantic_seg}, immaginiamo di dover segmentare i pixel di una classe $i$, definiamo tre 
@@ -1257,7 +1263,7 @@ tipologie di valori associati a $Y$:
     corrispondenti alla classe $j$ (\emph{False Negative (FN)});
 \end{enumerate}
 Di seguito vengono elencate le cinque più famose tecniche per poter valutare 
-l'accuratezza della segmentazione semantica:
+l'accuratezza\index{accuratezza} della segmentazione semantica:
 \begin{itemize}
     \item {\bfseries{\emph{Pixel Accuracy (PA)}}}: rappresenta il rapporto tra il numero di pixel 
     correttamente segmentati e il numero totale di pixel. In altre parole, tale 
@@ -1275,7 +1281,7 @@ l'accuratezza della segmentazione semantica:
     \end{equation}
 
     \item {\bfseries{\emph{Intersection Over Union (IoU)}}}: seppur incontrata nella sezione inerente 
-    l'object detection (\ref{OBJD}), l'IoU per la semantic segmentation non rappresenta 
+    l'object detection\index{object detection} (\ref{OBJD}), l'IoU per la semantic segmentation\index{semantic segmentation} non rappresenta 
     più il rapporto tra la sovrapposizione di una bounding box predetta con 
     la bounding box del ground truth, ma questa volta sta a rappresentare la 
     percentuale di sovrapposizione tra la regione predetta e la regione target 
@@ -1290,7 +1296,7 @@ l'accuratezza della segmentazione semantica:
 
     \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l'IoU viene calcolata separatamente 
     per ogni classe. La MIoU rappresenta la media di tutte le IoU, e 
-    quindi su tutte le classi, utile a fornire un punteggio globale del modello che 
+    quindi su tutte le classi, utile a fornire un punteggio globale del modello\index{modello} che 
     può essere calcolato con la seguente formula:
     \begin{equation}
         MIoU = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
@@ -1304,27 +1310,27 @@ l'accuratezza della segmentazione semantica:
         FWIoU = \frac{1}{\sum_{i=0}^k\sum_{j=0}^kp_{ij}}\sum_{i=0}^k\frac{\sum_{j=0}^kY_{ij}Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
     \end{equation}
 \end{itemize}
-Nella segmentazione semantica è importante valutare il modello nella sua efficienza 
+Nella segmentazione semantica è importante valutare il modello\index{modello} nella sua efficienza 
 per applicazioni real-time. Per calcolare la complessità di un modello, possono 
-essere tenute in considerazione due metriche come il numero dei parametri e le 
+essere tenute in considerazione due metriche come il numero dei parametri\index{parametro} e le 
 operazioni in virgola mobile (\emph{Floating Point Operations - FLOPs}). Maggiori 
 sono questi due valori e minori saranno le prestazioni del modello. Entrambe 
 le metriche sono indipendenti dall'ambiente. Per quanto riguarda la velocità di 
 implementazione, possono essere utilizzate due metriche: \emph{Runtime} e, come per 
-la tecnica di Object detection, i \emph{Frame al secondo (Frame Per Second - FPS)}. 
+la tecnica di Object detection\index{object detection}, i \emph{Frame al secondo (Frame Per Second - FPS)}. 
 Quest'ultime due metriche, a differenza delle precedenti, dipendono dall'ambiente 
 software e hardware.
 
-\subsection{Il Deep Learning nella guida autonoma}
+\subsection{Il Deep Learning nella guida autonoma}\index{deep learning}
 I progressi delle precedenti tecnologie, riportate in questo elaborato, hanno 
-avuto un impatto significativo sulla guida autonoma (\emph{Autonomous Driving 
+avuto un impatto significativo sulla guida autonoma\index{autonoma} (\emph{Autonomous Driving 
 (AD)}). Gli scopi comuni sono quelli di migliorare la sicurezza di guida, 
 riducendo al minimo gli sforzi del guidatore, e ridurre il numero di incidenti 
-mortali e non, tramite opportune tecniche avanzate di intelligenza artificiale. 
+mortali e non, tramite opportune tecniche avanzate di intelligenza\index{intelligenza} artificiale. 
 Miglioramenti significativi sono stati apportati ai sensori veicolari 
-che consentissero lo svolgimento di attività quali object detection, image 
-segmentation, localizzazione, tracking e varie attività di riconoscimento. 
-In letteratura, i veicoli a guida autonoma, possiedono cinque diversi livelli 
+che consentissero lo svolgimento di attività quali object detection\index{object detection}, image 
+segmentation, localizzazione\index{localizzazione} , tracking e varie attività di riconoscimento. 
+In letteratura, i veicoli a guida autonoma\index{autonoma}, possiedono cinque diversi livelli 
 di automazione, come definito dallo standard internazionale \emph{Society of 
 Automotive Engineers (SAE)} (Fig. (\ref{sae})):
 \begin{figure}
@@ -1364,31 +1370,31 @@ Automotive Engineers (SAE)} (Fig. (\ref{sae})):
     tipologia di strada intrapresa, pertanto non richiede la presenza 
     di alcun conducente.
 \end{enumerate} 
-Un sistema di guida autonoma, per poter garantire la sicurezza, può possedere 
-diverse funzionalità come: Rilevamento della strada (Road Detection), 
+Un sistema di guida autonoma\index{autonoma}, per poter garantire la sicurezza, può possedere 
+diverse funzionalità come: Rilevamento\index{rilevamento} della strada (Road Detection), 
 rilevamento della corsia (Lane detection), rilevamento dei veicoli (Vehicle 
 detection), rilevamento dei pedoni (Pedestrian detection), rilevamento della 
 stanchezza/sonnolenza (Drowsiness detection) , prevenzione delle collisioni 
-(Collision avoidance) e il rilevamento della segnaletica stradale (Traffic sign 
+(Collision avoidance) e il rilevamento\index{rilevamento} della segnaletica stradale (Traffic sign 
 detection).
 \subsubsection{Road detection}
 Questa tecnica mira a rilevare le aree e i confini in cui un veicolo può circolare 
-in maniera autonoma. Tra le tecniche più utilizzate per il rilevamento 
+in maniera autonoma\index{autonoma}. Tra le tecniche più utilizzate per il rilevamento\index{rilevamento} 
 della strada è senz'altro quella della segmentazione. Diversi sono stati i 
 lavori proposti incentrati su questa tematica. Per esempio in \cite{Up-conv-Poly} viene 
 introdotto un modello, nominato Up-Conv-Poly, in cui viene combinata una 
 rete FCN con una rete U-Net. Quest'ultimo è in grado di effettuare delle 
-segmentazioni veloci e a un basso costo computazionale grazie alla modifica 
-della distribuzione dei parametri presenti negli strati convoluzionali della 
-rete. In \cite{CALTAGIRONE2019125} è stato prodotto un modello, chiamato LidCamNet, basato su 
+segmentazioni veloci e a un basso costo computazionale\index{computazionale} grazie alla modifica 
+della distribuzione dei parametri\index{parametro} presenti negli strati convoluzionali della 
+rete. In \cite{CALTAGIRONE2019125} è stato prodotto un modello\index{modello}, chiamato LidCamNet, basato su 
 una fully convolutional network per il rilevamento delle immagini stradali 
 che fonde la segmentazione di queste con i dati provenienti da un sensore 
 Ligth Detector And Range (LIDAR). Diversi sono anche stati gli studi che 
 utilizzano le reti FCN che hanno portato ad ottenere le prestazioni migliori 
 in questo campo. La segmentazione della strada è visto come un problema di 
 classificazione binario (strada o non strada). Per citarne un'ultima, abbiamo 
-il modello DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone con una 
-architettura FCN con multipli passaggi di upscaling utili a poter interpolare 
+il modello\index{modello} DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone con una 
+architettura\index{architettura} FCN con multipli passaggi di upscaling utili a poter interpolare 
 un'immagine. 
 \begin{figure}
     \centering
@@ -1401,7 +1407,7 @@ La Figura (\ref{road-det}) mostra una i risultati di segmentazione stradale otte
 dai tre modelli precedenti.
 
 \subsubsection{Lane detection}
-I sistemi basati sul rilevamento della corsia garantiscono il giusto posizionamento 
+I sistemi basati sul rilevamento\index{rilevamento} della corsia garantiscono il giusto posizionamento 
 del veicolo nella corretta corsia, o quanto meno avvisano il guidatore, 
 tramite un l'emissione di un segnale acustico, dell'imminente fuoriuscita 
 da essa. Questa tecnica permette di ridurre al minimo la possibilità di 
@@ -1414,14 +1420,14 @@ di lane detection esegue i seguenti passaggi \cite{lane-steps}:
     proveniente da una camera installata frontalmente al veicolo. Successivamente, 
     tramite l'utilizzo di alcuni filtri, vengono migliorate alcune 
     feature utili per escludere gli ostacoli e ridurre la presenza delle ombre;
-    \item \emph{Rilevamento delle feature (Feature Detection)}: l'obiettivo principale 
+    \item \emph{Rilevamento\index{rilevamento} delle feature (Feature Detection)}: l'obiettivo principale 
     in questa fase è quello di estrarre le feature rilevanti per poter essere 
     elaborate nella fase successiva. La segnaletica orizzontale presenta 
     diverse caratteristiche, come ad esempio la tipologia di linea (continua, 
     segmentata, doppia o singola) e il colore (bianco, giallo, blu). Particolari 
     filtri, come quello di Canny e Sobel, vengono impiegati per poter 
     rilevare queste feature. Un esempio di rilevamento sfrutta informazioni 
-    quali colore e intensità. L'apprendimento di queste caratteristiche ha 
+    quali colore e intensità. L'apprendimento\index{apprendimento} di queste caratteristiche ha 
     permesso in \cite{lane-detection} una segmentazione efficiente delle linee presenti sulla 
     corsia.
     \item \emph{Adattamento del modello (Model fitting)}: in questa fase viene applicato 
@@ -1436,9 +1442,9 @@ di lane detection esegue i seguenti passaggi \cite{lane-steps}:
     la corsia da intraprendere. Questa tecnica è particolarmente 
     utile per poter ridurre la ROI (Region Of Interest) che corrisponde 
     alla regione di ricerca all'interno dell'immagine, riducendo a sua volta 
-    il costo computazionale. Grazie ad un confronto effettuato tra i 
+    il costo computazionale\index{computazionale}. Grazie ad un confronto effettuato tra i 
     vari frame, precedente e successivi, il tracciamento delle linee riduce 
-    l'errore di rilevamento delle parti fuorvianti. Esistono vari sensori a 
+    l'errore di rilevamento\index{rilevamento} delle parti fuorvianti. Esistono vari sensori a 
     supporto di questa tecnica, come ad esempio i sensori IMU (Inertial 
     Measurement Unit) o il GPS che, grazie alla fusione dei loro dati, 
     contribuiscono a stimare la posizione del veicolo, e quindi a definire 
@@ -1456,25 +1462,25 @@ In Figura (\ref{lane-det}) è possibile osservare un esempio di lane detection.
 
 \subsubsection{Vehicle detection}
 Esistono innumerevoli sfide nella computer vision per quanto riguarda il 
-compito di rilevamento dei veicoli su strada. Ci sono diversi fattori mutanti 
-che possono incidere sulle performance di un sistema di rilevamento, come 
+compito di rilevamento\index{rilevamento} dei veicoli su strada. Ci sono diversi fattori mutanti 
+che possono incidere sulle performance\index{performance} di un sistema di rilevamento, come 
 per esempio le variazioni di illuminazione, forme, ombre, background etc. 
 La presenza di disordine nella scena può portare all'occlusione parziale di 
 un veicolo, limitandone la visibilità completa con conseguente aumento del 
-rischio di incidenti. L'utilizzo delle sole telecamere comporta delle carenze 
+rischio di incidenti. L'utilizzo delle sole telecamere\index{telecamere} comporta delle carenze 
 a livello di sicurezza in quanto queste sono delle tecnologie passive, che 
 non interagiscono in alcun modo con l'ambiente ed inoltre sono altamente 
 influenzate dalle condizioni dell'ambiente esterno. La ricerca pertanto si 
-sta spostando verso l'utilizzo di altri sensori quali telecamere con flash, 
+sta spostando verso l'utilizzo di altri sensori quali telecamere\index{telecamere} con flash, 
 termocamere e sistemi per la stima della profondità (es: LIDAR). Diversi 
 studi hanno esaltato l'importanza del corretto posizionamento delle camere. 
-Per il rilevamento e il tracciamento dei veicoli, importante risulta essere 
+Per il rilevamento\index{rilevamento} e il tracciamento dei veicoli, importante risulta essere 
 l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
 è preferito utilizzare altre tipologie di feature. Nello specifico, queste feature 
 si riferiscono all'Istogramma dell'Orientazione del Gradiente (\emph{Histogram 
 of Oriented Gradient (HOG)}) e \emph{Haar-like}, quest'ultime sono feature che 
 devono il loro nome per la loro somiglianza alle wavelet Haar, entrambe molto 
-diffuse in ambito di object detection e per il rilevamento dei veicoli. Un'altra 
+diffuse in ambito di object detection\index{object detection} e per il rilevamento\index{rilevamento} dei veicoli. Un'altra 
 tipologia di feature importanti sono le \emph{Scale Invariant Feature Transform 
 (SIFT)}, ampiamente utilizzate per rimediare alle occlusioni parziali dei 
 veicoli. Anche le Speed up Robust Features (SURF), in combinazione con i 
@@ -1483,7 +1489,7 @@ di interesse (ROI) in cui potrebbero esserci dei veicoli. Infine, la ricerca si 
 avvalsa di un'ultima feature largamente utilizzata nel campo della computer 
 vision, si sta parlando della \emph{Principal Component Analysis (PCA)}. Allo 
 stato dell'arte, l'utilizzo di tutte queste feature ha permesso di ottenere i 
-risultati utili a creare dei sistemi di guida autonoma intelligenti. Un esempio 
+risultati utili a creare dei sistemi di guida autonoma\index{autonoma} intelligenti\index{intelligenza}. Un esempio 
 di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}).
 \begin{figure}
     \centering
@@ -1494,16 +1500,16 @@ di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}
 \end{figure}
 
 \subsubsection{Pedestrian detection}
-Per i veicoli a guida autonoma è importante distinguere gli oggetti dagli 
+Per i veicoli a guida autonoma\index{autonoma} è importante distinguere gli oggetti dagli 
 umani a causa della loro diversa importanza. Oltre che ad evitare possibili 
-collisioni con i veicoli, le telecamere installate sul veicolo servono per 
+collisioni con i veicoli, le telecamere\index{telecamere} installate sul veicolo servono per 
 rilevare uno dei principali personaggi della circolazione: il pedone. La rilevazione di 
 questa classe permette una maggiore comprensione semantica della scena. I 
 sistemi avanzati di assistenza alla guida (\emph{Advanced Driver Assistance Systems 
 (ADAS)}) hanno lo scopo di aiutare il conducente a prendere decisioni 
 e a fornire supporto durante le probabili situazioni di pericolo,  ovvero quando 
 entrambi si trovano in una scena popolata da pedoni e veicoli. Esistono 
-specifici sistemi ADAS per il rilevamento dei pedoni, questi prendono il 
+specifici sistemi ADAS per il rilevamento\index{rilevamento} dei pedoni, questi prendono il 
 nome di sistemi di protezione dei pedoni (\emph{Pedestrian Protection Systems 
 (PPS)}). L'obiettivo di questa classe di sistemi è quello di rilevare la presenza 
 di persone, sia ferme che in movimento, in una specifica regione di interesse 
@@ -1525,8 +1531,8 @@ affrontare sono:
     informazioni rilevate. Un ulteriore sfida riguarda l'identificazione dei 
     pedoni parzialmente o totalmente occlusi da elementi urbani, come i 
     veicoli parcheggiati. 
-    \item \emph{Dinamicità}: il sistema deve poter identificare il pedone in scene 
-    altamente dinamiche in cui sia la telecamera e il pedone sono in 
+    \item \emph{Dinamicità}: il sistema deve poter identificare\index{identificare} il pedone in scene 
+    altamente dinamiche in cui sia la telecamera\index{telecamere} e il pedone sono in 
     movimento. Inoltre il sistema deve funzionare ad una distanza minima 
     di 25 metri che, corrispondenti a delle patch di pedoni di $30\times 60$ 
     pixel, utilizzando una fotocamera con lunghezza focale di $6 mm$ che 
@@ -1585,11 +1591,11 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
     dai diversi sensori.
 \end{enumerate}
 Nella Figura (\ref{ped-det}) viene mostrato un riassunto delle precedenti fasi 
-applicate ad un problema di rilevamento dei pedoni.
+applicate ad un problema di rilevamento\index{rilevamento} dei pedoni.
 
 \subsubsection{Drowsiness detection}
 La tecnologia che sta per essere introdotta riguarda i livelli 1,2, e 3 della guida 
-autonoma in quanto quelli successivi richiedono parzialmente la presenza 
+autonoma\index{autonoma} in quanto quelli successivi richiedono parzialmente la presenza 
 del conducente (livello 4) o la sua completa assenza (livello 5). La tecnica 
 di \emph{Drowsiness Detection (DDT)} è la tecnica che rivela lo stato del conducente 
 quando questo è alla guida. Quando il sistema rivela che il conducente risulta 
@@ -1613,7 +1619,7 @@ non pertinente attinente allo studio proposto. La seconda categoria cerca di
 rilevare l'affaticamento del conducente in base ai dati veicolari raccolti. Tale 
 tipologia di informazioni possono riguarda il cambio di corsia, la variabilità 
 della velocità, l'angolo di rotazione del volante etc. L'analisi svolta su questi 
-dati permette al sistema di creare dei modelli di guida e determinare se quelli 
+dati permette al sistema di creare dei modelli\index{modello} di guida e determinare se quelli 
 rilevati in real-time si discostano o meno da quelli abituali. Se il sistema 
 riscontrasse delle anomalie dovute a un matching sbagliato fra questi, allora 
 dovrebbe prendere delle iniziative utili a salvaguardare il conducente o i 
@@ -1623,7 +1629,7 @@ provocare sbandamenti insoliti classificati come campanello d'allarme dal
 sistema, o dalle condizioni meteorologiche. Anche queste tecniche pertanto 
 sono ritenute inaffidabili in questi casi. La ricerca sta puntando sull'ultima 
 categoria, quella delle tecniche basate sul comportamento. Quest'ultime 
-sono ritenute come misure non invasive per il rilevamento della sonnolenza. 
+sono ritenute come misure non invasive per il rilevamento\index{rilevamento} della sonnolenza. 
 L'affaticamento del conducente è calcolato in base a vari fattori come il 
 rapporto di chiusura degli occhi (\emph{eye closure ratio}), il battito delle palpebre 
 (\emph{eye blinking}), la posizione della testa (\emph{hand position}), le espressioni facciali 
@@ -1633,22 +1639,22 @@ occhi, più precisamente alla percentuale di chiusure oculari, soprannominata
 \emph{PERCLOS}. Grazie a questa ,metrica è possibile determinare se gli occhi 
 sono aperti, chiusi o socchiusi. L'analisi dello sbadiglio viene effettuato 
 monitorando le variazioni della forma geometrica della bocca grazie all'aiuto 
-di camere o stereo-camere. Seppur ritenuta la miglior categoria a livello 
+di camere o stereo-camere\index{stereo-camera}. Seppur ritenuta la miglior categoria a livello 
 di sicurezza, questa non è esente dai problemi derivanti dai fattori esterni 
 quali illuminazione e condizioni stradali. Vari sono i sitemi di classificazione 
 che svolgono l'attività di drowsiness detection, fra questi abbiamo i classificatori 
 \emph{Support-Vector-Machines (SVM)}, \emph{l'Hidden Markow Model (HMM)} 
-e le reti neurali convoluzionali (CNN). Essendo questo uno studio incentrato 
-sull'argomentazione delle reti CNN, l'algoritmo di Viola Jones \cite{viola2001rapid} 
+e le reti neurali convoluzionali (CNN)\index{Convolutional Neural Netwrok - CNN}. Essendo questo uno studio incentrato 
+sull'argomentazione delle reti CNN\index{Convolutional Neural Netwrok - CNN}, l'algoritmo di Viola Jones \cite{viola2001rapid} 
 viene molto utilizzato per il riconoscimento del viso. Le immagini di input 
 vengono tutte ritagliate per assumere una dimensione pari a $48\times 48$ su 
 cui verrà sottoposto un banco di 20 filtri che produrranno risultato che saranno 
-tramandati al layer finale Softmax, da cui ne susseguirà la classificazione. 
-Tale rete ha avuto diverse evoluzioni che hanno portato al rilevamento del 
+tramandati al layer\index{layer} finale Softmax, da cui ne susseguirà la classificazione. 
+Tale rete ha avuto diverse evoluzioni che hanno portato al rilevamento\index{rilevamento} del 
 volto anche durante i movimenti di codesto. Venne introdotto pertanto un 
-rilevamento basato su tecniche 3D che includono altri due filtri oltre a quelli 
+rilevamento\index{rilevamento} basato su tecniche 3D che includono altri due filtri oltre a quelli 
 già esistenti. In Figura (\ref{drow-det}) è possibile notare un'idea generale di come un 
-modello effettua una drowsiness detection.
+modello\index{modello} effettua una drowsiness detection.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{drowsiness detection.png}
@@ -1667,11 +1673,11 @@ modello effettua una drowsiness detection.
     \label{coll-avoid}
 \end{figure}
 Tutte le tecniche precedenti sono in grado di aumentare il livello di sicurezza 
-ponendosi l'obiettivo di tracciare con accuratezza veicoli e pedoni presenti 
+ponendosi l'obiettivo di tracciare con accuratezza\index{accuratezza} veicoli e pedoni presenti 
 nell'ambiente circostante. Ciò che non è stato ancora spiegato è il chi prende 
 le decisioni importanti e come queste possano trasformarsi in azioni atte a 
 mettere in sicurezza le persone coinvolte. Quando un veicolo è dotato di 
-guida autonoma, la responsabilità nell'intraprendere determinare azioni/decisioni 
+guida autonoma\index{autonoma}, la responsabilità nell'intraprendere determinare azioni/decisioni 
 è demandata al sistema di prevenzione delle collisioni (\emph{Collision 
 Avoidance System (CAS)}). Solitamente, tutte le informazioni sull'ambiente 
 circostante relative ad altri veicoli, la segnaletica orizzontale, le informazioni 
@@ -1700,8 +1706,8 @@ In Figura (\ref{coll-avoid}) è possibile notare alcuni sistemi di Collision Avo
 
 \subsubsection{Traffic Sign/Light Detection and Recognition}
 Un'alta percentuale di incidenti stradali è dovuta alla scarsa attenzione verso 
-la segnaletica stradale. Un sistema di guida autonoma, grazie a tecniche di 
-computer vision e grazie al supporto del deep learning, può essere in grado 
+la segnaletica stradale. Un sistema di guida autonoma\index{autonoma}, grazie a tecniche di 
+computer vision e grazie al supporto del deep learning\index{deep learning}, può essere in grado 
 di rilevare segnaletiche stradali quali strisce pedonali, incroci, semafori etc. 
 Come tutte le altre tecniche, la tecnica di \emph{Traffic Sign Recognition (TSR)} e 
 la tecnica di \emph{Traffic Light Recognition (TLR)} hanno il compito di avvisare 
@@ -1710,12 +1716,12 @@ attenzione, come per esempio una curva o un incrocio. La rilevazione di
 queste aree viene fatta grazie all'utilizzo delle \emph{Region Based Convolutional 
 Neural Networks (R-CNN)} \cite{RCNN-TLR}, reti neurali in grado di estrarre le regioni 
 di interesse (ROI). Ogni regione estratta verrà analizzata da una rete 
-convoluzionale per poter identificare gli oggetti al suo interno. In genere, 
+convoluzionale per poter identificare\index{identificare} gli oggetti al suo interno. In genere, 
 il TSR è diviso in due categorie: Detection e Classification. La detection 
-riguarda la localizzazione della segnaletica stradale nelle varie ROI, mentre la 
+riguarda la localizzazione\index{localizzazione}  della segnaletica stradale nelle varie ROI, mentre la 
 classificazione riguarda al determinazione del tipo di segnale che il sistema 
 ha rilevato. Oltre che a riconoscere i segnali, un TSR dev'essere anche 
-intelligente. Durante il percorso, se il sistema rivela più segnali ridondanti, 
+intelligente\index{intelligenza}. Durante il percorso, se il sistema rivela più segnali ridondanti, 
 questo non deve attirare la concentrazione del conducente in quanto non tutti 
 i segnali hanno la stessa importanza. Quando un segnale viene rilevato più 
 volte in maniera consecutiva, il sistema dovrebbe notificarlo una sola volta 
@@ -1745,9 +1751,9 @@ o semplice sbiadimento). Al contrario, risulta facile ricercare un range di
 colori all'interno di un'immagine. Per quanto riguarda le forme, queste 
 sono invarianti all'illuminazione e al tempo mentre, d'altra parte se occluse 
 rappresentano una problematica per il rilevamento. Per risolvere i problemi 
-inerenti il rilevamento, viene utilizzata la tecnica di segmentazione che segue 
+inerenti il rilevamento\index{rilevamento}, viene utilizzata la tecnica di segmentazione che segue 
 una fase di estrazione delle feature per poter successivamente eseguire il 
-rilevamento del segnale. Lo scopo della segmentazione è quello di ottenere 
+rilevamento\index{rilevamento} del segnale. Lo scopo della segmentazione è quello di ottenere 
 un'area approssimativa di dove dovrebbero comparire i segni stradali per 
 poter quindi restringere lo spazio di ricerca nelle fasi successive. La fase 
 di feature extraction ricerca maggiormente elementi appartenenti al set di 
@@ -1763,47 +1769,47 @@ esempio di Traffic Sign e Light recognition è riportato nella Figura (\ref{traf
     \label{traffic sing-ligth}
 \end{figure}
 
-\section{Tecniche di compressione/ottimizzazione delle reti neurali.}
+\section{Tecniche di compressione/ottimizzazione delle reti neurali.}\index{ottimizzazione}
 Le reti neurali sono largamente diffuse in molteplici dispositivi IoT e sistemi 
-embedded. Purtroppo, alcuni modelli, a causa dell'enorme requisito 
+embedded\index{embedded}. Purtroppo, alcuni modelli, a causa dell'enorme requisito 
 di calcolo, energia e archiviazione, non possono essere distribuiti su tali 
 dispositivi. Pertanto, negli ultimi anni, sono state proposte diverse tecniche 
-di compressione in grado di implementare suddetti modelli anche su sistemi 
-economici a ridotta potenzialità computazionale. Il principale requisito 
+di compressione\index{compressione} in grado di implementare suddetti modelli anche su sistemi 
+economici a ridotta potenzialità computazionale\index{computazionale}. Il principale requisito 
 minimo, da parte di queste tecniche, riguarda il raggiungimento di un compromesso 
-a basso impatto sull'accuratezza di ogni modello. Ciò che si sta 
+a basso impatto sull'accuratezza\index{accuratezza} di ogni modello\index{modello}. Ciò che si sta 
 cercando di raggiungere è quindi un metodo che sia in grado di ottimizzare 
-sia le performance di un sistema, ospitante un modello deep learning, che la 
+sia le performance\index{performance} di un sistema, ospitante un modello\index{modello} deep learning\index{deep learning}, che la 
 sua riduzione energetica, oltre a determinare un risparmio dello spazio di 
 archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
 \begin{enumerate}
     \item {\bfseries{\emph{Pruning}}}\index{Pruning}: La tecnica di pruning ha l'obiettivo di ridurre le dimensioni 
     di un modello andando a rimuovere componenti superflui quali canali, 
-    filtri, neuroni o interi livelli. La potatura può essere applicata solo in 
-    maniera iterativa su un modello (\emph{Iterative Pruning}) durante il processo 
+    filtri, neuroni\index{neurone} o interi livelli. La potatura può essere applicata solo in 
+    maniera iterativa su un modello\index{modello} (\emph{Iterative Pruning}) durante il processo 
     di addestramento, oppure direttamente sul modello pre-addestrato 
     (\emph{One-shot Pruning}).
     \item {\bfseries{\emph{Knowledge Distillation}}}\index{Knowledge Distillation}: tecnica in grado di trasferire la capacità 
     di generalizzazione, proveniente da un modello ingombrante chiamato 
-    "\emph{Insegnante}", verso un modello più piccolo chiamato "\emph{Studente}", per 
+    "\emph{Insegnante}", verso un modello\index{modello} più piccolo chiamato "\emph{Studente}", per 
     migliorare le prestazioni di quest'ultimo.
     \item {\bfseries{\emph{Quantization}}}: la riduzione del numero di bit necessari 
-    alla memorizzazione dei pesi rappresenta una tecnica di compressione. Passare da 
+    alla memorizzazione dei pesi\index{peso} rappresenta una tecnica di compressione\index{compressione}. Passare da 
     una precisione FP32 a una INT8 significherebbe ridurre di un quarto 
     la rappresentazione di un valore.
 \end{enumerate}
 Di seguito vengono riportate le spiegazioni più dettagliate di ciascuna.
 
 \subsection{Quantization}
-La rappresentazione dei parametri, di una rete neurale, avviene utilizzando 
-un determinato numero di bit. Trovandoci in un contesto di compressione, e 
-di ottimizzazione, diversi sono stati gli studi che hanno avuto l'obiettivo di 
-ridurre la quantità di bit preservando l'accuratezza del modello. Allo stato 
+La rappresentazione dei parametri\index{parametro}, di una rete neurale, avviene utilizzando 
+un determinato numero di bit. Trovandoci in un contesto di compressione\index{compressione}, e 
+di ottimizzazione\index{ottimizzazione}, diversi sono stati gli studi che hanno avuto l'obiettivo di 
+ridurre la quantità di bit preservando l'accuratezza\index{accuratezza} del modello\index{modello}. Allo stato 
 dell'arte, tutti questi sforzi hanno dato vita allo sviluppo di una tecnica 
 fondamentale: la quantizzazione. La sua popolarità è rapidamente cresciuta 
-grazie agli evidenti miglioramenti delle prestazioni dei modelli. I benchmarks 
+grazie agli evidenti miglioramenti delle prestazioni dei modelli. I benchmarks\index{benchmark} 
 pubblicati in uno studio \cite{quantization_speed} hanno evidenziato come la quantizzazione possa 
-migliorare il proprio throughput di un fattore pari a 10x. La compressione 
+migliorare il proprio throughput di un fattore pari a 10x. La compressione\index{compressione} 
 effettuata dalla quantizzazione si traduce in una riduzione della precisione 
 Floating-Point durante le operazioni matematiche svolte all'interno della 
 rete. Poiché possiamo avere numeri infinitamente precisi, ma uno spazio 
@@ -1822,42 +1828,42 @@ in valori a precisione int8. Questo vuol dire passare da una quantità di valori
 memorizzabili pari a $2^{31}$, a una quantità  corrispondente a un massimo 256 
 valori, ovvero a $2^8$. La riduzione totale porta ad occupare un numero di bit 
 pari a $\frac{1}{4}$ di quelli occupati dalla precisione FP32. Tale beneficio, tradotto in 
-termini di performance, dovrebbe portare ad un incremento della velocità di 
-inferenza per un fattore massimo pari a quattro volte. Purtroppo, quest'ultimo 
+termini di performance\index{performance}, dovrebbe portare ad un incremento della velocità di 
+inferenza\index{inferenza} per un fattore massimo pari a quattro volte. Purtroppo, quest'ultimo 
 evento non sempre è verificabile. Secondo alcuni test \cite{LIANG2021370}, utilizzando 
 frameworks come Google TensorFLow-Lite e NVidia TesnorRt, impostando 
 un basso valore di batch-size, riescono a raggiungere un velocità massima 
 di circa 2-3x. Aumentando il numero di batch-size, solamente TensorRT 
-riesce ad intensificare ulteriormente la velocità di inferenza arrivando a 
-3-4x. Dopo aver convertito i parametri come pesi, input e vettori intermedi, 
+riesce ad intensificare ulteriormente la velocità di inferenza\index{inferenza} arrivando a 
+3-4x. Dopo aver convertito i parametri\index{parametro} come pesi\index{peso}, input e vettori intermedi, 
 la maggior parte della matematica che segue viene eseguita in INT8. Una 
 prima dimostrazione di tale tecnica, a precisione INT8, venne riportata 
-in una ricerca \cite{37631}, nell'anno 2010. I risultati ottenuti con pesi mappati 
-a una precisione INT8 hanno portato a un'accelerazione dell'inferenza 
-senza avere un calo significativo dell'accuratezza. Di solito, la precisione 
+in una ricerca \cite{37631}, nell'anno 2010. I risultati ottenuti con pesi\index{peso} mappati 
+a una precisione INT8 hanno portato a un'accelerazione dell'inferenza\index{inferenza}
+senza avere un calo significativo dell'accuratezza\index{accuratezza}. Di solito, la precisione 
 utilizzata durante l'allenamento di una rete è la FP32. Per molte reti, una 
 rappresentazione FP32 risulta essere una precisione maggiore del necessario.
-La riduzione della precisione, oltre a comprimere un modello, mira alla riduzione della 
+La riduzione della precisione, oltre a comprimere un modello\index{modello}, mira alla riduzione della 
 quantità energetica impiegata dovuta alla ridotta larghezza 
 di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione:
 \begin{enumerate}
-    \item \emph{Dynamic Quantization}: viene eseguita a runtime su un modello pre-addestrato. 
+    \item \emph{Dynamic Quantization}: viene eseguita a runtime su un modello\index{modello} pre-addestrato. 
     L'operazione si basa nel moltiplicare i valori di input 
     per un fattore di scala variabile da cui seguirà un arrotondamento al 
     numero intero più vicino. Successivamente memorizza il risultato ottenuto. 
-    I pesi vengono quantizzati immediatamente mentre le attivazioni 
-    vengono quantizzate dinamicamente durante l'inferenza. Purtroppo, 
+    I pesi\index{peso} vengono quantizzati immediatamente mentre le attivazioni 
+    vengono quantizzate dinamicamente durante l'inferenza\index{inferenza}. Purtroppo, 
     questo tipo di metodo non è altamente utilizzato in quanto risulta 
-    essere la meno performante, ottenendo delle performance negative.
+    essere la meno performante, ottenendo delle performance\index{performance} negative.
     \item \emph{Static Quantization}: viene eseguita dopo la fase di allenamento su un 
-    modello pre-addestrato. La differenza con la tecnica dinamica riguarda 
+    modello\index{modello} pre-addestrato. La differenza con la tecnica dinamica riguarda 
     il pre-calcolo delle scale e i punti zero di ogni tensore di attivazione 
     servendosi di dati non strutturati. Oltre ad essere più precisa rispetto 
-    alla tecnica dinamica, ottiene delle migliori performance per quanto 
-    riguarda l''inferenza della rete.
+    alla tecnica dinamica, ottiene delle migliori performance\index{performance} per quanto 
+    riguarda l''inferenza\index{inferenza} della rete.
     \item \emph{Quantization-Aware-Training (QAT)}: risulta essere la tecnica di quantizzazione 
     più accurata. Viene svolta durante il processo di allenamento 
-    ma al contempo ne rallenta i tempi di formazione del modello. 
+    ma al contempo ne rallenta i tempi di formazione del modello\index{modello}. 
     L'idea di tale tecnica è quella di tenere conto della perdita che si ha 
     nel processo di allenamento durante la conversione del modello.
 \end{enumerate}
@@ -1865,14 +1871,14 @@ di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione:
 
 \subsection{Pruning}\index{Pruning}
 Diversi modelli soffrono di una problematica comune: la numerosità 
-dei parametri. I parametri che appaiono insignificanti, a livello di accuratezza, 
+dei parametri\index{parametro}. I parametri che appaiono insignificanti, a livello di accuratezza\index{accuratezza}, 
 costituiscono un punto dolente dal punto di vista dell'occupazione della memoria e della 
-velocità di inferenza. Prendendo in considerazione i pesi di 
-ogni modello, che a loro volta costituiscono il maggior numero di parametri, 
+velocità di inferenza\index{inferenza}. Prendendo in considerazione i pesi\index{peso} di 
+ogni modello\index{modello}, che a loro volta costituiscono il maggior numero di parametri\index{parametro}, 
 questi possono essere considerati rilevanti quando hanno un valore divergente 
-da zero. Uno o più pesi quindi sono da considerarsi irrilevanti quando 
+da zero. Uno o più pesi\index{peso} quindi sono da considerarsi irrilevanti quando 
 assumono un valore prossimo allo zero. La sovrabbondanza di quest'ultimi 
-impatta drasticamente sulle performance del modello. Allo stato dell'arte 
+impatta drasticamente sulle performance\index{performance} del modello\index{modello}. Allo stato dell'arte 
 sono stati proposti diversi approcci \cite{salama2019pruning} utili a mitigare la sparsità di tali 
 valori. Tutti questi sforzi hanno dato vita alla tecnica di \emph{Pruning} (Potatura)\index{Pruning}.  
 Esistono diverse tecniche di pruning, ovvero:
@@ -1895,24 +1901,24 @@ Esistono diverse tecniche di pruning, ovvero:
 \begin{enumerate}
     \item {\bfseries{\emph{Pruning non-strutturato (Unstructured)}}}\index{Pruning}: applicato per attività 
     di "\emph{weight pruning}"\cite{NIPS1989_6c9882bb} \cite{NIPS1992_303ed4c6}. Lo scopo di questa tecnica è quello di 
-    rimuovere interi pesi introducendo quasi sempre un'elevata sparsità 
+    rimuovere interi pesi\index{peso} introducendo quasi sempre un'elevata sparsità 
     nel modello richiedendo al contempo l'utilizzo di hardware e software 
-    dedicati. La potatura dei pesi comporterebbe l'eliminazione di alcuni 
-    collegamenti tra i vari neuroni, ma non la loro disattivazione (Fig. 
+    dedicati. La potatura dei pesi\index{peso} comporterebbe l'eliminazione di alcuni 
+    collegamenti tra i vari neuroni\index{neurone}, ma non la loro disattivazione (Fig. 
     \ref{unstruct-prun})
     \item {\bfseries{\emph{Pruning strutturato (Structured)}}}\index{Pruning}: tecnica che va a rimuovere interi 
-    filtri (canali), o neuroni, al posto di singoli pesi, alleviando il problema 
+    filtri (canali), o neuroni\index{neurone}, al posto di singoli pesi\index{peso}, alleviando il problema 
     della sparsità. A questo proposito, \cite{li2017pruning} propose una "\emph{channel-wise 
     pruning}" in accordo con la norma \emph{L1} del filtro corrispondente. La 
     potatura strutturata in genere porta a prestazioni di runtime migliori 
     rispetto alla potatura non strutturata in quanto le operazioni vengono 
     eseguite su matrici dense. Contrariamente, questa tecnica impatta 
-    pesantemente sull'accuratezza del modello. Questa tecnica, in un 
+    pesantemente sull'accuratezza\index{accuratezza} del modello\index{modello}. Questa tecnica, in un 
     contesto di reti fully connected, va a disattivare tutte le connessioni 
     di determinati nodi rendendoli obsoleti (Fig. \ref{struct-prun}).
     \item {\bfseries{\emph{Pruning non strutturato globale (Global Unstructured)}}}\index{Pruning}: rispetto 
     alla tecnica non strutturata, la globale applica una potatura su 
-    tutti i parametri specificati in tutti i filtri appartenenti ad ogni layer 
+    tutti i parametri\index{parametro} specificati in tutti i filtri appartenenti ad ogni layer\index{layer} 
     in maniera parallela. È importante notare che la tecnica globale di 
     unstructured pruning consente di potare i layers meno utili (entropia 
     inferiore) rispetto a quelli più utili (entropia più elevata).
@@ -1926,51 +1932,51 @@ Esistono diverse tecniche di pruning, ovvero:
     \label{filter-pruning}
 \end{figure}
 
-La domanda sorge spontanea. Quali tipi di parametri dovranno essere 
+La domanda sorge spontanea. Quali tipi di parametri\index{parametro} dovranno essere 
 sottoposti a potatura? Un criterio abbastanza intuitivo ed efficiente riguarda 
-la potatura dei pesi il cui valore assoluto (o magnitudo) è il più piccolo. 
+la potatura dei pesi\index{peso} il cui valore assoluto (o magnitudo) è il più piccolo. 
 Sebbene questo criterio sembri banale da implementare in un dominio di 
 unstructured pruning\index{Pruning}, ci si può chiedere come adattarlo ad una structured 
 pruning\index{Pruning}. In quest'ultimo caso, per determinare l'importanza di un valore, 
 queste tecniche utilizzano le norme L1 (Geometria dei Taxi/Distanza di 
 Manhattan) e L2 (Distanza Euclidea) come regolarizzatori. Nello specifico, 
 la relativa importanza di un filtro, in ogni layer, viene misurata calcolando 
-la somma dei valori assoluti dei suoi pesi, cioè la sua norma (L1 o L2). 
+la somma dei valori assoluti dei suoi pesi\index{peso}, cioè la sua norma (L1 o L2). 
 Successivamente, questi filtri vengono ordinati in base al precedente risultato 
 e potati se assumo il valore più basso. La potatura di un filtro porta 
 all'azzeramento di un intera feature maps. Rispetto ad una unstructured 
-pruning\index{Pruning}, dove l'azzeramento di un parametro influenzerebbe minimamente 
-il kernel nel successivo layer, in un contesto structured ciò comporterebbe 
+pruning\index{Pruning}, dove l'azzeramento di un parametro\index{parametro} influenzerebbe minimamente 
+il kernel nel successivo layer\index{layer}, in un contesto structured ciò comporterebbe 
 l'eliminazione del kernel, corrispondente a tale feature maps, presente nel 
 layer successivo (Fig. \ref{filter-pruning})\index{Pruning}. Attualmente la ricerca è suddivisa su due linee di 
 pensiero. Da una parte si pensa che la tecnica di pruning\index{Pruning} porti effettivamente 
-al miglioramento delle performance di un modello, dovuto dalla riduzione 
+al miglioramento delle performance\index{performance} di un modello, dovuto dalla riduzione 
 delle sue dimensioni  \cite{han2015learning} e al conseguente risparmio energetico \cite{yang2017designing}, dall'altra 
 parte invece si afferma tutto il contrario \cite{cheng2020survey}. Un recente studio, intitolato 
 "\emph{The lottery ticket hypothesis}" \cite{frankle2019lottery} ha intensificato l'interesse per le tecniche 
 di potatura. Tale studio sostiene la seguente tesi: 
 \begin{displayquote}
     \emph{"Una rete neurale densa contiene una sottorete più piccola che 
-    può raggiungere la stessa accuratezza, dell'intera rete originale, 
+    può raggiungere la stessa accuratezza\index{accuratezza}, dell'intera rete originale, 
     dopo essere stata sottoposta a un processo di addestramento 
     individuale per lo stesso numero di epoche."}
 \end{displayquote}
-Questa ideologia ha portato gli autori ad attuare la tecnica di pruning 
+Questa ideologia ha portato gli autori ad attuare la tecnica di pruning\index{Pruning} 
 iterativa utile a ricavare dei modelli più piccoli (i cosiddetti "\emph{winning 
 tickets}") che hanno pienamente confermato la veridicità della propria tesi.
 Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percentuale di sparsità 
-all'interno di un modello mai ri-addestrato, porterà codesto ad avere un lento 
-apprendimento in fase di training oltre che a un decremento dell'accuratezza.
+all'interno di un modello\index{modello} mai ri-addestrato, porterà codesto ad avere un lento 
+apprendimento\index{apprendimento} in fase di training oltre che a un decremento dell'accuratezza\index{accuratezza}.
 
 \subsection{Knowledge Distillation}\index{Knowledge Distillation}\label{KD_distill}
 I modelli profondi hanno avuto considerevoli successi, tuttavia l'elevata richiesta 
-computazionale e l'aumento della richiesta di archiviazione, rendono 
+computazionale\index{computazionale} e l'aumento della richiesta di archiviazione, rendono 
 difficile la loro implementazione in applicazioni real-time, specialmente su 
-dispositivi con risorse limitate come la videosorveglianza e la guida autonoma. 
+dispositivi con risorse\index{risorse} limitate come la videosorveglianza e la guida autonoma\index{autonoma}. 
 Questa grande limitazione ha aperto le porte allo sviluppo di una 
-nuova tecnica di compressione/ottimizzazione delle reti neurali chiamata 
+nuova tecnica di compressione/ottimizzazione\index{ottimizzazione} \index{compressione}delle reti neurali chiamata 
 \emph{Knowledge Distillation}\index{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 
-per migliorare l'accuratezza di una piccola rete, chiamata "Studente", trasferendo 
+per migliorare l'accuratezza\index{accuratezza} di una piccola rete, chiamata "Studente", trasferendo 
 la conoscenza distillata prodotta da una (o anche molteplici) rete 
 più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
 \begin{figure}
@@ -1982,20 +1988,20 @@ più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
 \end{figure}
 È bene non confondere tale 
 argomento con il concetto di "Transfer Learning". L'obiettivo del Transfer 
-Learning è quello di trasferire i pesi da un modello pre-addestrato verso 
-un nuovo modello, entrambi esattamente con la stessa architettura di rete. 
+Learning è quello di trasferire i pesi\index{peso} da un modello pre-addestrato verso 
+un nuovo modello\index{modello}, entrambi esattamente con la stessa architettura\index{architettura} di rete. 
 Questo vuol dire che la nuova rete è profonda e complessa quanto la rete pre-addestrata.
 L'obiettivo della Knowledge distillation\index{Knowledge Distillation} è nettamente differente.
 In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare", 
 possono essere trasferite da un insegnante verso uno studente mediante i 
-cosiddetti "\emph{soft targets}". Utilizzando i logits del modello insegnante, che 
+cosiddetti "\emph{soft targets}". Utilizzando i logits del modello\index{modello} insegnante, che 
 altro non sono che distribuzioni di probabilità sulle classi, si può attuare 
 il principio cardine su cui è basata la knowledge distillation\index{Knowledge Distillation} (o \emph{Vanilla 
-Knowledge Distillation})\index{Knowledge Distillation}. Il modello studente verrà allenato utilizzando i 
+Knowledge Distillation})\index{Knowledge Distillation}. Il modello\index{modello} studente verrà allenato utilizzando i 
 suddetti logits come conoscenza distillata, con lo scopo di ridurre al minimo 
 l'entropia incrociata tra i logits dell'insegnante e i propri logits prodotti. 
 Prima di introdurre il concetto principale, bisogna ricordare come una 
-funzione Softmax (o funzione di attivazione) trasformi i numeri (logits) in 
+funzione Softmax (o funzione di attivazione)\index{funzione di attivazione} trasformi i numeri (logits) in 
 delle probabilità che se sommate producono un valore sempre uguale a 1.  
 Lo scopo di tale funzione quindi è quello di generare un range di valori, 
 compresi tra 0 e 1, in cui il valore più grande rappresenterà la probabilità 
@@ -2014,14 +2020,14 @@ dove:
 La formula (\ref{softmax_normal}) calcola il rapporto tra l'esponenziale del valore di input 
 dato e la sommatoria dei valori esponenziali di tutti i valori presenti negli 
 inputs. Le probabilità risultati vengono chiamate "\emph{hard-targets}" (o hard 
-labels). Per allenare il modello studente, bisogna modificare la suddetta 
+labels). Per allenare il modello\index{modello} studente, bisogna modificare la suddetta 
 formula (Eq. \ref{softmax_normal}) applicata dalla funzione Softmax nella seguente formula:
 \begin{equation}
     q_j = \frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}
 \end{equation}
 dove:
 \begin{itemize}
-    \item $T>1$: indica un parametro chiamato \emph{Temperatura} \cite{marino2021compact}.
+    \item $T>1$: indica un parametro\index{parametro} chiamato \emph{Temperatura} \cite{marino2021compact}.
 \end{itemize}
 Le probabilità risultanti da questa softmax modificata, prenderanno il nome 
 di "\emph{soft-targets}" (o soft-labels). Arrivati a questo punto, c'è da porsi la 
@@ -2047,13 +2053,13 @@ di distinzione di tali numeri vuol dire avere una buona "\emph{generalizzazione}
 \begin{displayquote}
     \emph{"La generalizzazione è la capacità di ottenere delle predizioni 
     attendibili su nuovi dati mai utilizzati in fase di allenamento 
-    da parte di un modello."}
+    da parte di un modello."\index{modello}}
 \end{displayquote}
 Quando un modello riuscirà ad intuire una somiglianza tra i due numeri, 
 e allo stesso tempo a distinguerli, vuol dire che ha una buona capacità di 
 generalizzazione. La temperatura è utile a controllare l'importanza di ogni 
 probabilità prodotta utile a determinare il grado di generalizzazione. Dai 
-risultati restituiti dal modello (Fig. \ref{7_1}), si può osservare che la probabilità 
+risultati restituiti dal modello\index{modello} (Fig. \ref{7_1}), si può osservare che la probabilità 
 di predire il numero 7 si "ammorbidisce" all'aumentare della temperatura T.
 \begin{figure}
     \centering
@@ -2066,24 +2072,24 @@ Seguendo la linea verde, indicante la temperatura T=7, capiremmo già da
 subito che, con un'alta confidenza, il numero target predetto dal modello è 7 
 ma, allo stesso tempo, notiamo che la probabilità dei numeri 1 e 9 è più alta 
 rispetto a 6. Perché accade ciò? Semplicemente perchè tra il numero 7 e i 
-due numeri 1 e 9, il modello percepisce un livello di somiglianza. Prendendo 
+due numeri 1 e 9, il modello\index{modello} percepisce un livello di somiglianza. Prendendo 
 ora in considerazione le linee blu e arancione, aventi corrispettivamente 
 temperatura T=1 e T=3, si può osservare che il modello prevede giustamente 
 il numero 7, ma contemporaneamente non è più in grado di distinguere se il 
 numero 7 è più vicino a 1 o a 6, in quanto entrambi questi numeri hanno 
 probabilità molto vicine allo zero. L'unica differenza tra un umano e un 
-modello è che quest'ultimo sa quantificare precisamente, attraverso l'utilizzo 
+modello\index{modello} è che quest'ultimo sa quantificare precisamente, attraverso l'utilizzo 
 della temperatura, quanto il numero 7 sembri più vicino a 1. Questo concetto 
 è diffuso sotto il nome di "\emph{Dark Knowledge}"\index{Knowledge Distillation} (Conoscenza Oscura). Un 
 modello a bassa temperatura, o verosimilmente i modelli a temperatura 
 T=1, sono molto bravi ad effettuare previsioni difficili ma allo stesso tempo 
 perdono questo concetto di conoscenza oscura. Lo scopo della Knowledge 
 distillation\index{Knowledge Distillation} punta a trasmettere questa conoscenza oscura da un insegnante 
-ben addestrato e un modello studente più leggero. Per allenare lo studente 
+ben addestrato e un modello\index{modello} studente più leggero. Per allenare lo studente 
 sia con le soft-targets che con le hard-targets, gli autori hanno utilizzato la 
 somma ponderata di due perdite. La prima perdita ($L_{soft}$) è quella ricavata 
 dal calcolo dell'entropia incrociata (cross-entropy loss) tra le previsioni del 
-modello studente e le label corrette fornite dal ground-truth. La seconda 
+modello\index{modello} studente e le label corrette fornite dal ground-truth. La seconda 
 funzione di perdita ($L_{hard}$) invece si basa sul calcolo di un'entropia incrociata 
 tra le soft-targets prodotte da entrambi i modelli, studente e insegnante, 
 alla stessa quantità di temperatura. Matematicamente parlando, denotiamo 
@@ -2101,8 +2107,8 @@ Il gradiente derivante dal calcolo della derivata $dC/dz_J$ sull'entropia incroc
     \frac{dC}{dz_j}=\frac{1}{T}(q_j-p_j)=\frac{1}{T}\left(\frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}-\frac{e^{v_j/T}}{\sum_{k=1}^K e^{v_k/T}}\right)
 \end{equation}
 La Formula (\ref{cross_entropy_soft}) permette di minimizzare l'entropia incrociata (\ref{cross_entropy_loss}) 
-e a migliorare le performance dello studente sfruttando la capacità di 
-generalizzazione dell'insegnante. La perdita totale del modello studente è 
+e a migliorare le performance\index{performance} dello studente sfruttando la capacità di 
+generalizzazione dell'insegnante. La perdita totale del modello\index{modello} studente è 
 data dalla somma tra la prima e la seconda funzione di perdita. ovvero 
 dalla seguente formula:
 \begin{equation}
