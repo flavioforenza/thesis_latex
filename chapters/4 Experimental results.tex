@@ -437,7 +437,12 @@ In ogni dataset esistono diversi set di immagini, ognuno con diversa risoluzione
 \end{table}
 
 \subsection{Perfomance modelli pre-addestrati}
-I primi risultati ottenuti riguardano le performance raggiunte, in fase di inferenza, dai modelli pre-addestrati. I valori ricavati rappresentano il limite minimo da raggiungere da parte del modello proposto DSSD. Le tre architetture di riferimento hanno permesso di ottenere le performance descritte nei sotto-paragrafi successivi.
+I primi risultati ottenuti riguardano le performance raggiunte, in fase di inferenza, dai modelli pre-addestrati. I valori ricavati rappresentano il limite minimo da raggiungere da parte del modello proposto DSSD. Le tre architetture di riferimento hanno permesso di ottenere le performance descritte nei sotto-paragrafi successivi ma, prima di osservarli, bisogna fare una premessa. 
+I risultati inerenti i benchmarks eseguiti sull'attività di object detection, sono stati effettuati solo sulla Jetson Nano. La motivazione che ha spinto a tale scelta è prettamente legato al formato dei modelli pre-addestrati.
+Alcuni di questi, si presentano con le seguenti estensioni: .Onnx, .caffemodel e .Uff. Per quanto riguarda le prime due, non vengono riscontrare problematiche nell'integrazione dei test su tutte le architetture. 
+L'ultimo formato invece, ormai obsoleto, non è più compatibile con le nuove versioni di OpenCV (compresa quella utilizzata). Vani sono stati i tentativi di ricerca di un tool di conversione verso un altro formato.
+Detto ciò, sulle architetture "personal computer" e "Google Colaboratory", non vengono svolti test sui modelli pre-addestrati (forniti da NVidia) sull'attività di object detection.
+
 
 \subsubsection{Benchmarks Jetson Nano}
 I test effettuati sulla scheda Jetson Nano, sono stati eseguiti utilizzando i framework ampiamente descritti nella sezione \ref{acceleratori}.

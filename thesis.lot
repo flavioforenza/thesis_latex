@@ -15,7 +15,7 @@
 \contentsline {table}{\numberline {4.5}{\ignorespaces Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.\relax }}{127}{table.caption.123}%
 \contentsline {table}{\numberline {4.6}{\ignorespaces Specifiche sorgenti input.\relax }}{135}{table.caption.131}%
 \contentsline {table}{\numberline {4.7}{\ignorespaces Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{137}{table.caption.133}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{137}{table.caption.134}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{138}{table.caption.134}%
 \contentsline {table}{\numberline {4.9}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - GPU}).\relax }}{138}{table.caption.135}%
 \contentsline {table}{\numberline {4.10}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - CPU}).\relax }}{138}{table.caption.136}%
 \contentsline {table}{\numberline {4.11}{\ignorespaces FPS Performance nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{139}{table.caption.137}%
