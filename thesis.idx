@@ -1,3 +1,41 @@
+\indexentry{compressione|hyperpage}{1}
+\indexentry{ottimizzazione|hyperpage}{1}
+\indexentry{SSD-MobileNet-V1|hyperpage}{1}
+\indexentry{Pruning|hyperpage}{1}
+\indexentry{Knowledge Distillation|hyperpage}{1}
+\indexentry{performance|hyperpage}{1}
+\indexentry{architetture|hyperpage}{1}
+\indexentry{modello|hyperpage}{1}
+\indexentry{object detection|hyperpage}{1}
+\indexentry{Single-Shot-Detector (SSD)|hyperpage}{1}
+\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{1}
+\indexentry{inferenza|hyperpage}{1}
+\indexentry{embedded|hyperpage}{1}
+\indexentry{NVidia Jetson Nano|hyperpage}{2}
+\indexentry{Advanced Driver Assistance Systems - ADAS|hyperpage}{2}
+\indexentry{Adaptive Cruise Control - ACC|hyperpage}{2}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{2}
+\indexentry{autonoma|hyperpage}{2}
+\indexentry{Deep Learning|hyperpage}{2}
+\indexentry{intelligenti|hyperpage}{2}
+\indexentry{autonoma|hyperpage}{2}
+\indexentry{visione artificiale|hyperpage}{3}
+\indexentry{object detection|hyperpage}{3}
+\indexentry{semantic segmentation|hyperpage}{3}
+\indexentry{identificare|hyperpage}{3}
+\indexentry{localizzare|hyperpage}{3}
+\indexentry{etichetta|hyperpage}{3}
+\indexentry{rilevamento|hyperpage}{3}
+\indexentry{telecamere|hyperpage}{3}
+\indexentry{stereo-camere|hyperpage}{3}
+\indexentry{radar|hyperpage}{3}
+\indexentry{rilascio|hyperpage}{3}
+\indexentry{computazionali|hyperpage}{3}
+\indexentry{risorse|hyperpage}{3}
+\indexentry{dataset|hyperpage}{4}
+\indexentry{accuratezza|hyperpage}{4}
+\indexentry{parametri|hyperpage}{4}
+\indexentry{benchmarks|hyperpage}{4}
 \indexentry{Pruning|hyperpage}{69}
 \indexentry{Knowledge Distillation|hyperpage}{69}
 \indexentry{Pruning|hyperpage}{71}
@@ -28,9 +66,9 @@
 \indexentry{Knowledge Distillation|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{100}
 \indexentry{Knowledge Distillation|hyperpage}{118}
-\indexentry{Knowledge Distillation|hyperpage}{126}
-\indexentry{Knowledge Distillation|hyperpage}{130}
+\indexentry{Knowledge Distillation|hyperpage}{120}
+\indexentry{Knowledge Distillation|hyperpage}{131}
 \indexentry{Knowledge Distillation|hyperpage}{133}
-\indexentry{Knowledge Distillation|hyperpage}{149}
 \indexentry{Knowledge Distillation|hyperpage}{150}
+\indexentry{Knowledge Distillation|hyperpage}{151}
 \indexentry{Knowledge Distillation|hyperpage}{154}

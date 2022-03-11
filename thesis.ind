@@ -1,20 +1,140 @@
 \begin{theindex}
 
 \centering\large\sffamily\bfseries%
+\noindent\textbf{A}\par\nopagebreak
+
+ \item \small accuratezza \hfill \hyperpage{4}
+ \item \small Adaptive Cruise Control - ACC \hfill \hyperpage{2}
+ \item \small Advanced Driver Assistance Systems - ADAS \hfill 
+		\hyperpage{2}
+ \item \small architetture \hfill \hyperpage{1}
+ \item \small autonoma \hfill \hyperpage{2}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{B}\par\nopagebreak
+
+ \item \small benchmarks \hfill \hyperpage{4}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{C}\par\nopagebreak
+
+ \item \small compressione \hfill \hyperpage{1}
+ \item \small computazionali \hfill \hyperpage{3}
+ \item \small Convolutional Neural Network - CNN \hfill \hyperpage{2}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{D}\par\nopagebreak
+
+ \item \small dataset \hfill \hyperpage{4}
+ \item \small Deep Learning \hfill \hyperpage{2}
+ \item \small Distilled-Single-Shot-Detector (DSSD) \hfill 
+		\hyperpage{1}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{E}\par\nopagebreak
+
+ \item \small embedded \hfill \hyperpage{1}
+ \item \small etichetta \hfill \hyperpage{3}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{I}\par\nopagebreak
+
+ \item \small identificare \hfill \hyperpage{3}
+ \item \small inferenza \hfill \hyperpage{1}
+ \item \small intelligenti \hfill \hyperpage{2}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
 \noindent\textbf{K}\par\nopagebreak
 
- \item \small Knowledge Distillation \hfill \hyperpage{69}, 
-		\hyperpage{75, 76}, \hyperpage{79}, \hyperpage{97}, 
-		\hyperpage{100}, \hyperpage{118}, \hyperpage{126}, 
-		\hyperpage{130}, \hyperpage{133}, \hyperpage{149, 150}, 
-		\hyperpage{154}
+ \item \small Knowledge Distillation \hfill \hyperpage{1}, 
+		\hyperpage{69}, \hyperpage{75, 76}, \hyperpage{79}, 
+		\hyperpage{97}, \hyperpage{100}, \hyperpage{118}, 
+		\hyperpage{120}, \hyperpage{131}, \hyperpage{133}, 
+		\hyperpage{150, 151}, \hyperpage{154}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{L}\par\nopagebreak
+
+ \item \small localizzare \hfill \hyperpage{3}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{M}\par\nopagebreak
+
+ \item \small modello \hfill \hyperpage{1}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{N}\par\nopagebreak
+
+ \item \small NVidia Jetson Nano \hfill \hyperpage{2}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{O}\par\nopagebreak
+
+ \item \small object detection \hfill \hyperpage{1}, \hyperpage{3}
+ \item \small ottimizzazione \hfill \hyperpage{1}
 
   \indexspace
 
 \centering\large\sffamily\bfseries%
 \noindent\textbf{P}\par\nopagebreak
 
- \item \small Pruning \hfill \hyperpage{69}, \hyperpage{71--74}, 
-		\hyperpage{95--97}
+ \item \small parametri \hfill \hyperpage{4}
+ \item \small performance \hfill \hyperpage{1}
+ \item \small Pruning \hfill \hyperpage{1}, \hyperpage{69}, 
+		\hyperpage{71--74}, \hyperpage{95--97}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{R}\par\nopagebreak
+
+ \item \small radar \hfill \hyperpage{3}
+ \item \small rilascio \hfill \hyperpage{3}
+ \item \small rilevamento \hfill \hyperpage{3}
+ \item \small risorse \hfill \hyperpage{3}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{S}\par\nopagebreak
+
+ \item \small semantic segmentation \hfill \hyperpage{3}
+ \item \small Single-Shot-Detector (SSD) \hfill \hyperpage{1}
+ \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}
+ \item \small stereo-camere \hfill \hyperpage{3}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{T}\par\nopagebreak
+
+ \item \small telecamere \hfill \hyperpage{3}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{V}\par\nopagebreak
+
+ \item \small visione artificiale \hfill \hyperpage{3}
 
 \end{theindex}

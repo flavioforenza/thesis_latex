@@ -100,7 +100,7 @@ Più che accuratezza, la tecnica di pruning è utile a mostrare i risultati iner
 Si ricorda che tale modello è stato costruito da zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, utilizzando le immagini del dataset Open Images.
 Come già accennato nei capitoli precedenti, l'applicazione di tale tecnica può avvenire secondo tre metodi diversi: \emph{Structured}, \emph{Unstructured} e \emph{Global Unstructured}.
 Essendo un modello congruo per l'attività di object detection, per ogni metodo vengono calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione} e di \emph{Regressione}.
-Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. 
+Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. I valori riportati nella tabella precedente, e in quelle a seguire, dimostrano l'incremento della perdita ad ogni percentuale di sparisità. Comparando le figure con i valori riportati nelle tabelle, è importante notare come una crescita pari al 100\% equivalga al doppio del valore di perdita di partenza. La percentuale di variazione di perdita, ammessa in questo elaborato, non supera l'11\%.
 Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La seguente mira direttamente ad azzerare specifici parametri, come pesi e bias, presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che l'accuratezza diverga, l'indice di sparsità aumenta, portandosi a raggiungere un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). I risultati percentuali sono riportati in Tabella \ref{unstructered_pruning_diff_perc}. Questo sta a significare un netto aumento del numero di parametri che possono essere azzerati e di conseguenza eliminati. 
 Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global Unstructured}. La tecnica si concentra nell'applicare un'intera quantità di sparsità, un'unica volta, in tutto il modello. Considerata tra le più affidabili rispetto alle due precedenti, la tecnica rappresenta un vero e proprio set di parametri che possono essere rimossi dal modello. Dai risultati mostrati, capiamo come molti dei pesi presenti sono in realtà superflui. Prima che l'accuratezza degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. \ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance del modello. I corrispettivi valori percentuali della perdita sono visibili in Tabella \ref{global_unstructered_pruning_diff_perc}.
 Tirando le somme, data la significativa grandezza del modello, una tale riduzione, pari a più della metà dei parametri, dimostra come ci sia ancora tanta strada da percorrere per arrivare all'ottenimento un modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i risultati ottenuti non cambierebbero se la rete SSD avesse avuto una rete base diversa da MobileNet-V1.
@@ -139,11 +139,11 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
         \hline
         {\bfseries{0\%}} & 3.20 & / & 1.03 & / & 2.17 & / \\
         \hline
-        {\bfseries{5\%}} & 3.19 & \color{OliveGreen}{{\bfseries{-0.25\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{-0.19\%}}} & 2.16 & \color{OliveGreen}{{\bfseries{-0.28\%}}}\\
+        {\bfseries{5\%}} & 3.19 & \color{OliveGreen}{{\bfseries{-0.25\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{0\%}}} & 2.16 & \color{OliveGreen}{{\bfseries{-0.28\%}}}\\
         \hline 
-        {\bfseries{10\%}} & 3.20 & \color{OliveGreen}{{\bfseries{0.06\%}}} & 1.04 & \color{OliveGreen}{{\bfseries{1.03\%}}} & 2.16 & \color{OliveGreen}{{\bfseries{-0.38\%}}}\\
+        {\bfseries{10\%}} & 3.20 & \color{OliveGreen}{{\bfseries{0\%}}} & 1.04 & \color{OliveGreen}{{\bfseries{1.03\%}}} & 2.16 & \color{OliveGreen}{{\bfseries{-0.38\%}}}\\
         \hline
-        {\bfseries{15\%}} & 3.39 & \color{OliveGreen}{{\bfseries{5.89\%}}} & 1.14 & \color{OliveGreen}{{\bfseries{11.27\%}}} & 2.24 & \color{OliveGreen}{{\bfseries{3.33\%}}}\\
+        {\bfseries{15\%}} & 3.39 & \color{OliveGreen}{{\bfseries{5.89\%}}} & 1.14 & \color{OliveGreen}{{\bfseries{10.68\%}}} & 2.24 & \color{OliveGreen}{{\bfseries{3.33\%}}}\\
         \hline
         \hline
         {\bfseries{20\%}} & 5.15 & \color{red}{{\bfseries{60.9\%}}} & 1.89 & \color{red}{{\bfseries{83.95\%}}} & 3.25 & \color{red}{{\bfseries{49.95\%}}}\\
@@ -195,9 +195,9 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
         \hline
         {\bfseries{0\%}} & 3.20 & / & 1.03 & / & 2.17 & / \\
         \hline
-        {\bfseries{10\%}} & 3.21 & \color{OliveGreen}{{\bfseries{0.36\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{0.38\%}}} & 2.17 & \color{OliveGreen}{{\bfseries{0.35\%}}}\\
+        {\bfseries{10\%}} & 3.21 & \color{OliveGreen}{{\bfseries{0.36\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{0\%}}} & 2.17 & \color{OliveGreen}{{\bfseries{0\%}}}\\
         \hline 
-        {\bfseries{20\%}} & 3.21 & \color{OliveGreen}{{\bfseries{0.42\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{0.42\%}}} & 2.18 & \color{OliveGreen}{{\bfseries{0.42\%}}}\\
+        {\bfseries{20\%}} & 3.21 & \color{OliveGreen}{{\bfseries{0.36\%}}} & 1.03 & \color{OliveGreen}{{\bfseries{0\%}}} & 2.18 & \color{OliveGreen}{{\bfseries{0.42\%}}}\\
         \hline
         {\bfseries{30\%}} & 3.30 & \color{OliveGreen}{{\bfseries{3.28\%}}} & 1.06 & \color{OliveGreen}{{\bfseries{3.19\%}}} & 2.24 & \color{OliveGreen}{{\bfseries{3.32\%}}}\\
         \hline
