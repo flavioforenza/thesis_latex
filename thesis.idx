@@ -17,7 +17,7 @@
 \indexentry{Adaptive Cruise Control - ACC|hyperpage}{2}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{2}
 \indexentry{autonoma|hyperpage}{2}
-\indexentry{Deep Learning|hyperpage}{2}
+\indexentry{deep learning|hyperpage}{2}
 \indexentry{inferenza|hyperpage}{2}
 \indexentry{intelligenza|hyperpage}{2}
 \indexentry{autonoma|hyperpage}{2}
@@ -78,20 +78,30 @@
 \indexentry{apprendimento|hyperpage}{8}
 \indexentry{apprendimento|hyperpage}{9}
 \indexentry{neurone|hyperpage}{9}
+\indexentry{generalizzare|hyperpage}{9}
 \indexentry{apprendimento|hyperpage}{9}
 \indexentry{modello|hyperpage}{9}
 \indexentry{peso|hyperpage}{9}
 \indexentry{neurone|hyperpage}{9}
+\indexentry{funzione di errore|hyperpage}{9}
 \indexentry{neurone|hyperpage}{9}
 \indexentry{layer|hyperpage}{9}
+\indexentry{funzione di errore|hyperpage}{9}
 \indexentry{apprendimento|hyperpage}{9}
+\indexentry{funzione di errore|hyperpage}{10}
 \indexentry{peso|hyperpage}{10}
+\indexentry{funzione di errore|hyperpage}{10}
+\indexentry{gradiente|hyperpage}{10}
+\indexentry{funzione di errore|hyperpage}{10}
 \indexentry{peso|hyperpage}{10}
+\indexentry{back-propagation|hyperpage}{10}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{etichetta|hyperpage}{11}
 \indexentry{modello|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{peso|hyperpage}{11}
+\indexentry{back-propagation|hyperpage}{11}
+\indexentry{generalizzare|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{deep learning|hyperpage}{11}
 \indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{11}
@@ -108,27 +118,40 @@
 \indexentry{apprendimento|hyperpage}{12}
 \indexentry{performance|hyperpage}{12}
 \indexentry{etichetta|hyperpage}{12}
+\indexentry{back-propagation|hyperpage}{12}
 \indexentry{apprendimento|hyperpage}{12}
+\indexentry{back-propagation|hyperpage}{13}
 \indexentry{modello|hyperpage}{13}
 \indexentry{neurone|hyperpage}{13}
 \indexentry{peso|hyperpage}{13}
+\indexentry{funzione di errore|hyperpage}{13}
 \indexentry{peso|hyperpage}{13}
 \indexentry{peso|hyperpage}{13}
 \indexentry{bias|hyperpage}{13}
+\indexentry{funzione di errore|hyperpage}{13}
 \indexentry{bias|hyperpage}{13}
+\indexentry{back-propagation|hyperpage}{13}
 \indexentry{peso|hyperpage}{14}
+\indexentry{gradiente|hyperpage}{14}
 \indexentry{peso|hyperpage}{14}
 \indexentry{peso|hyperpage}{15}
 \indexentry{parametro|hyperpage}{15}
 \indexentry{apprendimento|hyperpage}{15}
+\indexentry{gradiente|hyperpage}{15}
+\indexentry{gradiente|hyperpage}{15}
+\indexentry{gradiente|hyperpage}{15}
 \indexentry{peso|hyperpage}{15}
 \indexentry{neurone|hyperpage}{15}
 \indexentry{layer|hyperpage}{15}
 \indexentry{peso|hyperpage}{15}
 \indexentry{bias|hyperpage}{16}
 \indexentry{peso|hyperpage}{16}
+\indexentry{funzione di errore|hyperpage}{16}
 \indexentry{bias|hyperpage}{16}
+\indexentry{back-propagation|hyperpage}{16}
 \indexentry{bias|hyperpage}{16}
+\indexentry{gradiente|hyperpage}{16}
+\indexentry{funzione di errore|hyperpage}{16}
 \indexentry{bias|hyperpage}{16}
 \indexentry{peso|hyperpage}{16}
 \indexentry{peso|hyperpage}{16}
@@ -158,8 +181,10 @@
 \indexentry{neurone|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
 \indexentry{apprendimento|hyperpage}{22}
+\indexentry{back-propagation|hyperpage}{22}
 \indexentry{modello|hyperpage}{22}
 \indexentry{layer|hyperpage}{22}
+\indexentry{gradiente|hyperpage}{22}
 \indexentry{peso|hyperpage}{22}
 \indexentry{neurone|hyperpage}{22}
 \indexentry{layer|hyperpage}{23}
@@ -303,6 +328,7 @@
 \indexentry{telecamere|hyperpage}{57}
 \indexentry{telecamere|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
+\indexentry{gradiente|hyperpage}{58}
 \indexentry{object detection|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
 \indexentry{autonoma|hyperpage}{58}
@@ -423,6 +449,7 @@
 \indexentry{modello|hyperpage}{75}
 \indexentry{architettura|hyperpage}{75}
 \indexentry{Knowledge Distillation|hyperpage}{75}
+\indexentry{generalizzare|hyperpage}{75}
 \indexentry{modello|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
@@ -438,6 +465,7 @@
 \indexentry{Knowledge Distillation|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
+\indexentry{gradiente|hyperpage}{79}
 \indexentry{performance|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
 \indexentry{Pruning|hyperpage}{95}

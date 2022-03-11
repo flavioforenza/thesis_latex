@@ -122,28 +122,31 @@ umano ma anche di svolgere diversi compiti grazie a una opportuna fase di
 apprendimento\index{apprendimento}. 
 
 \section{Algoritmi di apprendimento}\index{apprendimento}
-Lo scambio di dati tra i vari neuroni\index{neurone} consente alla rete neurale di poter generalizzare 
-anche con dati mai visti nel training set. Questo processo prende il nome di 
-“\emph{Apprendimento}”. L'apprendimento\index{apprendimento} di un modell\index{modello} di rete è tipicamente effettuato 
-a partire da un insieme di dati di addestramento chiamato training test. All'interno 
-di questi insiemi abbiamo la presenza di esempi formati da coppie $(x^j, y^j)$, con 
-$j=1, \dots ,n$, dove $y^j$ sta a rappresentare il valore di output desiderato in funzione 
-del dato di input $x^j$. Per ricavare il valore target è necessario ricercare gli 
-opportuni valori dei pesi\index{peso}, indispensabili a minimizzare l'errore commesso. La 
-quantità dell'errore commesso, dal singolo neurone\index{neurone} $j$, è esprimibile mediante (\ref{error function}):
+Lo scambio di dati tra i vari neuroni\index{neurone} consente alla rete neurale di poter 
+generalizzare\index{generalizzare} anche con dati mai visti nel training set. Questo processo 
+prende il nome di “\emph{Apprendimento}”. L'apprendimento\index{apprendimento} di un modell\index{modello} di rete 
+è tipicamente effettuato a partire da un insieme di dati di addestramento 
+chiamato training test. All'interno di questi insiemi abbiamo la presenza 
+di esempi formati da coppie $(x^j, y^j)$, con $j=1, \dots ,n$, dove $y^j$ sta a rappresentare 
+il valore di output desiderato in funzione del dato di input $x^j$. 
+Per ricavare il valore target è necessario ricercare gli opportuni valori dei 
+pesi\index{peso}, indispensabili a minimizzare l'errore commesso. La quantità dell'errore 
+commesso, dal singolo neurone\index{neurone} $j$, è esprimibile mediante (\ref{error function}):
 \begin{equation}\label{error function 1}
     \emph{$e_j$}=(\hat{y}_j-y_j)^2
 \end{equation}
-Si può osservare che il calcolo di (\ref{error function 1}) è riconducibile alla somma dei quadrati 
-residua tra il valore stimato $\hat{y}_j$ e quello desiderato $y_j$. L'errore totale derivato da 
-tutta la rete è calcolabile prendendo in considerazione la \emph{Funzione di Errore}, a 
-volte chiamata anche di \emph{Costo}, esprimibile dal calcolo della seguente formula:
+Si può osservare che il calcolo di (\ref{error function 1}) è riconducibile alla somma dei 
+quadrati residua tra il valore stimato $\hat{y}_j$ e quello desiderato $y_j$. L'errore 
+totale derivato da tutta la rete è calcolabile prendendo in considerazione la 
+\emph{Funzione di Errore}\index{funzione di errore}, a volte chiamata anche di \emph{Costo}, esprimibile dal calcolo 
+della seguente formula:
 \begin{equation}\label{error function}
     \emph{$E$}=\frac{1}{2}\sum_{j=1}^me_j
 \end{equation}
 dove $m$ rappresenta il numero totale di neuroni\index{neurone} presenti nell'output layer\index{layer}.
-La funzione di errore $E$ risulta essere molto importate nella fase di apprendimento\index{apprendimento} in quanto misura la distanza 
-dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (Fig. \ref{minimum and maximum})
+La funzione di errore\index{funzione di errore} $E$ risulta essere molto importate nella fase di apprendimento\index{apprendimento} 
+in quanto misura la distanza dalla soluzione ottimale. In generale, 
+la funzione di errore\index{funzione di errore} ha diversi minimi (Fig. \ref{minimum and maximum})
 \begin{figure}
     \centering
     \includegraphics[width = 0.7\linewidth]{cost-function.png}
@@ -151,21 +154,22 @@ dalla soluzione ottimale. In generale, la funzione di errore ha diversi minimi (
     \caption{Esempio di minimo globale ($w^A$) e locale ($w^B$).}
     \label{minimum and maximum}
 \end{figure}
-Per ottenere un valore della funzione relativamente basso, l'obiettivo è racchiuso 
-nella ricerca del minimo globale. Tale ricerca avviene in maniera iterativa, partendo 
-da dei pesi\index{peso} a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
-ottimali avviene mediante calcolo delle derivate parziali sulla funzione di errore, 
-ovvero del suo vettore gradiente $\nabla{E}$ (\ref{gradient vector}). 
+Per ottenere un valore 
+della funzione relativamente basso, l'obiettivo è racchiuso nella ricerca del 
+minimo globale. Tale ricerca avviene in maniera iterativa, partendo da dei 
+pesi\index{peso} a valori casuali, fino a definirne dei valori fissi. La ricerca dei pesi 
+ottimali avviene mediante calcolo delle derivate parziali sulla funzione di errore\index{funzione di 
+errore}, ovvero del suo vettore gradiente\index{gradiente} $\nabla{E}$ (\ref{gradient vector}). 
 \begin{equation}\label{gradient vector}
     \nabla{E}[\vec{w}]\equiv\left[\frac{\partial E}{\partial w_{0}}, \frac{\partial E}{\partial w_{1}}, \dots, \frac{\partial E}{\partial w_{j}}\right]
 \end{equation}
-Questo vettore è utile a definire la direzione ed il verso della funzione di errore, 
-in base al set di pesi\index{peso} considerato. Il calcolo delle derivate viene svolto da una ben 
-nota tecnica presente allo stato dell'arte, chiamata \emph{Back Propagation} (discussa 
-nella sezione \ref{BP} di questo elaborato). Una rete neurale artificiale può avere vari 
-tipi di apprendimento: \emph{Supervisionato, Semi-Supervisionato, Non-Supervisionato} 
-e con \emph{Rinforzo}. La scelta di quale usare dipende dalla tipologia della rete e dal 
-suo campo di applicazione.
+Questo vettore è utile a definire la direzione ed il verso della funzione di 
+errore\index{funzione di errore}, in base al set di pesi\index{peso} considerato. Il calcolo delle derivate viene 
+svolto da una ben nota tecnica presente allo stato dell'arte, chiamata \emph{Back 
+Propagation}\index{back-propagation} (discussa nella sezione \ref{BP} di questo elaborato). Una rete 
+neurale artificiale può avere vari tipi di apprendimento: \emph{Supervisionato, 
+Semi-Supervisionato, Non-Supervisionato} e con \emph{Rinforzo}. La scelta di quale 
+usare dipende dalla tipologia della rete e dal suo campo di applicazione.
 
 \subsection{Apprendimento Supervisionato}
 In questa tipologia di apprendimento\index{apprendimento}, l'input fornito alla rete contiene una serie di 
@@ -175,8 +179,8 @@ di output, che nel contesto della regressione, dove si mira a mappare l'input a 
 output continuo. La corretta associazione comporta una buona generalizzazione 
 da parte del modello\index{modello}. L'apprendimento\index{apprendimento} migliora grazie ad una continua variazione 
 dei pesi\index{peso}. Questo tipo di apprendimento è svolto utilizzando la tecnica della 
-\emph{Back-Propagation}. La complessità di questo tipo di apprendimento deriva dalla 
-quantità di dati presenti nel training set. Affinché la rete riesca a generalizzare al 
+\emph{Back-Propagation}\index{back-propagation}. La complessità di questo tipo di apprendimento deriva dalla 
+quantità di dati presenti nel training set. Affinché la rete riesca a \index{generalizzare} al 
 meglio, il training set dev'essere composto da un numero di esempi adeguato. La 
 giusta quantità di esempi è utile a prevenire spiacevoli situazioni di underfitting o 
 di overfitting della rete. In questa categoria di apprendimento\index{apprendimento} fanno parte diversi metodi deep 
@@ -219,9 +223,9 @@ non ci sono mappature tra l'input e l'output. In questo dominio fanno parte le \
 
 
 \subsection{Algoritmo di Back-Propagation}\label{BP}
-Il termine \emph{Back-Propagation} è stato introdotto una prima volta quando si è 
+Il termine \emph{Back-Propagation}\index{back-propagation} è stato introdotto una prima volta quando si è 
 trattato l'argomento dell'apprendimento\index{apprendimento} Supervisionato. Una prima definizione 
-del termine venne data nel 1986 in \cite{03}. L'algoritmo di Back-Propagation agisce 
+del termine venne data nel 1986 in \cite{03}. L'algoritmo di Back-Propagation\index{back-propagation} agisce 
 durante la fase di training del modello\index{modello}, che a sua volta si suddivide in due fasi:
 \begin{enumerate}
     \item \emph{Fase in avanti (forward)}: i dati si propagavano dai neuroni di input fino 
@@ -236,7 +240,7 @@ durante la fase di training del modello\index{modello}, che a sua volta si suddi
     \end{figure}
     \item \emph{Fase in indietro (backward)}:  si confronta il risultato ottenuto, da un primo 
     step in avanti, con il risultato atteso. Tale valore rappresenterà l'errore 
-    commesso, descritto in precedenza dalla funzione di errore $E$ (\ref{error function}). A questo 
+    commesso, descritto in precedenza dalla funzione di errore\index{funzione di errore} $E$ (\ref{error function}). A questo 
     punto, tale errore si propagherà indietro nella rete. Questo meccanismo è 
     utile ad adeguare i vari pesi\index{peso} presenti nella rete affinché le prossime iterazioni 
     diano un errore relativamente basso (caso ottimale in cui l'output stimato è 
@@ -250,8 +254,8 @@ durante la fase di training del modello\index{modello}, che a sua volta si suddi
     \end{figure}
 \end{enumerate}
 Sappiamo che una minima variazione ai pesi\index{peso} e al bias\index{bias} comporta allo stesso modo 
-una variazione della funzione di errore E. Tralasciando un'attimo il bias\index{bias}, il discorso 
-che segue è incentrato sulla gestione dei pesi. L'algoritmo di Back-propagation 
+una variazione della funzione di errore\index{funzione di errore} E. Tralasciando un'attimo il bias\index{bias}, il discorso 
+che segue è incentrato sulla gestione dei pesi. L'algoritmo di Back-propagation\index{back-propagation} 
 applica una correzione chiamata {\bfseries{Delta Rule ($\Delta{W_{ji}}$)}}  ad ogni peso $w_{ji}$, andando 
 a calcolare, tramite la regola della \emph{Chain Rule} \ref{chain rule}, la derivata parziale della funzione 
 di errore $E$, rispetto alla derivata della parziale del peso\index{peso} $w_{ji}$ in considerazione.
@@ -275,7 +279,7 @@ dove:
     \frac{\partial a_{j}}{\partial w_{ji}} = y_i
 \end{equation}
 Ogni elemento definito dalla chain rule sarà utile, oltre che a formare il vettore 
-del gradiente $\nabla{E}$ (\ref{gradient vector}), a determinare la direzione di ricerca all'interno dello spazio 
+del gradiente\index{gradiente} $\nabla{E}$ (\ref{gradient vector}), a determinare la direzione di ricerca all'interno dello spazio 
 dei pesi, per un singolo peso\index{peso} $w_{ji}$. Questa operazione, in letteratura, è nominata 
 come \emph{“Discesa del gradiente”}. Ricapitolando, la (\ref{chain rule}) diventa:
 \begin{equation}\label{chain rule update}
@@ -287,14 +291,14 @@ Giunti a questo punto, è possibile calcolare la \emph{Delta Rule} ($\Delta{W_{j
 \end{equation}
 dove $-\alpha$ simboleggia un parametro\index{parametro}, chiamato \emph{Learning Rate}, che rappresenta 
 un indicatore di velocità di apprendimento\index{apprendimento} della rete. Il segno negativo è utile 
-per agevolare la discesa del gradiente affinché si riduca il valore della funzione di
-errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente locale $\delta_j$}:
+per agevolare la discesa del gradiente\index{gradiente} affinché si riduca il valore della funzione di
+errore $E$. Dalla (\ref{delta rule 1}) possiamo definire il \emph{gradiente\index{gradiente} locale $\delta_j$}:
 \begin{eqnarray}\label{local gradient of output layer}
     \delta_j & = & \frac{\partial E}{\partial a_{j}} \nonumber \\
              & = & \frac{\partial E}{\partial e_{j}} \frac{\partial e_{j}}{\partial y_{j}} \frac{\partial y_{j}}{\partial a_{j}} \nonumber \\
              & = & e_j\varphi_j^{'}(a_j)
 \end{eqnarray}
-Il gradiente locale sta ad indicare i cambiamenti richiesti nei pesi\index{peso} e questo dipende 
+Il gradiente\index{gradiente} locale sta ad indicare i cambiamenti richiesti nei pesi\index{peso} e questo dipende 
 dalla tipologia di neurone\index{neurone}:
 \begin{enumerate}
     \item Se il neurone \emph{j} è un neurone di output, $\delta_j$ è uguale al prodotto della derivata 
@@ -316,10 +320,10 @@ aggiornare il peso\index{peso} $w_{ji}$ in questione, rispetto all'iterazione $n
     w_{ji}(n+1) = w_{ji}(n)+\Delta{w_{ji}(n)}
 \end{equation}
 In precedenza, si era preferito mettere da parte il concetto di bias\index{bias} per concentrarci 
-maggiormente sui pesi\index{peso}. Essendo la funzione di errore sensibile anche al cambiamento 
-del bias\index{bias}, l'algoritmo di back-propagation ha lo scopo di aggiornare anche i 
-vari bias\index{bias} esistenti integrando, nel vettore gradiente $\nabla{E}$, le derivate parziali della 
-funzione di Errore rispetto al bias\index{bias} $b$:
+maggiormente sui pesi\index{peso}. Essendo la funzione di errore\index{funzione di errore} sensibile anche al cambiamento 
+del bias\index{bias}, l'algoritmo di back-propagation\index{back-propagation} ha lo scopo di aggiornare anche i 
+vari bias\index{bias} esistenti integrando, nel vettore gradiente\index{gradiente} $\nabla{E}$, le derivate parziali della 
+funzione di Errore\index{funzione di errore} rispetto al bias\index{bias} $b$:
 \begin{equation}\label{gradient vector with bias}
     \nabla{E}[\vec{b}]\equiv\left[\frac{\partial E}{\partial b_{0}}, \frac{\partial E}{\partial b_{1}}, \dots, \frac{\partial E}{\partial b_{j}}\right]
 \end{equation}
@@ -478,7 +482,7 @@ Questa funzione esegue delle operazioni non lineari ponendo a zero tutti i valor
 negativi e lasciando invariati i valori positivi (Fig. \ref{relu}), generando in questo modo delle 
 attivazioni sparse.  L'operazione prende il nome di element-wise su tutti i pixel. 
 L'implementazione di questa funzione, rispetto alle sue concorrenti, è utile ad accelerare 
-il processo di apprendimento\index{apprendimento} (backpropagation) del modello\index{modello} semplificando 
+il processo di apprendimento\index{apprendimento} (backpropagation)\index{back-propagation} del modello\index{modello} semplificando 
 le operazioni nei vari layer\index{layer}.
 \begin{figure}
     \centering
@@ -489,7 +493,7 @@ le operazioni nei vari layer\index{layer}.
 \end{figure}
 Rispetto alla sigmoide, la funzione ReLU pone a zero la derivata di un numero 
 negativo, mentre per i numeri positivi la derivata è uguale a uno evitando la 
-saturazione del gradiente.
+saturazione del gradiente\index{gradiente}.
 
 \subsubsection{Pooling}
 La tecnica di Pooling, chiamata anche di subsampling o downsamping, ha il 
@@ -1477,7 +1481,7 @@ studi hanno esaltato l'importanza del corretto posizionamento delle camere.
 Per il rilevamento\index{rilevamento} e il tracciamento dei veicoli, importante risulta essere 
 l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
 è preferito utilizzare altre tipologie di feature. Nello specifico, queste feature 
-si riferiscono all'Istogramma dell'Orientazione del Gradiente (\emph{Histogram 
+si riferiscono all'Istogramma dell'Orientazione del Gradiente\index{gradiente} (\emph{Histogram 
 of Oriented Gradient (HOG)}) e \emph{Haar-like}, quest'ultime sono feature che 
 devono il loro nome per la loro somiglianza alle wavelet Haar, entrambe molto 
 diffuse in ambito di object detection\index{object detection} e per il rilevamento\index{rilevamento} dei veicoli. Un'altra 
@@ -1992,7 +1996,7 @@ Learning è quello di trasferire i pesi\index{peso} da un modello pre-addestrato
 un nuovo modello\index{modello}, entrambi esattamente con la stessa architettura\index{architettura} di rete. 
 Questo vuol dire che la nuova rete è profonda e complessa quanto la rete pre-addestrata.
 L'obiettivo della Knowledge distillation\index{Knowledge Distillation} è nettamente differente.
-In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare", 
+In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare"\index{generalizzare}, 
 possono essere trasferite da un insegnante verso uno studente mediante i 
 cosiddetti "\emph{soft targets}". Utilizzando i logits del modello\index{modello} insegnante, che 
 altro non sono che distribuzioni di probabilità sulle classi, si può attuare 
@@ -2101,7 +2105,7 @@ seguente formula:
 \begin{equation}\label{cross_entropy_loss}
     C(z,v) = -\sum_jp_j \log{q_j}
 \end{equation}
-Il gradiente derivante dal calcolo della derivata $dC/dz_J$ sull'entropia incrociata 
+Il gradiente\index{gradiente} derivante dal calcolo della derivata $dC/dz_J$ sull'entropia incrociata 
 (\ref{cross_entropy_loss}), si ottiene con la seguente formula:
 \begin{equation}\label{cross_entropy_soft}
     \frac{dC}{dz_j}=\frac{1}{T}(q_j-p_j)=\frac{1}{T}\left(\frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}-\frac{e^{v_j/T}}{\sum_{k=1}^K e^{v_k/T}}\right)
