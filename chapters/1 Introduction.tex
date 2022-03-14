@@ -10,20 +10,20 @@
 \section{Lavoro di tesi}
 Lo studio della tesi si è concentrato sulla ricerca e sull'implementazione 
 di varie tecniche di compressione\index{compressione} e, allo stesso tempo, di ottimizzazione\index{ottimizzazione}. 
-Prendendo in considerazione il modello SSD-MobileNet-V1\index{SSD-MobileNet-V1}, ampiamente 
+Prendendo in considerazione il modello\index{modello} SSD-MobileNet-V1\index{SSD-MobileNet-V1}, ampiamente 
 conosciuto alla stato dell'arte, lo scopo è quello di creare una versione 
 personalizzata, ad alte prestazioni, derivante dall'impiego di due tecniche 
 di compressione meglio conosciute come \emph{Pruning (Potatura)}\index{Pruning} e \emph{Knowledge 
 Distillation (Conoscenza Distillata)}\index{Knowledge Distillation}. A causa della sua maturità 
 raggiunta, solo tramite quest'ultima è stato possibile concentrare la maggior parte 
-degli sforzi utili a ricavare il modello finale che, tramite un confronto delle 
+degli sforzi utili a ricavare il modello\index{modello} finale che, tramite un confronto delle 
 performance\index{performance} su tre diverse architetture\index{architettura}, ha permesso di raggiungere un 
 rendimento migliore rispetto alla sua versione originale. Dopo aver generato 
 un nuovo modello\index{modello}, un ulteriore passaggio fondamentale riguarda la 
 sua integrazione in una nota architettura adibita all'attività di object detection\index{object detection}: 
-la \emph{Single-Shot-Detector (SSD)}\index{Single-Shot-Detector (SSD)}. Questa fusione ha dato vita al modello proposto 
+la \emph{Single-Shot-Detector (SSD)}\index{Single-Shot-Detector (SSD)}. Questa fusione ha dato vita al modello\index{modello} proposto 
 intitolato \emph{Distilled-Single-Shot-Detector (DSSD)}\index{Distilled-Single-Shot-Detector (DSSD)}. Le capacità di 
-questo modello puntano ad ottenere prestazioni elevate, in termini di velocità di 
+questo modello\index{modello} puntano ad ottenere prestazioni elevate, in termini di velocità di 
 inferenza\index{inferenza}, ad una dimensione notevolmente ridotta. Questi benefici, oltre a 
 consentire un risparmio energetico, trovano un'integrazione nei dispositivi 
 di tipo embedded\index{embedded}. Tra le tre architetture hardware utilizzate, compare 
@@ -69,14 +69,14 @@ un punto di vista di sicurezza, ma d'altra parte richiedo un quantitativo
 computazionale non indifferente. La combinazione di flussi provenienti da 
 hardware differenti, come telecamere\index{telecamera}, stereo-camere\index{stereo-camera} e radar\index{radar}, richiede 
 una gestione efficiente da parte del computer di bordo. Allo stesso modo, è 
-impensabile effettuare il rilascio\index{rilascio} di un modello su una piattaforma a limitate 
+impensabile effettuare il rilascio\index{rilascio} di un modello\index{modello} su una piattaforma a limitate 
 capacità computazionali\index{computazionale}, soprattutto se l'argomento riguarda la sicurezza. 
 L'architettura utilizzata per le varie elaborazioni, deve possedere una notevole 
 quantità di calcolo che, tradotta in altri termini, può comportare 
 una spesa monetaria considerevole. Se invece tale architettura dipendesse dalla 
 disponibilità energetica proveniente del proprio vano batteria, allora le sfide 
 da affrontare sono davvero ardue. Bisogna quindi trovare un metodo che 
-ottimizzi il modello ospitato, affinché abbia un basso impatto sulle risorse\index{risorse} 
+ottimizzi il modello\index{modello} ospitato, affinché abbia un basso impatto sulle risorse\index{risorsa} 
 computazionali\index{computazionale} e energetiche preservando al contempo la sua accuratezza.
 
 \section{Struttura della tesi}
@@ -84,8 +84,8 @@ La struttura dell'elaborato di tesi è organizzata come segue. Nel Capitolo
 2 vengono discussi i metodi presenti allo stato dell'arte utili a creare 
 un quadro generale sugli argomenti e sulle tecniche utilizzate. Il Capitolo 3 
 fornisce una descrizione delle metodologie impiegate per la realizzazione 
-del modello proposto DSSD\index{Distilled-Single-Shot-Detector (DSSD)}, inclusi i passaggi sottoposti ad ogni modello, 
-tra cui quelli utili a ricavare il modello finale. Sempre in quest'ultimo, 
+del modello\index{modello} proposto DSSD\index{Distilled-Single-Shot-Detector (DSSD)}, inclusi i passaggi sottoposti ad ogni modello, 
+tra cui quelli utili a ricavare il modello\index{modello} finale. Sempre in quest'ultimo, 
 verrano elencate le librerie utilizzate che hanno permesso il raggiungimento 
 dei risultati finali. Nel Capitolo 4 invece, oltre ad una descrizione inerente i 
 dataset\index{dataset} utilizzati, vengono visualizzati tutti i risultati raggiunti dal modello\index{modello} 

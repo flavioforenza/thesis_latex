@@ -441,7 +441,7 @@ valore dal kernel\index{kernel} e moltiplicato con i valori corrispondenti al ca
 dell'immagine. Successivamente, il valore risultante verrà inserito nella 
 giusta posizione della feature map\index{feature map}. Il numero di feature map\index{feature map} sarà uguale 
 al numero di filtri applicato sull'immagine. La generazione di ogni feature 
-map\index{feature map} dipende da quattro tipi di parametri\index{parametro}, detti \emph{iperparametri}\index{iperparametri}:
+map\index{feature map} dipende da quattro tipi di parametri\index{parametro}, detti \emph{iperparametri}\index{iperparametro}:
 \begin{enumerate}
     \item \emph{Dimensione dei filtri}: pari alla dimensione del campo ricettivo\index{campo ricettivo} ovvero 
     della porzione dell'immagine che si vuole analizzare;
@@ -476,7 +476,7 @@ map\index{feature map} dipende da quattro tipi di parametri\index{parametro}, de
         \label{padding e stride}
     \end{figure}
 \end{enumerate}
-La scelta degli iperparametri\index{iperparametri} non è standard ma dipende maggiormente 
+La scelta degli iperparametri\index{iperparametro} non è standard ma dipende maggiormente 
 dalla tipologia dei dati a disposizione.
 
 \subsubsection{Rectified Linear Unit (ReLU)}
@@ -510,7 +510,7 @@ una finestra, senza alcun tipo di valore o peso\index{peso} al suo interno, di d
 inferiore rispetto alla grandezza della feature map\index{feature map}, con lo scopo di aggregare 
 i valori sottostanti. Esistono varie operazioni di aggregazione, le più comuni 
 sono: somma, massimo, minimo e media. Così come la convoluzione\index{convoluzione}, anche 
-qui gli iperparametri\index{iperparametri} Stride\index{stride} e Kernel\index{kernel} size, entrambi solitamente uguale 
+qui gli iperparametri\index{iperparametro} Stride\index{stride} e Kernel\index{kernel} size, entrambi solitamente uguale 
 a 2, sono fondamentali al fine di gestire la finestra sovrastante. Ogni 
 neurone\index{neurone}, nello strato di pooling\index{pooling}, è connesso a un numero limitato di neuroni 
 nello strato precedente.
@@ -784,7 +784,7 @@ riportate alcune delle sfide chiave affrontate dalle reti neurali \cite{zaidi202
     dell'esatto numero di esempi per addestrare un modello\index{modello} è una domanda 
     di ricerca ancora aperta;
     \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso 
-    su dispostivi sprovvisti di elevate risorse\index{risorse} di calcolo. La ricerca è rivolta 
+    su dispostivi sprovvisti di elevate risorse\index{risorsa} di calcolo. La ricerca è rivolta 
     nell'ottimizzazione\index{ottimizzazione} di tali modelli affinché questi vengano eseguito 
     anche su dispositivi mobili.
 \end{itemize}
@@ -1523,7 +1523,7 @@ a livello di sicurezza in quanto queste sono delle tecnologie passive, che
 non interagiscono in alcun modo con l'ambiente ed inoltre sono altamente 
 influenzate dalle condizioni dell'ambiente esterno. La ricerca pertanto si 
 sta spostando verso l'utilizzo di altri sensori quali telecamere\index{telecamera} con flash, 
-termocamere e sistemi per la stima della profondità (es: LIDAR)\index{ligth detection and range (LIDAR)}. Diversi 
+termocamere e sistemi per la stima della profondità (es: LIDAR)\index{ligth detector and range (LIDAR)}. Diversi 
 studi hanno esaltato l'importanza del corretto posizionamento delle camere. 
 Per il rilevamento\index{rilevamento} e il tracciamento dei veicoli, importante risulta essere 
 l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
@@ -1682,7 +1682,7 @@ sono ritenute inaffidabili in questi casi. La ricerca sta puntando sull'ultima
 categoria, quella delle tecniche basate sul comportamento. Quest'ultime 
 sono ritenute come misure non invasive per il rilevamento\index{rilevamento} della sonnolenza. 
 L'affaticamento del conducente è calcolato in base a vari fattori come il 
-rapporto di chiusura degli occhi (\emph{eye closure ratio})\index{eue closure ratio}, il battito delle palpebre 
+rapporto di chiusura degli occhi (\emph{eye closure ratio})\index{eye closure ratio}, il battito delle palpebre 
 (\emph{eye blinking})\index{eye blinking} la posizione della testa (\emph{hand position})\index{hand position}, le espressioni facciali 
 (\emph{facial expression})\index{facial expression} e gli sbadigli (\emph{yawning})\index{yawning}. La metrica più utilizzata per 
 il rilevamento della sonnolenza si basa sull'osservazione dello stato degli 
@@ -2021,7 +2021,7 @@ apprendimento\index{apprendimento} in fase di training oltre che a un decremento
 I modelli profondi hanno avuto considerevoli successi, tuttavia l'elevata richiesta 
 computazionale\index{computazionale} e l'aumento della richiesta di archiviazione, rendono 
 difficile la loro implementazione in applicazioni real-time, specialmente su 
-dispositivi con risorse\index{risorse} limitate come la videosorveglianza e la guida autonoma\index{autonoma}. 
+dispositivi con risorse\index{risorsa} limitate come la videosorveglianza e la guida autonoma\index{autonoma}. 
 Questa grande limitazione ha aperto le porte allo sviluppo di una 
 nuova tecnica di compressione/ottimizzazione\index{ottimizzazione} \index{compressione}delle reti neurali chiamata 
 \emph{Knowledge Distillation}\index{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 

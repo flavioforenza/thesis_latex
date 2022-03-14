@@ -1,14 +1,18 @@
 \indexentry{compressione|hyperpage}{1}
 \indexentry{ottimizzazione|hyperpage}{1}
+\indexentry{modello|hyperpage}{1}
 \indexentry{SSD-MobileNet-V1|hyperpage}{1}
 \indexentry{Pruning|hyperpage}{1}
 \indexentry{Knowledge Distillation|hyperpage}{1}
+\indexentry{modello|hyperpage}{1}
 \indexentry{performance|hyperpage}{1}
 \indexentry{architettura|hyperpage}{1}
 \indexentry{modello|hyperpage}{1}
 \indexentry{object detection|hyperpage}{1}
 \indexentry{Single-Shot-Detector (SSD)|hyperpage}{1}
+\indexentry{modello|hyperpage}{1}
 \indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{1}
+\indexentry{modello|hyperpage}{1}
 \indexentry{inferenza|hyperpage}{1}
 \indexentry{embedded|hyperpage}{1}
 \indexentry{NVidia Jetson Nano|hyperpage}{2}
@@ -32,10 +36,14 @@
 \indexentry{stereo-camera|hyperpage}{3}
 \indexentry{radar|hyperpage}{3}
 \indexentry{rilascio|hyperpage}{3}
+\indexentry{modello|hyperpage}{3}
 \indexentry{computazionale|hyperpage}{3}
-\indexentry{risorse|hyperpage}{3}
+\indexentry{modello|hyperpage}{3}
+\indexentry{risorsa|hyperpage}{3}
 \indexentry{computazionale|hyperpage}{3}
+\indexentry{modello|hyperpage}{4}
 \indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{4}
+\indexentry{modello|hyperpage}{4}
 \indexentry{dataset|hyperpage}{4}
 \indexentry{modello|hyperpage}{4}
 \indexentry{accuratezza|hyperpage}{4}
@@ -210,7 +218,7 @@
 \indexentry{feature map|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
 \indexentry{parametro|hyperpage}{19}
-\indexentry{iperparametri|hyperpage}{19}
+\indexentry{iperparametro|hyperpage}{19}
 \indexentry{campo ricettivo|hyperpage}{19}
 \indexentry{convoluzione|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
@@ -219,7 +227,7 @@
 \indexentry{stride|hyperpage}{21}
 \indexentry{padding|hyperpage}{21}
 \indexentry{feature map|hyperpage}{21}
-\indexentry{iperparametri|hyperpage}{21}
+\indexentry{iperparametro|hyperpage}{21}
 \indexentry{feature map|hyperpage}{21}
 \indexentry{convoluzione|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
@@ -236,7 +244,7 @@
 \indexentry{peso|hyperpage}{22}
 \indexentry{feature map|hyperpage}{22}
 \indexentry{convoluzione|hyperpage}{22}
-\indexentry{iperparametri|hyperpage}{22}
+\indexentry{iperparametro|hyperpage}{22}
 \indexentry{stride|hyperpage}{22}
 \indexentry{kernel|hyperpage}{22}
 \indexentry{neurone|hyperpage}{22}
@@ -309,7 +317,7 @@
 \indexentry{etichetta|hyperpage}{31}
 \indexentry{variabilità inter-classe|hyperpage}{32}
 \indexentry{modello|hyperpage}{32}
-\indexentry{risorse|hyperpage}{32}
+\indexentry{risorsa|hyperpage}{32}
 \indexentry{ottimizzazione|hyperpage}{32}
 \indexentry{object detection|hyperpage}{32}
 \indexentry{modello|hyperpage}{32}
@@ -628,7 +636,7 @@
 \indexentry{background|hyperpage}{57}
 \indexentry{telecamera|hyperpage}{57}
 \indexentry{telecamera|hyperpage}{58}
-\indexentry{ligth detection and range (LIDAR)|hyperpage}{58}
+\indexentry{ligth detector and range (LIDAR)|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
@@ -667,7 +675,7 @@
 \indexentry{autonoma|hyperpage}{62}
 \indexentry{modello|hyperpage}{63}
 \indexentry{rilevamento|hyperpage}{63}
-\indexentry{eue closure ratio|hyperpage}{63}
+\indexentry{eye closure ratio|hyperpage}{63}
 \indexentry{eye blinking|hyperpage}{63}
 \indexentry{hand position|hyperpage}{63}
 \indexentry{facial expression|hyperpage}{63}
@@ -816,7 +824,7 @@
 \indexentry{accuratezza|hyperpage}{75}
 \indexentry{Knowledge Distillation|hyperpage}{75}
 \indexentry{computazionale|hyperpage}{75}
-\indexentry{risorse|hyperpage}{75}
+\indexentry{risorsa|hyperpage}{75}
 \indexentry{autonoma|hyperpage}{75}
 \indexentry{ottimizzazione|hyperpage}{75}
 \indexentry{compressione|hyperpage}{75}
@@ -875,16 +883,269 @@
 \indexentry{performance|hyperpage}{80}
 \indexentry{modello|hyperpage}{80}
 \indexentry{soft targets|hyperpage}{80}
+\indexentry{visione artificiale|hyperpage}{81}
+\indexentry{object detection|hyperpage}{81}
+\indexentry{semantic segmentation|hyperpage}{81}
+\indexentry{compressione|hyperpage}{81}
+\indexentry{risorsa|hyperpage}{81}
+\indexentry{computazionale|hyperpage}{81}
+\indexentry{compressione|hyperpage}{81}
+\indexentry{object detection|hyperpage}{81}
+\indexentry{risorsa|hyperpage}{81}
+\indexentry{computazionale|hyperpage}{81}
+\indexentry{embedded|hyperpage}{81}
+\indexentry{NVidia Jetson Nano|hyperpage}{81}
+\indexentry{frame per second (FPS)|hyperpage}{81}
+\indexentry{architettura|hyperpage}{82}
+\indexentry{benchmark|hyperpage}{82}
+\indexentry{inferenza|hyperpage}{82}
+\indexentry{benchmark|hyperpage}{82}
+\indexentry{NVidia Jetson Nano|hyperpage}{82}
+\indexentry{embedded|hyperpage}{82}
+\indexentry{visione artificiale|hyperpage}{82}
+\indexentry{inferenza|hyperpage}{82}
+\indexentry{architettura|hyperpage}{82}
+\indexentry{NVidia Jetson Nano|hyperpage}{82}
+\indexentry{embedded|hyperpage}{82}
+\indexentry{deep learning|hyperpage}{82}
+\indexentry{rilascio|hyperpage}{82}
+\indexentry{computazionale|hyperpage}{82}
+\indexentry{transfer learning|hyperpage}{82}
+\indexentry{NVidia Jetson Nano|hyperpage}{84}
+\indexentry{TensorRT|hyperpage}{84}
+\indexentry{quantization|hyperpage}{84}
+\indexentry{embedded|hyperpage}{84}
+\indexentry{NVidia Jetson Nano|hyperpage}{84}
+\indexentry{performance|hyperpage}{84}
+\indexentry{architettura|hyperpage}{84}
+\indexentry{NVidia Jetson Nano|hyperpage}{84}
+\indexentry{compressione|hyperpage}{85}
+\indexentry{ottimizzazione|hyperpage}{85}
+\indexentry{inferenza|hyperpage}{85}
+\indexentry{frame per second (FPS)|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{risorsa|hyperpage}{85}
+\indexentry{computazionale|hyperpage}{85}
+\indexentry{NVidia Jetson Nano|hyperpage}{85}
+\indexentry{performance|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{computazionale|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{dataset|hyperpage}{85}
+\indexentry{object detection|hyperpage}{85}
+\indexentry{semantic segmentation|hyperpage}{85}
+\indexentry{architettura|hyperpage}{85}
+\indexentry{performance|hyperpage}{85}
+\indexentry{inferenza|hyperpage}{85}
+\indexentry{compressione|hyperpage}{86}
+\indexentry{ottimizzazione|hyperpage}{86}
+\indexentry{iperparametro|hyperpage}{86}
+\indexentry{architettura|hyperpage}{86}
+\indexentry{layer|hyperpage}{88}
+\indexentry{funzione di attivazione|hyperpage}{88}
+\indexentry{classificazione|hyperpage}{88}
+\indexentry{iperparametro|hyperpage}{88}
+\indexentry{parametro|hyperpage}{88}
+\indexentry{architettura|hyperpage}{88}
+\indexentry{layer|hyperpage}{89}
+\indexentry{architettura|hyperpage}{90}
+\indexentry{forward|hyperpage}{90}
+\indexentry{bounding box|hyperpage}{90}
+\indexentry{architettura|hyperpage}{90}
+\indexentry{backbone|hyperpage}{90}
+\indexentry{classificazione|hyperpage}{90}
+\indexentry{feature map|hyperpage}{90}
+\indexentry{feature map|hyperpage}{90}
+\indexentry{identificare|hyperpage}{90}
+\indexentry{background|hyperpage}{90}
+\indexentry{feature map|hyperpage}{91}
+\indexentry{feature map|hyperpage}{91}
+\indexentry{bounding box|hyperpage}{91}
+\indexentry{identificare|hyperpage}{91}
+\indexentry{background|hyperpage}{91}
+\indexentry{ground truth|hyperpage}{91}
+\indexentry{localizzazione|hyperpage}{91}
+\indexentry{parametro|hyperpage}{91}
+\indexentry{feature map|hyperpage}{91}
+\indexentry{ground truth|hyperpage}{92}
+\indexentry{background|hyperpage}{92}
+\indexentry{feature map|hyperpage}{92}
+\indexentry{feature map|hyperpage}{92}
+\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{93}
+\indexentry{modello|hyperpage}{93}
+\indexentry{architettura|hyperpage}{93}
+\indexentry{object detection|hyperpage}{93}
+\indexentry{modello|hyperpage}{93}
+\indexentry{architettura|hyperpage}{93}
+\indexentry{SSD-MobileNet-V1|hyperpage}{93}
+\indexentry{backbone|hyperpage}{93}
+\indexentry{funzione di attivazione|hyperpage}{93}
+\indexentry{regressione|hyperpage}{93}
+\indexentry{classificazione|hyperpage}{93}
+\indexentry{feature map|hyperpage}{93}
+\indexentry{layer|hyperpage}{93}
+\indexentry{feature|hyperpage}{93}
+\indexentry{classificazione|hyperpage}{93}
+\indexentry{regressione|hyperpage}{93}
+\indexentry{kernel|hyperpage}{94}
+\indexentry{stride|hyperpage}{94}
+\indexentry{layer|hyperpage}{94}
+\indexentry{classificazione|hyperpage}{94}
+\indexentry{layer|hyperpage}{94}
+\indexentry{regressione|hyperpage}{94}
+\indexentry{architettura|hyperpage}{94}
+\indexentry{compressione|hyperpage}{94}
+\indexentry{ottimizzazione|hyperpage}{94}
+\indexentry{architettura|hyperpage}{94}
+\indexentry{modello|hyperpage}{94}
+\indexentry{compressione|hyperpage}{95}
+\indexentry{ottimizzazione|hyperpage}{95}
+\indexentry{embedded|hyperpage}{95}
+\indexentry{NVidia Jetson Nano|hyperpage}{95}
+\indexentry{modello|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
+\indexentry{inferenza|hyperpage}{95}
+\indexentry{modello|hyperpage}{95}
+\indexentry{modello|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
+\indexentry{modello|hyperpage}{95}
+\indexentry{SSD-MobileNet-V1|hyperpage}{95}
+\indexentry{modello|hyperpage}{96}
+\indexentry{fully connected|hyperpage}{96}
 \indexentry{Pruning|hyperpage}{96}
 \indexentry{Pruning|hyperpage}{96}
+\indexentry{sparsità|hyperpage}{96}
+\indexentry{peso|hyperpage}{96}
+\indexentry{norma L1|hyperpage}{96}
+\indexentry{modello|hyperpage}{96}
+\indexentry{modello|hyperpage}{96}
+\indexentry{forward|hyperpage}{97}
+\indexentry{rilascio|hyperpage}{97}
+\indexentry{inferenza|hyperpage}{97}
+\indexentry{sparsità|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{97}
 \indexentry{Pruning|hyperpage}{97}
+\indexentry{compressione|hyperpage}{97}
+\indexentry{ottimizzazione|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{97}
+\indexentry{modello|hyperpage}{97}
+\indexentry{architettura|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{97}
+\indexentry{architettura|hyperpage}{98}
+\indexentry{iperparametro|hyperpage}{98}
+\indexentry{computazionale|hyperpage}{98}
+\indexentry{kernel|hyperpage}{98}
+\indexentry{feature map|hyperpage}{98}
+\indexentry{parametro|hyperpage}{99}
+\indexentry{iperparametro|hyperpage}{99}
+\indexentry{feature map|hyperpage}{99}
+\indexentry{computazionale|hyperpage}{99}
+\indexentry{accuratezza|hyperpage}{99}
+\indexentry{modello|hyperpage}{99}
+\indexentry{modello|hyperpage}{99}
+\indexentry{accuratezza|hyperpage}{99}
+\indexentry{dataset|hyperpage}{99}
+\indexentry{etichetta|hyperpage}{99}
+\indexentry{autonoma|hyperpage}{99}
+\indexentry{architettura|hyperpage}{99}
+\indexentry{iperparametro|hyperpage}{99}
 \indexentry{Knowledge Distillation|hyperpage}{100}
+\indexentry{soft targets|hyperpage}{100}
+\indexentry{temperatura|hyperpage}{100}
+\indexentry{generalizzare|hyperpage}{100}
+\indexentry{temperatura|hyperpage}{100}
+\indexentry{modello|hyperpage}{101}
+\indexentry{iperparametro|hyperpage}{101}
+\indexentry{modello|hyperpage}{101}
+\indexentry{apprendimento|hyperpage}{101}
+\indexentry{modello|hyperpage}{101}
+\indexentry{temperatura|hyperpage}{101}
+\indexentry{temperatura|hyperpage}{101}
+\indexentry{accuratezza|hyperpage}{101}
+\indexentry{apprendimento|hyperpage}{101}
+\indexentry{temperatura|hyperpage}{102}
+\indexentry{autonoma|hyperpage}{102}
+\indexentry{architettura|hyperpage}{102}
+\indexentry{backbone|hyperpage}{102}
+\indexentry{architettura|hyperpage}{102}
+\indexentry{architettura|hyperpage}{102}
+\indexentry{regressione|hyperpage}{103}
+\indexentry{classificazione|hyperpage}{103}
+\indexentry{iperparametro|hyperpage}{103}
+\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{103}
+\indexentry{computazionale|hyperpage}{103}
+\indexentry{risorsa|hyperpage}{103}
+\indexentry{architettura|hyperpage}{103}
+\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{103}
+\indexentry{layer|hyperpage}{103}
+\indexentry{accuratezza|hyperpage}{103}
+\indexentry{parametro|hyperpage}{103}
+\indexentry{back propagation|hyperpage}{103}
+\indexentry{parametro|hyperpage}{103}
+\indexentry{gradiente|hyperpage}{103}
+\indexentry{accuratezza|hyperpage}{104}
+\indexentry{dataset|hyperpage}{104}
+\indexentry{benchmark|hyperpage}{104}
+\indexentry{inferenza|hyperpage}{104}
+\indexentry{modello|hyperpage}{104}
+\indexentry{inferenza|hyperpage}{105}
+\indexentry{TensorRT|hyperpage}{105}
+\indexentry{TensorRT|hyperpage}{105}
+\indexentry{ottimizzazione|hyperpage}{105}
+\indexentry{quantization|hyperpage}{105}
+\indexentry{ottimizzazione|hyperpage}{105}
+\indexentry{layer|hyperpage}{105}
+\indexentry{convoluzione|hyperpage}{106}
+\indexentry{layer|hyperpage}{106}
+\indexentry{TensorRT|hyperpage}{106}
+\indexentry{kernel|hyperpage}{106}
+\indexentry{ottimizzazione|hyperpage}{106}
+\indexentry{layer|hyperpage}{106}
+\indexentry{TensorRT|hyperpage}{106}
+\indexentry{ottimizzazione|hyperpage}{106}
+\indexentry{TensorRT|hyperpage}{107}
+\indexentry{inferenza|hyperpage}{107}
+\indexentry{TensorRT|hyperpage}{107}
+\indexentry{kernel|hyperpage}{107}
+\indexentry{ottimizzazione|hyperpage}{107}
+\indexentry{inferenza|hyperpage}{107}
+\indexentry{embedded|hyperpage}{107}
+\indexentry{NVidia Jetson Nano|hyperpage}{107}
+\indexentry{computer vision|hyperpage}{107}
+\indexentry{inferenza|hyperpage}{107}
+\indexentry{TensorRT|hyperpage}{107}
+\indexentry{object detection|hyperpage}{108}
+\indexentry{semantic segmentation|hyperpage}{108}
+\indexentry{inferenza|hyperpage}{108}
+\indexentry{frame per second (FPS)|hyperpage}{108}
+\indexentry{frame per second (FPS)|hyperpage}{108}
+\indexentry{rilevamento|hyperpage}{108}
+\indexentry{bounding box|hyperpage}{108}
+\indexentry{classificazione|hyperpage}{108}
+\indexentry{semantic segmentation|hyperpage}{109}
+\indexentry{inferenza|hyperpage}{109}
+\indexentry{modello|hyperpage}{109}
+\indexentry{TensorRT|hyperpage}{110}
+\indexentry{computazionale|hyperpage}{110}
+\indexentry{visione artificiale|hyperpage}{110}
+\indexentry{performance|hyperpage}{111}
+\indexentry{computazionale|hyperpage}{111}
+\indexentry{TensorRT|hyperpage}{111}
+\indexentry{TensorRT|hyperpage}{111}
+\indexentry{benchmark|hyperpage}{111}
+\indexentry{inferenza|hyperpage}{111}
+\indexentry{modello|hyperpage}{111}
+\indexentry{benchmark|hyperpage}{111}
+\indexentry{frame per second (FPS)|hyperpage}{112}
+\indexentry{inferenza|hyperpage}{112}
+\indexentry{performance|hyperpage}{112}
+\indexentry{inferenza|hyperpage}{112}
+\indexentry{computazionale|hyperpage}{112}
+\indexentry{inferenza|hyperpage}{112}
+\indexentry{modello|hyperpage}{112}
 \indexentry{Knowledge Distillation|hyperpage}{118}
 \indexentry{Knowledge Distillation|hyperpage}{120}
 \indexentry{Knowledge Distillation|hyperpage}{131}
