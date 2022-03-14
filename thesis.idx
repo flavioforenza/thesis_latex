@@ -178,30 +178,50 @@
 \indexentry{feature|hyperpage}{18}
 \indexentry{classificazione|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
+\indexentry{campo ricettivo|hyperpage}{18}
+\indexentry{convoluzione|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
 \indexentry{pooling|hyperpage}{18}
+\indexentry{convoluzione|hyperpage}{18}
 \indexentry{funzione di attivazione|hyperpage}{18}
 \indexentry{apprendimento|hyperpage}{18}
 \indexentry{pooling|hyperpage}{18}
 \indexentry{peso|hyperpage}{18}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{18}
+\indexentry{convoluzione|hyperpage}{18}
 \indexentry{classificazione|hyperpage}{18}
 \indexentry{layer|hyperpage}{18}
 \indexentry{fully connected|hyperpage}{18}
 \indexentry{layer|hyperpage}{19}
+\indexentry{convoluzione|hyperpage}{19}
 \indexentry{neurone|hyperpage}{19}
+\indexentry{campo ricettivo|hyperpage}{19}
 \indexentry{layer|hyperpage}{19}
 \indexentry{feature|hyperpage}{19}
+\indexentry{kernel|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
 \indexentry{peso|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
+\indexentry{kernel|hyperpage}{19}
+\indexentry{campo ricettivo|hyperpage}{19}
+\indexentry{campo ricettivo|hyperpage}{19}
+\indexentry{kernel|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
 \indexentry{parametro|hyperpage}{19}
+\indexentry{iperparametri|hyperpage}{19}
+\indexentry{campo ricettivo|hyperpage}{19}
+\indexentry{convoluzione|hyperpage}{19}
 \indexentry{feature map|hyperpage}{19}
+\indexentry{stride|hyperpage}{21}
+\indexentry{kernel|hyperpage}{21}
+\indexentry{stride|hyperpage}{21}
+\indexentry{padding|hyperpage}{21}
 \indexentry{feature map|hyperpage}{21}
+\indexentry{iperparametri|hyperpage}{21}
 \indexentry{feature map|hyperpage}{21}
+\indexentry{convoluzione|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
 \indexentry{neurone|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
@@ -214,10 +234,16 @@
 \indexentry{feature map|hyperpage}{22}
 \indexentry{peso|hyperpage}{22}
 \indexentry{feature map|hyperpage}{22}
+\indexentry{convoluzione|hyperpage}{22}
+\indexentry{iperparametri|hyperpage}{22}
+\indexentry{stride|hyperpage}{22}
+\indexentry{kernel|hyperpage}{22}
 \indexentry{neurone|hyperpage}{22}
 \indexentry{pooling|hyperpage}{22}
 \indexentry{pooling|hyperpage}{23}
+\indexentry{campo ricettivo|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
+\indexentry{stride|hyperpage}{23}
 \indexentry{parametro|hyperpage}{23}
 \indexentry{pooling|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
@@ -291,19 +317,24 @@
 \indexentry{modello|hyperpage}{36}
 \indexentry{fully connected|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
+\indexentry{deconvoluzione|hyperpage}{37}
 \indexentry{computazionale|hyperpage}{37}
 \indexentry{layer|hyperpage}{37}
 \indexentry{pooling|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
+\indexentry{convoluzione|hyperpage}{37}
 \indexentry{pooling|hyperpage}{37}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{37}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{localizzazione|hyperpage}{38}
 \indexentry{feature map|hyperpage}{38}
+\indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{pooling|hyperpage}{38}
 \indexentry{unpooling|hyperpage}{38}
+\indexentry{convoluzione|hyperpage}{38}
+\indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{layer|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
@@ -315,12 +346,22 @@
 \indexentry{architettura|hyperpage}{39}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{39}
 \indexentry{modello|hyperpage}{39}
+\indexentry{convoluzione|hyperpage}{39}
+\indexentry{convoluzione|hyperpage}{39}
+\indexentry{campo ricettivo|hyperpage}{39}
+\indexentry{convoluzione|hyperpage}{39}
+\indexentry{convoluzione|hyperpage}{40}
+\indexentry{campo ricettivo|hyperpage}{40}
 \indexentry{modello|hyperpage}{40}
 \indexentry{feature|hyperpage}{40}
 \indexentry{layer|hyperpage}{40}
 \indexentry{pooling|hyperpage}{40}
 \indexentry{feature map|hyperpage}{40}
+\indexentry{deconvoluzione|hyperpage}{40}
+\indexentry{deconvoluzione|hyperpage}{40}
+\indexentry{convoluzione|hyperpage}{41}
 \indexentry{parametro|hyperpage}{41}
+\indexentry{convoluzione|hyperpage}{41}
 \indexentry{etichetta|hyperpage}{41}
 \indexentry{architettura|hyperpage}{41}
 \indexentry{modello|hyperpage}{41}
@@ -330,8 +371,10 @@
 \indexentry{funzione di attivazione|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
+\indexentry{deconvoluzione|hyperpage}{43}
 \indexentry{architettura|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
+\indexentry{deconvoluzione|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
@@ -341,6 +384,7 @@
 \indexentry{pooling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
+\indexentry{deconvoluzione|hyperpage}{44}
 \indexentry{feature map|hyperpage}{44}
 \indexentry{feature|hyperpage}{44}
 \indexentry{pooling|hyperpage}{45}
@@ -350,8 +394,10 @@
 \indexentry{layer|hyperpage}{45}
 \indexentry{feature map|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
+\indexentry{convoluzione|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
 \indexentry{feature map|hyperpage}{45}
+\indexentry{convoluzione|hyperpage}{45}
 \indexentry{unpooling|hyperpage}{45}
 \indexentry{classificazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
@@ -364,23 +410,36 @@
 \indexentry{layer|hyperpage}{46}
 \indexentry{pooling|hyperpage}{46}
 \indexentry{classificazione|hyperpage}{46}
+\indexentry{kernel|hyperpage}{46}
 \indexentry{feature map|hyperpage}{46}
+\indexentry{deconvoluzione|hyperpage}{46}
 \indexentry{dataset|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
+\indexentry{deconvoluzione|hyperpage}{46}
 \indexentry{modello|hyperpage}{47}
 \indexentry{performance|hyperpage}{47}
 \indexentry{feature|hyperpage}{47}
 \indexentry{localizzazione|hyperpage}{47}
+\indexentry{convoluzione|hyperpage}{47}
 \indexentry{feature map|hyperpage}{47}
 \indexentry{architettura|hyperpage}{47}
 \indexentry{modello|hyperpage}{47}
+\indexentry{convoluzione|hyperpage}{48}
+\indexentry{convoluzione|hyperpage}{48}
 \indexentry{computazionale|hyperpage}{48}
+\indexentry{convoluzione|hyperpage}{48}
+\indexentry{kernel|hyperpage}{48}
+\indexentry{convoluzione|hyperpage}{48}
+\indexentry{kernel|hyperpage}{48}
+\indexentry{convoluzione|hyperpage}{48}
 \indexentry{pooling|hyperpage}{48}
 \indexentry{feature map|hyperpage}{48}
 \indexentry{feature|hyperpage}{50}
+\indexentry{convoluzione|hyperpage}{50}
 \indexentry{feature map|hyperpage}{50}
 \indexentry{layer|hyperpage}{50}
 \indexentry{pooling|hyperpage}{50}
+\indexentry{convoluzione|hyperpage}{50}
 \indexentry{feature map|hyperpage}{50}
 \indexentry{object detection|hyperpage}{50}
 \indexentry{modello|hyperpage}{50}
@@ -542,7 +601,9 @@
 \indexentry{feature map|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{parametro|hyperpage}{74}
+\indexentry{kernel|hyperpage}{74}
 \indexentry{layer|hyperpage}{74}
+\indexentry{kernel|hyperpage}{74}
 \indexentry{feature map|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}

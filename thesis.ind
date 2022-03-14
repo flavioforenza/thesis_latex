@@ -40,6 +40,8 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{C}\par\nopagebreak
 
+ \item \small campo ricettivo \hfill \hyperpage{18, 19}, \hyperpage{23}, 
+		\hyperpage{39, 40}
  \item \small classificazione \hfill \hyperpage{11}, \hyperpage{18}, 
 		\hyperpage{29}, \hyperpage{34}, \hyperpage{43}, 
 		\hyperpage{45, 46}, \hyperpage{55}, \hyperpage{61}, 
@@ -56,6 +58,9 @@
 		\hyperpage{11}, \hyperpage{16--18}, \hyperpage{24}, 
 		\hyperpage{30}, \hyperpage{34}, \hyperpage{37}, 
 		\hyperpage{39}, \hyperpage{63}
+ \item \small convoluzione \hfill \hyperpage{18, 19}, 
+		\hyperpage{21, 22}, \hyperpage{37--41}, \hyperpage{45}, 
+		\hyperpage{47, 48}, \hyperpage{50}
 
   \indexspace
 
@@ -64,6 +69,8 @@
 
  \item \small dataset \hfill \hyperpage{4}, \hyperpage{26}, 
 		\hyperpage{46}
+ \item \small deconvoluzione \hfill \hyperpage{37, 38}, \hyperpage{40}, 
+		\hyperpage{43, 44}, \hyperpage{46}
  \item \small deep learning \hfill \hyperpage{2}, \hyperpage{11}, 
 		\hyperpage{27}, \hyperpage{29, 30}, \hyperpage{35}, 
 		\hyperpage{52}, \hyperpage{66}, \hyperpage{68}
@@ -123,12 +130,15 @@
  \item \small inferenza \hfill \hyperpage{1, 2}, \hyperpage{70--72}
  \item \small intelligenza \hfill \hyperpage{2}, \hyperpage{38}, 
 		\hyperpage{52}, \hyperpage{58}, \hyperpage{66}
+ \item \small iperparametri \hfill \hyperpage{19}, \hyperpage{21, 22}
 
   \indexspace
 
 \centering\large\sffamily\bfseries%
 \noindent\textbf{K}\par\nopagebreak
 
+ \item \small kernel \hfill \hyperpage{19}, \hyperpage{21, 22}, 
+		\hyperpage{46}, \hyperpage{48}, \hyperpage{74}
  \item \small Knowledge Distillation \hfill \hyperpage{1}, 
 		\hyperpage{69}, \hyperpage{75, 76}, \hyperpage{79}, 
 		\hyperpage{97}, \hyperpage{100}, \hyperpage{118}, 
@@ -187,6 +197,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{P}\par\nopagebreak
 
+ \item \small padding \hfill \hyperpage{21}
  \item \small parametro \hfill \hyperpage{4}, \hyperpage{15}, 
 		\hyperpage{19}, \hyperpage{23}, \hyperpage{41}, 
 		\hyperpage{52}, \hyperpage{54}, \hyperpage{69--74}, 
@@ -227,6 +238,7 @@
  \item \small Single-Shot-Detector (SSD) \hfill \hyperpage{1}
  \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}
  \item \small stereo-camera \hfill \hyperpage{3}, \hyperpage{63}
+ \item \small stride \hfill \hyperpage{21--23}
 
   \indexspace
 
