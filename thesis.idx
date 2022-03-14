@@ -251,29 +251,47 @@
 \indexentry{funzione di attivazione|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
 \indexentry{feature|hyperpage}{23}
-\indexentry{architettura|hyperpage}{24}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{24}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{24}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{24}
+\indexentry{architettura|hyperpage}{24}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{24}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{24}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{24}
 \indexentry{neurone|hyperpage}{24}
 \indexentry{neurone|hyperpage}{24}
 \indexentry{neurone|hyperpage}{25}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{25}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{26}
 \indexentry{architettura|hyperpage}{26}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{26}
+\indexentry{encoder|hyperpage}{26}
+\indexentry{decoder|hyperpage}{26}
 \indexentry{apprendimento|hyperpage}{26}
 \indexentry{dataset|hyperpage}{26}
-\indexentry{forward|hyperpage}{26}
-\indexentry{autonoma|hyperpage}{26}
+\indexentry{autonoma|hyperpage}{27}
 \indexentry{computer vision|hyperpage}{27}
 \indexentry{deep learning|hyperpage}{27}
+\indexentry{image classification|hyperpage}{27}
 \indexentry{etichetta|hyperpage}{27}
 \indexentry{object detection|hyperpage}{27}
+\indexentry{image segmentation|hyperpage}{28}
+\indexentry{face recognition|hyperpage}{28}
+\indexentry{action recognition|hyperpage}{28}
+\indexentry{visual relationship detection|hyperpage}{28}
+\indexentry{emotion recognition|hyperpage}{28}
 \indexentry{identificare|hyperpage}{28}
+\indexentry{image editing|hyperpage}{28}
 \indexentry{object detection|hyperpage}{28}
 \indexentry{semantic segmentation|hyperpage}{28}
+\indexentry{image segmentation|hyperpage}{28}
 \indexentry{object detection|hyperpage}{28}
 \indexentry{rilevamento|hyperpage}{28}
 \indexentry{autonoma|hyperpage}{28}
 \indexentry{deep learning|hyperpage}{29}
 \indexentry{object detection|hyperpage}{29}
 \indexentry{classificazione|hyperpage}{29}
+\indexentry{bounding box|hyperpage}{29}
 \indexentry{rilevamento|hyperpage}{30}
 \indexentry{etichetta|hyperpage}{30}
 \indexentry{feature|hyperpage}{30}
@@ -285,16 +303,39 @@
 \indexentry{object detection|hyperpage}{30}
 \indexentry{apprendimento|hyperpage}{30}
 \indexentry{computer vision|hyperpage}{30}
+\indexentry{variabilità intra-classe|hyperpage}{31}
+\indexentry{variabilità inter-classe|hyperpage}{31}
 \indexentry{etichetta|hyperpage}{31}
+\indexentry{variabilità inter-classe|hyperpage}{32}
 \indexentry{modello|hyperpage}{32}
 \indexentry{risorse|hyperpage}{32}
 \indexentry{ottimizzazione|hyperpage}{32}
 \indexentry{object detection|hyperpage}{32}
 \indexentry{modello|hyperpage}{32}
+\indexentry{mean average precision (mAP)|hyperpage}{32}
+\indexentry{ground truth|hyperpage}{32}
 \indexentry{identificare|hyperpage}{32}
+\indexentry{bounding box|hyperpage}{33}
 \indexentry{etichetta|hyperpage}{33}
 \indexentry{etichetta|hyperpage}{33}
+\indexentry{ground truth|hyperpage}{33}
+\indexentry{intersection over union (IoU)|hyperpage}{33}
+\indexentry{bounding box|hyperpage}{33}
+\indexentry{bounding box|hyperpage}{33}
+\indexentry{ground truth|hyperpage}{33}
+\indexentry{bounding box|hyperpage}{33}
+\indexentry{intersection over union (IoU)|hyperpage}{33}
+\indexentry{bounding box|hyperpage}{33}
+\indexentry{ground truth|hyperpage}{33}
+\indexentry{intersection over union (IoU)|hyperpage}{33}
 \indexentry{modello|hyperpage}{33}
+\indexentry{bounding box|hyperpage}{33}
+\indexentry{falso positivo|hyperpage}{33}
+\indexentry{falso negativo|hyperpage}{33}
+\indexentry{average precision|hyperpage}{34}
+\indexentry{mean average precision (mAP)|hyperpage}{34}
+\indexentry{average precision|hyperpage}{34}
+\indexentry{image segmentation|hyperpage}{34}
 \indexentry{ottimizzazione|hyperpage}{34}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{34}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{34}
@@ -303,13 +344,16 @@
 \indexentry{autonoma|hyperpage}{34}
 \indexentry{classificazione|hyperpage}{34}
 \indexentry{object detection|hyperpage}{34}
+\indexentry{image segmentation|hyperpage}{34}
 \indexentry{semantic segmentation|hyperpage}{35}
 \indexentry{semantic segmentation|hyperpage}{35}
 \indexentry{semantic segmentation|hyperpage}{35}
 \indexentry{deep learning|hyperpage}{35}
 \indexentry{etichetta|hyperpage}{35}
 \indexentry{semantic segmentation|hyperpage}{35}
+\indexentry{image classification|hyperpage}{35}
 \indexentry{object detection|hyperpage}{35}
+\indexentry{bounding box|hyperpage}{35}
 \indexentry{architettura|hyperpage}{36}
 \indexentry{accuratezza|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
@@ -322,12 +366,17 @@
 \indexentry{layer|hyperpage}{37}
 \indexentry{pooling|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
+\indexentry{encoder|hyperpage}{37}
+\indexentry{decoder|hyperpage}{37}
+\indexentry{encoder|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
 \indexentry{convoluzione|hyperpage}{37}
 \indexentry{pooling|hyperpage}{37}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{37}
+\indexentry{decoder|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{localizzazione|hyperpage}{38}
+\indexentry{decoder|hyperpage}{38}
 \indexentry{feature map|hyperpage}{38}
 \indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
@@ -337,12 +386,16 @@
 \indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{layer|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
+\indexentry{encoder|hyperpage}{38}
+\indexentry{decoder|hyperpage}{38}
+\indexentry{encoder|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{intelligenza|hyperpage}{38}
 \indexentry{pooling|hyperpage}{38}
 \indexentry{architettura|hyperpage}{39}
 \indexentry{pooling|hyperpage}{39}
 \indexentry{layer|hyperpage}{39}
+\indexentry{ground truth|hyperpage}{39}
 \indexentry{architettura|hyperpage}{39}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{39}
 \indexentry{modello|hyperpage}{39}
@@ -354,6 +407,7 @@
 \indexentry{campo ricettivo|hyperpage}{40}
 \indexentry{modello|hyperpage}{40}
 \indexentry{feature|hyperpage}{40}
+\indexentry{encoder|hyperpage}{40}
 \indexentry{layer|hyperpage}{40}
 \indexentry{pooling|hyperpage}{40}
 \indexentry{feature map|hyperpage}{40}
@@ -366,16 +420,29 @@
 \indexentry{architettura|hyperpage}{41}
 \indexentry{modello|hyperpage}{41}
 \indexentry{architettura|hyperpage}{42}
+\indexentry{encoder|hyperpage}{42}
+\indexentry{decoder|hyperpage}{42}
 \indexentry{feature map|hyperpage}{42}
+\indexentry{decoder|hyperpage}{42}
+\indexentry{encoder|hyperpage}{42}
 \indexentry{layer|hyperpage}{42}
+\indexentry{encoder|hyperpage}{42}
+\indexentry{decoder|hyperpage}{42}
+\indexentry{encoder|hyperpage}{42}
 \indexentry{funzione di attivazione|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{deconvoluzione|hyperpage}{43}
+\indexentry{encoder|hyperpage}{43}
 \indexentry{architettura|hyperpage}{43}
+\indexentry{encoder|hyperpage}{43}
+\indexentry{decoder|hyperpage}{43}
+\indexentry{encoder|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
+\indexentry{decoder|hyperpage}{43}
 \indexentry{deconvoluzione|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
+\indexentry{encoder|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
@@ -383,9 +450,13 @@
 \indexentry{feature map|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
+\indexentry{encoder|hyperpage}{43}
+\indexentry{decoder|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
+\indexentry{decoder|hyperpage}{44}
 \indexentry{deconvoluzione|hyperpage}{44}
 \indexentry{feature map|hyperpage}{44}
+\indexentry{decoder|hyperpage}{44}
 \indexentry{feature|hyperpage}{44}
 \indexentry{pooling|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
@@ -424,7 +495,11 @@
 \indexentry{feature map|hyperpage}{47}
 \indexentry{architettura|hyperpage}{47}
 \indexentry{modello|hyperpage}{47}
+\indexentry{encoder|hyperpage}{48}
+\indexentry{decoder|hyperpage}{48}
 \indexentry{convoluzione|hyperpage}{48}
+\indexentry{encoder|hyperpage}{48}
+\indexentry{decoder|hyperpage}{48}
 \indexentry{convoluzione|hyperpage}{48}
 \indexentry{computazionale|hyperpage}{48}
 \indexentry{convoluzione|hyperpage}{48}
@@ -441,11 +516,18 @@
 \indexentry{pooling|hyperpage}{50}
 \indexentry{convoluzione|hyperpage}{50}
 \indexentry{feature map|hyperpage}{50}
+\indexentry{image segmentation|hyperpage}{50}
 \indexentry{object detection|hyperpage}{50}
 \indexentry{modello|hyperpage}{50}
 \indexentry{accuratezza|hyperpage}{50}
+\indexentry{intersection over union (IoU)|hyperpage}{51}
 \indexentry{object detection|hyperpage}{51}
 \indexentry{semantic segmentation|hyperpage}{51}
+\indexentry{bounding box|hyperpage}{51}
+\indexentry{ground truth|hyperpage}{51}
+\indexentry{ground truth|hyperpage}{51}
+\indexentry{intersection over union (IoU)|hyperpage}{51}
+\indexentry{intersection over union (IoU)|hyperpage}{51}
 \indexentry{modello|hyperpage}{51}
 \indexentry{modello|hyperpage}{52}
 \indexentry{parametro|hyperpage}{52}
@@ -524,6 +606,7 @@
 \indexentry{localizzazione|hyperpage}{66}
 \indexentry{classificazione|hyperpage}{66}
 \indexentry{intelligenza|hyperpage}{66}
+\indexentry{falso positivo|hyperpage}{67}
 \indexentry{classificazione|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
 \indexentry{feature|hyperpage}{67}

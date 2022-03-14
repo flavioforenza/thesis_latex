@@ -21,7 +21,7 @@
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Esempio di generatore e discriminante in una rete GAN.\relax }}{27}{figure.caption.25}%
 \contentsline {figure}{\numberline {2.18}{\ignorespaces (a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore\relax }}{29}{figure.caption.26}%
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Esempio di object detection.\relax }}{29}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. \relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rilevamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation.\relax }}{30}{figure.caption.28}%
 \contentsline {figure}{\numberline {2.21}{\ignorespaces Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)\relax }}{31}{figure.caption.29}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Esempio di immagini con scarsa visibilità e a basso contenuto informativo.\relax }}{32}{figure.caption.30}%
 \contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio Semantic segmentation.\relax }}{36}{figure.caption.33}%

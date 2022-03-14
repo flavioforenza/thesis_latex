@@ -503,16 +503,17 @@ derivata di un numero negativo. Per i numeri positivi, la derivata viene
 posta uguale a uno, in modo da evitare la saturazione del gradiente\index{gradiente}.
 
 \subsubsection{Pooling}
-La tecnica di Pooling\index{pooling}, chiamata anche di subsampling o downsamping, ha il 
-compito di ridurre la dimensionali di ogni feature map\index{feature map} mantenendo però le 
-informazioni più importanti. Il funzionamento di basa nel far scorrere una finestra, 
-senza alcun tipo di valore o peso\index{peso} al suo interno, di dimensione inferiore rispetto 
-alla grandezza della feature map\index{feature map}, con lo scopo di aggregare i valori sottostanti. 
-Esistono varie operazioni di aggregazione, le più comuni sono: somma, massimo, 
-minimo e media. Così come la convoluzione\index{convoluzione}, anche qui gli iperparametri\index{iperparametri} Stride\index{stride} 
-e Kernel\index{kernel} size, entrambi solitamente uguale a 2, sono fondamentali al fine di gestire 
-la finestra sovrastante. Ogni neurone\index{neurone}, nello strato di pooling\index{pooling}, è connesso a un 
-numero limitato di neuroni nello strato precedente
+La tecnica di Pooling\index{pooling}, chiamata anche di subsampling o downsampling, ha 
+il compito di ridurre le dimensioni di ogni feature map\index{feature map} mantenendo però 
+le informazioni più importanti. Il funzionamento di basa nel far scorrere 
+una finestra, senza alcun tipo di valore o peso\index{peso} al suo interno, di dimensione 
+inferiore rispetto alla grandezza della feature map\index{feature map}, con lo scopo di aggregare 
+i valori sottostanti. Esistono varie operazioni di aggregazione, le più comuni 
+sono: somma, massimo, minimo e media. Così come la convoluzione\index{convoluzione}, anche 
+qui gli iperparametri\index{iperparametri} Stride\index{stride} e Kernel\index{kernel} size, entrambi solitamente uguale 
+a 2, sono fondamentali al fine di gestire la finestra sovrastante. Ogni 
+neurone\index{neurone}, nello strato di pooling\index{pooling}, è connesso a un numero limitato di neuroni 
+nello strato precedente.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{pooling tesla.png}
@@ -520,46 +521,48 @@ numero limitato di neuroni nello strato precedente
     \caption{Esempio funzione di operazioni di pooling su una feature map.}
     \label{pooling}
 \end{figure}
-In (Fig. \ref{pooling}), applicando al funzione di \emph{Max-Pooling}\index{pooling} al campo ricettivo\index{campo ricettivo} in 
-basso a sinistra, verrà selezionato il valore 5 che sarà propagato al prossimo 
-layer\index{layer}. Avendo uno stride\index{stride} pari a 2, la matrice prodotta avrà una dimensione 
-uguale alla metà della matrice di partenza (subsamplig),  che in questo caso è 
-stata arrotondata per difetto. La riduzione delle dimensioni a sua volta riduce 
-il numero di operazioni di calcolo, l'occupazione della memoria e il numero di 
-parametri\index{parametro}, limitando anche il rischio di overfitting in quanto si ha un numero 
-minore di paramenti da apprendere. La funzione di Max-Pooling\index{pooling} introduce quella che viene 
-chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti di 
-stravolgere il risultato finale, aggiungendo robustezza ai dati.
+In (Fig. \ref{pooling}), applicando al funzione di \emph{Max-
+Pooling}\index{pooling} al campo ricettivo\index{campo ricettivo} in 
+basso a sinistra, verrà selezionato il valore 
+5 che sarà propagato al prossimo layer\index{layer}. Avendo uno stride\index{stride} pari a 2, la 
+matrice prodotta avrà una dimensione uguale alla metà della matrice di 
+partenza (subsamplig),  che in questo caso è stata arrotondata per difetto. 
+La riduzione delle dimensioni a sua volta riduce il numero di operazioni di 
+calcolo, l'occupazione della memoria e il numero di parametri\index{parametro}, limitando 
+anche il rischio di overfitting in quanto si ha un numero minore di paramenti 
+da apprendere. La funzione di Max-Pooling\index{pooling} introduce quella che viene 
+chiamata \emph{invarianza}, fattore importante che non permette ai cambiamenti 
+di stravolgere il risultato finale, aggiungendo robustezza ai dati.
 
 \subsubsection{Fully Connected}
-Il layer\index{layer} \emph{Fully Connected (FC)}\index{fully connected} è una tradizionale \emph{Multilayer Perceptron (MLP)} 
-che include una funzione di attivazione\index{funzione di attivazione} \emph{Softmax} nel layer di output. Lo scopo di 
-tale layer\index{layer} è quello di utilizzare le feature\index{feature} estratte, dagli strati precedenti, in modo 
-da predire le loro classi di appartenenza precedentemente fornite nel training 
-set. Un vettore di numeri reali conterrà tutte le predizioni che, se sommate tra 
-loro, produrranno un valore uguale a uno. Quest'ultimo passaggio sarà possibile 
-grazie all'utilizzo di una funzione chiamata Softmax, posta alla fine dell'intera 
-rete convoluzionale, che è in grado di “schiacciare” un vettore K-dimensionale 
-a valori reali arbitrali, in un vettore K-dimensionale a valori reali, compresi nel 
-range $(0,1)$. 
+Il layer\index{layer} \emph{Fully Connected (FC)}\index{fully connected} sta a rappresentare una tradizionale \emph{Multilayer Perceptron (MLP)} 
+che include una funzione di attivazione\index{funzione di attivazione} \emph{Softmax} nel layer 
+di output. Lo scopo di tale layer\index{layer} è quello di utilizzare le feature\index{feature} estratte, 
+dagli strati precedenti, in modo da predire le loro classi di appartenenza 
+precedentemente fornite nel training set. Un vettore di numeri reali conterrà 
+tutte le predizioni che, se sommate tra loro, produrranno un valore uguale a 
+uno. Quest'ultimo passaggio sarà possibile grazie all'utilizzo di una funzione 
+chiamata Softmax, posta alla fine dell'intera rete convoluzionale, che è in 
+grado di “schiacciare” un vettore K-dimensionale a valori reali arbitrali, in 
+un vettore K-dimensionale a valori reali, compresi nel range $(0,1)$. 
 
 \subsection{Recurrent Neural Networks}
-A differenza delle CNN, le Recurrent Neural Networks consentono operazioni 
-su una sequenza di valori temporali (\emph{Time series}). Uno dei modelli 
-migliori rappresentante le RNN, venne introdotto da Gers and Schmidhuber, 
-intitolato Long Short-Term Memory (LSTM) \cite{LSTM}. La RNN rappresenta 
-una classe di reti artificiali avente lo scopo di effettuare delle previsioni 
-su fattori futuri, come per esempio le variazioni di prezzo di un bene, la 
-traiettoria di un veicolo etc. In particolare, la peculiarità di queste reti 
-sta nel trattare un input di lunghezza arbitraria differenziandosi da altre 
-architetture\index{architettura} che richiedono un input a lunghezza prefissata (es: CNN). Nelle 
-reti precedentemente introdotte, l'input veniva trasportato dallo strato di 
-input verso lo strato di output. A differenza di queste, le RNN hanno una 
-connessione simile alle CNN\index{Convolutional Neural Network - CNN} che li permette di retro propagare i dati in direzione 
-opposta. Per capire meglio, immaginiamo che una RNN sia composta 
-da un solo neurone\index{neurone} che, all'istante di tempo $t$, prende in input un dato $X_t$, 
-lo elabora e produce un output $Y_{t+1}$ che lo re-invia a se stesso creando una specie di loop (Fig. 
-(\ref{neuron-rnn})).
+A differenza delle CNN\index{Convolutional Neural Network - CNN}, le \emph{Recurrent Neural Networks (RNN)}\index{Recurrent Neural Network (RNN)} consentono 
+operazioni su una sequenza di valori temporali (\emph{Time series}). Uno dei 
+modelli migliori rappresentante le RNN, venne introdotto da Gers and 
+Schmidhuber, intitolato Long Short-Term Memory (LSTM) \cite{LSTM}. La RNN\index{Recurrent Neural Network (RNN)} 
+rappresenta una classe di reti artificiali avente lo scopo di effettuare delle 
+previsioni su fattori futuri, come per esempio le variazioni di prezzo di 
+un bene, la traiettoria di un veicolo etc. In particolare, la peculiarità di 
+queste reti sta nel trattare un input di lunghezza arbitraria differenziandosi 
+da altre architetture\index{architettura} che richiedono un input a lunghezza prefissata (es: 
+CNN). Nelle reti precedentemente introdotte, l'input veniva trasportato 
+dallo strato di input verso lo strato di output. A differenza di queste, 
+le RNN\index{Recurrent Neural Network (RNN)} hanno una connessione simile alle CNN\index{Convolutional Neural Network - CNN} che li permette di retro 
+propagare i dati in direzione opposta. Per capire meglio, immaginiamo 
+che una RNN\index{Recurrent Neural Network (RNN)} sia composta da un solo neurone\index{neurone} che, all'istante di tempo 
+$t$, prende in input un dato $X_t$, lo elabora e produce un output $Y_{t+1}$ che 
+lo re-invia a se stesso creando una specie di loop (Fig. (\ref{neuron-rnn})).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{RNN.png}
@@ -567,12 +570,15 @@ lo elabora e produce un output $Y_{t+1}$ che lo re-invia a se stesso creando una
     \caption{Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.}
     \label{neuron-rnn}
 \end{figure}
-Seguendo questa ricorsione, nell'istante di tempo successivo, ogni nuovo input $X_t$ corrisponderà 
-all'output $Y_{t-1}$ e così via.  Se considerassimo ogni output, corrispondente all'istante di 
-tempo $t$, in funzione di tutti gli input del precedente istante di tempo, allora possiamo 
-considerare questo concetto di ricorrenza come un concetto di memoria della rete. Ogni 
-neurone\index{neurone} quindi rappresenta una cella di memoria capace di preservare qualche stato nel 
-tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione che dipende:
+Seguendo 
+questa ricorsione, nell'istante di tempo successivo, ogni nuovo input $X_t$ 
+corrisponderà all'output $Y_{t-1}$ e così via.  Se considerassimo ogni output, 
+corrispondente all'istante di tempo $t$, in funzione di tutti gli input del 
+precedente istante di tempo, allora possiamo considerare questo concetto di 
+ricorrenza come un concetto di memoria della rete. Ogni neurone\index{neurone} quindi 
+rappresenta una cella di memoria capace di preservare qualche stato nel 
+tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una 
+funzione che dipende:
 \begin{itemize}
     \item dall'input appartenente a un determinato istante di tempo $t$;
     \item dal suo stato $h$ precedente.
@@ -588,23 +594,23 @@ tempo. Questo stato, denotato con $h_t$ (dove h sta per hidden), è una funzione
     \label{state-neuron-rnn}
 \end{figure}
 Individualmente, l'output di ogni neurone\index{neurone} corrisponde allo stato stesso 
-(Fig. (\ref{state-neuron-rnn})). Esistono diverse versioni di RNN che differiscono 
-in base alla sequenza di input e di output. Distinguiamo almeno quattro versioni:
+(Fig. (\ref{state-neuron-rnn})). Esistono diverse versioni di RNN\index{Recurrent Neural Network (RNN)} che differiscono in base alla 
+sequenza di input e di output. Distinguiamo almeno quattro versioni:
 \begin{enumerate}
     \item \emph{Sequence to Sequence}: utile per quei problemi che richiedono il calcolo 
     di una previsione futura basandosi sul una serie temporale di dati;
-    \item \emph{Sequence to Vector}: tipologia di RNN che prende una sequenza di 
+    \item \emph{Sequence to Vector}: tipologia di RNN\index{Recurrent Neural Network (RNN)} che prende una sequenza di 
     valori input e tiene in considerazione solo un valore di output, ignorando 
     tutti gli output intermedi;
     \item \emph{Vector to Sequence}: al contrario del sequence-to-vector, questa volta 
     si fornisce un solo input e si considerano tutti gli output prodotti ad 
     ogni istante di tempo;
-    \item \emph{Delayed sequence to sequence}: in questa tipologia abbaino un'architettura\index{architettura} 
-    RNN composta da una prima parte chiamata \emph{Encoder} che 
+    \item \emph{Delayed sequence to sequence}: in questa tipologia abbiamo un'architettura\index{architettura} 
+    RNN\index{Recurrent Neural Network (RNN)} composta da una prima parte chiamata \emph{Encoder}\index{encoder} che 
     effettua operazioni di tipo sequence-to-vector ed una seconda parte 
-    chiamata \emph{Decoder} che si occupa di effettuare la vector-to sequence. 
-    Questa tipologia di rete è molto utilizzata per effettuare le 
-    traduzioni linguistiche. 
+    chiamata \emph{Decoder}\index{decoder} che si occupa di effettuare la vector-to sequence. 
+    Questa tipologia di rete è molto utilizzata per effettuare le traduzioni 
+    linguistiche. 
 \end{enumerate}
 
 \subsection{Generative Adversarial Networks}
@@ -618,11 +624,11 @@ catturare una distribuzione originale mentre la seconda si occupa di stimare
 la probabilità che un dato provenga dal dataset\index{dataset} di riferimento anzichè dalla 
 prima rete G. Spiegata in altri termini, la prima rete viene sottoposta a 
 un processo di training atto a massimizzare la probabilità che la rete D 
-sbagli la sua predizione. Tramite un continuo processo di back and forward\index{forward}, 
+sbagli la sua predizione. Tramite un continuo processo di back and forward, 
 fra il generatore che fornisce dei dati inizialmente casuali e il discriminante 
 che rilascia un feedback che attesti la loro veridicità, le reti di tipo GAN 
 possono essere utilizzate per vari scopi. Fra questi ricadono i metodi di 
-Image enhancement, predizione del traffico stradale a supporto dei veicolo 
+Image enhancement, predizione del traffico stradale a supporto dei veicoli 
 a guida autonoma\index{autonoma} \cite{GAN-ADAS}, generazione di volti fasulli e generazione di dipinti 
 simili a quelli originali. Il discriminante elabora l'immagine ricevuta dal 
 generatore e produce una probabilità D(x) che ne attesti la sua reale autenticità 
@@ -641,43 +647,46 @@ lavoro svolto da una rete GAN è illustrato nella FIgura (\ref{gan-nn})
 
 
 \section{Utilizzi delle reti neurali}
-L'introduzione delle reti neurali, sia nel campo della computer vision\index{computer vision} che del deep 
-learning\index{deep learning}, ha portato vari benefici nel risolvere problemi complessi nella vita reale. 
-Il supporto offerto da questi sistemi è basato su tecniche di elaborazione delle 
-immagini in grado di estrarre diverse informazioni utili per un determinato scopo. 
-I task principali, eseguiti su un'immagine, possono essere:
+L'introduzione delle reti neurali, sia nel campo della computer vision\index{computer vision} che 
+del deep learning\index{deep learning}, ha portato vari benefici nel risolvere problemi complessi 
+nella vita reale. Il supporto offerto da questi sistemi è basato su tecniche 
+di elaborazione delle immagini in grado di estrarre diverse informazioni 
+utili per un determinato scopo. I task principali, eseguiti su un'immagine, 
+possono essere:
 \begin{itemize}
-    \item \emph{Image classification}: viene effettuata un'analisi dell'immagine con lo scopo 
-    di assegnare un'etichetta\index{etichetta} in base al suo contenuto;
+    \item \emph{Image classification}\index{image classification}: viene effettuata un'analisi dell'immagine con lo 
+    scopo di assegnare un'etichetta\index{etichetta} in base al suo contenuto;
     \item \emph{Object detection}\index{object detection}: analisi degli elementi presenti all'interno di un'immagine;
-    \item \emph{Image segmentation}: estrazione di regioni di interesse che identificano il 
-    target in base al contesto;
-    \item \emph{Face recognition}: basato sul riconoscimento facciale delle persone;
-    \item \emph{Action recognition}: analisi incentrata sull'identificazione e sulla descrizione 
-    di azioni compiute da parte di soggetti che interagiscono nel tempo e nello 
-    spazio circostante;
-    \item \emph{Visual Relationship Detection}: analisi mirata alla relazione che intercorre 
-    tra gli oggetti presenti nell'immagine;
-    \item \emph{Emotion Recognition}: processo atto a identificare\index{identificare} le emozioni umane mediante 
-    vari fattori come quello vocale e/o visivo;
-    \item \emph{Image editing}: analisi delle immagini che portano l'algoritmo a riconoscere 
-    le parti più rilevanti di un'immagine, come per esempio quelle più sensibili, 
-    ed a attuare delle specifiche azioni, come ad esempio il loro oscuramento.
+    \item \emph{Image segmentation}\index{image segmentation}: estrazione di regioni di interesse che identificano 
+    il target in base al contesto;
+    \item \emph{Face recognition}\index{face recognition}: basato sul riconoscimento facciale delle persone;
+    \item \emph{Action recognition}\index{action recognition}: analisi incentrata sull'identificazione e sulla descrizione 
+    di azioni compiute da parte di soggetti che interagiscono nel 
+    tempo e nello spazio circostante;
+    \item \emph{Visual Relationship Detection}\index{visual relationship detection}: analisi mirata alla relazione che intercorre 
+    tra tutti gli oggetti presenti nell'immagine;
+    \item \emph{Emotion Recognition}\index{emotion recognition}: processo atto a identificare\index{identificare} le emozioni umane 
+    mediante vari fattori come quello vocale e/o visivo;
+    \item \emph{Image editing}\index{image editing}: analisi delle immagini che portano l'algoritmo a riconoscere 
+    le parti più rilevanti di un'immagine, come per esempio quelle 
+    più sensibili, e ad attuare delle specifiche azioni, come ad esempio il 
+    loro oscuramento.
 \end{itemize}
-Il presente elaborato farà riferimento solamente alle prime tre tecniche, soffermandosi 
-maggiormente sull'object detection\index{object detection} e la semantic segmentation\index{semantic segmentation} (branca 
-dell'image segmentation).
+Il presente elaborato farà riferimento solamente alle prime tre tecniche, 
+soffermandosi maggiormente sull'object detection\index{object detection} e la semantic segmentation\index{semantic segmentation} 
+(branca dell'image segmentation\index{image segmentation}).
 
 \subsection{Object Detection}\label{OBJD}
 L'object detection\index{object detection} costituisce la base per risolvere compiti di visione complessi, 
-o di alto livello, come la segmentazione, comprensione della scena, tracciamento 
-degli oggetti, rilevamento\index{rilevamento} degli eventi e riconoscimento delle attività. La tecnica 
-di object detection supporta un ampio range di applicazioni, tra queste abbiamo 
-la visione robotica, sicurezza, guida autonoma\index{autonoma}, segnali stradali, interazione uomo 
-macchina, recupero delle immagini basato sui contenuti, videosorveglianza, realtà 
-aumentata e ambito medico. Dal grafico \ref{obj det performance} possiamo vedere che dopo l'anno 
-2012, periodo corrispondente all'introduzione del deep learning\index{deep learning}, le prestazioni 
-della tecnica di object detection\index{object detection} aumentarono notevolmente.
+o di alto livello, come la segmentazione, comprensione della scena, 
+tracciamento degli oggetti, rilevamento\index{rilevamento} degli eventi e riconoscimento delle 
+attività. La tecnica di object detection supporta un ampio range di applicazioni, 
+tra queste abbiamo la visione robotica, sicurezza, guida autonoma\index{autonoma}, 
+segnali stradali, interazione uomo macchina, recupero delle immagini basato 
+sui contenuti, videosorveglianza, realtà aumentata e ambito medico. Dal 
+grafico \ref{obj det performance} possiamo vedere che dopo l'anno 2012, periodo corrispondente 
+all'introduzione del deep learning\index{deep learning}, le prestazioni della tecnica di object detection\index{object detection} 
+aumentarono notevolmente.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{obj detection performance.png}
@@ -685,11 +694,12 @@ della tecnica di object detection\index{object detection} aumentarono notevolmen
     \caption{(a) Risultati object detection, in termini di mean average Precision, nelle competizioni VOC2007-2012 e (b) risultati della competizione per il rilevamento degli oggetti in ILSVRC2013-2017 su un numero di categorie maggiore}
     \label{obj det performance}
 \end{figure}
-Ogni oggetto è caratterizzato dalle sue proprietà come colore, forma, texture 
-o altri tratti. Lo scopo della tecnica può essere visto come un problema di 
-classificazione\index{classificazione} in grado di definire se un'immagine contiene un oggetto e, in caso 
-affermativo, indicarne la posizione nell'immagine mediante l'utilizzo di un riquadro 
-di delimitazione chiamato bounding box (Fig. \ref{object detection}). 
+Ogni oggetto è caratterizzato dalle sue 
+proprietà come colore, forma, texture o altri tratti. Lo scopo della tecnica 
+può essere visto come un problema di classificazione\index{classificazione} in grado di definire 
+se un'immagine contiene un oggetto e, in caso affermativo, indicarne la 
+posizione nell'immagine mediante l'utilizzo di un riquadro di delimitazione 
+chiamato bounding box\index{bounding box} (Fig. \ref{object detection}). 
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{object detection.png}
@@ -697,44 +707,50 @@ di delimitazione chiamato bounding box (Fig. \ref{object detection}).
     \caption{Esempio di object detection.}
     \label{object detection}
 \end{figure}
-Se invece di un'immagine si sta elaborando un insieme di frame, come un video, 
-allora lo scopo è quello di tracciare la posizione e  la dimensione dell'oggetto in 
-tutti i frame (tecnica comunemente chiamata object tracking). Il rilevamento\index{rilevamento} 
-degli oggetti generici è strettamente correlato a:
+Se invece di un'immagine si stesse 
+elaborando un insieme di frame, come un video, allora lo scopo è quello 
+di tracciare la posizione e la dimensione dell'oggetto in tutti i frame (tecnica 
+comunemente chiamata object tracking). Il rilevamento\index{rilevamento} degli oggetti 
+generici è strettamente correlato a:
 \begin{enumerate}
-    \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel dell'immagine 
-    un'etichetta\index{etichetta} corrispondente ad una classe (Fig. \ref{segmentation} (a));
-    \item \emph{Instance segmentation}: tecnica che, al contrario della segmentazione semantica, 
-    mira a distinguere diverse istanze appartenenti alla stessa classe di 
-    oggetti (Fig. \ref{segmentation} (b)).
+    \item \emph{Segmentazione Semantica}: ha lo scopo di assegnare a ciascun pixel 
+    dell'immagine un'etichetta\index{etichetta} corrispondente ad una classe (Fig. \ref{segmentation} 
+    (a));
+    \item \emph{Instance segmentation}: tecnica che, al contrario della segmentazione 
+    semantica, mira a distinguere diverse istanze appartenenti alla stessa 
+    classe di oggetti (Fig. \ref{segmentation} (b)).
 \end{enumerate}
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{segmentation.png}
     \centering
-    \caption{Problemi di riconoscimento relativi al rielvamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation. }
+    \caption{Problemi di riconoscimento relativi al rilevamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation.}
     \label{segmentation}
 \end{figure}
-Uno dei principali obiettivi in questo campo è scegliere le feature\index{feature} che sono 
-più caratteristiche dell'oggetto ricercato o, in altre parole, che sono altamente 
-discriminanti, in modo da ottenere dei buoni risultati da parte del classificatore. Un 
-aspetto fondamentale da tenere in considerazione è la complessità computazionale\index{computazionale} 
-a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi modelli\index{modello} di object detection basavano 
-il loro funzionamento su delle feature\index{feature} estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi 
-modelli erano molto lenti, imprecisi e non erano in grado di riconoscere i dati mai 
-visti in precedenza. Le reti neurali convoluzionali (CNN)\index{Convolutional Neural Network - CNN} e del deep learning\index{deep learning} hanno 
-cambiato il panorama della percezione visiva. Il problema di object detection\index{object detection} è 
-generalmente visto come un problema di apprendimento\index{apprendimento} supervisionato. Nella 
-computer vision\index{computer vision} sono stati raggiunti traguardi importanti negli ultimi dieci anni, 
-tuttavia ci sono ancora grandi sfide da superare. Di seguito sono riportate alcune 
-delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
+Uno dei principali obiettivi in questo campo è scegliere le feature\index{feature} che 
+sono più caratteristiche dell'oggetto ricercato o, in altre parole, che sono 
+altamente discriminanti, in modo da ottenere dei buoni risultati da parte 
+del classificatore. Un aspetto fondamentale da tenere in considerazione è 
+la complessità computazionale\index{computazionale} a cui i sistemi vanno incontro \cite{cyganek2013object}. I primi 
+modelli\index{modello} di object detection basavano il loro funzionamento su delle feature\index{feature} 
+estratte a mano \cite{viola2001rapid} \cite{dalal2005histograms}. Purtroppo, questi modelli erano molto lenti, 
+imprecisi e non erano in grado di riconoscere i dati mai visti in precedenza. 
+Le reti neurali convoluzionali (CNN)\index{Convolutional Neural Network - CNN} e del deep learning\index{deep learning} hanno cambiato 
+il panorama della percezione visiva. Il problema di object detection\index{object detection} è 
+generalmente visto come un problema di apprendimento\index{apprendimento} supervisionato. 
+Nella computer vision\index{computer vision} sono stati raggiunti traguardi importanti negli ultimi 
+dieci anni, tuttavia ci sono ancora grandi sfide da superare. Di seguito sono 
+riportate alcune delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
 \begin{itemize}
-    \item \emph{Variabilità Intra-classe}: problematica che si verifica quando delle istanze appartenenti allo stesso oggetto differiscono pur appartenendo alla stessa classe. Nello specifico, questa problematica può essere suddivisa in due tipi \cite{liu2020deep}:
+    \item \emph{Variabilità Intra-classe}\index{variabilità intra-classe}: problematica che si verifica quando delle 
+    istanze appartenenti allo stesso oggetto differiscono pur appartenendo 
+    alla stessa classe. Nello specifico, questa problematica può essere 
+    suddivisa in due tipi \cite{liu2020deep}:
     \begin{enumerate}
-        \item \emph{Fattori intrinseci}: multipli oggetti possono appartenere ad una stessa 
-        categoria. A loro volta, queste istanze possono essere differenti in 
-        termini di colore, consistenza, materiale, forma e dimensione, come per 
-        esempio la categoria automobile (Fig. \ref{auto}):
+        \item \emph{Fattori intrinseci}: multipli oggetti possono appartenere ad una 
+        stessa categoria. A loro volta, queste istanze possono essere 
+        differenti in termini di colore, consistenza, materiale, forma e 
+        dimensione, come per esempio la categoria automobile (Fig. \ref{auto}):
         \begin{figure}
             \centering
             \hspace*{1.5cm}
@@ -743,13 +759,13 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
             \caption{Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)}
             \label{auto}
         \end{figure}
-        \item \emph{Condizioni dell'immagine}: Oltre al concetto temporale, i motivi che 
-        portano ad una variabilità intra-calasse possono essere l'occlusione, 
-        l'illuminazione, posa, punto di vista, ambiente circostante, condizioni 
-        meteorologiche etc. Questi fattori influenzanti possono incidere 
-        negativamente sull'aspetto di un oggetto. Ulteriori problematiche possono 
-        riguardare l'aggiunta di artefatti di digitalizzazione, presenza del 
-        rumore, bassa risoluzione e distorsioni varie (Fig. \ref{agenti atmosferici}).
+        \item \emph{Condizioni dell'immagine}: Oltre al concetto temporale, i motivi 
+        che portano ad una variabilità intra-calasse possono essere l'occlusione, 
+        l'illuminazione, posa, punto di vista, ambiente circostante, 
+        condizioni meteorologiche etc. Questi fattori influenzanti possono 
+        incidere negativamente sull'aspetto di un oggetto. Ulteriori 
+        problematiche possono riguardare l'aggiunta di artefatti di digitalizzazione, 
+        presenza del rumore, bassa risoluzione e distorsioni varie (Fig. \ref{agenti atmosferici}).
         \begin{figure}
             \centering
             \hspace*{1.7cm}
@@ -759,24 +775,26 @@ delle sfide chiave affrontate dalle reti neurali \cite{zaidi2021survey}:
             \label{agenti atmosferici}
         \end{figure}
     \end{enumerate}
-    \item \emph{Numero di categorie}: il numero di classi può rilevarsi un problema quando 
-    queste sono numerose. Un elevato numero di classi, oltre che ad aumentare 
-    la probabilità di avere una bassa variabilità inter-calasse, richiede un alto 
-    numero di etichette\index{etichetta} che a loro volta sono difficili da reperire. In questo caso 
-    è favorita un'alta variabilità inter-classe (oggetti diversi appartenenti a classi 
-    diverse). Ad oggi, l'utilizzo dell'esatto numero di esempi per addestrare un 
-    modello\index{modello} è una domanda di ricerca ancora aperta;
-    \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso su 
-    dispostivi sprovvisti di elevate risorse\index{risorse} di calcolo. La ricerca è rivolta nell'ottimizzazione\index{ottimizzazione} 
-    di tali modelli affinché questi vengano eseguito anche su dispositivi mobili.
+    \item \emph{Numero di categorie}: il numero di classi può rilevarsi un problema 
+    quando queste sono numerose. Un elevato numero di classi, oltre 
+    che ad aumentare la probabilità di avere una bassa variabilità inter-classe\index{variabilità inter-classe}, 
+    richiede un alto numero di etichette\index{etichetta} che a loro volta sono 
+    difficili da reperire. In questo caso è favorita un'alta variabilità inter-
+    classe\index{variabilità inter-classe} (oggetti diversi appartenenti a classi diverse). Ad oggi, l'utilizzo 
+    dell'esatto numero di esempi per addestrare un modello\index{modello} è una domanda 
+    di ricerca ancora aperta;
+    \item \emph{Efficienza}: attualmente non è possibile eseguire un modello complesso 
+    su dispostivi sprovvisti di elevate risorse\index{risorse} di calcolo. La ricerca è rivolta 
+    nell'ottimizzazione\index{ottimizzazione} di tali modelli affinché questi vengano eseguito 
+    anche su dispositivi mobili.
 \end{itemize}
 
 \subsubsection{Metriche di valutazione Object detection}\index{object detection}
-Le prestazioni di un modello\index{modello} vengono calcolate utilizzando alcune metriche, come 
-per esempio i \emph{Frame Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, ma la più usata è la 
-\emph{mean Average Precision (mAP)}. La precisione misura la percentuale di previsioni 
-corrette mentre il richiamo misura le previsioni corrette rispetto alla verità 
-di base (\emph{ground truth}).
+Le prestazioni di un modello\index{modello} vengono calcolate utilizzando alcune metriche, 
+come per esempio i \emph{Fotogrammi Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, 
+ma la più usata è la \emph{mean Average Precision (mAP)}\index{mean average precision (mAP)}. La precisione misura 
+la percentuale di previsioni corrette mentre il richiamo misura le previsioni 
+corrette rispetto alla verità di base (\emph{ground truth}\index{ground truth}).
 \begin{eqnarray}\label{precision}
     Precision & = & \frac{True \ Positive}{True \ Positive + False \ Positive} \nonumber \\
              & = & \frac{True \ Positive}{All \ Observations}
@@ -788,31 +806,33 @@ di base (\emph{ground truth}).
 Gli output standard di un rilevatore, su un'immagine di test $I$, al fine di 
 identificare\index{identificare} un oggetto $j$, sono:
 \begin{itemize}
-    \item $b_j$: \emph{Bounding-Box (BB)} disegnata sull'oggetto di interesse;
+    \item $b_j$: \emph{Bounding-Box (BB)}\index{bounding box} disegnata sull'oggetto di interesse;
     \item $c_j$: categoria predetta;
-    \item $p_j$: livello di confidenza che verrò comparato con una soglia $\beta$ per determinare 
-    l'accettabilità o meno dell'etichetta\index{etichetta} della classe predetta. 
+    \item $p_j$: livello di confidenza che verrà comparato con una soglia $\beta$ per 
+    determinare l'accettabilità o meno dell'etichetta\index{etichetta} della classe predetta. 
 \end{itemize}
 Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
 \begin{enumerate}
-    \item La categoria predetta $c$ è uguale all'etichetta\index{etichetta} $c_g$ fornita nel ground truth;
-    \item \emph{L'Intersection Over Union (IoU)} (\ref{iou}), è maggiore di una soglia $\epsilon$. L'IoU 
-    rappresenta il rapporto tra l'area della bounding box predetta $b$ e l'area 
-    della bounding box $b_g$ presente nel ground truth, dove $\cap$ e $\cup$ indicano 
-    rispettivamente l'intersezione e l'unione delle varie aree.
+    \item La categoria predetta $c$ è uguale all'etichetta\index{etichetta} $c_g$ fornita nel ground 
+    truth\index{ground truth};
+    \item \emph{L'Intersection Over Union (IoU)}\index{intersection over union (IoU)} (\ref{iou}), è maggiore di una soglia $\epsilon$. ù
+    L'IoU rappresenta il rapporto tra l'area della bounding box\index{bounding box} predetta 
+    $b$ e l'area della bounding box\index{bounding box} $b_g$ presente nel ground truth\index{ground truth}, dove $\cap$ e 
+    $\cup$ indicano rispettivamente l'intersezione e l'unione delle varie aree.
     \begin{eqnarray}\label{iou}
         IoU(b,b_g) & = & \frac{area(b \cap b_g)}{area(b \cup b_g)} \nonumber \\
                  & = & \frac{Area \ of \ overlap}{Area \ of \ union}
     \end{eqnarray}
-    Quando il modello prevederà una bounding box con un valore IoU maggiore 
-    o uguale alla soglia,  tipicamente pari a 0.5, allora questo vuol dire che ci 
-    sarà un'elevata sovrapposizione tra questa e una delle bounding box presenti 
-    nel ground truth. D'altra parte, quando il valore di IoU è minore della 
-    soglia, questo sintomo sarà ritenuto come una previsione errata da parte 
-    del modello\index{modello} in quanto non c'è sovrapposizione fra le varie bounding box. 
-    Questo comportamento fa si che la regione rilevata venga classificata come 
-    un Falso Positivo \emph{(FP)}. Se invece il modello non riesce a rilevare un oggetto 
-    presente nell'immagine, allora si parlerà di Falso Negativo $(FN)$.
+    Quando il modello prevederà una bounding box\index{bounding box} con un valore IoU\index{intersection over union (IoU)} 
+    maggiore o uguale alla soglia, tipicamente pari a 0.5, allora questo 
+    vuol dire che ci sarà un'elevata sovrapposizione tra questa e una 
+    delle bounding box\index{bounding box} presenti nel ground truth\index{ground truth}. D'altra parte, quando 
+    il valore di IoU\index{intersection over union (IoU)} è minore della soglia, questo sintomo sarà ritenuto 
+    come una previsione errata da parte del modello\index{modello} in quanto non c'è 
+    sovrapposizione fra le varie bounding box\index{bounding box}. Questo comportamento 
+    fa si che la regione rilevata venga classificata come un Falso Positivo 
+    \emph{(FP)}\index{falso positivo}. Se invece il modello non riesce a rilevare un oggetto presente 
+    nell'immagine, allora si parlerà di Falso Negativo\index{falso negativo} $(FN)$.
     \begin{equation}\label{iou values}
         class(IoU) = \left\{
             \begin{array}{rl}
@@ -823,21 +843,22 @@ Una predizione $(b,c,p)$ è considerata come un vero positivo $(TP)$ se:
             \right.
     \end{equation}
 \end{enumerate}
-A questo punto, per poter calcolare l'Average Precision, consideriamo la $IoU$ come 
-la nostra precisione \cite{rosebrock2017deep}. L'average precision, calcolata su una singola classe $i$, sarà 
-quindi definita come:
+A questo punto, per poter calcolare l'Average Precision\index{average precision}, consideriamo la 
+$IoU$ come la nostra precisione \cite{rosebrock2017deep}. L'average precision, calcolata su una 
+singola classe $i$, sarà quindi definita come:
 \begin{equation}\label{average precision}
     AP_i = \frac{IoU}{L_i}
 \end{equation}
-Dove $L_i$ rappresenta il numero totale delle label appartenenti a una specifica classe 
-$i$. La \emph{mean Average Precision (mAP)} sarà possibile calcolarla con la seguente formula:
+Dove $L_i$ rappresenta il numero totale delle label appartenenti a una specifica 
+classe $i$. La \emph{mean Average Precision (mAP)}\index{mean average precision (mAP)} sarà possibile calcolarla con la 
+seguente formula:
 \begin{equation}\label{mean average precision}
     mAP = \frac{1}{N}\sum_{i=1}^NAP_i
 \end{equation}
-dove N rappresenta il numero totali di classi e $AP_i$ rappresenta l'\emph{Average Precision} 
-della classe $i$.
+dove N rappresenta il numero totali di classi e $AP_i$ rappresenta l'\emph{Average 
+Precision}\index{average precision} della classe $i$.
 
-\subsection{Image Segmentation}
+\subsection{Image Segmentation}\index{image segmentation}
 Nella Figura (\ref{segmentation}) è stato introdotto brevemente l'argomento della segmentazione 
 delle immagini.  I recenti risultati, raggiunti nella segmentazione delle immagini, 
 derivano dai progressi svolti nell'ottimizzazione\index{ottimizzazione} delle \emph{Deep Convolutional Neural 
@@ -853,7 +874,7 @@ esempio la guida autonoma\index{autonoma}, ambito medico, ambito biometrico, amb
 riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
 della classificazione\index{classificazione} e dell'object detection\index{object detection}, è necessario reperire delle informazioni 
 spaziali di basso livello o a livello di pixel.
-L'image segmentation si suddivide in due categorie:
+L'image segmentation\index{image segmentation} si suddivide in due categorie:
 \begin{enumerate}
     \item \emph{Semantic segmentation}\index{semantic segmentation}
     \item \emph{Instance segmentation}
@@ -878,8 +899,8 @@ consistenza etc. In altre parole, la segmentazione semantica tende a suddividere
 l'immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
 rappresenta una regione significativa dell'immagine originale. Rispetto alle altre 
 tecniche, la tecnica di semantic segmentation\index{semantic segmentation} ha esigenze più elevate in quanto 
-non si limita solamente a classificare gli oggetti presenti (image classification) e a 
-rilevarne la loro posizione (object detection)\index{object detection} mediante delle bounding box, ma 
+non si limita solamente a classificare gli oggetti presenti (image classification\index{image classification}) e a 
+rilevarne la loro posizione (object detection)\index{object detection} mediante delle bounding box\index{bounding box}, ma 
 mira a partizionare ogni regione dell'oggetto (foreground) rispetto alla regione 
 di sfondo (background). Per esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono 
 raggruppate come un unica porzione di pixel \cite{aurelien}.
@@ -929,15 +950,15 @@ si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig
     \caption{Esempio di architettura Fully Convolutional Network}
     \label{FCN}
 \end{figure}
-Tale architettura\index{architettura} è composta da un \emph{Encoder} e da un \emph{Decoder}.
+Tale architettura\index{architettura} è composta da un \emph{Encoder}\index{encoder} e da un \emph{Decoder}\index{decoder}.
 \begin{itemize}
-    \item \emph{Encoder}: sezione dell'architettura\index{architettura} adibita all'estrazione del contesto dell'immagine. 
+    \item \emph{Encoder}\index{encoder}: sezione dell'architettura\index{architettura} adibita all'estrazione del contesto dell'immagine. 
     La sua struttura è composta da livelli di convoluzione\index{convoluzione} e di max 
     pooling\index{pooling}, come una comune CNN\index{Convolutional Neural Network - CNN}, che riducono (down-sample) l'immagine 
     in ingresso; 
-    \item \emph{Decoder}: sezione dell'architettura\index{architettura} adibita alla localizzazione\index{localizzazione}  degli elementi 
+    \item \emph{Decoder}\index{decoder}: sezione dell'architettura\index{architettura} adibita alla localizzazione\index{localizzazione}  degli elementi 
     presenti nell'immagine attraverso l'utilizzo di convoluzioni trasposte. Il compito 
-    di un decoder è quello di amplificare le feature map\index{feature map} tramite operazioni 
+    di un decoder\index{decoder} è quello di amplificare le feature map\index{feature map} tramite operazioni 
     di deconvoluzione\index{deconvoluzione} utili a ricostruire l'immagine di ingresso includendone i 
     suoi artefatti.
 \end{itemize}
@@ -955,11 +976,11 @@ Figura \ref{deconvolution}.
 \end{figure}
 In base al numero di layer\index{layer} convoluzionali presenti, esistono diverse architetture\index{architettura}
 di Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
-un encoder che ha il compito di ridurre l'immagine iniziale di 32 volte e da un 
-decoder che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
+un encoder\index{encoder} che ha il compito di ridurre l'immagine iniziale di 32 volte e da un 
+decoder\index{decoder} che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
 disposizione, la rete farà fatica a ricostruire un output simile a all'input, questo si 
 verifica a causa della perdita delle informazione significative nel processo svolto 
-dall'encoder. Per avere una rappresentazione più fedele dell'immagine in output, 
+dall'encoder\index{encoder}. Per avere una rappresentazione più fedele dell'immagine in output, 
 vengono in auto altre due tipologie di architetture\index{architettura}: \emph{FCN-16} e \emph{FCN-8}.
 \begin{figure}
     \centering
@@ -974,7 +995,7 @@ map, utilizzano i livelli di pooling\index{pooling} precedenti nella quale ci so
 Per giungere ad un'architettura\index{architettura} FCN-8, bisognerà svolgere un processo 
 iterativo che va ad effettuare una somma di ogni singolo elemento (element-wise) 
 tra l'upsampling del pooling\index{pooling} layer\index{layer} $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
-risultante sarà quella più fedele al ground truth. Questa architettura\index{architettura} 
+risultante sarà quella più fedele al ground truth\index{ground truth}. Questa architettura\index{architettura} 
 ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
 \emph{FCN-GoogleNet}.
 
@@ -1018,7 +1039,7 @@ DeepLab è un modello\index{modello} utilizzato allo stato dell'arte per la segm
 progettato da Google. Per la costruzione della rete sono state affrontate due 
 problematiche: il down-sampling e l'invarianza spaziale. Il primo problema, legato 
 alla riduzione della risoluzione delle feature\index{feature}, è stato risolto grazie all'applicazione 
-dell'algoritmo soprannominato “atrous”. Ogni encoder è composto dalla combinazione 
+dell'algoritmo soprannominato “atrous”. Ogni encoder\index{encoder} è composto dalla combinazione 
 di layer\index{layer} di pooling\index{pooling} che riducono la risoluzione spaziale delle feature map\index{feature map}. 
 Per poter ricostruire le informazioni perse, si può utilizzare la deconvoluzione\index{deconvoluzione}. 
 Quest'ultima richiede però un quantitativo importante di memoria e di tempo. 
@@ -1052,8 +1073,8 @@ dimensioni dell'immagine di partenza, verrà applicato il CRF.
 \subsubsection{TOP-DOWN/BOTTOM-UP APPROACH}
 \subsubsection{U-Net}
 La rete U-Net \cite{unet} è una rete di segmentazione semantica, con una architettura\index{architettura} a forma 
-di U (Fig. (\ref{unet})) composta anch'essa da un encoder, o percorso di contrazione, e 
-un decoder, o percorso di espansione.
+di U (Fig. (\ref{unet})) composta anch'essa da un encoder\index{encoder}, o percorso di contrazione, e 
+un decoder\index{decoder}, o percorso di espansione.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Unet.png}
@@ -1064,25 +1085,25 @@ un decoder, o percorso di espansione.
 Nell'immagine, ogni riquadro blu rappresenta una feature map\index{feature map} multicanale. Il 
 numero dei canali (specificati sopra ogni riquadro) e le dimensioni (specificate in 
 basso a sinistra di ogni riquadro), variano in base alla profondità della rete. I 
-riquadri bianchi, presenti nello strato di decoder, stanno a rappresentare le feature 
-map copiate dallo strato dell'encoder. Fra i vari layer\index{layer} esistenti in entrambe le 
+riquadri bianchi, presenti nello strato di decoder\index{decoder}, stanno a rappresentare le feature 
+map copiate dallo strato dell'encoder\index{encoder}. Fra i vari layer\index{layer} esistenti in entrambe le 
 parti, esistono delle connessioni, chiamate \emph{Shortcut connection}, capaci di creare 
-un collegamento utile a trasferire le informazioni estratte dall'encoder verso il 
-decoder. Questi collegamenti sono utili a velocizzare il processo di up-sampling e 
-migliorare nel contempo il risultato finale. La sezione dell'encoder è formata da 
+un collegamento utile a trasferire le informazioni estratte dall'encoder\index{encoder} verso il 
+decoder\index{decoder}. Questi collegamenti sono utili a velocizzare il processo di up-sampling e 
+migliorare nel contempo il risultato finale. La sezione dell'encoder\index{encoder} è formata da 
 due convoluzioni $3 \times 3$ consecutive, seguite dalla funzione di attivazione\index{funzione di attivazione} ReLU e 
 da un'operazione di max-pooling\index{pooling} avente una finestra di dimensioni $2 \times 2$ con 
 passo 2. Dalla parte del decoder invece abbiamo l'operazione di up-sampling delle 
 feature map\index{feature map} seguita da una deconvoluzione\index{deconvoluzione} $2 \times 2$. La mappa delle caratteristiche 
 risultati viene concatenata con la mappa delle caratteristiche ritagliata estratta 
-dall'encoder. Successivamente, vengono applicate due operazione di convoluzioni 
+dall'encoder\index{encoder}. Successivamente, vengono applicate due operazione di convoluzioni 
 consecutive aventi finestra di dimensione pari a $3 \times 3$.
 
 \subsubsection{SegNet}
 Così come i modelli già visti, anche SegNet ha un'architettura\index{architettura} composta da un 
-encoder e un decoder. La parte adibita all'encoder utilizza 13 layer\index{layer} convoluzionali, 
-mentre la parte destinata al decoder contiene anch'essa 13 layer per la deconvoluzione\index{deconvoluzione}. 
-In ogni layer\index{layer} della sezione encoder, viene utilizzato un banco di filtri 
+encoder\index{encoder} e un decoder\index{decoder}. La parte adibita all'encoder\index{encoder} utilizza 13 layer\index{layer} convoluzionali, 
+mentre la parte destinata al decoder\index{decoder} contiene anch'essa 13 layer per la deconvoluzione\index{deconvoluzione}. 
+In ogni layer\index{layer} della sezione encoder\index{encoder}, viene utilizzato un banco di filtri 
 per produrre le feature map\index{feature map}. Per poter ridurre lo spostamento della covarianza 
 interna, problema legato all'input che porta la rete a non essere abbastanza 
 efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnica 
@@ -1094,13 +1115,13 @@ una riduzione di ogni feature map\index{feature map} che, tradotto in altri term
 dei dati. La riduzione del numero di dati determina la creazione di bordi sfocati 
 il quale rappresenta un problematica centrale per un'operazione di segmentazione. 
 Per risolvere il problema della perdita dei dati, SegNet effettua solo una memorizzazione 
-degli indici di pooling\index{pooling} per ciascuna feature map\index{feature map} prodotta dall'encoder. 
-Tali indici saranno utili al decoder per effettuare l'operazione di upsampling 
+degli indici di pooling\index{pooling} per ciascuna feature map\index{feature map} prodotta dall'encoder\index{encoder}. 
+Tali indici saranno utili al decoder\index{decoder} per effettuare l'operazione di upsampling 
 al fine di costruire delle feature map\index{feature map} ad alta risoluzione che avessero l'obiettivo di 
 produrre un'immagine in output avente le stesse dimensioni di quella in input. 
-Per giungere al risultato finale, anche il decoder utilizza un banco di filtri, a loro 
+Per giungere al risultato finale, anche il decoder\index{decoder} utilizza un banco di filtri, a loro 
 volta aggiornabili in fase di addestramento, per poter effettuare la deconvoluzione\index{deconvoluzione}. 
-La feature map\index{feature map} prodotta da un decoder verrà inserità in un classificatore softmax 
+La feature map\index{feature map} prodotta da un decoder\index{decoder} verrà inserità in un classificatore softmax 
 multi-classe addestrabile che effettuerà l'etichettatura di ogni singolo pixel (Fig. (\ref{segnet})).
 \begin{figure}
     \centering
@@ -1213,8 +1234,8 @@ Oltre a questa, l'architettura\index{architettura} di DeepLabv2 utilizza non sol
 backbone , ma utilizza anche ResNet. Per quanto riguarda DeepLabv3, questo 
 modello\index{modello} venne introdotto per poter catturare i bordi degli oggetti mediante il 
 recupero delle informazioni spaziali. Per ottenere quanto detto, DeepLabv3 incorpora 
-un encoder e un decoder con una convoluzione\index{convoluzione} dilatata separata. L'encoder 
-e il decoder sono utili per poter ricavare i contorni degli oggetti nitidi mentre 
+un encoder\index{encoder} e un decoder\index{decoder} con una convoluzione\index{convoluzione} dilatata separata. L'encoder\index{encoder} 
+e il decoder\index{decoder} sono utili per poter ricavare i contorni degli oggetti nitidi mentre 
 la convoluzione\index{convoluzione} dilatata viene applicata in profondità per aumentare l'efficienza 
 computazionale\index{computazionale}. Per ottenere ciò viene fattorizzata una convoluzione\index{convoluzione} standard in 
 una \emph{convoluzione depth-wise}, seguita da una \emph{convoluzione point-wise} (convoluzione 
@@ -1258,7 +1279,7 @@ le feature map\index{feature map} iniziali per poter combinare le informazioni c
 globali. Infine, l'intera concatenazione sarà convoluta per poter generare una 
 predizione pixel-wise utile a realizzare la segmentazione semantica finale.
 
-\subsubsection{Metriche di valutazione Image Segmentation}
+\subsubsection{Metriche di valutazione Image Segmentation}\index{image segmentation}
 Così come per l'Object detection\index{object detection}, anche l'Image Saegmentation dispone di tecniche 
 per poter valutare la segmentazione effettuata da un modello\index{modello}. Immaginiamo di 
 avere un numero $k$ di classi esistenti e che a questo venga sommata un'ulteriore 
@@ -1291,12 +1312,12 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
         MPA = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}}
     \end{equation}
 
-    \item {\bfseries{\emph{Intersection Over Union (IoU)}}}: seppur incontrata nella sezione inerente 
+    \item {\bfseries{\emph{Intersection Over Union (IoU)}}}\index{intersection over union (IoU)}: seppur incontrata nella sezione inerente 
     l'object detection\index{object detection} (\ref{OBJD}), l'IoU per la semantic segmentation\index{semantic segmentation} non rappresenta 
-    più il rapporto tra la sovrapposizione di una bounding box predetta con 
-    la bounding box del ground truth, ma questa volta sta a rappresentare la 
+    più il rapporto tra la sovrapposizione di una bounding box\index{bounding box} predetta con 
+    la bounding box del ground truth\index{ground truth}, ma questa volta sta a rappresentare la 
     percentuale di sovrapposizione tra la regione predetta e la regione target 
-    appartenente al ground truth (\ref{predSegIoU}). In altre parole, l'IoU può essere rappresentata 
+    appartenente al ground truth\index{ground truth} (\ref{predSegIoU}). In altre parole, l'IoU\index{intersection over union (IoU)} può essere rappresentata 
     come $TP/(TP+FP+FN)$, che da un punto di vista matematica è espresso come:
     \begin{equation}\label{predSegIoU}
         IoU = \frac{target\cap prediction}{target\cup prediction}
@@ -1306,7 +1327,7 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
     \end{equation}
 
     \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l'IoU viene calcolata separatamente 
-    per ogni classe. La MIoU rappresenta la media di tutte le IoU, e 
+    per ogni classe. La MIoU rappresenta la media di tutte le IoU\index{intersection over union (IoU)}, e 
     quindi su tutte le classi, utile a fornire un punteggio globale del modello\index{modello} che 
     può essere calcolato con la seguente formula:
     \begin{equation}
@@ -1743,7 +1764,7 @@ I sistemi TSR sono in grado di gestire i falsi positivi e i falsi negativi. Tutt
 questo è possibile grazie a un confronto fra frame adiacenti in cui vengono 
 rilevati e tracciati i vari segnali. Se un segnale venisse erroneamente rilevato 
 in un solo frame e non in quelli adiacenti, allora potrebbe trattarsi di un 
-falso positivo e pertanto non c'è bisogno di notificarlo al conducente. Oltre 
+falso positivo\index{falso positivo} e pertanto non c'è bisogno di notificarlo al conducente. Oltre 
 alla velocità assunta dal veicolo, che potrebbe influenzare la classificazione\index{classificazione}, 
 ovviamente ci dev'essere un corretto trade-off tra la velocità di rilevazione e 
 il tempo di riconoscimento del segnale. Quando si confrontano i rilevatori 
