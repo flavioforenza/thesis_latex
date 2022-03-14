@@ -1928,7 +1928,7 @@ questi possono essere considerati rilevanti quando hanno un valore divergente
 da zero. Uno o più pesi\index{peso} quindi sono da considerarsi irrilevanti quando 
 assumono un valore prossimo allo zero. La sovrabbondanza di quest'ultimi 
 impatta drasticamente sulle performance\index{performance} del modello\index{modello}. Allo stato dell'arte 
-sono stati proposti diversi approcci \cite{salama2019pruning} utili a mitigare la sparsità di tali 
+sono stati proposti diversi approcci \cite{salama2019pruning} utili a mitigare la sparsità\index{sparsità} di tali 
 valori. Tutti questi sforzi hanno dato vita alla tecnica di \emph{Pruning} (Potatura)\index{Pruning}.  
 Esistono diverse tecniche di pruning, ovvero:
 \begin{figure}
@@ -1950,15 +1950,15 @@ Esistono diverse tecniche di pruning, ovvero:
 \begin{enumerate}
     \item {\bfseries{\emph{Pruning non-strutturato (Unstructured)}}}\index{Pruning}: applicato per attività 
     di "\emph{weight pruning}"\cite{NIPS1989_6c9882bb} \cite{NIPS1992_303ed4c6}. Lo scopo di questa tecnica è quello di 
-    rimuovere interi pesi\index{peso} introducendo quasi sempre un'elevata sparsità 
+    rimuovere interi pesi\index{peso} introducendo quasi sempre un'elevata sparsità\index{sparsità} 
     nel modello richiedendo al contempo l'utilizzo di hardware e software 
     dedicati. La potatura dei pesi\index{peso} comporterebbe l'eliminazione di alcuni 
     collegamenti tra i vari neuroni\index{neurone}, ma non la loro disattivazione (Fig. 
     \ref{unstruct-prun})
     \item {\bfseries{\emph{Pruning strutturato (Structured)}}}\index{Pruning}: tecnica che va a rimuovere interi 
     filtri (canali), o neuroni\index{neurone}, al posto di singoli pesi\index{peso}, alleviando il problema 
-    della sparsità. A questo proposito, \cite{li2017pruning} propose una "\emph{channel-wise 
-    pruning}" in accordo con la norma \emph{L1} del filtro corrispondente. La 
+    della sparsità\index{sparsità}. A questo proposito, \cite{li2017pruning} propose una "\emph{channel-wise 
+    pruning}" in accordo con la norma \emph{L1}\index{norma L1} del filtro corrispondente. La 
     potatura strutturata in genere porta a prestazioni di runtime migliori 
     rispetto alla potatura non strutturata in quanto le operazioni vengono 
     eseguite su matrici dense. Contrariamente, questa tecnica impatta 
@@ -1969,15 +1969,15 @@ Esistono diverse tecniche di pruning, ovvero:
     alla tecnica non strutturata, la globale applica una potatura su 
     tutti i parametri\index{parametro} specificati in tutti i filtri appartenenti ad ogni layer\index{layer} 
     in maniera parallela. È importante notare che la tecnica globale di 
-    unstructured pruning consente di potare i layers meno utili (entropia 
-    inferiore) rispetto a quelli più utili (entropia più elevata).
+    unstructured pruning consente di potare i layers meno utili (entropia\index{entropia} 
+    inferiore) rispetto a quelli più utili (entropia\index{entropia} più elevata).
 \end{enumerate}
 
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{structured and unstructured pruning.png}
     \centering
-    \caption{Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.}
+    \caption{Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature map nei vari layer.}
     \label{filter-pruning}
 \end{figure}
 
@@ -1987,8 +1987,8 @@ la potatura dei pesi\index{peso} il cui valore assoluto (o magnitudo) è il più
 Sebbene questo criterio sembri banale da implementare in un dominio di 
 unstructured pruning\index{Pruning}, ci si può chiedere come adattarlo ad una structured 
 pruning\index{Pruning}. In quest'ultimo caso, per determinare l'importanza di un valore, 
-queste tecniche utilizzano le norme L1 (Geometria dei Taxi/Distanza di 
-Manhattan) e L2 (Distanza Euclidea) come regolarizzatori. Nello specifico, 
+queste tecniche utilizzano le norme L1\index{norma L1} (Geometria dei Taxi/Distanza di 
+Manhattan) e L2\index{norma L2} (Distanza Euclidea) come regolarizzatori. Nello specifico, 
 la relativa importanza di un filtro, in ogni layer, viene misurata calcolando 
 la somma dei valori assoluti dei suoi pesi\index{peso}, cioè la sua norma (L1 o L2). 
 Successivamente, questi filtri vengono ordinati in base al precedente risultato 
@@ -2002,7 +2002,7 @@ pensiero. Da una parte si pensa che la tecnica di pruning\index{Pruning} porti e
 al miglioramento delle performance\index{performance} di un modello, dovuto dalla riduzione 
 delle sue dimensioni  \cite{han2015learning} e al conseguente risparmio energetico \cite{yang2017designing}, dall'altra 
 parte invece si afferma tutto il contrario \cite{cheng2020survey}. Un recente studio, intitolato 
-"\emph{The lottery ticket hypothesis}" \cite{frankle2019lottery} ha intensificato l'interesse per le tecniche 
+"\emph{The lottery ticket hypothesis}"\index{lottery ticket hypothesis} \cite{frankle2019lottery} ha intensificato l'interesse per le tecniche 
 di potatura. Tale studio sostiene la seguente tesi: 
 \begin{displayquote}
     \emph{"Una rete neurale densa contiene una sottorete più piccola che 
@@ -2013,7 +2013,7 @@ di potatura. Tale studio sostiene la seguente tesi:
 Questa ideologia ha portato gli autori ad attuare la tecnica di pruning\index{Pruning} 
 iterativa utile a ricavare dei modelli più piccoli (i cosiddetti "\emph{winning 
 tickets}") che hanno pienamente confermato la veridicità della propria tesi.
-Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percentuale di sparsità 
+Sempre secondo \cite{frankle2019lottery}, l'introduzione di una crescente percentuale di sparsità\index{sparsità} 
 all'interno di un modello\index{modello} mai ri-addestrato, porterà codesto ad avere un lento 
 apprendimento\index{apprendimento} in fase di training oltre che a un decremento dell'accuratezza\index{accuratezza}.
 
@@ -2025,9 +2025,9 @@ dispositivi con risorse\index{risorse} limitate come la videosorveglianza e la g
 Questa grande limitazione ha aperto le porte allo sviluppo di una 
 nuova tecnica di compressione/ottimizzazione\index{ottimizzazione} \index{compressione}delle reti neurali chiamata 
 \emph{Knowledge Distillation}\index{Knowledge Distillation} (Conoscenza distillata). Tale tecnica risulta utile 
-per migliorare l'accuratezza\index{accuratezza} di una piccola rete, chiamata "Studente", trasferendo 
+per migliorare l'accuratezza\index{accuratezza} di una piccola rete, chiamata "\emph{Studente}", trasferendo 
 la conoscenza distillata prodotta da una (o anche molteplici) rete 
-più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
+più grande chiamata "\emph{Insegnante}" (Fig. \ref{KD_simple}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{KD simple.png}
@@ -2036,21 +2036,21 @@ più grande chiamata "Insegnante" (Fig. \ref{KD_simple}).
     \label{KD_simple}
 \end{figure}
 È bene non confondere tale 
-argomento con il concetto di "Transfer Learning". L'obiettivo del Transfer 
+argomento con il concetto di "Transfer Learning"\index{transfer learning}. L'obiettivo del Transfer 
 Learning è quello di trasferire i pesi\index{peso} da un modello pre-addestrato verso 
 un nuovo modello\index{modello}, entrambi esattamente con la stessa architettura\index{architettura} di rete. 
 Questo vuol dire che la nuova rete è profonda e complessa quanto la rete pre-addestrata.
 L'obiettivo della Knowledge distillation\index{Knowledge Distillation} è nettamente differente.
 In \cite{hinton2015distilling} gli autori hanno mostrato che le conoscenze su "come generalizzare"\index{generalizzare}, 
 possono essere trasferite da un insegnante verso uno studente mediante i 
-cosiddetti "\emph{soft targets}". Utilizzando i logits del modello\index{modello} insegnante, che 
+cosiddetti "\emph{soft targets}"\index{soft targets}. Utilizzando i logits\index{logits} del modello\index{modello} insegnante, che 
 altro non sono che distribuzioni di probabilità sulle classi, si può attuare 
 il principio cardine su cui è basata la knowledge distillation\index{Knowledge Distillation} (o \emph{Vanilla 
 Knowledge Distillation})\index{Knowledge Distillation}. Il modello\index{modello} studente verrà allenato utilizzando i 
-suddetti logits come conoscenza distillata, con lo scopo di ridurre al minimo 
-l'entropia incrociata tra i logits dell'insegnante e i propri logits prodotti. 
+suddetti logits\index{logits} come conoscenza distillata, con lo scopo di ridurre al minimo 
+l'entropia\index{entropia} incrociata tra i logits\index{logits} dell'insegnante e i propri logits prodotti. 
 Prima di introdurre il concetto principale, bisogna ricordare come una 
-funzione Softmax (o funzione di attivazione)\index{funzione di attivazione} trasformi i numeri (logits) in 
+funzione Softmax (o funzione di attivazione)\index{funzione di attivazione} trasformi i numeri (logits\index{logits}) in 
 delle probabilità che se sommate producono un valore sempre uguale a 1.  
 Lo scopo di tale funzione quindi è quello di generare un range di valori, 
 compresi tra 0 e 1, in cui il valore più grande rappresenterà la probabilità 
@@ -2062,13 +2062,13 @@ della classe target. Per calcolare la probabilità individuale di una classe
 dove:
 \begin{itemize}
     \item $q_j$: probabilità della classe $j$-esima;
-    \item $z_J$ logit corrispondente alla classe $j$-esima;
+    \item $z_J$ logit\index{logits} corrispondente alla classe $j$-esima;
     \item $\sum_{k=1}^K exp(z_k)$: termine di normalizzazione;
     \item $K$: numero di classi.
 \end{itemize}
 La formula (\ref{softmax_normal}) calcola il rapporto tra l'esponenziale del valore di input 
 dato e la sommatoria dei valori esponenziali di tutti i valori presenti negli 
-inputs. Le probabilità risultati vengono chiamate "\emph{hard-targets}" (o hard 
+inputs. Le probabilità risultati vengono chiamate "\emph{hard-targets}\index{hard targets}" (o hard 
 labels). Per allenare il modello\index{modello} studente, bisogna modificare la suddetta 
 formula (Eq. \ref{softmax_normal}) applicata dalla funzione Softmax nella seguente formula:
 \begin{equation}
@@ -2076,12 +2076,12 @@ formula (Eq. \ref{softmax_normal}) applicata dalla funzione Softmax nella seguen
 \end{equation}
 dove:
 \begin{itemize}
-    \item $T>1$: indica un parametro\index{parametro} chiamato \emph{Temperatura} \cite{marino2021compact}.
+    \item $T>1$: indica un parametro\index{parametro} chiamato \emph{Temperatura}\index{temperatura} \cite{marino2021compact}.
 \end{itemize}
 Le probabilità risultanti da questa softmax modificata, prenderanno il nome 
-di "\emph{soft-targets}" (o soft-labels). Arrivati a questo punto, c'è da porsi la 
-seguente domanda: Qual'è il significato delle soft-targets? Per comprendere 
-questo concetto, guardiamo le figure X e Y.
+di "\emph{soft-targets}"\index{soft targets} (o soft-labels). Arrivati a questo punto, c'è da porsi la 
+seguente domanda: Qual'è il significato delle soft-targets?\index{soft targets} Per comprendere 
+questo concetto, guardiamo i numeri presenti nella Figura \ref{numbers_Mnist}.
 \begin{figure}[]
     \begin{minipage}[t]{.45\textwidth}
         \centering
@@ -2095,10 +2095,10 @@ questo concetto, guardiamo le figure X e Y.
     \caption{Numeri 1 e 7.}
     \label{numbers_Mnist}
 \end{figure}
-Entrambi sono due numeri, l'1 
-e il 7. Ciò che viene immediatamente notata è la somiglianza tra questi due 
+Entrambi sono i numeri 1 
+e 7. Ciò che viene immediatamente notata è la somiglianza tra questi due 
 numeri, ma nonostante ciò sappiamo distinguerli. Avere una buona capacità 
-di distinzione di tali numeri vuol dire avere una buona "\emph{generalizzazione}". 
+di distinzione di tali numeri vuol dire avere una buona "\emph{generalizzazione}"\index{generalizzare}. 
 \begin{displayquote}
     \emph{"La generalizzazione è la capacità di ottenere delle predizioni 
     attendibili su nuovi dati mai utilizzati in fase di allenamento 
@@ -2106,10 +2106,10 @@ di distinzione di tali numeri vuol dire avere una buona "\emph{generalizzazione}
 \end{displayquote}
 Quando un modello riuscirà ad intuire una somiglianza tra i due numeri, 
 e allo stesso tempo a distinguerli, vuol dire che ha una buona capacità di 
-generalizzazione. La temperatura è utile a controllare l'importanza di ogni 
+generalizzazione\index{generalizzare}. La temperatura\index{temperatura} è utile a controllare l'importanza di ogni 
 probabilità prodotta utile a determinare il grado di generalizzazione. Dai 
 risultati restituiti dal modello\index{modello} (Fig. \ref{7_1}), si può osservare che la probabilità 
-di predire il numero 7 si "ammorbidisce" all'aumentare della temperatura T.
+di predire il numero 7 si "ammorbidisce" (soft) all'aumentare della temperatura $T$.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{graph_numbers.png}
@@ -2117,53 +2117,53 @@ di predire il numero 7 si "ammorbidisce" all'aumentare della temperatura T.
     \caption{Previsione di probabilità per la cifra del numero '7' a temperature variabili.}
     \label{7_1}
 \end{figure}
-Seguendo la linea verde, indicante la temperatura T=7, capiremmo già da 
+Seguendo la linea verde, indicante la temperatura $T=7$, capiremmo già da 
 subito che, con un'alta confidenza, il numero target predetto dal modello è 7 
 ma, allo stesso tempo, notiamo che la probabilità dei numeri 1 e 9 è più alta 
 rispetto a 6. Perché accade ciò? Semplicemente perchè tra il numero 7 e i 
 due numeri 1 e 9, il modello\index{modello} percepisce un livello di somiglianza. Prendendo 
 ora in considerazione le linee blu e arancione, aventi corrispettivamente 
-temperatura T=1 e T=3, si può osservare che il modello prevede giustamente 
+temperatura $T=1$ e $T=3$, si può osservare che il modello prevede giustamente 
 il numero 7, ma contemporaneamente non è più in grado di distinguere se il 
 numero 7 è più vicino a 1 o a 6, in quanto entrambi questi numeri hanno 
 probabilità molto vicine allo zero. L'unica differenza tra un umano e un 
 modello\index{modello} è che quest'ultimo sa quantificare precisamente, attraverso l'utilizzo 
 della temperatura, quanto il numero 7 sembri più vicino a 1. Questo concetto 
-è diffuso sotto il nome di "\emph{Dark Knowledge}"\index{Knowledge Distillation} (Conoscenza Oscura). Un 
+è diffuso sotto il nome di "\emph{Dark Knowledge}"\index{Knowledge Distillation} (Conoscenza Oscura)\index{dark knowledge}. Un 
 modello a bassa temperatura, o verosimilmente i modelli a temperatura 
-T=1, sono molto bravi ad effettuare previsioni difficili ma allo stesso tempo 
+$T=1$, sono molto bravi ad effettuare previsioni difficili ma allo stesso tempo 
 perdono questo concetto di conoscenza oscura. Lo scopo della Knowledge 
 distillation\index{Knowledge Distillation} punta a trasmettere questa conoscenza oscura da un insegnante 
 ben addestrato e un modello\index{modello} studente più leggero. Per allenare lo studente 
-sia con le soft-targets che con le hard-targets, gli autori hanno utilizzato la 
+sia con le soft-targets\index{soft targets} che con le hard-targets\index{hard targets}, gli autori hanno utilizzato la 
 somma ponderata di due perdite. La prima perdita ($L_{soft}$) è quella ricavata 
-dal calcolo dell'entropia incrociata (cross-entropy loss) tra le previsioni del 
-modello\index{modello} studente e le label corrette fornite dal ground-truth. La seconda 
-funzione di perdita ($L_{hard}$) invece si basa sul calcolo di un'entropia incrociata 
-tra le soft-targets prodotte da entrambi i modelli, studente e insegnante, 
-alla stessa quantità di temperatura. Matematicamente parlando, denotiamo 
-corrispettivamente con $v_j$ e $z_j$ i logits di insegnante e studente. Dopo esserci 
-calcolati le probabilità soft-targets $q_j$ e $p_j$ derivanti dalla softmax dello 
-studente e dell'insegnante, ad una stessa temperatura T, possiamo definire 
-la seconda funzione di perdita, ovvero la seconda entropia incrociata, con la 
+dal calcolo dell'entropia incrociata (cross-entropy loss)\index{entropia} tra le previsioni del 
+modello\index{modello} studente e le label corrette fornite dal ground-truth\index{ground truth}. La seconda 
+funzione di perdita ($L_{hard}$) invece si basa sul calcolo di un'entropia\index{entropia} incrociata 
+tra le soft-targets\index{soft targets} prodotte da entrambi i modelli, studente e insegnante, 
+alla stessa quantità di temperatura\index{temperatura}. Matematicamente parlando, denotiamo 
+corrispettivamente con $v_j$ e $z_j$ i logits\index{logits} di insegnante e studente. Dopo esserci 
+calcolati le probabilità soft-targets\index{soft targets}  $q_j$ e $p_j$ derivanti dalla softmax dello 
+studente e dell'insegnante, ad una stessa temperatura\index{temperatura} T, possiamo definire 
+la seconda funzione di perdita, ovvero la seconda entropia\index{entropia} incrociata, con la 
 seguente formula:
 \begin{equation}\label{cross_entropy_loss}
     C(z,v) = -\sum_jp_j \log{q_j}
 \end{equation}
-Il gradiente\index{gradiente} derivante dal calcolo della derivata $dC/dz_J$ sull'entropia incrociata 
+Il gradiente\index{gradiente} derivante dal calcolo della derivata $dC/dz_J$ sull'entropia\index{entropia} incrociata 
 (\ref{cross_entropy_loss}), si ottiene con la seguente formula:
 \begin{equation}\label{cross_entropy_soft}
     \frac{dC}{dz_j}=\frac{1}{T}(q_j-p_j)=\frac{1}{T}\left(\frac{e^{z_j/T}}{\sum_{k=1}^K e^{z_k/T}}-\frac{e^{v_j/T}}{\sum_{k=1}^K e^{v_k/T}}\right)
 \end{equation}
-La Formula (\ref{cross_entropy_soft}) permette di minimizzare l'entropia incrociata (\ref{cross_entropy_loss}) 
-e a migliorare le performance\index{performance} dello studente sfruttando la capacità di 
+La Formula (\ref{cross_entropy_soft}) permette di minimizzare l'entropia\index{entropia} incrociata (\ref{cross_entropy_loss}) 
+e di migliorare le performance\index{performance} dello studente sfruttando la capacità di 
 generalizzazione dell'insegnante. La perdita totale del modello\index{modello} studente è 
-data dalla somma tra la prima e la seconda funzione di perdita. ovvero 
+data dalla somma tra la prima e la seconda funzione di perdita, ovvero 
 dalla seguente formula:
 \begin{equation}
     L= L_{hard}+T^2L_{soft}
 \end{equation}
-Poichè i magnitudi dei gradienti prodotti dai soft-targets scalano a $1/T^2$, 
+Poichè i magnitudi dei gradienti prodotti dai soft-targets\index{soft targets} scalano a $1/T^2$, 
 è importante moltiplicare la seconda funzione di perdita per $T^2$. A livello 
 grafico, la singola generazione delle due perdite è riportata nella Figura 
 (\ref{l_hard_soft}). Da come possiamo vedere, la funzione di perdita $L_{soft}$ è generata 

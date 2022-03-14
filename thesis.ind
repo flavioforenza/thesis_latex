@@ -82,6 +82,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{D}\par\nopagebreak
 
+ \item \small dark knowledge \hfill \hyperpage{79}
  \item \small dataset \hfill \hyperpage{4}, \hyperpage{26}, 
 		\hyperpage{46}
  \item \small decoder \hfill \hyperpage{26}, \hyperpage{37, 38}, 
@@ -107,6 +108,8 @@
  \item \small emotion recognition \hfill \hyperpage{28}
  \item \small encoder \hfill \hyperpage{26}, \hyperpage{37, 38}, 
 		\hyperpage{40}, \hyperpage{42, 43}, \hyperpage{47, 48}
+ \item \small entropia \hfill \hyperpage{73}, \hyperpage{76}, 
+		\hyperpage{79, 80}
  \item \small etichetta \hfill \hyperpage{3}, \hyperpage{11, 12}, 
 		\hyperpage{27}, \hyperpage{30, 31}, \hyperpage{33}, 
 		\hyperpage{35}, \hyperpage{41}
@@ -156,12 +159,12 @@
 \noindent\textbf{G}\par\nopagebreak
 
  \item \small generalizzare \hfill \hyperpage{9}, \hyperpage{11}, 
-		\hyperpage{76}
+		\hyperpage{76}, \hyperpage{78}
  \item \small global positioning system (GPS) \hfill \hyperpage{57}
  \item \small gradiente \hfill \hyperpage{10}, \hyperpage{14--16}, 
-		\hyperpage{22}, \hyperpage{58}, \hyperpage{79}
+		\hyperpage{22}, \hyperpage{58}, \hyperpage{80}
  \item \small ground truth \hfill \hyperpage{32, 33}, \hyperpage{39}, 
-		\hyperpage{51}
+		\hyperpage{51}, \hyperpage{79}
  \item \small guida assistita \hfill \hyperpage{53}
  \item \small guida convenzionale \hfill \hyperpage{53}
 
@@ -172,6 +175,7 @@
 
  \item \small half precision \hfill \hyperpage{70}
  \item \small hand position \hfill \hyperpage{63}
+ \item \small hard targets \hfill \hyperpage{77}, \hyperpage{79}
 
   \indexspace
 
@@ -223,6 +227,8 @@
  \item \small ligth detector and range (LIDAR) \hfill \hyperpage{55}
  \item \small localizzazione \hfill \hyperpage{3}, \hyperpage{38}, 
 		\hyperpage{46, 47}, \hyperpage{52}, \hyperpage{66}
+ \item \small logits \hfill \hyperpage{76, 77}, \hyperpage{79}
+ \item \small lottery ticket hypothesis \hfill \hyperpage{75}
 
   \indexspace
 
@@ -250,7 +256,8 @@
  \item \small neurone \hfill \hyperpage{5--9}, \hyperpage{13}, 
 		\hyperpage{15}, \hyperpage{17--19}, \hyperpage{21, 22}, 
 		\hyperpage{24, 25}, \hyperpage{69}, \hyperpage{72, 73}
- \item \small norma L2 \hfill \hyperpage{45}
+ \item \small norma L1 \hfill \hyperpage{73, 74}
+ \item \small norma L2 \hfill \hyperpage{45}, \hyperpage{74}
  \item \small NVidia Jetson Nano \hfill \hyperpage{2}
 
   \indexspace
@@ -330,6 +337,9 @@
  \item \small Single-Shot-Detector (SSD) \hfill \hyperpage{1}
  \item \small society of automotiuve engineers (SAE) \hfill 
 		\hyperpage{52}
+ \item \small soft targets \hfill \hyperpage{76, 77}, 
+		\hyperpage{79, 80}
+ \item \small sparsità \hfill \hyperpage{72, 73}, \hyperpage{75}
  \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}
  \item \small static quantization \hfill \hyperpage{71}
  \item \small stereo-camera \hfill \hyperpage{3}, \hyperpage{63}
@@ -342,11 +352,13 @@
 \noindent\textbf{T}\par\nopagebreak
 
  \item \small telecamera \hfill \hyperpage{3}, \hyperpage{57--60}
+ \item \small temperatura \hfill \hyperpage{77--79}
  \item \small TensorRT \hfill \hyperpage{70}
  \item \small tracking \hfill \hyperpage{52}, \hyperpage{56}, 
 		\hyperpage{61}
  \item \small traffic light detection \hfill \hyperpage{66}
  \item \small traffic sign detection \hfill \hyperpage{66}
+ \item \small transfer learning \hfill \hyperpage{75}
 
   \indexspace
 

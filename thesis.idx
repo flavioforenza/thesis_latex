@@ -770,24 +770,32 @@
 \indexentry{peso|hyperpage}{72}
 \indexentry{performance|hyperpage}{72}
 \indexentry{modello|hyperpage}{72}
+\indexentry{sparsità|hyperpage}{72}
 \indexentry{Pruning|hyperpage}{72}
 \indexentry{Pruning|hyperpage}{72}
 \indexentry{peso|hyperpage}{72}
+\indexentry{sparsità|hyperpage}{72}
 \indexentry{peso|hyperpage}{72}
 \indexentry{neurone|hyperpage}{72}
 \indexentry{Pruning|hyperpage}{73}
 \indexentry{neurone|hyperpage}{73}
 \indexentry{peso|hyperpage}{73}
+\indexentry{sparsità|hyperpage}{73}
+\indexentry{norma L1|hyperpage}{73}
 \indexentry{accuratezza|hyperpage}{73}
 \indexentry{modello|hyperpage}{73}
 \indexentry{fully connected|hyperpage}{73}
 \indexentry{Pruning|hyperpage}{73}
 \indexentry{parametro|hyperpage}{73}
 \indexentry{layer|hyperpage}{73}
+\indexentry{entropia|hyperpage}{73}
+\indexentry{entropia|hyperpage}{73}
 \indexentry{parametro|hyperpage}{73}
 \indexentry{peso|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
+\indexentry{norma L1|hyperpage}{74}
+\indexentry{norma L2|hyperpage}{74}
 \indexentry{peso|hyperpage}{74}
 \indexentry{feature map|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
@@ -799,8 +807,10 @@
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{performance|hyperpage}{74}
+\indexentry{lottery ticket hypothesis|hyperpage}{75}
 \indexentry{accuratezza|hyperpage}{75}
 \indexentry{Pruning|hyperpage}{75}
+\indexentry{sparsità|hyperpage}{75}
 \indexentry{modello|hyperpage}{75}
 \indexentry{apprendimento|hyperpage}{75}
 \indexentry{accuratezza|hyperpage}{75}
@@ -812,29 +822,59 @@
 \indexentry{compressione|hyperpage}{75}
 \indexentry{Knowledge Distillation|hyperpage}{75}
 \indexentry{accuratezza|hyperpage}{75}
+\indexentry{transfer learning|hyperpage}{75}
 \indexentry{peso|hyperpage}{75}
 \indexentry{modello|hyperpage}{75}
 \indexentry{architettura|hyperpage}{75}
 \indexentry{Knowledge Distillation|hyperpage}{76}
 \indexentry{generalizzare|hyperpage}{76}
+\indexentry{soft targets|hyperpage}{76}
+\indexentry{logits|hyperpage}{76}
 \indexentry{modello|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
 \indexentry{modello|hyperpage}{76}
+\indexentry{logits|hyperpage}{76}
+\indexentry{entropia|hyperpage}{76}
+\indexentry{logits|hyperpage}{76}
 \indexentry{funzione di attivazione|hyperpage}{76}
+\indexentry{logits|hyperpage}{76}
+\indexentry{logits|hyperpage}{77}
+\indexentry{hard targets|hyperpage}{77}
 \indexentry{modello|hyperpage}{77}
 \indexentry{parametro|hyperpage}{77}
+\indexentry{temperatura|hyperpage}{77}
+\indexentry{soft targets|hyperpage}{77}
+\indexentry{soft targets|hyperpage}{77}
+\indexentry{generalizzare|hyperpage}{78}
 \indexentry{modello|hyperpage}{78}
+\indexentry{generalizzare|hyperpage}{78}
+\indexentry{temperatura|hyperpage}{78}
 \indexentry{modello|hyperpage}{78}
 \indexentry{modello|hyperpage}{78}
 \indexentry{modello|hyperpage}{79}
 \indexentry{Knowledge Distillation|hyperpage}{79}
+\indexentry{dark knowledge|hyperpage}{79}
 \indexentry{Knowledge Distillation|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
+\indexentry{soft targets|hyperpage}{79}
+\indexentry{hard targets|hyperpage}{79}
+\indexentry{entropia|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
-\indexentry{gradiente|hyperpage}{79}
+\indexentry{ground truth|hyperpage}{79}
+\indexentry{entropia|hyperpage}{79}
+\indexentry{soft targets|hyperpage}{79}
+\indexentry{temperatura|hyperpage}{79}
+\indexentry{logits|hyperpage}{79}
+\indexentry{soft targets|hyperpage}{79}
+\indexentry{temperatura|hyperpage}{79}
+\indexentry{entropia|hyperpage}{79}
+\indexentry{gradiente|hyperpage}{80}
+\indexentry{entropia|hyperpage}{80}
+\indexentry{entropia|hyperpage}{80}
 \indexentry{performance|hyperpage}{80}
 \indexentry{modello|hyperpage}{80}
+\indexentry{soft targets|hyperpage}{80}
 \indexentry{Pruning|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
