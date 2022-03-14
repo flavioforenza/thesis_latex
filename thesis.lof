@@ -35,7 +35,7 @@
 \contentsline {figure}{\numberline {2.31}{\ignorespaces Esempio di applicazione del contesto globale alla segmentazione.\relax }}{44}{figure.caption.50}%
 \contentsline {figure}{\numberline {2.32}{\ignorespaces Modulo ParseNet.\relax }}{45}{figure.caption.51}%
 \contentsline {figure}{\numberline {2.33}{\ignorespaces Architettura modello GCN.\relax }}{47}{figure.caption.53}%
-\contentsline {figure}{\numberline {2.34}{\ignorespaces Atrous Spatial Pooling Pyramid.\relax }}{48}{figure.caption.56}%
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Atrous Spatial Pyramid Pooling.\relax }}{48}{figure.caption.56}%
 \contentsline {figure}{\numberline {2.35}{\ignorespaces Differenza tra convoluzione depth-wise (a) e convoluzione point-wise (b).\relax }}{49}{figure.caption.57}%
 \contentsline {figure}{\numberline {2.36}{\ignorespaces Architettura PSPNet.\relax }}{49}{figure.caption.59}%
 \contentsline {figure}{\numberline {2.37}{\ignorespaces Livelli di automazione definiti dalla SAE International.\relax }}{53}{figure.caption.61}%

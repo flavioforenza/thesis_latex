@@ -503,7 +503,7 @@ derivata di un numero negativo. Per i numeri positivi, la derivata viene
 posta uguale a uno, in modo da evitare la saturazione del gradiente\index{gradiente}.
 
 \subsubsection{Pooling}
-La tecnica di Pooling\index{pooling}, chiamata anche di subsampling o downsampling, ha 
+La tecnica di Pooling\index{pooling}, chiamata anche di subsampling o downsampling\index{downsampling}, ha 
 il compito di ridurre le dimensioni di ogni feature map\index{feature map} mantenendo però 
 le informazioni più importanti. Il funzionamento di basa nel far scorrere 
 una finestra, senza alcun tipo di valore o peso\index{peso} al suo interno, di dimensione 
@@ -791,7 +791,7 @@ riportate alcune delle sfide chiave affrontate dalle reti neurali \cite{zaidi202
 
 \subsubsection{Metriche di valutazione Object detection}\index{object detection}
 Le prestazioni di un modello\index{modello} vengono calcolate utilizzando alcune metriche, 
-come per esempio i \emph{Fotogrammi Per Secondo (FPS)}, \emph{Precisione} e \emph{Recall}, 
+come per esempio i \emph{Fotogrammi Per Secondo (FPS)}\index{frame per second (FPS)}, \emph{Precisione} e \emph{Recall}, 
 ma la più usata è la \emph{mean Average Precision (mAP)}\index{mean average precision (mAP)}. La precisione misura 
 la percentuale di previsioni corrette mentre il richiamo misura le previsioni 
 corrette rispetto alla verità di base (\emph{ground truth}\index{ground truth}).
@@ -860,50 +860,53 @@ Precision}\index{average precision} della classe $i$.
 
 \subsection{Image Segmentation}\index{image segmentation}
 Nella Figura (\ref{segmentation}) è stato introdotto brevemente l'argomento della segmentazione 
-delle immagini.  I recenti risultati, raggiunti nella segmentazione delle immagini, 
-derivano dai progressi svolti nell'ottimizzazione\index{ottimizzazione} delle \emph{Deep Convolutional Neural 
-Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN)\index{Convolutional Neural Network - CNN}. 
-Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, una rete neurale convoluzionale 
-sviluppata per riconoscere i numeri scritti a mano. Grazie a questa, venne spianata 
-la strada verso il continuo successo delle CNN\index{Convolutional Neural Network - CNN} nello svolgere vari compiti di visione 
-artificiale di alto livello, oltre che a motivare i ricercatori ad esplorare le capacità 
-di tali reti per problemi di classificazione\index{classificazione} pixel-wise, come la segmentazione delle 
-immagini. La segmentazione di un'immagine è uno dei  compiti indispensabili 
-nella visione artificiale\index{visione artificiale} in quanto è utile in diversi campi scientifici, come per 
-esempio la guida autonoma\index{autonoma}, ambito medico, ambito biometrico, ambito militare, 
-riconoscimento etc. Per poter svolgere questo complicato compito, a differenza 
-della classificazione\index{classificazione} e dell'object detection\index{object detection}, è necessario reperire delle informazioni 
-spaziali di basso livello o a livello di pixel.
-L'image segmentation\index{image segmentation} si suddivide in due categorie:
+delle immagini.  I recenti risultati, raggiunti nella segmentazione 
+delle immagini, derivano dai progressi svolti nell'ottimizzazione\index{ottimizzazione} delle \emph{Deep 
+Convolutional Neural Networks (DCNN)}, in particolare dalle Convolutional Neural Networks (CNN)\index{Convolutional Neural Network - CNN}. 
+Nel 1989, sempre LeCun inventò \emph{LeNet-5} \cite{LeNet-5}, 
+una rete neurale convoluzionale sviluppata per riconoscere i numeri scritti a 
+mano. Grazie a questa, venne spianata la strada verso il continuo successo 
+delle CNN\index{Convolutional Neural Network - CNN} nello svolgere vari compiti di visione artificiale di alto livello, 
+oltre che a motivare i ricercatori ad esplorare le capacità di tali reti per 
+problemi di classificazione\index{classificazione} pixel-wise, come la segmentazione delle immagini. 
+La segmentazione di un'immagine è uno dei  compiti indispensabili nella 
+visione artificiale\index{visione artificiale} in quanto è utile in diversi campi scientifici, come per 
+esempio la guida autonoma\index{autonoma}, ambito medico, ambito biometrico, ambito 
+militare, riconoscimento etc. Per poter svolgere questo complicato compito, 
+a differenza della classificazione\index{classificazione} e dell'object detection\index{object detection}, è necessario reperire 
+delle informazioni spaziali di basso livello o a livello di pixel. L'image 
+segmentation\index{image segmentation} si suddivide in due categorie:
 \begin{enumerate}
     \item \emph{Semantic segmentation}\index{semantic segmentation}
     \item \emph{Instance segmentation}
 \end{enumerate}
-Esiste un'ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata dalla 
-fusione dei risultati provenienti dalle due principali categorie. In questo elaborato 
-verrà discussa solamente la tecnica di \index{semantic segmentation}. prima di introdurre 
-la tecniche citata, è doveroso specificare che la segmentazione delle immagini è 
-un argomento trattato anche nell'elaborazione dei video.
+Esiste un'ulteriore categoria, chiamata \emph{Panoptic Segmentation}, derivata 
+dalla fusione dei risultati provenienti dalle due principali categorie. In questo 
+elaborato verrà discussa solamente la tecnica di \index{semantic segmentation}. prima di introdurre la 
+tecnica citata, è doveroso specificare che la segmentazione delle immagini 
+è un argomento trattato anche nell'elaborazione dei video.
 
 \subsubsection{Semantic Segmentation}\index{semantic segmentation}
-Il deep learning\index{deep learning} ha fortemente promosso la ricerca sulla segmentazione semantica. 
-La comunità industriale sta facendo enormi sforzi nello sviluppo di sistemi avanzati 
-in grado di effettuare una segmentazione semantica. Per esempio, una fotocamera, 
-installata nei diffusi dispositivi mobili, è in grado di produrre un ritratto mediante 
-l'effetto di profondità, comunemente chiamato effetto bokeh, incorporando la tecnica 
-di segmentazione. Nella segmentazione semantica ogni pixel viene classificato 
-in base alla classe di appartenenza dell'oggetto presente nell'immagine (es: strada, 
-automobile, pedone, edificio etc.). In questo caso, i pixel dell'immagine aventi la 
-stessa etichetta\index{etichetta}, condividono determinate caratteristiche come colore, intensità, 
-consistenza etc. In altre parole, la segmentazione semantica tende a suddividere 
-l'immagine in sottoinsiemi che si escludono a vicenda, in cui ogni sottoinsieme 
-rappresenta una regione significativa dell'immagine originale. Rispetto alle altre 
-tecniche, la tecnica di semantic segmentation\index{semantic segmentation} ha esigenze più elevate in quanto 
-non si limita solamente a classificare gli oggetti presenti (image classification\index{image classification}) e a 
-rilevarne la loro posizione (object detection)\index{object detection} mediante delle bounding box\index{bounding box}, ma 
-mira a partizionare ogni regione dell'oggetto (foreground) rispetto alla regione 
-di sfondo (background). Per esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono 
-raggruppate come un unica porzione di pixel \cite{aurelien}.
+Il deep learning\index{deep learning} ha fortemente promosso la ricerca sulla segmentazione 
+semantica. La comunità industriale sta facendo enormi sforzi nello sviluppo 
+di sistemi avanzati in grado di effettuare una segmentazione semantica. 
+Per esempio, una fotocamera, installata nei diffusi dispositivi mobili, è in 
+grado di produrre un ritratto mediante l'effetto di profondità, comunemente 
+chiamato effetto bokeh, incorporando la tecnica di segmentazione. Nella 
+segmentazione semantica ogni pixel viene classificato in base alla classe 
+di appartenenza dell'oggetto presente nell'immagine (es: strada, automobile, 
+pedone, edificio etc.). In questo caso, i pixel dell'immagine aventi 
+la stessa etichetta\index{etichetta}, condividono determinate caratteristiche come colore, 
+intensità, consistenza etc. In altre parole, la segmentazione semantica tende 
+a suddividere l'immagine in sottoinsiemi che si escludono a vicenda, in 
+cui ogni sottoinsieme rappresenta una regione significativa dell'immagine 
+originale. Rispetto alle altre tecniche, la tecnica di semantic segmentation\index{semantic segmentation} 
+ha esigenze più elevate in quanto non si limita solamente a classificare gli 
+oggetti presenti (image classification\index{image classification}) e a rilevarne la loro posizione (object 
+detection)\index{object detection} mediante delle bounding box\index{bounding box}, ma mira a partizionare ogni regione 
+dell'oggetto (foreground\index{foreground}) rispetto alla regione di sfondo (background\index{background}). Per 
+esempio, le auto presenti nella Figura (\ref{semantic segmentation}), vengono raggruppate come 
+un'unica porzione di pixel \cite{aurelien}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{sem seg.png}
@@ -911,8 +914,9 @@ raggruppate come un unica porzione di pixel \cite{aurelien}.
     \caption{Esempio Semantic segmentation.}
     \label{semantic segmentation}
 \end{figure}
-Allo stato dell'arte esistono varie tipologie di architetture\index{architettura} di reti neurali 
-comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semantic_segmentation_networks}:
+Allo stato dell'arte esistono varie tipologie 
+di architetture\index{architettura} di reti neurali comunemente utilizzate per produrre delle 
+segmentazioni semantiche \cite{semantic_segmentation_networks}:
 \begin{enumerate}
     \item \emph{Fully convolutional networks (FCN)}
     \item \emph{Dilation/Atrous convolution}
@@ -921,28 +925,35 @@ comunemente utilizzate per produrre delle segmentazioni semantiche \cite{semanti
     \item \emph{Receptive field enlargement and multi-scale context incorporation}
 \end{enumerate}
 
-\subsubsection{FULLY CONVOLUTIONAL NETWORKS}
+\subsubsection{FULLY CONVOLUTIONAL NETWORKS}\index{fully convolutional}
 Long et al. \cite{fcn} propose la pietra miliare Fully Convolutional Network (FCN), 
 che diede un gran contributo all'incremento dell'accuratezza\index{accuratezza} della segmentazione 
-semantica. Lo studio si basò sull'utilizzo di svariati classificatori come: AlexNet \cite{alexnet}, 
-VGGNet\cite{vggNet} e GoolgeNet \cite{googleNet}, tutte pre-addestrare con gli stessi dati. 
-Ogni classificatore, come precedentemente spiegato in \ref{RNC}, ha lo scopo di prendere 
-un'immagine in input e ridimensionarla tramite l'attraversamento dei layer 
-convoluzionali, fino a giungere ai layer\index{layer} fully connected (FC)\index{fully connected}. L'output prodotto 
-sarà sotto forma di label predetta (Fig. \ref{CNN complete}). Per convertire questi modelli\index{modello} da 
-classificatori a modelli FCN densi, bisogna sostituire i layer fully connected\index{fully connected} con 
-layer\index{layer} convoluzionali di dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle 
-classi esistenti in PASCAL VOC (20), più la classe di background. Tramite una 
-procedura di \emph{Upsampling}, viene effettuata un'operazione di \emph{deconvoluzione}\index{deconvoluzione}, spesso 
-chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l'immagine di partenza 
-ricostruita. Esistono varie tipologie di upsampling, fra queste abbiamo:
+semantica. Lo studio si basò sull'utilizzo di svariati classificatori 
+come: AlexNet \cite{alexnet}, VGGNet\cite{vggNet} e GoolgeNet \cite{googleNet}, tutte pre-addestrari 
+con gli stessi dati. Ogni classificatore, come precedentemente spiegato 
+in \ref{RNC}, ha lo scopo di prendere un'immagine in input e ridimensionarla 
+tramite l'attraversamento dei layer convoluzionali, fino a giungere i layer\index{layer} 
+fully connected (FC)\index{fully connected}. L'output prodotto sarà sotto forma di label predetta 
+(Fig. \ref{CNN complete}). Per convertire questi modelli\index{modello} da classificatori a modelli FCN 
+densi, bisogna sostituire i layer fully connected\index{fully connected} con layer\index{layer} convoluzionali di 
+dimensione $1 \times 1 \times 21$, dove 21 rappresenta il numero delle classi esistenti 
+in PASCAL VOC (20), più la classe di background\index{background}. Tramite una procedura 
+di \emph{Upsampling}\index{upsampling}, viene effettuata un'operazione di \emph{deconvoluzione}\index{deconvoluzione}, spesso 
+chiamata \emph{convoluzione trasposta}, utile a restituire in ouput l'immagine di 
+partenza ricostruita. Esistono varie tipologie di upsampling\index{upsampling}, fra queste 
+abbiamo:
 \begin{enumerate}
     \item \emph{Nearest-Neighboor}: Copia il valore del pixel più vicino;
-    \item \emph{Up-Sampling Bilineare}: calcola il valore dei pixel attraverso l'interpolazione lineare e l'uso dei pixel adiacenti;
-    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l'interpolazione polinomiale. Questa operazione ha un alto tasso computazionale\index{computazionale} ma allo stesso tempo produce risultati migliori rispetto alle sue concorrenti. 
+    \item \emph{Up-Sampling Bilineare}: Calcola il valore dei pixel attraverso l'interpolazione 
+    lineare e l'uso dei pixel adiacenti;
+    \item \emph{Up-sampling Bicubico}: Calcola il valore dei pixel attraverso l'interpolazione 
+    polinomiale. Questa operazione ha un alto tasso computazionale\index{computazionale} 
+    ma allo stesso tempo produce risultati migliori rispetto alle sue 
+    concorrenti. 
 \end{enumerate}
-Quando si sarà giunti a un layer\index{layer} di pooling\index{pooling} pari alla dimensione di $1 \times 1$, allora 
-si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig. \ref{FCN}). 
+Quando si sarà giunti a un layer\index{layer} di pooling\index{pooling} pari alla dimensione di $1 \times 1$, 
+allora si potrà attuare l'upsampling\index{upsampling} per poter ricostruire l'immagine di 
+partenza (Fig. \ref{FCN}). 
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{FCN.png}
@@ -950,23 +961,23 @@ si potrà attuare l'upsampling per poter ricostruire l'immagine di partenza (Fig
     \caption{Esempio di architettura Fully Convolutional Network}
     \label{FCN}
 \end{figure}
-Tale architettura\index{architettura} è composta da un \emph{Encoder}\index{encoder} e da un \emph{Decoder}\index{decoder}.
+Tale architettura\index{architettura} è composta da un \emph{Encoder}\index{encoder} e da un 
+\emph{Decoder}\index{decoder}.
 \begin{itemize}
-    \item \emph{Encoder}\index{encoder}: sezione dell'architettura\index{architettura} adibita all'estrazione del contesto dell'immagine. 
-    La sua struttura è composta da livelli di convoluzione\index{convoluzione} e di max 
-    pooling\index{pooling}, come una comune CNN\index{Convolutional Neural Network - CNN}, che riducono (down-sample) l'immagine 
-    in ingresso; 
-    \item \emph{Decoder}\index{decoder}: sezione dell'architettura\index{architettura} adibita alla localizzazione\index{localizzazione}  degli elementi 
-    presenti nell'immagine attraverso l'utilizzo di convoluzioni trasposte. Il compito 
-    di un decoder\index{decoder} è quello di amplificare le feature map\index{feature map} tramite operazioni 
-    di deconvoluzione\index{deconvoluzione} utili a ricostruire l'immagine di ingresso includendone i 
-    suoi artefatti.
+    \item \emph{Encoder}\index{encoder}: sezione dell'architettura\index{architettura} adibita all'estrazione del contesto 
+    dell'immagine. La sua struttura è composta da livelli di convoluzione\index{convoluzione} 
+    e di max pooling\index{pooling}, come una comune CNN\index{Convolutional Neural Network - CNN}, che riducono (down-sample) 
+    l'immagine in ingresso; 
+    \item \emph{Decoder}\index{decoder}: sezione dell'architettura\index{architettura} adibita alla localizzazione\index{localizzazione}  degli 
+    elementi presenti nell'immagine attraverso l'utilizzo di convoluzioni 
+    trasposte. Il compito di un decoder\index{decoder} è quello di amplificare le feature 
+    map\index{feature map} tramite operazioni di deconvoluzione\index{deconvoluzione} utili a ricostruire l'immagine 
+    di ingresso includendone i suoi artefatti.
 \end{itemize}
-Esitono diverse reti FCN che adottano questa tipologia di architettura\index{architettura} (es: \emph{Autoencoder}). 
-Per quanto riguarda le operazioni 
-svolte, un confronto tra l'operazione di Pooling\index{pooling} (downsampling) e di Unpooling\index{unpooling} 
-(upsampling), o di convoluzione\index{convoluzione} e deconvoluzione\index{deconvoluzione}, sono mostrate nella 
-Figura \ref{deconvolution}.
+Esitono diverse reti FCN che adottano questa tipologia di architettura\index{architettura} (es: 
+\emph{Autoencoder}). Per quanto riguarda le operazioni svolte, un confronto tra 
+l'operazione di Pooling\index{pooling} (downsampling\index{downsampling}) e di Unpooling\index{unpooling} (upsampling\index{upsampling}), o di 
+convoluzione\index{convoluzione} e deconvoluzione\index{deconvoluzione}, sono mostrate nella Figura \ref{deconvolution}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.7\linewidth]{deconvolution.png}
@@ -974,14 +985,16 @@ Figura \ref{deconvolution}.
     \caption{Esempio di Deconvoluzione e di Unpooling (Upsampling).}
     \label{deconvolution}
 \end{figure}
-In base al numero di layer\index{layer} convoluzionali presenti, esistono diverse architetture\index{architettura}
-di Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
-un encoder\index{encoder} che ha il compito di ridurre l'immagine iniziale di 32 volte e da un 
-decoder\index{decoder} che svolgerà il processo inverso di ricostruzione. Avendo pochi dati a 
-disposizione, la rete farà fatica a ricostruire un output simile a all'input, questo si 
-verifica a causa della perdita delle informazione significative nel processo svolto 
-dall'encoder\index{encoder}. Per avere una rappresentazione più fedele dell'immagine in output, 
-vengono in auto altre due tipologie di architetture\index{architettura}: \emph{FCN-16} e \emph{FCN-8}.
+In base 
+al numero di layer\index{layer} convoluzionali presenti, esistono diverse architetture\index{architettura} di 
+Fully Convolutional Networks. Una fra queste, la \emph{FCN-32}, è composta da 
+un encoder\index{encoder} che ha il compito di ridurre l'immagine iniziale di 32 volte e da 
+un decoder\index{decoder} che svolgerà il processo inverso di ricostruzione. Avendo pochi 
+dati a disposizione, la rete farà fatica a ricostruire un output simile all'input, 
+questo si verifica a causa della perdita delle informazioni significative nel 
+processo svolto dall'encoder\index{encoder}. Per avere una rappresentazione più fedele 
+dell'immagine in output, vengono in aiuto altre due tipologie di architetture\index{architettura}: 
+\emph{FCN-16} e \emph{FCN-8}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{FCN-32.png}
@@ -989,28 +1002,31 @@ vengono in auto altre due tipologie di architetture\index{architettura}: \emph{F
     \caption{Esempio derivazione delle varie architetture FCN.}
     \label{FCN-models}
 \end{figure}
-Quest'ultime utilizzano una strategia intelligente\index{intelligenza} per poter ricostruire l'immagine. 
-Per giungere a un buon risultato, oltre che a fare riferimento alla sola feature 
-map, utilizzano i livelli di pooling\index{pooling} precedenti nella quale ci sono maggiori informazioni. 
-Per giungere ad un'architettura\index{architettura} FCN-8, bisognerà svolgere un processo 
-iterativo che va ad effettuare una somma di ogni singolo elemento (element-wise) 
-tra l'upsampling del pooling\index{pooling} layer\index{layer} $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione 
-risultante sarà quella più fedele al ground truth\index{ground truth}. Questa architettura\index{architettura} 
-ha permesso di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e 
-\emph{FCN-GoogleNet}.
+Quest'ultime utilizzano una strategia intelligente\index{intelligenza} per 
+poter ricostruire l'immagine. Per giungere a un buon risultato, oltre che a 
+fare riferimento alla sola feature map\index{feature map}, utilizzano i livelli di pooling\index{pooling} precedenti 
+nella quale ci sono maggiori informazioni. Per giungere ad un'architettura\index{architettura} 
+FCN-8, bisognerà svolgere un processo iterativo che va ad effettuare una 
+somma di ogni singolo elemento (element-wise) tra l'upsampling\index{upsampling} del pooling\index{pooling} 
+layer\index{layer} $n$ con il pooling layer $n-1$ (Fig. (\ref{FCN-models})). La ricostruzione risultante 
+sarà quella più fedele al ground truth\index{ground truth}. Questa architettura\index{architettura} ha permesso 
+di convertire i modelli precedenti in \emph{FCN-AlexNet}, \emph{FCN-VGG16} e \emph{FCN-
+GoogleNet}.
 
 \subsubsection{DILATATION/ATROUS CONVOLUTION}
 \subsubsection{DilatedNet}
-Per rimediare alla bassa qualità prodotta in output da una comune rete CNN\index{Convolutional Neural Network - CNN}, Yu 
-e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione Dilatata}} 
-o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello\index{modello} consentiva di estrarre le informazioni che 
-consentivano una migliore segmentazione che non comportasse a sua volta alla 
-perdita di dati rilevanti. L'idea della Convoluzione\index{convoluzione} dilatata, chiamata anche 
-\emph{Convoluzione Dilatata}, o \emph{"Atrous Algorithm"} (il termine deriva dal francese \emph{à trous} che significa "buco" o "foro"),  deriva dalla decomposizione wavelet. A differenza del 
-tradizionale operatore di convoluzione\index{convoluzione}, la convoluzione dilatata introduce un tasso 
-di dilatazione \emph{(dilated rate)} $l$, utile a saltare alcuni punti, presenti nel 
-campo ricettivo\index{campo ricettivo}, durante la convoluzione\index{convoluzione}. La formula matematica per il calcolo della 
-convoluzione dilatata è la seguente:
+Per rimediare alla bassa qualità prodotta in output da una comune rete 
+CNN\index{Convolutional Neural Network - CNN}, Yu e Koltun introdussero un versione modificata chiamata {\bfseries{Convoluzione 
+Dilatata}} o {\bfseries{DilatedNet}} \cite{DilatedNet}. Questo modello\index{modello} consentiva di 
+estrarre le informazioni che consentivano una migliore segmentazione che 
+non comportasse a sua volta la perdita di dati rilevanti. L'idea della 
+Convoluzione\index{convoluzione} dilatata, chiamata anche \emph{Convoluzione Dilatata}, o \emph{"Atrous 
+Algorithm"} (il termine deriva dal francese \emph{à trous} che significa "buco" o 
+"foro"),  deriva dalla decomposizione wavelet. A differenza del tradizionale 
+operatore di convoluzione\index{convoluzione}, la convoluzione dilatata introduce un tasso di 
+dilatazione \emph{(dilated rate)} $l$, utile a saltare alcuni punti, presenti nel campo 
+ricettivo\index{campo ricettivo}, durante la convoluzione\index{convoluzione}. La formula matematica per il calcolo 
+della convoluzione dilatata è la seguente:
 \begin{equation}
     (F*_lk)(p) = \sum_{s+lt=p}F(s)k(t)
 \end{equation}
@@ -1023,7 +1039,8 @@ dove:
         \end{array}
         \right.
 \end{equation}
-Con un dilated rate pari a 2, otterremmo la seguente convoluzione\index{convoluzione} dilatata (Fig. (\ref{dilated})):
+Con un dilated rate pari a 2, otterremmo la seguente convoluzione\index{convoluzione} dilatata 
+(Fig. (\ref{dilated})):
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\linewidth]{dilated.png}
@@ -1031,37 +1048,39 @@ Con un dilated rate pari a 2, otterremmo la seguente convoluzione\index{convoluz
     \caption{Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).}
     \label{dilated}
 \end{figure}
-Maggiore sarà il valore del tasso di dilatazione, maggiore sarà il campo ricettivo\index{campo ricettivo} 
-e minore saranno i calcoli da svolgere. 
+Maggiore sarà il valore del tasso di dilatazione, maggiore sarà 
+il campo ricettivo\index{campo ricettivo} e minore saranno i calcoli da svolgere. 
 
 \subsubsection{DeepLab}\label{DeepL}
-DeepLab è un modello\index{modello} utilizzato allo stato dell'arte per la segmentazione semantica 
-progettato da Google. Per la costruzione della rete sono state affrontate due 
-problematiche: il down-sampling e l'invarianza spaziale. Il primo problema, legato 
-alla riduzione della risoluzione delle feature\index{feature}, è stato risolto grazie all'applicazione 
-dell'algoritmo soprannominato “atrous”. Ogni encoder\index{encoder} è composto dalla combinazione 
-di layer\index{layer} di pooling\index{pooling} che riducono la risoluzione spaziale delle feature map\index{feature map}. 
-Per poter ricostruire le informazioni perse, si può utilizzare la deconvoluzione\index{deconvoluzione}. 
-Quest'ultima richiede però un quantitativo importante di memoria e di tempo. 
-L'algoritmo offre un metodo alternativo alla deconvoluzione\index{deconvoluzione}. Il suo scopo 
-è quello di applicare una convoluzione\index{convoluzione} che permetta di allargare efficacemente il 
-campo visivo dei filtri senza aumentare il numero di parametri\index{parametro} preservando la 
-quantità di computazione richiesta. La tecnica della convoluzione\index{convoluzione} atrosa può essere 
-vista come come un espediente della tecnica di upsampling. Per poter risolvere il 
-secondo problema, legato alla precisione ridotta a causa dell'invarianza spaziale, 
-questa tipologia di rete, al fine di catturare dettagli più fini, applica un \emph{Conditional 
-Random Field (CRF)} completamente connesso. Questa classe di modelli 
-discriminanti utilizzano le informazioni contestuali delle label per effettuare delle 
-buone previsioni. Restando ad un discorso più ad alto livello, le potenzialità del 
-CRF riguardano l'utilizzo di termini leviganti (\emph{smoothness}) utili a massimizzare la 
-relazione tra le etichette\index{etichetta} di pixel simili che esaltano il foreground dal background. 
-Questi termini permetto quindi di avere una mappa di segmentazione migliore 
-anche dopo aver applicato poche volte, in maniera iterativa, l'algoritmo del CRF. 
-L'architettura\index{architettura} generale di un modello\index{modello} DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input 
-un'immagine e di elaborarla da una comune DCNN in cui ci sono degli strati 
-atrosi, per poter generare una prima Score map su cui verrà fatto l'upsampling 
-con un'interpolazione bilineare. Dopo aver estratto un'immagine avente le stesse
-dimensioni dell'immagine di partenza, verrà applicato il CRF.
+DeepLab è un modello\index{modello} progettato da Google, utilizzato allo stato dell'arte 
+per la segmentazione semantica. Per la costruzione della rete sono state 
+affrontate due problematiche: il down-sampling e l'invarianza spaziale. Il 
+primo problema, legato alla riduzione della risoluzione delle feature\index{feature}, è stato 
+risolto grazie all'applicazione dell'algoritmo soprannominato “atrous”. Ogni 
+encoder\index{encoder} è composto dalla combinazione di layer\index{layer} di pooling\index{pooling} che riducono 
+la risoluzione spaziale delle feature map\index{feature map}. Per poter ricostruire le informazioni 
+perse, si può utilizzare la deconvoluzione\index{deconvoluzione}. Quest'ultima richiede però un 
+quantitativo importante di memoria e di tempo. L'algoritmo offre un 
+metodo alternativo alla deconvoluzione\index{deconvoluzione}. Il suo scopo è quello di applicare 
+una convoluzione\index{convoluzione} che permetta di allargare efficacemente il campo visivo 
+dei filtri senza aumentare il numero di parametri\index{parametro} preservando la quantità di 
+computazione richiesta. La tecnica della convoluzione\index{convoluzione} atrosa può essere vista 
+come come un espediente della tecnica di upsampling\index{upsampling}. Per poter risolvere 
+il secondo problema, legato alla precisione ridotta a causa dell'invarianza 
+spaziale, questa tipologia di rete, al fine di catturare dettagli più fini, applica 
+un \emph{Conditional Random Field (CRF)}\index{conditional random field (CRF)} completamente connesso. Questa 
+classe di modelli discriminanti utilizza le informazioni contestuali delle label 
+per effettuare delle buone previsioni. Restando ad un discorso più ad alto livello, 
+le potenzialità del CRF riguardano l'utilizzo di termini leviganti 
+(\emph{smoothness}) utili a massimizzare la relazione tra le etichette\index{etichetta} di pixel 
+simili che esaltano il foreground\index{foreground} dal background\index{background}. Questi termini permetto quindi di 
+avere una mappa di segmentazione migliore anche dopo aver applicato poche 
+volte, in maniera iterativa, l'algoritmo del CRF\index{conditional random field (CRF)}. L'architettura\index{architettura} generale di un 
+modello\index{modello} DeepLab (Fig. (\ref{CRF})) consiste nel prendere in input un'immagine 
+e di elaborarla da una comune DCNN in cui ci sono degli strati atrosi, per 
+poter generare una prima Score map su cui verrà fatto l'upsampling\index{upsampling} con 
+un'interpolazione bilineare. Dopo aver estratto un'immagine avente le stesse 
+dimensioni dell'immagine di partenza, verrà applicato il CRF\index{conditional random field (CRF)}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{CRF.png}
@@ -1109,14 +1128,14 @@ interna, problema legato all'input che porta la rete a non essere abbastanza
 efficiente e/o ad avere una scarsa generalizzazione, viene utilizzata una tecnica 
 nota come batch normalization \cite{batchNorm} seguita da una funzione attivazione ReLU. Su 
 ogni feature map\index{feature map} viene applicato un max-pooling\index{pooling} con una finestra di dimensioni 
-$2\times 2$ e passo 2. Come già noto, un alto numero di operazioni si sub-sampling 
+$2\times 2$ e passo 2. Come già noto, un alto numero di operazioni si sub-sampling\index{subsampling} 
 comporta una maggiore precisione di classificazione\index{classificazione}, ma allo stesso tempo provoca 
 una riduzione di ogni feature map\index{feature map} che, tradotto in altri termini, causa la perdita 
 dei dati. La riduzione del numero di dati determina la creazione di bordi sfocati 
-il quale rappresenta un problematica centrale per un'operazione di segmentazione. 
+il quale rappresenta una problematica importante per un'operazione di segmentazione. 
 Per risolvere il problema della perdita dei dati, SegNet effettua solo una memorizzazione 
 degli indici di pooling\index{pooling} per ciascuna feature map\index{feature map} prodotta dall'encoder\index{encoder}. 
-Tali indici saranno utili al decoder\index{decoder} per effettuare l'operazione di upsampling 
+Tali indici saranno utili al decoder\index{decoder} per effettuare l'operazione di upsampling\index{upsampling} 
 al fine di costruire delle feature map\index{feature map} ad alta risoluzione che avessero l'obiettivo di 
 produrre un'immagine in output avente le stesse dimensioni di quella in input. 
 Per giungere al risultato finale, anche il decoder\index{decoder} utilizza un banco di filtri, a loro 
@@ -1133,7 +1152,7 @@ multi-classe addestrabile che effettuerà l'etichettatura di ogni singolo pixel 
 
 \subsubsection{GLOBAL CONTEXT}
 \subsubsection{ParseNet}
-Un significativo miglioramento delle reti FCN ebbe inizio con l'introduzione della 
+Un significativo miglioramento delle reti FCN\index{fully convolutional} ebbe inizio con l'introduzione della 
 rete ParseNet \cite{parsenet}. Codesta, a differenza delle reti FCN, utilizza le informazioni 
 inerenti le feauture globali, o contesto globale, per poter produrre in output una 
 buona segmentazione dell'immagine (Fig. (\ref{global context})).
@@ -1153,16 +1172,16 @@ map di partenza e quelle ricavate vengono combinate per effettuare una prevision
 sul punteggio di classificazione\index{classificazione} finale. Ogni feature map\index{feature map} appartiene a un layer\index{layer} 
 diverso, pertanto la combinazione di queste sarà formata da feature map\index{feature map} diverse 
 in termini di scala e di norma. Affinché tutto funzioni, vengono applicate due 
-normalizzazioni L2 (\ref{L2}), una dopo il pooling\index{pooling} globale e l'altra dopo la feature 
-map di partenza estratta contemporaneamente dalla FCN. 
+normalizzazioni L2\index{norma L2} (\ref{L2}), una dopo il pooling\index{pooling} globale e l'altra dopo la feature 
+map di partenza estratta contemporaneamente dalla FCN\index{fully convolutional}. 
 \begin{equation}\label{L2}
     \norm{x}_2 = \left(\sum_{i=1}^d \abs{x_i}^2 \right)^\frac{1}{2}
 \end{equation}
 Dove $x$ rappresenta l'input e $d$ rappresenta la sua dimensionalità. Nel percorso 
-inferiore, viene eseguita una normalizzazione L2, a ciasun livello di convoluzione\index{convoluzione}, 
+inferiore, viene eseguita una normalizzazione L2\index{norma L2}, a ciasun livello di convoluzione\index{convoluzione}, 
 per ciascun canale. Nel percorso superiore invece, viene effettuato un pooling\index{pooling} 
 medio delle feature map\index{feature map} in ogni specifico livello di convoluzione\index{convoluzione}. Dopo aver 
-ottenuto le feature globali, viene effettuata una normalizzazione L2. L'unpooling\index{unpooling} 
+ottenuto le feature globali, viene effettuata una normalizzazione L2\index{norma L2}. L'unpooling\index{unpooling} 
 è utile a poter far combaciare le dimensioni dei vettori superiori con i vettori 
 inferiori, in modo che questi possano essere concatenati. La figura (\ref{parsenet}) riassume 
 i passaggi precedenti.
@@ -1176,17 +1195,17 @@ i passaggi precedenti.
 
 \subsubsection{GCN}
 La segmentazione semantica basa il suo principio di funzionamento su due aspetti: 
-classificazione\index{classificazione} e localizzazione\index{localizzazione} . Quest'ultimi sono ritenuti come due concetti 
+classificazione\index{classificazione} e localizzazione\index{localizzazione}. Quest'ultimi sono ritenuti come due concetti 
 di natura opposta in quanto, una piccola trasformazione dell'input, come ad 
-esempio una traslazioni o rotazioni, rende la classificazione\index{classificazione} invariante mentre, allo 
-stesso tempo, la localizzazione\index{localizzazione}  potrebbe risentirne negativamente, pertanto risulta 
-essere più sensitiva rispetto alla classificazione\index{classificazione}. Per sopperire alle problematiche 
+esempio una traslazione o rotazione, rende la classificazione\index{classificazione} invariante mentre, allo 
+stesso tempo, la localizzazione\index{localizzazione} potrebbe risentirne negativamente essendo più sensitiva rispetto 
+alla classificazione\index{classificazione}. Per sopperire alle problematiche 
 delle trasformazioni su entrambe le tecniche, venne introdotto il modello\index{modello} \emph{Global 
 Convolutional Network (GCN)} \cite{gcn}. La rete è basata sui seguenti due principi:
 \begin{enumerate}
-    \item Dal punto di vista della \emph{localizzazione}\index{localizzazione} , la struttura del modello dev'essere 
+    \item Dal punto di vista della \emph{localizzazione}\index{localizzazione}, la struttura del modello dev'essere 
     completamente convolutiva per poter mantenere le informazioni utili alla 
-    localizzazione\index{localizzazione}  degli oggetti in quanto, se la struttura fosse stata a livelli 
+    localizzazione\index{localizzazione} degli oggetti in quanto, se la struttura fosse stata a livelli 
     completamente connessi (fully-connected layers)\index{layer}, o pooling\index{pooling} globali, questi 
     scarterebbero tutte le informazioni spaziali;
     \item Dal punto di vista della \emph{classificazione}\index{classificazione}, devono essere utilizzati dei kernel\index{kernel} 
@@ -1206,32 +1225,32 @@ il processo di deconvoluzione\index{deconvoluzione}.
     \label{gcn}
 \end{figure}
 Come visto in Figura (\ref{gcn}), ResNet è la rete che viene utilizzata come 
-backbone (spina dorsale), pre-addestrata con le immagini contenute nel dataset\index{dataset} 
+backbone\index{backbone} (spina dorsale), pre-addestrata con le immagini contenute nel dataset\index{dataset} 
 ImageNet. Sulle mappe dei punteggi di bassa risoluzione viene effettuata un'operazione 
-di upsampling con un layer\index{layer} di deconvoluzione\index{deconvoluzione}. Le mappe ottenute dalla 
+di upsampling\index{upsampling} con un layer\index{layer} di deconvoluzione\index{deconvoluzione}. Le mappe ottenute dalla 
 deconvoluzione verranno aggiunte con quelle più alte per poter generare nuove 
 mappe dei punteggi utili alla segmentazione finale.
 
 \subsubsection{RECEPTIVE FIELD ENLARGEMENT AND MULTI-SCALE CONTEXT INCORPORATION}
 \subsubsection{DeepLabv2 e DeepLabv3}
-La prima versione del modello\index{modello} DeepLab ha subito delle modifiche che hanno 
+La prima versione del modello\index{modello} \emph{DeepLab} ha subito delle modifiche che hanno 
 portato a dei miglioramenti in termini di performance\index{performance}. Gli stessi autori di 
 DeepLab introdussero altre versioni del loro modello, in particolare introdussero 
-DeepLabv2 \cite{deeplabv2} e DeepLabv3 \cite{deeplabv3}. La prima, rispetto alla prima versione, utilizza 
-una tecnologia aggiuntiva chiamata \emph{Atrous Spatial Pyramid Pooling (ASPP)}.  
+\emph{DeepLabv2} \cite{deeplabv2} e \emph{DeepLabv3} \cite{deeplabv3}. La prima, rispetto alla versione padre, utilizza 
+una tecnologia aggiuntiva chiamata \emph{Atrous Spatial Pyramid Pooling (ASPP)}\index{atrous spatial pyramid pooling (ASPP)}.  
 Quest'ultima ha il compito di aggregare diverse feature\index{feature} multi-scala per una 
-migliore localizzazione\index{localizzazione} . Per ogni tasso di dilatazione $l$ differente, la tecnica 
+migliore localizzazione\index{localizzazione}. Per ogni tasso di dilatazione $l$ differente, la tecnica 
 effettua una convoluzione\index{convoluzione} dilatata ad ogni feature map\index{feature map} di input che unirà con le 
 restanti (Fig. (\ref{aspp})).
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{aspp.png}
     \centering
-    \caption{Atrous Spatial Pooling Pyramid.}
+    \caption{Atrous Spatial Pyramid Pooling.}
     \label{aspp}
 \end{figure}
 Oltre a questa, l'architettura\index{architettura} di DeepLabv2 utilizza non solo VGGNet come 
-backbone , ma utilizza anche ResNet. Per quanto riguarda DeepLabv3, questo 
+backbone\index{backbone}, ma utilizza anche ResNet. Per quanto riguarda DeepLabv3, questo 
 modello\index{modello} venne introdotto per poter catturare i bordi degli oggetti mediante il 
 recupero delle informazioni spaziali. Per ottenere quanto detto, DeepLabv3 incorpora 
 un encoder\index{encoder} e un decoder\index{decoder} con una convoluzione\index{convoluzione} dilatata separata. L'encoder\index{encoder} 
@@ -1255,7 +1274,7 @@ a quello presenti nell'immagine di input.
 
 \subsubsection{PSPNet}
 L'ultima tipologia di rete mostrata è chiamata \emph{Pyramid Scene Parsing Network 
-(PSPNet)} \cite{pspnet}. All'interno di questa rete viene utilizzato il modulo \emph{Pyramid 
+(PSPNet)}\index{pyramid scene parsing network (PSPNet)} \cite{pspnet}. All'interno di questa rete viene utilizzato il modulo \emph{Pyramid 
 Pooling} che ha il compito di effettuare un pooling\index{pooling}, su ogni feature map\index{feature map} iniziale, 
 utilizzando quattro differenti scale corrispondenti a quattro differenti livelli 
 piramidali, corrispettivamente di dimensione $1\times 1$, $2\times 2$, $3\times 3$ e $6\times 6$, 
@@ -1274,7 +1293,7 @@ indicare i livelli della piramide. Nella figura (\ref{pspnet}), il numero di liv
 è pari a 4, pertanto $N=4$, che a sua volta si traduce in un a riduzione pari a 
 $1/4$ dell'immagine di partenza. Per ridurre le dimensioni dei layer\index{layer} di pooling\index{pooling}, 
 viene effettuata una convoluzione\index{convoluzione} di dimensioni $1\times 1$. Gli output prodotti dalle 
-varie convoluzioni sono sottoposti a processo di upsampling e concatenati con 
+varie convoluzioni sono sottoposti a processo di upsampling\index{upsampling} e concatenati con 
 le feature map\index{feature map} iniziali per poter combinare le informazioni contestuali locali e 
 globali. Infine, l'intera concatenazione sarà convoluta per poter generare una 
 predizione pixel-wise utile a realizzare la segmentazione semantica finale.
@@ -1283,31 +1302,31 @@ predizione pixel-wise utile a realizzare la segmentazione semantica finale.
 Così come per l'Object detection\index{object detection}, anche l'Image Saegmentation dispone di tecniche 
 per poter valutare la segmentazione effettuata da un modello\index{modello}. Immaginiamo di 
 avere un numero $k$ di classi esistenti e che a questo venga sommata un'ulteriore 
-classe di background, per un totale di $k+1$ classi. Denotiamo inoltre con $Y$ il 
+classe di background\index{background}, per un totale di $k+1$ classi. Denotiamo inoltre con $Y$ il 
 numero di pixel totali dell'immagine da segmentare. Secondo \cite{metric_semantic_seg}, immaginiamo di dover segmentare i pixel di una classe $i$, definiamo tre 
 tipologie di valori associati a $Y$:
 \begin{enumerate}
     \item $Y_{ii}$: denotano il numero di pixel predetti appartenenti alla classe $i$ ed 
-    effettivamente corrispondenti alla classe $i$ (\emph{True Positive (TP)});
+    effettivamente corrispondenti alla classe $i$ (\emph{True Positive (TP)})\index{vero positivo};
     \item $Y_{ij}$: denotano il numero di pixel predetti appartenenti alla classe $j$ e quindi 
-    non corrispondenti alla classe $i$ (\emph{False Positive (FP)});
+    non corrispondenti alla classe $i$ (\emph{False Positive (FP)})\index{falso positivo};
     \item $Y_{ji}$: denotano il numero di pixel predetti appartenenti alla classe $i$ ma 
-    corrispondenti alla classe $j$ (\emph{False Negative (FN)});
+    corrispondenti alla classe $j$ (\emph{False Negative (FN)})\index{falso negativo}
 \end{enumerate}
 Di seguito vengono elencate le cinque più famose tecniche per poter valutare 
 l'accuratezza\index{accuratezza} della segmentazione semantica:
 \begin{itemize}
-    \item {\bfseries{\emph{Pixel Accuracy (PA)}}}: rappresenta il rapporto tra il numero di pixel 
-    correttamente segmentati e il numero totale di pixel. In altre parole, tale 
+    \item {\bfseries{\emph{Pixel Accuracy (PA)}}}\index{pixel accuracy (PA)}: rappresenta il rapporto tra il numero di pixel 
+    correttamente segmentati e il numero totale di pixel esistenti. In altre parole, tale 
     rapporto può essere rappresentato come $TP/(TP+FN)$. La formula per 
     ricavare la PA è la seguente:
     \begin{equation}
         PA = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}}
     \end{equation}
 
-    \item {\bfseries{\emph{Mean Pixel Accuracy (MPA)}}}: rappresenta un'estensione della Pixel 
+    \item {\bfseries{\emph{Mean Pixel Accuracy (mPA)}}}\index{mean pixel accuracy (mPA)}: rappresenta un'estensione della Pixel 
     Accuracy. Ha lo scopo di calcolare l'accuratezza media dei pixel per ogni 
-    classe. La MAP può essere ottenuta dalla seguente formula:
+    classe. La mAP può essere ottenuta dalla seguente formula:
     \begin{equation}
         MPA = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}}
     \end{equation}
@@ -1318,7 +1337,7 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
     la bounding box del ground truth\index{ground truth}, ma questa volta sta a rappresentare la 
     percentuale di sovrapposizione tra la regione predetta e la regione target 
     appartenente al ground truth\index{ground truth} (\ref{predSegIoU}). In altre parole, l'IoU\index{intersection over union (IoU)} può essere rappresentata 
-    come $TP/(TP+FP+FN)$, che da un punto di vista matematica è espresso come:
+    come $TP/(TP+FP+FN)$, che da un punto di vista matematico è espresso come:
     \begin{equation}\label{predSegIoU}
         IoU = \frac{target\cap prediction}{target\cup prediction}
     \end{equation}
@@ -1326,7 +1345,7 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
         IoU = \frac{\sum_{i=0}^kY_{ii}}{\sum_{i=0}^k\sum_{j=0}^kY_{ij}+\sum_{i=0}^k\sum_{j=0}^kY_{ji}-\sum_{i=0}^kY_{ii}}
     \end{equation}
 
-    \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}: l'IoU viene calcolata separatamente 
+    \item {\bfseries{\emph{Mean Intersection over Union (MIoU)}}}\index{mean intersection over union (mIoU)}: l'IoU viene calcolata separatamente 
     per ogni classe. La MIoU rappresenta la media di tutte le IoU\index{intersection over union (IoU)}, e 
     quindi su tutte le classi, utile a fornire un punteggio globale del modello\index{modello} che 
     può essere calcolato con la seguente formula:
@@ -1334,7 +1353,7 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
         MIoU = \frac{1}{k+1}\sum_{i=0}^k\frac{Y_{ii}}{\sum_{j=0}^kY_{ij}+\sum_{j=0}^kY_{ji}-Y_{ii}}
     \end{equation}
 
-    \item {\bfseries{\emph{Frequency-Weighted Intersection over Union (FWIoU)}}}: questa metrica 
+    \item {\bfseries{\emph{Frequency-Weighted Intersection over Union (FWIoU)}}}\index{frequency weight intersection over union (FWIoU)}: questa metrica 
     rappresenta un'estensione della MIoU. La FWIoU utilizza la frequenza 
     di occorrenza per poter regolare l'importanza di ciascuna classe. La formula 
     per il suo calcolo è la seguente:
@@ -1345,11 +1364,11 @@ l'accuratezza\index{accuratezza} della segmentazione semantica:
 Nella segmentazione semantica è importante valutare il modello\index{modello} nella sua efficienza 
 per applicazioni real-time. Per calcolare la complessità di un modello, possono 
 essere tenute in considerazione due metriche come il numero dei parametri\index{parametro} e le 
-operazioni in virgola mobile (\emph{Floating Point Operations - FLOPs}). Maggiori 
+operazioni in virgola mobile (\emph{Floating Point Operations - FLOPs})\index{floating point operations (FLOPs)}. Maggiori 
 sono questi due valori e minori saranno le prestazioni del modello. Entrambe 
 le metriche sono indipendenti dall'ambiente. Per quanto riguarda la velocità di 
 implementazione, possono essere utilizzate due metriche: \emph{Runtime} e, come per 
-la tecnica di Object detection\index{object detection}, i \emph{Frame al secondo (Frame Per Second - FPS)}. 
+la tecnica di Object detection\index{object detection}, i \emph{Frame al secondo (Frame Per Second - FPS)}\index{frame per second (FPS)}. 
 Quest'ultime due metriche, a differenza delle precedenti, dipendono dall'ambiente 
 software e hardware.
 
@@ -1361,10 +1380,10 @@ riducendo al minimo gli sforzi del guidatore, e ridurre il numero di incidenti
 mortali e non, tramite opportune tecniche avanzate di intelligenza\index{intelligenza} artificiale. 
 Miglioramenti significativi sono stati apportati ai sensori veicolari 
 che consentissero lo svolgimento di attività quali object detection\index{object detection}, image 
-segmentation, localizzazione\index{localizzazione} , tracking e varie attività di riconoscimento. 
+segmentation, localizzazione\index{localizzazione} , tracking\index{tracking} e varie attività di riconoscimento. 
 In letteratura, i veicoli a guida autonoma\index{autonoma}, possiedono cinque diversi livelli 
 di automazione, come definito dallo standard internazionale \emph{Society of 
-Automotive Engineers (SAE)} (Fig. (\ref{sae})):
+Automotive Engineers (SAE)}\index{society of automotiuve engineers (SAE)} (Fig. (\ref{sae})):
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{5 livelli.png}
@@ -1374,30 +1393,30 @@ Automotive Engineers (SAE)} (Fig. (\ref{sae})):
 \end{figure}
 \begin{enumerate}
     \setcounter{enumi}{-1}
-    \item \emph{A guida convenzionale}:  Non esiste alcun tipo di automazione. Il 
+    \item \emph{A guida convenzionale}\index{guida convenzionale}:  Non esiste alcun tipo di automazione. Il 
     conducente è responsabile della guida.
-    \item \emph{Guida assistita}: il veicolo è dotato di sistemi di assistenza alla guida 
+    \item \emph{Guida assistita}\index{guida assistita}: il veicolo è dotato di sistemi di assistenza alla guida 
     che consentono per esempio il controllo longitudinale (Cruise control) 
     o trasversale (mantenimento di corsia). Questi assumono il controllo 
     di alcune funzioni del veicolo, come accelerazione, frenata, parcheggio 
     e/o sterzata. Tali sistemi si alternano con il guidatore che dev'essere 
     sempre pronto ad intervenire o a riprendere in maniera autonoma il 
     controllo del veicolo.
-    \item \emph{Automazione parziale}: il sistema deve assicurare il controllo della 
+    \item \emph{Automazione parziale}\index{automazione parziale}: il sistema deve assicurare il controllo della 
     direzione trasversale e longitudinale in situazioni particolari come per 
     esempio un sorpasso. Anche in questo livello è richiesta l'attenzione 
     del guidatore.
-    \item \emph{Automazione condizionata}: questo livello corrisponde ad una guida 
+    \item \emph{Automazione condizionata}\index{automazione condizionata}: questo livello corrisponde ad una guida 
     totalmente automatizzata. In questo caso il conducente non è tenuto 
     costantemente a sorvegliare il veicolo ma dev'essere comunque pronto 
     a riprendere la situazione sotto il proprio controllo quando il sistema 
     lo avvisa.
-    \item \emph{Alta Automazione}: il sistema assume la piena conduzione del veicolo 
+    \item \emph{Alta Automazione}\index{alta automazione}: il sistema assume la piena conduzione del veicolo 
     in maniera del tutto automatica. Questo livello si applica su determinati 
     tratti stradali, come per esempio in autostrada in quanto meno 
     complessa. Il veicolo può disattivarsi solo se il conducente riprenderà 
     il pieno controllo causa arresto sulla corsia di emergenza. 
-    \item \emph{Automazione completa}: massimo livello di automazione raggiunto 
+    \item \emph{Automazione completa}\index{automazione completa}: massimo livello di automazione raggiunto 
     dal sistema. Il veicolo assume il totale controllo, a prescindere dalla 
     tipologia di strada intrapresa, pertanto non richiede la presenza 
     di alcun conducente.
@@ -1409,10 +1428,10 @@ detection), rilevamento dei pedoni (Pedestrian detection), rilevamento della
 stanchezza/sonnolenza (Drowsiness detection) , prevenzione delle collisioni 
 (Collision avoidance) e il rilevamento\index{rilevamento} della segnaletica stradale (Traffic sign 
 detection).
-\subsubsection{Road detection}
+\subsubsection{Road detection}\index{road detection}
 Questa tecnica mira a rilevare le aree e i confini in cui un veicolo può circolare 
-in maniera autonoma\index{autonoma}. Tra le tecniche più utilizzate per il rilevamento\index{rilevamento} 
-della strada è senz'altro quella della segmentazione. Diversi sono stati i 
+in maniera autonoma\index{autonoma}. Tra le tecniche per il rilevamento\index{rilevamento} 
+della strada, quella più utilizzata è senz'altro quella della segmentazione. Diversi sono stati i 
 lavori proposti incentrati su questa tematica. Per esempio in \cite{Up-conv-Poly} viene 
 introdotto un modello, nominato Up-Conv-Poly, in cui viene combinata una 
 rete FCN con una rete U-Net. Quest'ultimo è in grado di effettuare delle 
@@ -1421,12 +1440,12 @@ della distribuzione dei parametri\index{parametro} presenti negli strati convolu
 rete. In \cite{CALTAGIRONE2019125} è stato prodotto un modello\index{modello}, chiamato LidCamNet, basato su 
 una fully convolutional network per il rilevamento delle immagini stradali 
 che fonde la segmentazione di queste con i dati provenienti da un sensore 
-Ligth Detector And Range (LIDAR). Diversi sono anche stati gli studi che 
+Ligth Detector And Range (LIDAR)\index{ligth detector and range (LIDAR)}. Diversi sono anche stati gli studi che 
 utilizzano le reti FCN che hanno portato ad ottenere le prestazioni migliori 
-in questo campo. La segmentazione della strada è visto come un problema di 
+in questo campo. La segmentazione della strada è vista come una problematica di 
 \index{classificazione} binaria (strada o non strada). Per citarne un'ultima, abbiamo 
-il modello\index{modello} DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone con una 
-architettura\index{architettura} FCN con multipli passaggi di upscaling utili a poter interpolare 
+il modello\index{modello} DEEP-DIG \cite{DEEP-DIG} che utilizza ResNet come backbone\index{backbone} con una 
+architettura\index{architettura} FCN avente multipli passaggi di upscaling utili a poter interpolare 
 un'immagine. 
 \begin{figure}
     \centering
@@ -1438,47 +1457,47 @@ un'immagine.
 La Figura (\ref{road-det}) mostra una i risultati di segmentazione stradale ottenuta 
 dai tre modelli precedenti.
 
-\subsubsection{Lane detection}
+\subsubsection{Lane detection}\index{lane detector}
 I sistemi basati sul rilevamento\index{rilevamento} della corsia garantiscono il giusto posizionamento 
 del veicolo nella corretta corsia, o quanto meno avvisano il guidatore, 
-tramite un l'emissione di un segnale acustico, dell'imminente fuoriuscita 
+tramite l'emissione di un segnale acustico, dell'imminente fuoriuscita 
 da essa. Questa tecnica permette di ridurre al minimo la possibilità di 
 collisione con un veicolo circolante in senso opposto. In generale, un sistema 
 di lane detection esegue i seguenti passaggi \cite{lane-steps}:
 \begin{enumerate}
-    \item \emph{Pulizia dell'immagine (Image Cleaning)}: questa è considerata come 
+    \item \emph{Pulizia dell'immagine (Image Cleaning)}\index{image cleaning}: questa è considerata come 
     una fase di pre-elaborazione che ha diversi obiettivi. Il primo fra 
     questi è quello di rimuovere il rumore nell'acquisizione dell'immagine 
     proveniente da una camera installata frontalmente al veicolo. Successivamente, 
     tramite l'utilizzo di alcuni filtri, vengono migliorate alcune 
     feature\index{feature} utili per escludere gli ostacoli e ridurre la presenza delle ombre;
-    \item \emph{Rilevamento\index{rilevamento} delle feature\index{feature} (Feature Detection)}: l'obiettivo principale 
+    \item \emph{Rilevamento\index{rilevamento} delle feature\index{feature} (Feature Detection)}\index{feature detection}: l'obiettivo principale 
     in questa fase è quello di estrarre le feature\index{feature} rilevanti per poter essere 
     elaborate nella fase successiva. La segnaletica orizzontale presenta 
     diverse caratteristiche, come ad esempio la tipologia di linea (continua, 
-    segmentata, doppia o singola) e il colore (bianco, giallo, blu). Particolari 
+    segmentata, doppia o singola) e il colore (bianco, giallo, blu etc.). Particolari 
     filtri, come quello di Canny e Sobel, vengono impiegati per poter 
     rilevare queste feature\index{feature}. Un esempio di rilevamento sfrutta informazioni 
     quali colore e intensità. L'apprendimento\index{apprendimento} di queste caratteristiche ha 
     permesso in \cite{lane-detection} una segmentazione efficiente delle linee presenti sulla 
     corsia.
-    \item \emph{Adattamento del modello (Model fitting)}: in questa fase viene applicato 
+    \item \emph{Adattamento del modello (Model fitting)}\index{model fitting}: in questa fase viene applicato 
     un modello geometrico sull'immagine acquisita utilizzando le 
     feature\index{feature} estratte precedentemente. La famiglia di modelli disponibili, 
     ad eccezione di quelli parametrici, possono essere classificati in 
     modelli semi-parametrici e non parametrici. Un esempio di modello 
     semi-parametrico può essere rappresentato dalle Splines, mentre un 
     modello non parametrico non è ancora comune;
-    \item \emph{Tracciamento (Tracking)}: il sistema dev'essere in grado di supportare 
+    \item \emph{Tracciamento (Tracking)}\index{tracking}: il sistema dev'essere in grado di supportare 
     il sistema decisionale nel selezionare la migliore linea che meglio rappresenta 
     la corsia da intraprendere. Questa tecnica è particolarmente 
-    utile per poter ridurre la ROI (Region Of Interest) che corrisponde 
+    utile per poter ridurre la ROI (Region Of Interest)\index{region of interest (ROI)} che corrisponde 
     alla regione di ricerca all'interno dell'immagine, riducendo a sua volta 
     il costo computazionale\index{computazionale}. Grazie ad un confronto effettuato tra i 
     vari frame, precedente e successivi, il tracciamento delle linee riduce 
     l'errore di rilevamento\index{rilevamento} delle parti fuorvianti. Esistono vari sensori a 
     supporto di questa tecnica, come ad esempio i sensori IMU (Inertial 
-    Measurement Unit) o il GPS che, grazie alla fusione dei loro dati, 
+    Measurement Unit)\index{inertial measurement unit (IMU)} o il GPS (Global Positioning System)\index{global positioning system (GPS)} che, grazie alla fusione dei loro dati, 
     contribuiscono a stimare la posizione del veicolo, e quindi a definire 
     la sua odometria, che può essere rilevante nella suddetta tecnica di 
     tracciamento.
@@ -1492,19 +1511,19 @@ di lane detection esegue i seguenti passaggi \cite{lane-steps}:
 \end{figure}
 In Figura (\ref{lane-det}) è possibile osservare un esempio di lane detection.
 
-\subsubsection{Vehicle detection}
+\subsubsection{Vehicle detection}\index{vehicle detection}
 Esistono innumerevoli sfide nella computer vision\index{computer vision} per quanto riguarda il 
 compito di rilevamento\index{rilevamento} dei veicoli su strada. Ci sono diversi fattori mutanti 
 che possono incidere sulle performance\index{performance} di un sistema di rilevamento, come 
-per esempio le variazioni di illuminazione, forme, ombre, background etc. 
+per esempio le variazioni di illuminazione, forme, ombre, background\index{background} etc. 
 La presenza di disordine nella scena può portare all'occlusione parziale di 
 un veicolo, limitandone la visibilità completa con conseguente aumento del 
-rischio di incidenti. L'utilizzo delle sole telecamere\index{telecamere} comporta delle carenze 
+rischio di incidenti. L'utilizzo delle sole telecamere\index{telecamera} comporta delle carenze 
 a livello di sicurezza in quanto queste sono delle tecnologie passive, che 
 non interagiscono in alcun modo con l'ambiente ed inoltre sono altamente 
 influenzate dalle condizioni dell'ambiente esterno. La ricerca pertanto si 
-sta spostando verso l'utilizzo di altri sensori quali telecamere\index{telecamere} con flash, 
-termocamere e sistemi per la stima della profondità (es: LIDAR). Diversi 
+sta spostando verso l'utilizzo di altri sensori quali telecamere\index{telecamera} con flash, 
+termocamere e sistemi per la stima della profondità (es: LIDAR)\index{ligth detection and range (LIDAR)}. Diversi 
 studi hanno esaltato l'importanza del corretto posizionamento delle camere. 
 Per il rilevamento\index{rilevamento} e il tracciamento dei veicoli, importante risulta essere 
 l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
@@ -1517,7 +1536,7 @@ tipologia di feature\index{feature} importanti sono le \emph{Scale Invariant Fea
 (SIFT)}, ampiamente utilizzate per rimediare alle occlusioni parziali dei 
 veicoli. Anche le Speed up Robust Features (SURF), in combinazione con i 
 bordi rilevati, vengono utilizzate per poter definire delle potenziali regioni 
-di interesse (ROI) in cui potrebbero esserci dei veicoli. Infine, la ricerca si è 
+di interesse (ROI)\index{region of interest (ROI)} in cui potrebbero esserci dei veicoli. Infine, la ricerca si è 
 avvalsa di un'ultima feature\index{feature} largamente utilizzata nel campo della computer 
 vision, si sta parlando della \emph{Principal Component Analysis (PCA)}. Allo 
 stato dell'arte, l'utilizzo di tutte queste feature\index{feature} ha permesso di ottenere i 
@@ -1531,23 +1550,23 @@ di rilevazione e dei veicoli viene rappresentata nella Figura (\ref{vehicle-det}
     \label{vehicle-det}
 \end{figure}
 
-\subsubsection{Pedestrian detection}
+\subsubsection{Pedestrian detection}\index{pedestrian detection}
 Per i veicoli a guida autonoma\index{autonoma} è importante distinguere gli oggetti dagli 
 umani a causa della loro diversa importanza. Oltre che ad evitare possibili 
-collisioni con i veicoli, le telecamere\index{telecamere} installate sul veicolo servono per 
+collisioni con i veicoli, le telecamere\index{telecamera} installate sul veicolo servono per 
 rilevare uno dei principali personaggi della circolazione: il pedone. La rilevazione di 
 questa classe permette una maggiore comprensione semantica della scena. I 
 sistemi avanzati di assistenza alla guida (\emph{Advanced Driver Assistance Systems 
-(ADAS)}) hanno lo scopo di aiutare il conducente a prendere decisioni 
+(ADAS)})\index{advanced driver assistance systems (ADAS)} hanno lo scopo di aiutare il conducente a prendere decisioni 
 e a fornire supporto durante le probabili situazioni di pericolo,  ovvero quando 
 entrambi si trovano in una scena popolata da pedoni e veicoli. Esistono 
 specifici sistemi ADAS per il rilevamento\index{rilevamento} dei pedoni, questi prendono il 
 nome di sistemi di protezione dei pedoni (\emph{Pedestrian Protection Systems 
-(PPS)}). L'obiettivo di questa classe di sistemi è quello di rilevare la presenza 
+(PPS)})\index{pedestrian protection systems (PPS)}. L'obiettivo di questa classe di sistemi è quello di rilevare la presenza 
 di persone, sia ferme che in movimento, in una specifica regione di interesse 
-(ROI) attorno al veicolo, ed eventualmente di avvisare il conducente  o eseguire 
+(ROI)\index{region of interest (ROI)} attorno al veicolo, ed eventualmente di avvisare il conducente  o eseguire 
 direttamente delle azioni come una franata, o l'apertura dell'airbag, 
-se vi è una possibile collisione. Le sfide principali che i sistemi PPS devono 
+in caso di una possibile collisione. Le sfide principali che i sistemi PPS devono 
 affrontare sono:
 \begin{enumerate}
     \item \emph{Ridurre la variabilità dell'aspetto}: un pedone non può essere scambiato 
@@ -1559,12 +1578,12 @@ affrontare sono:
     dove vi sono una moltitudine di protagonisti che possono confondersi 
     con un pedone. Oltre a questo aspetto, i sistemi devono risolvere la 
     principale sfida che riguarda l'illuminazione, molte delle volte influenzata 
-    dalle condizioni meteorologiche, che influenza la qualità delle 
+    dalle condizioni meteorologiche, il quale influenza la qualità delle 
     informazioni rilevate. Un ulteriore sfida riguarda l'identificazione dei 
     pedoni parzialmente o totalmente occlusi da elementi urbani, come i 
     veicoli parcheggiati. 
     \item \emph{Dinamicità}: il sistema deve poter identificare\index{identificare} il pedone in scene 
-    altamente dinamiche in cui sia la telecamera\index{telecamere} e il pedone sono in 
+    altamente dinamiche in cui sia la telecamera\index{telecamera} e il pedone sono in 
     movimento. Inoltre il sistema deve funzionare ad una distanza minima 
     di 25 metri che, corrispondenti a delle patch di pedoni di $30\times 60$ 
     pixel, utilizzando una fotocamera con lunghezza focale di $6 mm$ che 
@@ -1572,7 +1591,7 @@ affrontare sono:
     \item \emph{Velocità}: il principale scopo di questi sistemi è quello di reagire in 
     maniera istantanea, ciò dipenderebbe da delle adeguate prestazioni e 
     da una buona robustezza da perte del sistema. Ci dev'essere il giusto 
-    trade-off tra velocità e falsi allarmi o tra velocità e identificazioni 
+    trade-off tra velocità e falsi allarmi, o tra velocità e identificazioni 
     errate.
 \end{enumerate}
 Da un punto di vista pratico, per poter rilevare la presenza di uno o più 
@@ -1591,27 +1610,27 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
     per il sistema PPS in quanto contrasta il cambiamento di 
     luminosità (per esempio si pensi a quando si intraprende un tunnel o 
     quando ci si trova nel bel mezzo di un temporale);
-    \item \emph{Foreground segmentation}: fase in cui vengono separati il foreground 
-    (possibili candidati) dal background (sfondo) per dar vita a regioni di 
-    interesse (ROI) che verrano inviate al modulo di classificazione\index{classificazione}. Lo 
+    \item \emph{Foreground segmentation}: fase in cui vengono separati il foreground\index{foreground} 
+    (possibili candidati) dal background\index{background} (sfondo) per dar vita a regioni di 
+    interesse (ROI)\index{region of interest (ROI)} che verrano inviate al modulo di classificazione\index{classificazione}. Lo 
     scopo principale di questa fase è quello di rilevare tutti i pedoni per 
     poter ottenere dei risultati dalle fasi successive;
-    \item \emph{Object classification}: dopo aver ricevuto le ROI dal modulo precedente, 
-    questo modulo si occupa di verificare la presenza di un pedone al loro  
+    \item \emph{Object classification}: dopo aver ricevuto le ROI\index{region of interest (ROI)} dal modulo precedente, 
+    questo modulo si occupa di verificare la presenza di un pedone 
     in modo da ridurre al minimo i falsi positivi e i falsi negativi. In 
     questa fase vengono utilizzate le stesse feature\index{feature} impiegate nella tecnica 
     di vehicle detection. 
     \item \emph{Verification/Refinement}: diversi sistemi contengono un passaggio aggiuntivo 
     che mira alla verifica e al perfezionamento della classificazione\index{classificazione} 
-    delle ROI. La fase di verifica funge da filtro per i falsi positivi, mentre 
+    delle ROI\index{region of interest (ROI)}. La fase di verifica funge da filtro per i falsi positivi, mentre 
     la fase di perfezionamento esegue delle segmentazioni precise del 
     pedone utili a fornire un'accurata distanza e supportare il successivo 
     modulo;
-    \item \emph{Tracking}: la fase di tracciamento consente di seguire i pedoni dopo che 
+    \item \emph{Tracking}\index{tracking}: la fase di tracciamento consente di seguire i pedoni dopo che 
     questi vengono rilevati nella scena. Lo scopo di questo modulo è quello 
     di evitare falsi rilevamenti nel tempo, prevedere le future posizioni, in 
     modo da generare un corretto numero di candidati utili per l'algoritmo 
-    di segmentazione foreground. Un ulteriore utilizzo di questa tecnica 
+    di segmentazione foreground\index{foreground}. Un ulteriore utilizzo di questa tecnica 
     permette di rilevare ed effettuare delle stime sul comportamento di 
     ogni singolo pedone, come per esempio la previsione della direzione 
     della sua camminata;
@@ -1625,7 +1644,7 @@ pedoni, ogni sistema PPS effettua diverse elaborazioni \cite{pedestrian-detectio
 Nella Figura (\ref{ped-det}) viene mostrato un riassunto delle precedenti fasi 
 applicate ad un problema di rilevamento\index{rilevamento} dei pedoni.
 
-\subsubsection{Drowsiness detection}
+\subsubsection{Drowsiness detection}\index{drowsiness detection}
 La tecnologia che sta per essere introdotta riguarda i livelli 1,2, e 3 della guida 
 autonoma\index{autonoma} in quanto quelli successivi richiedono parzialmente la presenza 
 del conducente (livello 4) o la sua completa assenza (livello 5). La tecnica 
@@ -1647,9 +1666,9 @@ sono i più affidabili in quanto fanno riferimento a ciò che sta accadendo a li
 fisico nel conducente. Queste misure sono invasive in quanto richiedono 
 sensori adatti posizionati appositamente in varie parti del corpo del conducente. 
 In questo elaborato non verrà approfondita questa categoria in quanto 
-non pertinente attinente allo studio proposto. La seconda categoria cerca di 
+non pertinente allo studio proposto. La seconda categoria cerca di 
 rilevare l'affaticamento del conducente in base ai dati veicolari raccolti. Tale 
-tipologia di informazioni possono riguarda il cambio di corsia, la variabilità 
+tipologia di informazioni possono riguardare il cambio di corsia, la variabilità 
 della velocità, l'angolo di rotazione del volante etc. L'analisi svolta su questi 
 dati permette al sistema di creare dei modelli\index{modello} di guida e determinare se quelli 
 rilevati in real-time si discostano o meno da quelli abituali. Se il sistema 
@@ -1663,12 +1682,12 @@ sono ritenute inaffidabili in questi casi. La ricerca sta puntando sull'ultima
 categoria, quella delle tecniche basate sul comportamento. Quest'ultime 
 sono ritenute come misure non invasive per il rilevamento\index{rilevamento} della sonnolenza. 
 L'affaticamento del conducente è calcolato in base a vari fattori come il 
-rapporto di chiusura degli occhi (\emph{eye closure ratio}), il battito delle palpebre 
-(\emph{eye blinking}), la posizione della testa (\emph{hand position}), le espressioni facciali 
-(\emph{facial expression}) e gli sbadigli (\emph{yawning}). La metrica più utilizzata per 
+rapporto di chiusura degli occhi (\emph{eye closure ratio})\index{eue closure ratio}, il battito delle palpebre 
+(\emph{eye blinking})\index{eye blinking} la posizione della testa (\emph{hand position})\index{hand position}, le espressioni facciali 
+(\emph{facial expression})\index{facial expression} e gli sbadigli (\emph{yawning})\index{yawning}. La metrica più utilizzata per 
 il rilevamento della sonnolenza si basa sull'osservazione dello stato degli 
 occhi, più precisamente alla percentuale di chiusure oculari, soprannominata 
-\emph{PERCLOS}. Grazie a questa ,metrica è possibile determinare se gli occhi 
+\emph{PERCLOS}\index{perclos}. Grazie a questa ,metrica è possibile determinare se gli occhi 
 sono aperti, chiusi o socchiusi. L'analisi dello sbadiglio viene effettuato 
 monitorando le variazioni della forma geometrica della bocca grazie all'aiuto 
 di camere o stereo-camere\index{stereo-camera}. Seppur ritenuta la miglior categoria a livello 
@@ -1695,7 +1714,7 @@ modello\index{modello} effettua una drowsiness detection.
     \label{drow-det}
 \end{figure}
 
-\subsubsection{Collision Avoidance}
+\subsubsection{Collision Avoidance}\index{collision avoidance}
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{collision-avoidance.png}
@@ -1747,10 +1766,10 @@ il guidatore quando questo si trova in prossimità di un'area che richiede
 attenzione, come per esempio una curva o un incrocio. La rilevazione di 
 queste aree viene fatta grazie all'utilizzo delle \emph{Region Based Convolutional 
 Neural Networks (R-CNN)} \cite{RCNN-TLR}, reti neurali in grado di estrarre le regioni 
-di interesse (ROI). Ogni regione estratta verrà analizzata da una rete 
+di interesse (ROI)\index{region of interest (ROI)}. Ogni regione estratta verrà analizzata da una rete 
 convoluzionale per poter identificare\index{identificare} gli oggetti al suo interno. In genere, 
 il TSR è diviso in due categorie: Detection e Classification. La detection 
-riguarda la localizzazione\index{localizzazione}  della segnaletica stradale nelle varie ROI, mentre la 
+riguarda la localizzazione\index{localizzazione}  della segnaletica stradale nelle varie ROI\index{region of interest (ROI)}, mentre la 
 classificazione\index{classificazione} riguarda al determinazione del tipo di segnale che il sistema 
 ha rilevato. Oltre che a riconoscere i segnali, un TSR dev'essere anche 
 intelligente\index{intelligenza}. Durante il percorso, se il sistema rivela più segnali ridondanti, 

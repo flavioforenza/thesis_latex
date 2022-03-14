@@ -12,7 +12,7 @@
 \indexentry{inferenza|hyperpage}{1}
 \indexentry{embedded|hyperpage}{1}
 \indexentry{NVidia Jetson Nano|hyperpage}{2}
-\indexentry{Advanced Driver Assistance Systems - ADAS|hyperpage}{2}
+\indexentry{advanced driver assistance systems (ADAS)|hyperpage}{2}
 \indexentry{intelligenza|hyperpage}{2}
 \indexentry{Adaptive Cruise Control - ACC|hyperpage}{2}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{2}
@@ -28,7 +28,7 @@
 \indexentry{localizzazione|hyperpage}{3}
 \indexentry{etichetta|hyperpage}{3}
 \indexentry{rilevamento|hyperpage}{3}
-\indexentry{telecamere|hyperpage}{3}
+\indexentry{telecamera|hyperpage}{3}
 \indexentry{stereo-camera|hyperpage}{3}
 \indexentry{radar|hyperpage}{3}
 \indexentry{rilascio|hyperpage}{3}
@@ -231,6 +231,7 @@
 \indexentry{layer|hyperpage}{22}
 \indexentry{gradiente|hyperpage}{22}
 \indexentry{pooling|hyperpage}{22}
+\indexentry{downsampling|hyperpage}{22}
 \indexentry{feature map|hyperpage}{22}
 \indexentry{peso|hyperpage}{22}
 \indexentry{feature map|hyperpage}{22}
@@ -312,6 +313,7 @@
 \indexentry{ottimizzazione|hyperpage}{32}
 \indexentry{object detection|hyperpage}{32}
 \indexentry{modello|hyperpage}{32}
+\indexentry{frame per second (FPS)|hyperpage}{32}
 \indexentry{mean average precision (mAP)|hyperpage}{32}
 \indexentry{ground truth|hyperpage}{32}
 \indexentry{identificare|hyperpage}{32}
@@ -354,17 +356,24 @@
 \indexentry{image classification|hyperpage}{35}
 \indexentry{object detection|hyperpage}{35}
 \indexentry{bounding box|hyperpage}{35}
+\indexentry{foreground|hyperpage}{35}
+\indexentry{background|hyperpage}{35}
 \indexentry{architettura|hyperpage}{36}
+\indexentry{fully convolutional|hyperpage}{36}
 \indexentry{accuratezza|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
 \indexentry{fully connected|hyperpage}{36}
 \indexentry{modello|hyperpage}{36}
 \indexentry{fully connected|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
+\indexentry{background|hyperpage}{37}
+\indexentry{upsampling|hyperpage}{37}
 \indexentry{deconvoluzione|hyperpage}{37}
+\indexentry{upsampling|hyperpage}{37}
 \indexentry{computazionale|hyperpage}{37}
 \indexentry{layer|hyperpage}{37}
 \indexentry{pooling|hyperpage}{37}
+\indexentry{upsampling|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
 \indexentry{encoder|hyperpage}{37}
 \indexentry{decoder|hyperpage}{37}
@@ -381,7 +390,9 @@
 \indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{pooling|hyperpage}{38}
+\indexentry{downsampling|hyperpage}{38}
 \indexentry{unpooling|hyperpage}{38}
+\indexentry{upsampling|hyperpage}{38}
 \indexentry{convoluzione|hyperpage}{38}
 \indexentry{deconvoluzione|hyperpage}{38}
 \indexentry{layer|hyperpage}{38}
@@ -391,8 +402,10 @@
 \indexentry{encoder|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{intelligenza|hyperpage}{38}
+\indexentry{feature map|hyperpage}{38}
 \indexentry{pooling|hyperpage}{38}
 \indexentry{architettura|hyperpage}{39}
+\indexentry{upsampling|hyperpage}{39}
 \indexentry{pooling|hyperpage}{39}
 \indexentry{layer|hyperpage}{39}
 \indexentry{ground truth|hyperpage}{39}
@@ -416,9 +429,16 @@
 \indexentry{convoluzione|hyperpage}{41}
 \indexentry{parametro|hyperpage}{41}
 \indexentry{convoluzione|hyperpage}{41}
+\indexentry{upsampling|hyperpage}{41}
+\indexentry{conditional random field (CRF)|hyperpage}{41}
 \indexentry{etichetta|hyperpage}{41}
+\indexentry{foreground|hyperpage}{41}
+\indexentry{background|hyperpage}{41}
+\indexentry{conditional random field (CRF)|hyperpage}{41}
 \indexentry{architettura|hyperpage}{41}
 \indexentry{modello|hyperpage}{41}
+\indexentry{upsampling|hyperpage}{41}
+\indexentry{conditional random field (CRF)|hyperpage}{41}
 \indexentry{architettura|hyperpage}{42}
 \indexentry{encoder|hyperpage}{42}
 \indexentry{decoder|hyperpage}{42}
@@ -446,17 +466,20 @@
 \indexentry{feature map|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
+\indexentry{subsampling|hyperpage}{43}
 \indexentry{classificazione|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{pooling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{encoder|hyperpage}{43}
 \indexentry{decoder|hyperpage}{43}
+\indexentry{upsampling|hyperpage}{43}
 \indexentry{feature map|hyperpage}{43}
 \indexentry{decoder|hyperpage}{44}
 \indexentry{deconvoluzione|hyperpage}{44}
 \indexentry{feature map|hyperpage}{44}
 \indexentry{decoder|hyperpage}{44}
+\indexentry{fully convolutional|hyperpage}{44}
 \indexentry{feature|hyperpage}{44}
 \indexentry{pooling|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
@@ -464,11 +487,15 @@
 \indexentry{feature map|hyperpage}{45}
 \indexentry{layer|hyperpage}{45}
 \indexentry{feature map|hyperpage}{45}
+\indexentry{norma L2|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
+\indexentry{fully convolutional|hyperpage}{45}
+\indexentry{norma L2|hyperpage}{45}
 \indexentry{convoluzione|hyperpage}{45}
 \indexentry{pooling|hyperpage}{45}
 \indexentry{feature map|hyperpage}{45}
 \indexentry{convoluzione|hyperpage}{45}
+\indexentry{norma L2|hyperpage}{45}
 \indexentry{unpooling|hyperpage}{45}
 \indexentry{classificazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
@@ -484,18 +511,22 @@
 \indexentry{kernel|hyperpage}{46}
 \indexentry{feature map|hyperpage}{46}
 \indexentry{deconvoluzione|hyperpage}{46}
+\indexentry{backbone|hyperpage}{46}
 \indexentry{dataset|hyperpage}{46}
+\indexentry{upsampling|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
 \indexentry{deconvoluzione|hyperpage}{46}
 \indexentry{modello|hyperpage}{47}
 \indexentry{performance|hyperpage}{47}
+\indexentry{atrous spatial pyramid pooling (ASPP)|hyperpage}{47}
 \indexentry{feature|hyperpage}{47}
 \indexentry{localizzazione|hyperpage}{47}
 \indexentry{convoluzione|hyperpage}{47}
 \indexentry{feature map|hyperpage}{47}
 \indexentry{architettura|hyperpage}{47}
+\indexentry{backbone|hyperpage}{47}
 \indexentry{modello|hyperpage}{47}
-\indexentry{encoder|hyperpage}{48}
+\indexentry{encoder|hyperpage}{47}
 \indexentry{decoder|hyperpage}{48}
 \indexentry{convoluzione|hyperpage}{48}
 \indexentry{encoder|hyperpage}{48}
@@ -507,6 +538,7 @@
 \indexentry{convoluzione|hyperpage}{48}
 \indexentry{kernel|hyperpage}{48}
 \indexentry{convoluzione|hyperpage}{48}
+\indexentry{pyramid scene parsing network (PSPNet)|hyperpage}{48}
 \indexentry{pooling|hyperpage}{48}
 \indexentry{feature map|hyperpage}{48}
 \indexentry{feature|hyperpage}{50}
@@ -515,11 +547,18 @@
 \indexentry{layer|hyperpage}{50}
 \indexentry{pooling|hyperpage}{50}
 \indexentry{convoluzione|hyperpage}{50}
+\indexentry{upsampling|hyperpage}{50}
 \indexentry{feature map|hyperpage}{50}
 \indexentry{image segmentation|hyperpage}{50}
 \indexentry{object detection|hyperpage}{50}
 \indexentry{modello|hyperpage}{50}
+\indexentry{background|hyperpage}{50}
+\indexentry{vero positivo|hyperpage}{50}
+\indexentry{falso positivo|hyperpage}{50}
+\indexentry{falso negativo|hyperpage}{50}
 \indexentry{accuratezza|hyperpage}{50}
+\indexentry{pixel accuracy (PA)|hyperpage}{51}
+\indexentry{mean pixel accuracy (mPA)|hyperpage}{51}
 \indexentry{intersection over union (IoU)|hyperpage}{51}
 \indexentry{object detection|hyperpage}{51}
 \indexentry{semantic segmentation|hyperpage}{51}
@@ -527,43 +566,69 @@
 \indexentry{ground truth|hyperpage}{51}
 \indexentry{ground truth|hyperpage}{51}
 \indexentry{intersection over union (IoU)|hyperpage}{51}
+\indexentry{mean intersection over union (mIoU)|hyperpage}{51}
 \indexentry{intersection over union (IoU)|hyperpage}{51}
 \indexentry{modello|hyperpage}{51}
+\indexentry{frequency weight intersection over union (FWIoU)|hyperpage}{52}
 \indexentry{modello|hyperpage}{52}
 \indexentry{parametro|hyperpage}{52}
+\indexentry{floating point operations (FLOPs)|hyperpage}{52}
 \indexentry{object detection|hyperpage}{52}
+\indexentry{frame per second (FPS)|hyperpage}{52}
 \indexentry{deep learning|hyperpage}{52}
 \indexentry{autonoma|hyperpage}{52}
 \indexentry{intelligenza|hyperpage}{52}
 \indexentry{object detection|hyperpage}{52}
 \indexentry{localizzazione|hyperpage}{52}
+\indexentry{tracking|hyperpage}{52}
 \indexentry{autonoma|hyperpage}{52}
+\indexentry{society of automotiuve engineers (SAE)|hyperpage}{52}
+\indexentry{guida convenzionale|hyperpage}{53}
+\indexentry{guida assistita|hyperpage}{53}
+\indexentry{automazione parziale|hyperpage}{53}
+\indexentry{automazione condizionata|hyperpage}{53}
+\indexentry{alta automazione|hyperpage}{54}
+\indexentry{automazione completa|hyperpage}{54}
 \indexentry{autonoma|hyperpage}{54}
 \indexentry{rilevamento|hyperpage}{54}
 \indexentry{rilevamento|hyperpage}{54}
+\indexentry{road detection|hyperpage}{54}
 \indexentry{autonoma|hyperpage}{54}
 \indexentry{rilevamento|hyperpage}{54}
 \indexentry{computazionale|hyperpage}{54}
 \indexentry{parametro|hyperpage}{54}
 \indexentry{modello|hyperpage}{54}
+\indexentry{ligth detector and range (LIDAR)|hyperpage}{55}
 \indexentry{classificazione|hyperpage}{55}
 \indexentry{modello|hyperpage}{55}
+\indexentry{backbone|hyperpage}{55}
 \indexentry{architettura|hyperpage}{55}
+\indexentry{lane detector|hyperpage}{55}
 \indexentry{rilevamento|hyperpage}{55}
+\indexentry{image cleaning|hyperpage}{56}
 \indexentry{feature|hyperpage}{56}
 \indexentry{rilevamento|hyperpage}{56}
 \indexentry{feature|hyperpage}{56}
+\indexentry{feature detection|hyperpage}{56}
 \indexentry{feature|hyperpage}{56}
 \indexentry{feature|hyperpage}{56}
 \indexentry{apprendimento|hyperpage}{56}
+\indexentry{model fitting|hyperpage}{56}
 \indexentry{feature|hyperpage}{56}
+\indexentry{tracking|hyperpage}{56}
+\indexentry{region of interest (ROI)|hyperpage}{56}
 \indexentry{computazionale|hyperpage}{57}
 \indexentry{rilevamento|hyperpage}{57}
+\indexentry{inertial measurement unit (IMU)|hyperpage}{57}
+\indexentry{global positioning system (GPS)|hyperpage}{57}
+\indexentry{vehicle detection|hyperpage}{57}
 \indexentry{computer vision|hyperpage}{57}
 \indexentry{rilevamento|hyperpage}{57}
 \indexentry{performance|hyperpage}{57}
-\indexentry{telecamere|hyperpage}{57}
-\indexentry{telecamere|hyperpage}{58}
+\indexentry{background|hyperpage}{57}
+\indexentry{telecamera|hyperpage}{57}
+\indexentry{telecamera|hyperpage}{58}
+\indexentry{ligth detection and range (LIDAR)|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
@@ -572,22 +637,41 @@
 \indexentry{object detection|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
+\indexentry{region of interest (ROI)|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{autonoma|hyperpage}{58}
 \indexentry{intelligenza|hyperpage}{58}
+\indexentry{pedestrian detection|hyperpage}{59}
 \indexentry{autonoma|hyperpage}{59}
-\indexentry{telecamere|hyperpage}{59}
+\indexentry{telecamera|hyperpage}{59}
+\indexentry{advanced driver assistance systems (ADAS)|hyperpage}{59}
 \indexentry{rilevamento|hyperpage}{59}
+\indexentry{pedestrian protection systems (PPS)|hyperpage}{59}
+\indexentry{region of interest (ROI)|hyperpage}{59}
 \indexentry{identificare|hyperpage}{60}
-\indexentry{telecamere|hyperpage}{60}
+\indexentry{telecamera|hyperpage}{60}
+\indexentry{foreground|hyperpage}{61}
+\indexentry{background|hyperpage}{61}
+\indexentry{region of interest (ROI)|hyperpage}{61}
 \indexentry{classificazione|hyperpage}{61}
+\indexentry{region of interest (ROI)|hyperpage}{61}
 \indexentry{feature|hyperpage}{61}
 \indexentry{classificazione|hyperpage}{61}
+\indexentry{region of interest (ROI)|hyperpage}{61}
+\indexentry{tracking|hyperpage}{61}
+\indexentry{foreground|hyperpage}{61}
 \indexentry{rilevamento|hyperpage}{62}
+\indexentry{drowsiness detection|hyperpage}{62}
 \indexentry{autonoma|hyperpage}{62}
 \indexentry{modello|hyperpage}{63}
 \indexentry{rilevamento|hyperpage}{63}
+\indexentry{eue closure ratio|hyperpage}{63}
+\indexentry{eye blinking|hyperpage}{63}
+\indexentry{hand position|hyperpage}{63}
+\indexentry{facial expression|hyperpage}{63}
+\indexentry{yawning|hyperpage}{63}
+\indexentry{perclos|hyperpage}{63}
 \indexentry{stereo-camera|hyperpage}{63}
 \indexentry{classificazione|hyperpage}{63}
 \indexentry{Convolutional Neural Network - CNN|hyperpage}{63}
@@ -597,13 +681,16 @@
 \indexentry{rilevamento|hyperpage}{64}
 \indexentry{rilevamento|hyperpage}{64}
 \indexentry{modello|hyperpage}{64}
+\indexentry{collision avoidance|hyperpage}{64}
 \indexentry{accuratezza|hyperpage}{64}
 \indexentry{autonoma|hyperpage}{64}
 \indexentry{autonoma|hyperpage}{66}
 \indexentry{computer vision|hyperpage}{66}
 \indexentry{deep learning|hyperpage}{66}
+\indexentry{region of interest (ROI)|hyperpage}{66}
 \indexentry{identificare|hyperpage}{66}
 \indexentry{localizzazione|hyperpage}{66}
+\indexentry{region of interest (ROI)|hyperpage}{66}
 \indexentry{classificazione|hyperpage}{66}
 \indexentry{intelligenza|hyperpage}{66}
 \indexentry{falso positivo|hyperpage}{67}
