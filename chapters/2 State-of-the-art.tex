@@ -1529,7 +1529,7 @@ Per il rilevamento\index{rilevamento} e il tracciamento dei veicoli, importante 
 l'utilizzo delle simmetrie e dei bordi dei veicoli anche se negli ultimi anni si 
 è preferito utilizzare altre tipologie di feature\index{feature}. Nello specifico, queste feature\index{feature} 
 si riferiscono all'Istogramma dell'Orientazione del Gradiente\index{gradiente} (\emph{Histogram 
-of Oriented Gradient (HOG)}) e \emph{Haar-like}, quest'ultime sono feature\index{feature} che 
+of Oriented Gradient (HOG)}) e \emph{Haar-like}\index{wavelet Haar}, quest'ultime sono feature\index{feature} che 
 devono il loro nome per la loro somiglianza alle wavelet Haar, entrambe molto 
 diffuse in ambito di object detection\index{object detection} e per il rilevamento\index{rilevamento} dei veicoli. Un'altra 
 tipologia di feature\index{feature} importanti sono le \emph{Scale Invariant Feature Transform 
@@ -1732,7 +1732,7 @@ guida autonoma\index{autonoma}, la responsabilità nell'intraprendere determinar
 è demandata al sistema di prevenzione delle collisioni (\emph{Collision 
 Avoidance System (CAS)}). Solitamente, tutte le informazioni sull'ambiente 
 circostante relative ad altri veicoli, la segnaletica orizzontale, le informazioni 
-sui segnali stradali e la velocità sono disponibili in un data base centrale 
+sui segnali stradali e la velocità, sono disponibili in un database centrale 
 dinamico (\emph{Dynamic Data Base (DDB)}). Grazie a questo, gli algoritmi di 
 controllo e pianificazione riescono a comunicare tra loro. Possiamo considerare 
 il CAS come un sistema che, durante la velocità desiderata e il 
@@ -1744,18 +1744,18 @@ il veicolo in modo appropriato. Il secondo metodo viene chiamato sistema di
 transazione statale \cite{col-avoid2}. In quest'ultimo vengono considerati tutti i possibili 
 casi, condizioni e situazioni. Diversi sono stati gli studi che hanno portato 
 ad effettuare stime del rischio durante la guida. Una delle principali azioni 
-che è viene considerata altamente rischiosa è quella inerente al cambio corsia. 
+che viene considerata altamente rischiosa è quella inerente al cambio corsia. 
 Diversi studi \cite{risk} sono stati applicati per poter minimizzare il rischio riguardante 
 questa problematica. L'utilizzo di reti profonde, nello specifico delle 
-\emph{Recurrent Neural Network (RNN)}, e di opportune tecniche di segmentazione, 
+\emph{Recurrent Neural Network (RNN)}\index{Recurrent Neural Network (RNN)} e di opportune tecniche di segmentazione, 
 hanno prodotto una serie di risultati incoraggianti che hanno contributo 
-allo sviluppo di sistemi utili alla minimizzazione del rischio.  Per poter 
+allo sviluppo di sistemi utili alla minimizzazione del rischio. Per poter 
 calcolare il livello di rischio bisogna considerare i tratti umani (stili di guida) 
 del guidatore affinché venga prodotta una previsione sulle intenzioni dei 
 possibili personaggi che compongono l'ambiente esterno (pedoni e veicoli). 
 In Figura (\ref{coll-avoid}) è possibile notare alcuni sistemi di Collision Avoidance.
 
-\subsubsection{Traffic Sign/Light Detection and Recognition}
+\subsubsection{Traffic Sign/Light Detection and Recognition}\index{traffic sign detection}\index{traffic light detection}
 Un'alta percentuale di incidenti stradali è dovuta alla scarsa attenzione verso 
 la segnaletica stradale. Un sistema di guida autonoma\index{autonoma}, grazie a tecniche di 
 computer vision\index{computer vision} e grazie al supporto del deep learning\index{deep learning}, può essere in grado 
@@ -1769,26 +1769,26 @@ Neural Networks (R-CNN)} \cite{RCNN-TLR}, reti neurali in grado di estrarre le r
 di interesse (ROI)\index{region of interest (ROI)}. Ogni regione estratta verrà analizzata da una rete 
 convoluzionale per poter identificare\index{identificare} gli oggetti al suo interno. In genere, 
 il TSR è diviso in due categorie: Detection e Classification. La detection 
-riguarda la localizzazione\index{localizzazione}  della segnaletica stradale nelle varie ROI\index{region of interest (ROI)}, mentre la 
-classificazione\index{classificazione} riguarda al determinazione del tipo di segnale che il sistema 
+riguarda la localizzazione\index{localizzazione} della segnaletica stradale nelle varie ROI\index{region of interest (ROI)}, mentre la 
+classificazione\index{classificazione} riguarda la determinazione del tipo di segnale che il sistema 
 ha rilevato. Oltre che a riconoscere i segnali, un TSR dev'essere anche 
 intelligente\index{intelligenza}. Durante il percorso, se il sistema rivela più segnali ridondanti, 
 questo non deve attirare la concentrazione del conducente in quanto non tutti 
 i segnali hanno la stessa importanza. Quando un segnale viene rilevato più 
 volte in maniera consecutiva, il sistema dovrebbe notificarlo una sola volta 
-o quanto meno dovrebbe avvertire solo in caso di segnaletica importante. 
+o quanto meno dovrebbe avvertire il conducente solo in caso di segnaletica importante. 
 Oltre a questo aspetto, un TSR dev'essere in grado di rilevare quei segnali 
 che il guidatore non ha colto, a causa di una distrazione, durante il tragitto. 
 I sistemi TSR sono in grado di gestire i falsi positivi e i falsi negativi. Tutto 
 questo è possibile grazie a un confronto fra frame adiacenti in cui vengono 
 rilevati e tracciati i vari segnali. Se un segnale venisse erroneamente rilevato 
-in un solo frame e non in quelli adiacenti, allora potrebbe trattarsi di un 
+in un solo frame, e non in quelli adiacenti, allora potrebbe trattarsi di un 
 falso positivo\index{falso positivo} e pertanto non c'è bisogno di notificarlo al conducente. Oltre 
 alla velocità assunta dal veicolo, che potrebbe influenzare la classificazione\index{classificazione}, 
 ovviamente ci dev'essere un corretto trade-off tra la velocità di rilevazione e 
 il tempo di riconoscimento del segnale. Quando si confrontano i rilevatori 
 di segnali, è necessario impostare alcune metriche di confronto. Come al 
-solito, la misura più semplice e la più importante è il tasso dei veri positivi.
+solito, la misura più semplice e più importante è il tasso dei veri positivi (True positive).
 La fase di identificazione è di solito suddivisa un due sottofasi \cite{sign-rec}:
 \begin{enumerate}
     \item \emph{Metodi basati sul colore;}
@@ -1796,11 +1796,11 @@ La fase di identificazione è di solito suddivisa un due sottofasi \cite{sign-re
 \end{enumerate}
 Il colore e la forma possono contraddistinguere un segnale da un altro.
 Ogni metodo ha i suoi pro e i suoi contro. Se la ricerca è incentrata sul 
-colore allora questa potrebbe essere influenzata da fattori esterni come 
+colore, allora questa potrebbe essere influenzata da fattori esterni come 
 l'illuminazione o l'aspetto del segnale (presenza di imbrattature, adesivi 
 o semplice sbiadimento). Al contrario, risulta facile ricercare un range di 
 colori all'interno di un'immagine. Per quanto riguarda le forme, queste 
-sono invarianti all'illuminazione e al tempo mentre, d'altra parte se occluse 
+sono invarianti all'illuminazione e al tempo mentre, d'altra parte, se occluse 
 rappresentano una problematica per il rilevamento. Per risolvere i problemi 
 inerenti il rilevamento\index{rilevamento}, viene utilizzata la tecnica di segmentazione che segue 
 una fase di estrazione delle feature\index{feature} per poter successivamente eseguire il 
@@ -1810,7 +1810,7 @@ poter quindi restringere lo spazio di ricerca nelle fasi successive. La fase
 di feature extraction ricerca maggiormente elementi appartenenti al set di 
 forme geometriche come angoli, bordi, cerchi, rettangoli etc. Per questo 
 scopo, una delle tecniche maggiormente utilizzate per l'estrazione delle 
-feature\index{feature} è la trasformata di Hough o le già citate wavelet di Haar. Un 
+feature\index{feature} è la trasformata di Hough o le già citate wavelet di Haar\index{wavelet Haar}. Un 
 esempio di Traffic Sign e Light recognition è riportato nella Figura (\ref{traffic sing-ligth}).
 \begin{figure}
     \centering
@@ -1828,7 +1828,7 @@ dispositivi. Pertanto, negli ultimi anni, sono state proposte diverse tecniche
 di compressione\index{compressione} in grado di implementare suddetti modelli anche su sistemi 
 economici a ridotta potenzialità computazionale\index{computazionale}. Il principale requisito 
 minimo, da parte di queste tecniche, riguarda il raggiungimento di un compromesso 
-a basso impatto sull'accuratezza\index{accuratezza} di ogni modello\index{modello}. Ciò che si sta 
+a basso impatto sull'accuratezza\index{accuratezza} in ogni modello\index{modello}. Ciò che si sta 
 cercando di raggiungere è quindi un metodo che sia in grado di ottimizzare 
 sia le performance\index{performance} di un sistema, ospitante un modello\index{modello} deep learning\index{deep learning}, che la 
 sua riduzione energetica, oltre a determinare un risparmio dello spazio di 
@@ -1838,53 +1838,52 @@ archiviazione. Le tre tecniche maggiormente diffuse allo stato dell'arte sono:
     di un modello andando a rimuovere componenti superflui quali canali, 
     filtri, neuroni\index{neurone} o interi livelli. La potatura può essere applicata solo in 
     maniera iterativa su un modello\index{modello} (\emph{Iterative Pruning}) durante il processo 
-    di addestramento, oppure direttamente sul modello pre-addestrato 
-    (\emph{One-shot Pruning}).
+    di addestramento, oppure direttamente sul modello pre-addestrato (\emph{One-shot Pruning}).
     \item {\bfseries{\emph{Knowledge Distillation}}}\index{Knowledge Distillation}: tecnica in grado di trasferire la capacità 
     di generalizzazione, proveniente da un modello ingombrante chiamato 
     "\emph{Insegnante}", verso un modello\index{modello} più piccolo chiamato "\emph{Studente}", per 
     migliorare le prestazioni di quest'ultimo.
-    \item {\bfseries{\emph{Quantization}}}: la riduzione del numero di bit necessari 
+    \item {\bfseries{\emph{Quantization}}}\index{quantization}: la riduzione del numero di bit necessari 
     alla memorizzazione dei pesi\index{peso} rappresenta una tecnica di compressione\index{compressione}. Passare da 
     una precisione FP32 a una INT8 significherebbe ridurre di un quarto 
     la rappresentazione di un valore.
 \end{enumerate}
 Di seguito vengono riportate le spiegazioni più dettagliate di ciascuna.
 
-\subsection{Quantization}
+\subsection{Quantization}\index{quantization}
 La rappresentazione dei parametri\index{parametro}, di una rete neurale, avviene utilizzando 
 un determinato numero di bit. Trovandoci in un contesto di compressione\index{compressione}, e 
 di ottimizzazione\index{ottimizzazione}, diversi sono stati gli studi che hanno avuto l'obiettivo di 
 ridurre la quantità di bit preservando l'accuratezza\index{accuratezza} del modello\index{modello}. Allo stato 
 dell'arte, tutti questi sforzi hanno dato vita allo sviluppo di una tecnica 
-fondamentale: la quantizzazione. La sua popolarità è rapidamente cresciuta 
-grazie agli evidenti miglioramenti delle prestazioni dei modelli. I benchmarks\index{benchmark} 
-pubblicati in uno studio \cite{quantization_speed} hanno evidenziato come la quantizzazione possa 
+fondamentale: la quantizzazione\index{quantization}. La sua popolarità è rapidamente cresciuta 
+grazie agli evidenti miglioramenti prestazionali dei modelli. I benchmarks\index{benchmark} 
+pubblicati in uno studio \cite{quantization_speed} hanno evidenziato come la quantizzazione\index{quantization} possa 
 migliorare il proprio throughput di un fattore pari a 10x. La compressione\index{compressione} 
-effettuata dalla quantizzazione si traduce in una riduzione della precisione 
+effettuata dalla quantizzazione\index{quantization} si traduce in una riduzione della precisione 
 Floating-Point durante le operazioni matematiche svolte all'interno della 
 rete. Poiché possiamo avere numeri infinitamente precisi, ma uno spazio 
 limitato in cui memorizzarli, bisogna giungere ad un compromesso tra 
 precisione (il numero di decimali che si vogliono includere in un numero 
 prima di arrotondarlo) e spazio (quantità di bit da utilizzare per salvare 
 il numero). Secondo lo standard tecnico per i numeri a virgola mobile, 
-\emph{IEEE-754} stabilisce i seguenti standard:
+\emph{IEEE-754}\index{IEEE-754} stabilisce i seguenti standard:
 \begin{itemize}
-    \item \emph{FP64}: conosciuto come "\emph{double-precision}" o semplicemente "\emph{double}". 
-    \item \emph{FP32}: conosciuto come "\emph{single-precision}" o semplicemente "\emph{single}".
-    \item \emph{FP32}: conosciuto come "\emph{half-precision}" o semplicemente "\emph{half}".
+    \item \emph{FP64}: conosciuto come "\emph{double-precision}" o semplicemente "\emph{double}"\index{double precision}. 
+    \item \emph{FP32}: conosciuto come "\emph{single-precision}" o semplicemente "\emph{single}"\index{single precision}.
+    \item \emph{FP32}: conosciuto come "\emph{half-precision}" o semplicemente "\emph{half}"\index{half precision}.
 \end{itemize}
-La quantizzazione ha l'obiettivo di mappare i valori aventi precisione FP32 
-in valori a precisione int8. Questo vuol dire passare da una quantità di valori 
+La quantizzazione\index{quantization} ha l'obiettivo di mappare i valori aventi precisione FP32 
+in valori a precisione INT8. Questo vuol dire passare da una quantità di valori 
 memorizzabili pari a $2^{31}$, a una quantità  corrispondente a un massimo 256 
 valori, ovvero a $2^8$. La riduzione totale porta ad occupare un numero di bit 
 pari a $\frac{1}{4}$ di quelli occupati dalla precisione FP32. Tale beneficio, tradotto in 
 termini di performance\index{performance}, dovrebbe portare ad un incremento della velocità di 
 inferenza\index{inferenza} per un fattore massimo pari a quattro volte. Purtroppo, quest'ultimo 
 evento non sempre è verificabile. Secondo alcuni test \cite{LIANG2021370}, utilizzando 
-frameworks come Google TensorFLow-Lite e NVidia TesnorRt, impostando 
-un basso valore di batch-size, riescono a raggiungere un velocità massima 
-di circa 2-3x. Aumentando il numero di batch-size, solamente TensorRT 
+frameworks come Google TensorFLow-Lite e NVidia TensorRt\index{TensorRT}, impostando 
+un basso valore di batch-size, questi riescono a raggiungere un velocità massima 
+di circa 2-3x. Aumentando il numero di batch-size, solamente TensorRT\index{TensorRT} 
 riesce ad intensificare ulteriormente la velocità di inferenza\index{inferenza} arrivando a 
 3-4x. Dopo aver convertito i parametri\index{parametro} come pesi\index{peso}, input e vettori intermedi, 
 la maggior parte della matematica che segue viene eseguita in INT8. Una 
@@ -1896,29 +1895,28 @@ utilizzata durante l'allenamento di una rete è la FP32. Per molte reti, una
 rappresentazione FP32 risulta essere una precisione maggiore del necessario.
 La riduzione della precisione, oltre a comprimere un modello\index{modello}, mira alla riduzione della 
 quantità energetica impiegata dovuta alla ridotta larghezza 
-di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione:
+di banda (bandwidth) utilizzata. Esistono tre tiplogie di quantizzazione\index{quantization}:
 \begin{enumerate}
-    \item \emph{Dynamic Quantization}: viene eseguita a runtime su un modello\index{modello} pre-addestrato. 
+    \item \emph{Dynamic Quantization}\index{dynamic quantization}: viene eseguita a runtime su un modello\index{modello} pre-addestrato. 
     L'operazione si basa nel moltiplicare i valori di input 
     per un fattore di scala variabile da cui seguirà un arrotondamento al 
     numero intero più vicino. Successivamente memorizza il risultato ottenuto. 
     I pesi\index{peso} vengono quantizzati immediatamente mentre le attivazioni 
     vengono quantizzate dinamicamente durante l'inferenza\index{inferenza}. Purtroppo, 
     questo tipo di metodo non è altamente utilizzato in quanto risulta 
-    essere la meno performante, ottenendo delle performance\index{performance} negative.
-    \item \emph{Static Quantization}: viene eseguita dopo la fase di allenamento su un 
+    essere il meno efficiente, ottenendo delle performance\index{performance} negative.
+    \item \emph{Static Quantization}\index{static quantization}: viene eseguita dopo la fase di allenamento su un 
     modello\index{modello} pre-addestrato. La differenza con la tecnica dinamica riguarda 
     il pre-calcolo delle scale e i punti zero di ogni tensore di attivazione 
     servendosi di dati non strutturati. Oltre ad essere più precisa rispetto 
     alla tecnica dinamica, ottiene delle migliori performance\index{performance} per quanto 
-    riguarda l''inferenza\index{inferenza} della rete.
-    \item \emph{Quantization-Aware-Training (QAT)}: risulta essere la tecnica di quantizzazione 
+    riguarda l'inferenza\index{inferenza} della rete.
+    \item \emph{Quantization-Aware-Training (QAT)}\index{quantization-aware-training (QAT)}: risulta essere la tecnica di quantizzazione 
     più accurata. Viene svolta durante il processo di allenamento 
     ma al contempo ne rallenta i tempi di formazione del modello\index{modello}. 
     L'idea di tale tecnica è quella di tenere conto della perdita che si ha 
     nel processo di allenamento durante la conversione del modello.
 \end{enumerate}
-
 
 \subsection{Pruning}\index{Pruning}
 Diversi modelli soffrono di una problematica comune: la numerosità 

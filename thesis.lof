@@ -47,7 +47,7 @@
 \contentsline {figure}{\numberline {2.43}{\ignorespaces Esempio di alcuni sistemi di Collision Avoidance.\relax }}{65}{figure.caption.73}%
 \contentsline {figure}{\numberline {2.44}{\ignorespaces Esempio di Traffic Sign/Light recognition.\relax }}{68}{figure.caption.75}%
 \contentsline {figure}{\numberline {2.45}{\ignorespaces Esempio di rete fully connected potata con la tecnica unstructured.\relax }}{72}{figure.caption.76}%
-\contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{72}{figure.caption.77}%
+\contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{73}{figure.caption.77}%
 \contentsline {figure}{\numberline {2.47}{\ignorespaces Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature maps nei vari layers.\relax }}{74}{figure.caption.78}%
 \contentsline {figure}{\numberline {2.48}{\ignorespaces Il quadro generico insegnante-studente per la distillazione della conoscenza\relax }}{76}{figure.caption.79}%
 \contentsline {figure}{\numberline {2.49}{\ignorespaces Numeri 1 e 7.\relax }}{77}{figure.caption.80}%

@@ -633,6 +633,7 @@
 \indexentry{feature|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{gradiente|hyperpage}{58}
+\indexentry{wavelet Haar|hyperpage}{58}
 \indexentry{feature|hyperpage}{58}
 \indexentry{object detection|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
@@ -684,6 +685,9 @@
 \indexentry{collision avoidance|hyperpage}{64}
 \indexentry{accuratezza|hyperpage}{64}
 \indexentry{autonoma|hyperpage}{64}
+\indexentry{Recurrent Neural Network (RNN)|hyperpage}{65}
+\indexentry{traffic sign detection|hyperpage}{66}
+\indexentry{traffic light detection|hyperpage}{66}
 \indexentry{autonoma|hyperpage}{66}
 \indexentry{computer vision|hyperpage}{66}
 \indexentry{deep learning|hyperpage}{66}
@@ -699,49 +703,66 @@
 \indexentry{feature|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
 \indexentry{feature|hyperpage}{68}
+\indexentry{wavelet Haar|hyperpage}{68}
 \indexentry{ottimizzazione|hyperpage}{68}
 \indexentry{embedded|hyperpage}{68}
 \indexentry{compressione|hyperpage}{68}
 \indexentry{computazionale|hyperpage}{68}
 \indexentry{accuratezza|hyperpage}{68}
 \indexentry{modello|hyperpage}{68}
-\indexentry{performance|hyperpage}{68}
-\indexentry{modello|hyperpage}{68}
-\indexentry{deep learning|hyperpage}{68}
+\indexentry{performance|hyperpage}{69}
+\indexentry{modello|hyperpage}{69}
+\indexentry{deep learning|hyperpage}{69}
 \indexentry{Pruning|hyperpage}{69}
 \indexentry{neurone|hyperpage}{69}
 \indexentry{modello|hyperpage}{69}
 \indexentry{Knowledge Distillation|hyperpage}{69}
 \indexentry{modello|hyperpage}{69}
+\indexentry{quantization|hyperpage}{69}
 \indexentry{peso|hyperpage}{69}
 \indexentry{compressione|hyperpage}{69}
+\indexentry{quantization|hyperpage}{69}
 \indexentry{parametro|hyperpage}{69}
 \indexentry{compressione|hyperpage}{69}
 \indexentry{ottimizzazione|hyperpage}{69}
 \indexentry{accuratezza|hyperpage}{69}
 \indexentry{modello|hyperpage}{69}
+\indexentry{quantization|hyperpage}{69}
 \indexentry{benchmark|hyperpage}{69}
-\indexentry{compressione|hyperpage}{69}
+\indexentry{quantization|hyperpage}{69}
+\indexentry{compressione|hyperpage}{70}
+\indexentry{quantization|hyperpage}{70}
+\indexentry{IEEE-754|hyperpage}{70}
+\indexentry{double precision|hyperpage}{70}
+\indexentry{single precision|hyperpage}{70}
+\indexentry{half precision|hyperpage}{70}
+\indexentry{quantization|hyperpage}{70}
 \indexentry{performance|hyperpage}{70}
 \indexentry{inferenza|hyperpage}{70}
+\indexentry{TensorRT|hyperpage}{70}
+\indexentry{TensorRT|hyperpage}{70}
 \indexentry{inferenza|hyperpage}{70}
 \indexentry{parametro|hyperpage}{70}
 \indexentry{peso|hyperpage}{70}
-\indexentry{peso|hyperpage}{70}
-\indexentry{inferenza|hyperpage}{70}
+\indexentry{peso|hyperpage}{71}
+\indexentry{inferenza|hyperpage}{71}
 \indexentry{accuratezza|hyperpage}{71}
 \indexentry{modello|hyperpage}{71}
+\indexentry{quantization|hyperpage}{71}
+\indexentry{dynamic quantization|hyperpage}{71}
 \indexentry{modello|hyperpage}{71}
 \indexentry{peso|hyperpage}{71}
 \indexentry{inferenza|hyperpage}{71}
 \indexentry{performance|hyperpage}{71}
+\indexentry{static quantization|hyperpage}{71}
 \indexentry{modello|hyperpage}{71}
 \indexentry{performance|hyperpage}{71}
 \indexentry{inferenza|hyperpage}{71}
+\indexentry{quantization-aware-training (QAT)|hyperpage}{71}
 \indexentry{modello|hyperpage}{71}
-\indexentry{Pruning|hyperpage}{71}
-\indexentry{parametro|hyperpage}{71}
-\indexentry{accuratezza|hyperpage}{71}
+\indexentry{Pruning|hyperpage}{72}
+\indexentry{parametro|hyperpage}{72}
+\indexentry{accuratezza|hyperpage}{72}
 \indexentry{inferenza|hyperpage}{72}
 \indexentry{peso|hyperpage}{72}
 \indexentry{modello|hyperpage}{72}
@@ -750,10 +771,10 @@
 \indexentry{performance|hyperpage}{72}
 \indexentry{modello|hyperpage}{72}
 \indexentry{Pruning|hyperpage}{72}
-\indexentry{Pruning|hyperpage}{73}
-\indexentry{peso|hyperpage}{73}
-\indexentry{peso|hyperpage}{73}
-\indexentry{neurone|hyperpage}{73}
+\indexentry{Pruning|hyperpage}{72}
+\indexentry{peso|hyperpage}{72}
+\indexentry{peso|hyperpage}{72}
+\indexentry{neurone|hyperpage}{72}
 \indexentry{Pruning|hyperpage}{73}
 \indexentry{neurone|hyperpage}{73}
 \indexentry{peso|hyperpage}{73}
@@ -764,8 +785,8 @@
 \indexentry{parametro|hyperpage}{73}
 \indexentry{layer|hyperpage}{73}
 \indexentry{parametro|hyperpage}{73}
-\indexentry{peso|hyperpage}{73}
-\indexentry{Pruning|hyperpage}{73}
+\indexentry{peso|hyperpage}{74}
+\indexentry{Pruning|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{peso|hyperpage}{74}
 \indexentry{feature map|hyperpage}{74}
@@ -794,8 +815,8 @@
 \indexentry{peso|hyperpage}{75}
 \indexentry{modello|hyperpage}{75}
 \indexentry{architettura|hyperpage}{75}
-\indexentry{Knowledge Distillation|hyperpage}{75}
-\indexentry{generalizzare|hyperpage}{75}
+\indexentry{Knowledge Distillation|hyperpage}{76}
+\indexentry{generalizzare|hyperpage}{76}
 \indexentry{modello|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
 \indexentry{Knowledge Distillation|hyperpage}{76}
@@ -812,8 +833,8 @@
 \indexentry{modello|hyperpage}{79}
 \indexentry{modello|hyperpage}{79}
 \indexentry{gradiente|hyperpage}{79}
-\indexentry{performance|hyperpage}{79}
-\indexentry{modello|hyperpage}{79}
+\indexentry{performance|hyperpage}{80}
+\indexentry{modello|hyperpage}{80}
 \indexentry{Pruning|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
 \indexentry{Pruning|hyperpage}{95}
