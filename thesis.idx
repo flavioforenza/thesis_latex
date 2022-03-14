@@ -106,10 +106,11 @@
 \indexentry{generalizzare|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{deep learning|hyperpage}{11}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{11}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{modello|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
+\indexentry{feature|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{11}
 \indexentry{apprendimento|hyperpage}{12}
 \indexentry{etichetta|hyperpage}{12}
@@ -124,6 +125,7 @@
 \indexentry{apprendimento|hyperpage}{12}
 \indexentry{back-propagation|hyperpage}{13}
 \indexentry{modello|hyperpage}{13}
+\indexentry{forward|hyperpage}{13}
 \indexentry{neurone|hyperpage}{13}
 \indexentry{peso|hyperpage}{13}
 \indexentry{funzione di errore|hyperpage}{13}
@@ -157,30 +159,49 @@
 \indexentry{bias|hyperpage}{16}
 \indexentry{peso|hyperpage}{16}
 \indexentry{peso|hyperpage}{16}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{16}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{16}
+\indexentry{forward|hyperpage}{16}
+\indexentry{forward|hyperpage}{17}
 \indexentry{layer|hyperpage}{17}
+\indexentry{forward|hyperpage}{17}
 \indexentry{neurone|hyperpage}{17}
 \indexentry{layer|hyperpage}{17}
 \indexentry{neurone|hyperpage}{17}
 \indexentry{layer|hyperpage}{17}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{17}
+\indexentry{fully connected|hyperpage}{17}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{17}
+\indexentry{forward|hyperpage}{17}
+\indexentry{computer vision|hyperpage}{17}
 \indexentry{architettura|hyperpage}{17}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{17}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{17}
 \indexentry{layer|hyperpage}{17}
+\indexentry{feature|hyperpage}{18}
 \indexentry{classificazione|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
 \indexentry{neurone|hyperpage}{18}
+\indexentry{pooling|hyperpage}{18}
 \indexentry{funzione di attivazione|hyperpage}{18}
 \indexentry{apprendimento|hyperpage}{18}
+\indexentry{pooling|hyperpage}{18}
 \indexentry{peso|hyperpage}{18}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{18}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{18}
 \indexentry{classificazione|hyperpage}{18}
 \indexentry{layer|hyperpage}{18}
+\indexentry{fully connected|hyperpage}{18}
 \indexentry{layer|hyperpage}{19}
 \indexentry{neurone|hyperpage}{19}
 \indexentry{layer|hyperpage}{19}
+\indexentry{feature|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
 \indexentry{peso|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
 \indexentry{parametro|hyperpage}{19}
+\indexentry{feature map|hyperpage}{19}
+\indexentry{feature map|hyperpage}{21}
+\indexentry{feature map|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
 \indexentry{neurone|hyperpage}{21}
 \indexentry{funzione di attivazione|hyperpage}{21}
@@ -189,22 +210,32 @@
 \indexentry{modello|hyperpage}{22}
 \indexentry{layer|hyperpage}{22}
 \indexentry{gradiente|hyperpage}{22}
+\indexentry{pooling|hyperpage}{22}
+\indexentry{feature map|hyperpage}{22}
 \indexentry{peso|hyperpage}{22}
+\indexentry{feature map|hyperpage}{22}
 \indexentry{neurone|hyperpage}{22}
+\indexentry{pooling|hyperpage}{22}
+\indexentry{pooling|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
 \indexentry{parametro|hyperpage}{23}
+\indexentry{pooling|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
+\indexentry{fully connected|hyperpage}{23}
 \indexentry{funzione di attivazione|hyperpage}{23}
 \indexentry{layer|hyperpage}{23}
+\indexentry{feature|hyperpage}{23}
 \indexentry{architettura|hyperpage}{24}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{24}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{24}
 \indexentry{neurone|hyperpage}{24}
 \indexentry{neurone|hyperpage}{24}
 \indexentry{neurone|hyperpage}{25}
 \indexentry{architettura|hyperpage}{26}
 \indexentry{apprendimento|hyperpage}{26}
 \indexentry{dataset|hyperpage}{26}
+\indexentry{forward|hyperpage}{26}
 \indexentry{autonoma|hyperpage}{26}
+\indexentry{computer vision|hyperpage}{27}
 \indexentry{deep learning|hyperpage}{27}
 \indexentry{etichetta|hyperpage}{27}
 \indexentry{object detection|hyperpage}{27}
@@ -219,12 +250,15 @@
 \indexentry{classificazione|hyperpage}{29}
 \indexentry{rilevamento|hyperpage}{30}
 \indexentry{etichetta|hyperpage}{30}
+\indexentry{feature|hyperpage}{30}
 \indexentry{computazionale|hyperpage}{30}
 \indexentry{modello|hyperpage}{30}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{30}
+\indexentry{feature|hyperpage}{30}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{30}
 \indexentry{deep learning|hyperpage}{30}
 \indexentry{object detection|hyperpage}{30}
 \indexentry{apprendimento|hyperpage}{30}
+\indexentry{computer vision|hyperpage}{30}
 \indexentry{etichetta|hyperpage}{31}
 \indexentry{modello|hyperpage}{32}
 \indexentry{risorse|hyperpage}{32}
@@ -236,8 +270,8 @@
 \indexentry{etichetta|hyperpage}{33}
 \indexentry{modello|hyperpage}{33}
 \indexentry{ottimizzazione|hyperpage}{34}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{34}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{34}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{34}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{34}
 \indexentry{classificazione|hyperpage}{34}
 \indexentry{visione artificiale|hyperpage}{34}
 \indexentry{autonoma|hyperpage}{34}
@@ -253,40 +287,72 @@
 \indexentry{architettura|hyperpage}{36}
 \indexentry{accuratezza|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
+\indexentry{fully connected|hyperpage}{36}
 \indexentry{modello|hyperpage}{36}
+\indexentry{fully connected|hyperpage}{36}
 \indexentry{layer|hyperpage}{36}
 \indexentry{computazionale|hyperpage}{37}
 \indexentry{layer|hyperpage}{37}
+\indexentry{pooling|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
 \indexentry{architettura|hyperpage}{37}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{37}
+\indexentry{pooling|hyperpage}{37}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{37}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{localizzazione|hyperpage}{38}
+\indexentry{feature map|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
+\indexentry{pooling|hyperpage}{38}
+\indexentry{unpooling|hyperpage}{38}
 \indexentry{layer|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{architettura|hyperpage}{38}
 \indexentry{intelligenza|hyperpage}{38}
+\indexentry{pooling|hyperpage}{38}
 \indexentry{architettura|hyperpage}{39}
+\indexentry{pooling|hyperpage}{39}
 \indexentry{layer|hyperpage}{39}
 \indexentry{architettura|hyperpage}{39}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{39}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{39}
 \indexentry{modello|hyperpage}{39}
 \indexentry{modello|hyperpage}{40}
+\indexentry{feature|hyperpage}{40}
 \indexentry{layer|hyperpage}{40}
+\indexentry{pooling|hyperpage}{40}
+\indexentry{feature map|hyperpage}{40}
 \indexentry{parametro|hyperpage}{41}
 \indexentry{etichetta|hyperpage}{41}
 \indexentry{architettura|hyperpage}{41}
 \indexentry{modello|hyperpage}{41}
 \indexentry{architettura|hyperpage}{42}
+\indexentry{feature map|hyperpage}{42}
 \indexentry{layer|hyperpage}{42}
 \indexentry{funzione di attivazione|hyperpage}{43}
+\indexentry{pooling|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
 \indexentry{architettura|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
 \indexentry{layer|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
+\indexentry{pooling|hyperpage}{43}
 \indexentry{classificazione|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
+\indexentry{pooling|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
+\indexentry{feature map|hyperpage}{43}
+\indexentry{feature map|hyperpage}{44}
+\indexentry{feature|hyperpage}{44}
+\indexentry{pooling|hyperpage}{45}
+\indexentry{pooling|hyperpage}{45}
 \indexentry{classificazione|hyperpage}{45}
+\indexentry{feature map|hyperpage}{45}
 \indexentry{layer|hyperpage}{45}
+\indexentry{feature map|hyperpage}{45}
+\indexentry{pooling|hyperpage}{45}
+\indexentry{pooling|hyperpage}{45}
+\indexentry{feature map|hyperpage}{45}
+\indexentry{unpooling|hyperpage}{45}
 \indexentry{classificazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
 \indexentry{classificazione|hyperpage}{46}
@@ -296,16 +362,26 @@
 \indexentry{localizzazione|hyperpage}{46}
 \indexentry{localizzazione|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
+\indexentry{pooling|hyperpage}{46}
 \indexentry{classificazione|hyperpage}{46}
+\indexentry{feature map|hyperpage}{46}
 \indexentry{dataset|hyperpage}{46}
 \indexentry{layer|hyperpage}{46}
 \indexentry{modello|hyperpage}{47}
 \indexentry{performance|hyperpage}{47}
+\indexentry{feature|hyperpage}{47}
 \indexentry{localizzazione|hyperpage}{47}
+\indexentry{feature map|hyperpage}{47}
 \indexentry{architettura|hyperpage}{47}
 \indexentry{modello|hyperpage}{47}
 \indexentry{computazionale|hyperpage}{48}
+\indexentry{pooling|hyperpage}{48}
+\indexentry{feature map|hyperpage}{48}
+\indexentry{feature|hyperpage}{50}
+\indexentry{feature map|hyperpage}{50}
 \indexentry{layer|hyperpage}{50}
+\indexentry{pooling|hyperpage}{50}
+\indexentry{feature map|hyperpage}{50}
 \indexentry{object detection|hyperpage}{50}
 \indexentry{modello|hyperpage}{50}
 \indexentry{accuratezza|hyperpage}{50}
@@ -333,18 +409,30 @@
 \indexentry{modello|hyperpage}{55}
 \indexentry{architettura|hyperpage}{55}
 \indexentry{rilevamento|hyperpage}{55}
+\indexentry{feature|hyperpage}{56}
 \indexentry{rilevamento|hyperpage}{56}
+\indexentry{feature|hyperpage}{56}
+\indexentry{feature|hyperpage}{56}
+\indexentry{feature|hyperpage}{56}
 \indexentry{apprendimento|hyperpage}{56}
+\indexentry{feature|hyperpage}{56}
 \indexentry{computazionale|hyperpage}{57}
 \indexentry{rilevamento|hyperpage}{57}
+\indexentry{computer vision|hyperpage}{57}
 \indexentry{rilevamento|hyperpage}{57}
 \indexentry{performance|hyperpage}{57}
 \indexentry{telecamere|hyperpage}{57}
 \indexentry{telecamere|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
 \indexentry{gradiente|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
 \indexentry{object detection|hyperpage}{58}
 \indexentry{rilevamento|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
+\indexentry{feature|hyperpage}{58}
 \indexentry{autonoma|hyperpage}{58}
 \indexentry{intelligenza|hyperpage}{58}
 \indexentry{autonoma|hyperpage}{59}
@@ -353,6 +441,7 @@
 \indexentry{identificare|hyperpage}{60}
 \indexentry{telecamere|hyperpage}{60}
 \indexentry{classificazione|hyperpage}{61}
+\indexentry{feature|hyperpage}{61}
 \indexentry{classificazione|hyperpage}{61}
 \indexentry{rilevamento|hyperpage}{62}
 \indexentry{autonoma|hyperpage}{62}
@@ -360,8 +449,8 @@
 \indexentry{rilevamento|hyperpage}{63}
 \indexentry{stereo-camera|hyperpage}{63}
 \indexentry{classificazione|hyperpage}{63}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{63}
-\indexentry{Convolutional Neural Netwrok - CNN|hyperpage}{63}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{63}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{63}
 \indexentry{layer|hyperpage}{64}
 \indexentry{classificazione|hyperpage}{64}
 \indexentry{rilevamento|hyperpage}{64}
@@ -370,6 +459,7 @@
 \indexentry{accuratezza|hyperpage}{64}
 \indexentry{autonoma|hyperpage}{64}
 \indexentry{autonoma|hyperpage}{66}
+\indexentry{computer vision|hyperpage}{66}
 \indexentry{deep learning|hyperpage}{66}
 \indexentry{identificare|hyperpage}{66}
 \indexentry{localizzazione|hyperpage}{66}
@@ -377,7 +467,9 @@
 \indexentry{intelligenza|hyperpage}{66}
 \indexentry{classificazione|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
+\indexentry{feature|hyperpage}{67}
 \indexentry{rilevamento|hyperpage}{67}
+\indexentry{feature|hyperpage}{68}
 \indexentry{ottimizzazione|hyperpage}{68}
 \indexentry{embedded|hyperpage}{68}
 \indexentry{compressione|hyperpage}{68}
@@ -438,6 +530,7 @@
 \indexentry{peso|hyperpage}{73}
 \indexentry{accuratezza|hyperpage}{73}
 \indexentry{modello|hyperpage}{73}
+\indexentry{fully connected|hyperpage}{73}
 \indexentry{Pruning|hyperpage}{73}
 \indexentry{parametro|hyperpage}{73}
 \indexentry{layer|hyperpage}{73}
@@ -446,9 +539,11 @@
 \indexentry{Pruning|hyperpage}{73}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{peso|hyperpage}{74}
+\indexentry{feature map|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{parametro|hyperpage}{74}
 \indexentry{layer|hyperpage}{74}
+\indexentry{feature map|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{Pruning|hyperpage}{74}
 \indexentry{performance|hyperpage}{74}
