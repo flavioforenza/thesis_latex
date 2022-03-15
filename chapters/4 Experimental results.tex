@@ -6,7 +6,7 @@
 \chapter{RISULTATI SPERIMENTALI}
 \label{Capitolo4} \label{Chapter4}
 \thispagestyle{empty}
-Nel seguente capitolo vengono riportate le informazioni inerenti i vari datasets utilizzati in fase di addestramento. Oltre a questi, seguiranno tutti i risultati riguardanti le performance e i benefici prodotti dai modelli quando questi vengono sottoposti alle tecniche di compressione e non. Tutti i risultati ottenuti provengono dall'inferenza di vari modelli proiettati solo per il task di object detection.
+Nel seguente capitolo vengono riportate le informazioni inerenti i vari dataset\index{dataset} utilizzati in fase di addestramento. Oltre a questi, seguiranno tutti i risultati riguardanti le performance\index{performance} e i benefici prodotti dai modelli quando questi vengono sottoposti alle tecniche di compressione\index{compressione} e non. Tutti i risultati ottenuti provengono dall'inferenza\index{inferenza} di vari modelli proiettati solo per il task di object detection\index{object detection}.
 Le specifiche delle architetture di riferimento utilizzate sono riportate nella Tabella (\ref{specifiche}).
 \begin{table}
     \renewcommand{\baselinestretch}{1}
@@ -33,18 +33,18 @@ Al fine di mostrare i risultati raggiunti, il capitolo si conclude con una compa
 
 
 \section{Descrizione dei dataset}\label{datasets_description}
-Diversi sono i dataset utilizzati nell'ambito della guida autonoma.
+Diversi sono i dataset\index{dataset} utilizzati nell'ambito della guida autonoma\index{autonoma}.
 Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i seguenti datasets:
 \begin{itemize}
-    \item {\bfseries{\emph{CityScapes (CS)}}}\cite{Cityscapes}: i dati presenti in questo dataset sono composti da 
+    \item {\bfseries{\emph{CityScapes (CS)}}}\cite{Cityscapes}: i dati presenti in questo dataset\index{dataset} sono composti da 
     diversi video stereo registrati nelle strade di 50 città diverse. Esistono 
     30 classi diverse raggruppate in otto categorie. Di queste immagini, 
     circa 5000 hanno annotazioni di alta qualità a livello di pixel, mentre altre 
-    20.000 hanno annotazioni grossolane. Attualmente, questo dataset 
-    rappresenta la pietra miliare della guida autonoma pertanto viene 
+    20.000 hanno annotazioni grossolane. Attualmente, questo dataset\index{dataset} 
+    rappresenta la pietra miliare della guida autonoma\index{autonoma} pertanto viene 
     utilizzato in molte ricerche. Nel presente elaborato, precisamente 
-    nella sezione dei test di semantic segmentation, vengono utilizzate diverse 
-    immagini appartenenti a codesto dataset (Fig. (\ref{cityscapes})), ognuna opportunamente ridimensionata ad una risoluzione diversa.
+    nella sezione dei test di semantic segmentation\index{semantic segmentation}, vengono utilizzate diverse 
+    immagini appartenenti a codesto dataset\index{dataset} (Fig. (\ref{cityscapes})), ognuna opportunamente ridimensionata ad una risoluzione diversa.
     \begin{figure}
         \centering
         \includegraphics[width = \linewidth]{cityscapes4.png}
@@ -57,7 +57,7 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     contiene più di 10.000 immagini con all'interno un totale di più di 20.000 
     oggetti raggruppati in 20 classi diverse (Fig. \ref{pascal}). Anche questo dataset, come 
     il precedente, viene utilizzato nella sezione di test per il task di 
-    semantic segmentation in questo elaborato. Dettagliatamente, vengono 
+    semantic segmentation\index{semantic segmentation} in questo elaborato. Dettagliatamente, vengono 
     utilizzate delle sue immagini ridimensionate in formato $320\times 320$ e $512\times 320$.
     \begin{figure}
         \centering
@@ -67,10 +67,10 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
         \label{pascal}
     \end{figure} 
     \item {\bfseries{\emph{MS Common Objects in Context (COCO)}}}\cite{COCO}: realizzato da 
-    Microsoft, il dataset contiene più di 300.000 immagini di cui più di 
-    200.000 sono etichettate (Fig. (\ref{MSCOCO_dataset})). Gli oggetti presenti sono più di 1.5 milioni e 
+    Microsoft, il dataset\index{dataset} contiene più di 300.000 immagini di cui più di 
+    200.000 sono etichettate\index{etichetta} (Fig. (\ref{MSCOCO_dataset})). Gli oggetti presenti sono più di 1.5 milioni e 
     sono raggruppati in 150 classi diverse. Principalmente questo dataset 
-    viene utilizzato per attività di object detection, infatti ritorna utile 
+    viene utilizzato per attività di object detection\index{object detection}, infatti ritorna utile 
     nella sezione di test successiva. La risoluzione standard delle immagini presenti è pari a 640x480.
     \begin{figure}
         \centering
@@ -80,8 +80,8 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
         \label{MSCOCO_dataset}
     \end{figure} 
     Sia l'allenamento del modello base che dell'intero modello proposto, avviene tramite l'utilizzo del seguente dataset:
-    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset utilizzato per lo più in ambito di object detection e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate. La risoluzione delle immagini è molto variabile ma, rispetto agli altri datasets, è possibile trovare immagini ad un'alta risoluzione come 3000x2267.
-    Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset più numeroso. 
+    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset\index{dataset} utilizzato per lo più in ambito di object detection\index{object detection} e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification\index{image classification}, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box\index{bounding box} raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate\index{etichetta}. La risoluzione delle immagini è molto variabile ma, rispetto agli altri datasets, è possibile trovare immagini ad un'alta risoluzione come 3000x2267.
+    Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes\index{bounding box} inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset\index{dataset} più numeroso. 
     \begin{figure}
         \centering
         \includegraphics[width = 0.6\linewidth]{open_images_figure.png}
@@ -91,19 +91,19 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     \end{figure}
 \end{itemize}
 
-\section{Accuratezza tecniche di compressione/ottimizzazione}
-In questa nuova sezione verranno analizzati i livelli di accuratezza raggiunti da entrambe le tecniche di compressione utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse hardware.
+\section{Accuratezza tecniche di compressione/ottimizzazione}\index{ottimizzazione}
+In questa nuova sezione verranno analizzati i livelli di accuratezza\index{accuratezza} raggiunti da entrambe le tecniche di compressione\index{compressione} utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse\index{risorsa} hardware.
 Successivamente verranno mostrati i risultati ottenuti prima sulla tecnica di Pruning e successivamente sulla tecnica di Knowledge Distillation\index{Knowledge Distillation}.
 
 \subsection{Accuratezza Pruning}
-Più che accuratezza, la tecnica di pruning è utile a mostrare i risultati inerenti la funzione di perdita di un modello, che a loro volta sono strettamente correlati all'accuratezza raggiunta. Quando l'accuratezza di un modello incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-MobileNet-V1} (Sez. \ref{MBNET}).
-Si ricorda che tale modello è stato costruito da zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, utilizzando le immagini del dataset Open Images.
+Più che accuratezza\index{accuratezza}, la tecnica di pruning è utile a mostrare i risultati inerenti la funzione di perdita di un modello, che a loro volta sono strettamente correlati all'accuratezza\index{accuratezza} raggiunta. Quando l'accuratezza di un modello incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-MobileNet-V1}\index{SSD-MobileNet-V1} (Sez. \ref{MBNET}).
+Si ricorda che tale modello è stato costruito da zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, utilizzando le immagini del dataset\index{dataset} Open Images.
 Come già accennato nei capitoli precedenti, l'applicazione di tale tecnica può avvenire secondo tre metodi diversi: \emph{Structured}, \emph{Unstructured} e \emph{Global Unstructured}.
-Essendo un modello congruo per l'attività di object detection, per ogni metodo vengono calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione} e di \emph{Regressione}.
-Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. I valori riportati nella tabella precedente, e in quelle a seguire, dimostrano l'incremento della perdita ad ogni percentuale di sparisità. Comparando le figure con i valori riportati nelle tabelle, è importante notare come una crescita pari al 100\% equivalga al doppio del valore di perdita di partenza. La percentuale di variazione di perdita, ammessa in questo elaborato, non supera l'11\%.
-Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La seguente mira direttamente ad azzerare specifici parametri, come pesi e bias, presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che l'accuratezza diverga, l'indice di sparsità aumenta, portandosi a raggiungere un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). I risultati percentuali sono riportati in Tabella \ref{unstructered_pruning_diff_perc}. Questo sta a significare un netto aumento del numero di parametri che possono essere azzerati e di conseguenza eliminati. 
-Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global Unstructured}. La tecnica si concentra nell'applicare un'intera quantità di sparsità, un'unica volta, in tutto il modello. Considerata tra le più affidabili rispetto alle due precedenti, la tecnica rappresenta un vero e proprio set di parametri che possono essere rimossi dal modello. Dai risultati mostrati, capiamo come molti dei pesi presenti sono in realtà superflui. Prima che l'accuratezza degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. \ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance del modello. I corrispettivi valori percentuali della perdita sono visibili in Tabella \ref{global_unstructered_pruning_diff_perc}.
-Tirando le somme, data la significativa grandezza del modello, una tale riduzione, pari a più della metà dei parametri, dimostra come ci sia ancora tanta strada da percorrere per arrivare all'ottenimento un modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i risultati ottenuti non cambierebbero se la rete SSD avesse avuto una rete base diversa da MobileNet-V1.
+Essendo un modello congruo per l'attività di object detection\index{object detection}, per ogni metodo vengono calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione}\index{classificazione} e di \emph{Regressione}\index{regressione}.
+Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità\index{sparsità} compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. I valori riportati nella tabella precedente, e in quelle a seguire, dimostrano l'incremento della perdita ad ogni percentuale di sparisità. Comparando le figure con i valori riportati nelle tabelle, è importante notare come una crescita pari al 100\% equivalga al doppio del valore di perdita di partenza. La percentuale di variazione di perdita, ammessa in questo elaborato, non supera l'11\%.
+Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La seguente mira direttamente ad azzerare specifici parametri\index{parametro}, come pesi\index{peso} e bias\index{bias}, presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che l'accuratezza\index{accuratezza} diverga, l'indice di sparsità\index{sparsità} aumenta, portandosi a raggiungere un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). I risultati percentuali sono riportati in Tabella \ref{unstructered_pruning_diff_perc}. Questo sta a significare un netto aumento del numero di parametri che possono essere azzerati e di conseguenza eliminati. 
+Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global Unstructured}. La tecnica si concentra nell'applicare un'intera quantità di sparsità\index{sparsità}, un'unica volta, in tutto il modello. Considerata tra le più affidabili rispetto alle due precedenti, la tecnica rappresenta un vero e proprio set di parametri\index{parametro} che possono essere rimossi dal modello. Dai risultati mostrati, capiamo come molti dei pesi\index{peso} presenti sono in realtà superflui. Prima che l'accuratezza\index{accuratezza} degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. \ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance del modello. I corrispettivi valori percentuali della perdita sono visibili in Tabella \ref{global_unstructered_pruning_diff_perc}.
+Tirando le somme, data la significativa grandezza del modello, una tale riduzione, pari a più della metà dei parametri, dimostra come ci sia ancora tanta strada da percorrere per arrivare all'ottenimento un modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i risultati ottenuti non cambierebbero se la rete SSD\index{Single Shot Detector (SSD)} avesse avuto una rete base diversa da MobileNet-V1\index{MobileNet-V1}.
 \begin{figure}
     \centering
     \hspace*{-1.5cm}
@@ -276,10 +276,8 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \label{global_unstructered_pruning_diff_perc}
 \end{table}
 
-
-
 \subsection{Accuratezza Knowledge Distillation}\index{Knowledge Distillation}
-La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello studente distillato tra quelli generati ad una temperatura variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate sia sottoforma di grafico (Fig. \ref{accuracy_KD} che tabellare (Tab. \ref{accuracy_models_dist}).
+La seconda tecnica di compressione/ottimizzazione\index{compressione}\index{ottimizzazione}, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello\index{modello} studente distillato tra quelli generati ad una temperatura\index{temperatura} variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza\index{accuratezza} di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura\index{temperatura} di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate sia sottoforma di grafico (Fig. \ref{accuracy_KD} che tabellare (Tab. \ref{accuracy_models_dist}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Top1 and Top5 Accuracy.png}
@@ -319,12 +317,12 @@ La seconda tecnica di compressione/ottimizzazione, nonché la più approfondita 
     }
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.}
+    \caption{Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza\index{accuratezza} dal modello scelto.}
     \label{accuracy_models_dist}
 \end{table}
 
 
-Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento di ogni modello ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
+Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento\index{apprendimento} di ogni modello\index{modello} ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
 \begin{figure}
     \centering
     \includegraphics[width = 1.5\linewidth, height=12cm, angle=90, origin=c]{learning_curve KD.png}
@@ -332,13 +330,13 @@ Per dimostrare la veridicità di tali accuratezze, sono state riportate in un gr
     \caption{Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.}
     \label{lc_KD}
 \end{figure}
-Il grafico dimostra come la scelta del modello studente distillato, ad una temperatura T=3, vada ad interporsi tra le curve di apprendimento dell'insegnante e quelle dello studente base. Tale convergenza (linea viola) sta a significare che il modello studente distillato ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi al contempo dal modello studente base (linea arancione) il quale non ha ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete base nell'architettura Single-Shot-Detector (SSD). 
+Il grafico dimostra come la scelta del modello studente distillato, ad una temperatura\index{temperatura} T=3, vada ad interporsi tra le curve di apprendimento\index{apprendimento} dell'insegnante e quelle dello studente base. Tale convergenza (linea viola) sta a significare che il modello\index{modello} studente distillato ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi al contempo dal modello studente base (linea arancione) il quale non ha ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete base nell'architettura\index{architettura} Single-Shot-Detector (SSD)\index{Single Shot Detector (SSD)}. 
 
 \section{Riduzione numero di parametri}
-Allo stato dell'arte esistono numerosi modelli deep learning che soffrono di una problematica comune: la numerosità dei parametri. Non è sempre vero che un gran numero dei parametri porti all'aumento dell'accuratezza di un modello. Questo problema non solo comporta maggior occupazione di memoria, ma ricade anche sulle prestazioni del modello, in termini di velocità di inferenza, e sul consumo energetico. In quest'ultimo caso, essendo circondati da dispostivi mobili con a bordo una batteria, difficilmente i modelli di grandi dimensioni troveranno un'implementazione. Questa rappresenta un'altra motivazione che ha consentito l'evoluzione delle tecniche di compressione. Dato che nell'elaborato vengono utilizzate due di queste tecniche, di seguito vengono mostrati i risultati inerenti la riduzione del numero di parametri sui modelli utilizzati.
+Allo stato dell'arte esistono numerosi modelli deep learning\index{deep learning} che soffrono di una problematica comune: la numerosità dei parametri\index{parametro}. Non è sempre vero che un gran numero dei parametri porti all'aumento dell'accuratezza\index{accuratezza} di un modello. Questo problema non solo comporta maggior occupazione di memoria, ma ricade anche sulle prestazioni del modello, in termini di velocità di inferenza\index{inferenza}, e sul consumo energetico. In quest'ultimo caso, essendo circondati da dispostivi mobili con a bordo una batteria, difficilmente i modelli di grandi dimensioni troveranno un'implementazione. Questa rappresenta un'altra motivazione che ha consentito l'evoluzione delle tecniche di compressione\index{compressione}. Dato che nell'elaborato vengono utilizzate due di queste tecniche, di seguito vengono mostrati i risultati inerenti la riduzione del numero di parametri\index{parametro} sui modelli utilizzati.
 \subsection{Riduzione via Pruning}
-I grafici presenti nella sezione precedente, inerenti all'applicazione della tecnica di pruning su un modello SSD, hanno evidenziato come la maggior parte dei parametri utilizzati sia del tutto insignificante. Il modello SSD ha un quantità di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica di Unstructured pruning, i risultati ottenuti precedentemente dimostrano come il 40\% dei pesi possa essere eliminato senza influire sull'accuratezza del modello. Per un tasso di sparsità variabile tra 0 (pesi tutti azzerati) e 100 (pesi tutti diversi da zero), viene riportata in Figura \ref{par_pruning} l'ammontare del numero di parametri allenabili, e quindi diversi da zero, del modello SSD.
-Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo quindi a una quantità totale di $\sim{4.60}$ milioni di parametri. La significativa riduzione non può altro che rappresentare un beneficio per i dispositivi con i limiti precedentemente descritti.
+I grafici presenti nella sezione precedente, inerenti all'applicazione della tecnica di pruning su un modello SSD\index{Single Shot Detector (SSD)}, hanno evidenziato come la maggior parte dei parametri\index{parametro} utilizzati sia del tutto insignificante. Il modello SSD\index{Single Shot Detector (SSD)} ha un quantità di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica di Unstructured pruning, i risultati ottenuti precedentemente dimostrano come il 40\% dei pesi\index{peso} possa essere eliminato senza influire sull'accuratezza\index{accuratezza} del modello. Per un tasso di sparsità\index{sparsità} variabile tra 0 (pesi\index{peso} tutti azzerati) e 100 (pesi tutti diversi da zero), viene riportata in Figura \ref{par_pruning} l'ammontare del numero di parametri allenabili, e quindi diversi da zero, del modello SSD\index{Single Shot Detector (SSD)}.
+Tenendo in considerazione la soglia del 40\% di sparsità\index{sparsità}, la struttura del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo quindi a una quantità totale di $\sim{4.60}$ milioni di parametri\index{parametro}. La significativa riduzione non può altro che rappresentare un beneficio per i dispositivi con i limiti precedentemente descritti.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Pruning_Unstructured_parameters.png}
@@ -347,8 +345,8 @@ Tenendo in considerazione la soglia del 40\% di sparsità, la struttura del mode
     \label{par_pruning}
 \end{figure}
 \subsection{Riduzione via Knowledge Distillation}\index{Knowledge Distillation}
-Al fine di verificare la veridicità della tecnica di Knowledge distillation, premeva la necessità di costruire un modello studente di dimensioni più piccole rispetto al modello insegnante. I meriti per la realizzazione di questa fase non sono da attribuirsi alla tecnica di compressione in questione, ma vanno dati agli autori della rete MobileNet-V1 grazie all'implementazione del parametro width multiplier.
-Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,31\% dei parametri rispetto all'insegnante. Avendo quest'ultimo un numero di parametri maggiore di 3 milioni, il nuovo modello studente si ritrova con $\sim{200}$ mila parametri allenabili (Fig. \ref{base_net_par}).
+Al fine di verificare la veridicità della tecnica di Knowledge distillation, premeva la necessità di costruire un modello\index{modello} studente di dimensioni più piccole rispetto al modello insegnante. I meriti per la realizzazione di questa fase non sono da attribuirsi alla tecnica di compressione\index{compressione} in questione, ma vanno dati agli autori della rete MobileNet-V1\index{MobileNet-V1} grazie all'implementazione del parametro width multiplier\index{width multiplier}.
+Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,31\% dei parametri rispetto all'insegnante. Avendo quest'ultimo un numero di parametri\index{parametro} maggiore di 3 milioni, il nuovo modello studente si ritrova con $\sim{200}$ mila parametri allenabili (Fig. \ref{base_net_par}).
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{Difference base_nets parameters.png}
@@ -356,7 +354,7 @@ Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,3
     \caption{Riduzione del numero di parametri del modello base via Knowledge distillation.}
     \label{base_net_par}
 \end{figure}
-Per quanto riguarda l'intera rete DSSD, composta dalla rete base dello studente distillato e dalla restante parte di livelli convoluzionali a dimensioni ridotte, è stato possibile raggiungere una significativa diminuzione del numero di parametri. Ricordando che il modello insegnante ha un numero di parametri di $\sim{7.64}$ milioni, il modello DSSD proposto raggiunge poco più di $\sim{850}$ mila parametri (Fig. \ref{SSD_par}), discostandosi quindi di una quantità significativa.
+Per quanto riguarda l'intera rete DSSD, composta dalla rete base dello studente distillato e dalla restante parte di livelli convoluzionali a dimensioni ridotte, è stato possibile raggiungere una significativa diminuzione del numero di parametri. Ricordando che il modello insegnante ha un numero di parametri di $\sim{7.64}$ milioni, il modello\index{modello} DSSD proposto raggiunge poco più di $\sim{850}$ mila parametri (Fig. \ref{SSD_par}), discostandosi quindi di una quantità significativa.
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{Difference SSD parameters.png}
@@ -366,9 +364,9 @@ Per quanto riguarda l'intera rete DSSD, composta dalla rete base dello studente 
 \end{figure}
 
 \section{Riduzione della dimesione occupata}
-Le tecniche di compressione studiate si sono rivelate utili per poter ridurre il numero di parametri all'interno di un modello. Una tale riduzione comporta, a sua volta, un risparmio sull'occupazione della memoria. Oltre che a rappresentare un beneficio per la memoria, a gioire sono i piccoli dispositivi, come per esempio gli indossabili (es: smartwatch), o tutti quei sistemi embedded, la cui disponibilità di memoria rappresenta un punto cruciale per l'ottimizzazione dei vari processi. Il raggiungimento di questo obiettivo permette anche risparmiare anche le risorse energetiche  per la gestione del modello. Passando al concreto, le due tecniche di compressione studiate permetto di raggiungere tale scopo. Seguono delle sezioni contenenti tutti i risultati ottenuti.
+Le tecniche di compressione\index{compressione} studiate si sono rivelate utili per poter ridurre il numero di parametri all'interno di un modello\index{modello}. Una tale riduzione comporta, a sua volta, un risparmio sull'occupazione della memoria. Oltre che a rappresentare un beneficio per la memoria, a gioire sono i piccoli dispositivi, come per esempio gli indossabili (es: smartwatch), o tutti quei sistemi embedded\index{embedded}, la cui disponibilità di memoria rappresenta un punto cruciale per l'ottimizzazione dei vari processi. Il raggiungimento di questo obiettivo permette anche risparmiare anche le risorse\index{risorsa} energetiche  per la gestione del modello. Passando al concreto, le due tecniche di compressione\index{compressione} studiate permetto di raggiungere tale scopo. Seguono delle sezioni contenenti tutti i risultati ottenuti.
 \subsection{Dimensione risultante dal Pruning}
-I modelli ricavati da una tecnica di pruning hanno un numero di parametri minore rispetto al modello sorgente. Purtroppo, attualmente sono pochi i benefici che possono essere sfruttati quando a comprimere un modello sono dei framework incapaci di rimuovere alcun tipo di parametro superfluo. L'unico vantaggio ricercato, riguarda la sottomissione di tali modelli agli algoritmi presenti nei software di compressione (es: gzip). Un tale programma sarebbe in grado di ottimizzare le dimensioni di un file quando questo è composto da numerosi zeri. Prendendo sempre in riferimento il modello SSD, la sua compressione porterebbe alla creazione di un file di dimensioni uguali a 28.8 MB (Fig. \ref{SSD_dim}). Già in questa prima compressione vi è una riduzione delle dimensioni originali pari al 6\%. Se la soglia scelta resta ancora quella del 40\% di sparsità, allora le dimensioni si ridurrebbero a 19.4 MB, per un totale pari al 36\% di riduzione. Tale quantità risparmiata rappresenta un enorme beneficio per i dispositivi a memoria limitata.
+I modelli ricavati da una tecnica di pruning hanno un numero di parametri minore rispetto al modello sorgente. Purtroppo, attualmente sono pochi i benefici che possono essere sfruttati quando a comprimere un modello sono dei framework incapaci di rimuovere alcun tipo di parametro superfluo. L'unico vantaggio ricercato, riguarda la sottomissione di tali modelli agli algoritmi presenti nei software di compressione (es: gzip). Un tale programma sarebbe in grado di ottimizzare le dimensioni di un file quando questo è composto da numerosi zeri. Prendendo sempre in riferimento il modello SSD, la sua compressione porterebbe alla creazione di un file di dimensioni uguali a 28.8 MB (Fig. \ref{SSD_dim}). Già in questa prima compressione vi è una riduzione delle dimensioni originali pari al 6\%. Se la soglia scelta resta ancora quella del 40\% di sparsità\index{sparsità}, allora le dimensioni si ridurrebbero a 19.4 MB, per un totale pari al 36\% di riduzione. Tale quantità risparmiata rappresenta un enorme beneficio per i dispositivi a memoria limitata.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Unstructured_size_reduction.png}
@@ -378,7 +376,7 @@ I modelli ricavati da una tecnica di pruning hanno un numero di parametri minore
 \end{figure}
 
 \subsection{Dimensione risultante dalla Knowledge Distillation}\index{Knowledge Distillation}
-Dalla riduzione del numero di parametri raggiunta sul modello base, nonché il modello studente distillato, la quantità di memoria risparmiata è davvero significante. Data la notevole dimensione del modello insegnante, si è cercato di ridurre anche la dimensione della sua sottorete  (backbone), rendendola nel complesso più leggera e più veloce dal punto di vista computazionale. Presa singolarmente, la sottorete MobileNet-V1 originale ha una dimensione maggiore ai 12MB. Il modello base studente distillato, è stato in grado di raggiungere una dimensione inferiore del 92.71\%, affiancandosi ad una dimensione leggermente inferiore a 1 MB (Fig. \ref{base_dim}).
+Dalla riduzione del numero di parametri raggiunta sul modello base, nonché il modello studente distillato, la quantità di memoria risparmiata è davvero significante. Data la notevole dimensione del modello insegnante, si è cercato di ridurre anche la dimensione della sua sottorete  (backbone\index{backbone}), rendendola nel complesso più leggera e più veloce dal punto di vista computazionale\index{computazionale}. Presa singolarmente, la sottorete MobileNet-V1\index{MobileNet-V1} originale ha una dimensione maggiore ai 12MB. Il modello base studente distillato, è stato in grado di raggiungere una dimensione inferiore del 92.71\%, affiancandosi ad una dimensione leggermente inferiore a 1 MB (Fig. \ref{base_dim}).
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{Different size base_net.png}
@@ -396,12 +394,12 @@ Volendo calcolare la dimensione dell'intera rete DSSD, dopo aver modificato le d
 \end{figure}
 
 \section{Benchmarks}
-Sin dall'inizio, l'obiettivo principale da raggiungere riguardava lo sviluppo di un modello in grado di superare i limiti dei modelli pre-addestrati, ottenendo una di velocità di elaborazione maggiore. Per adempire a questo scopo, bisogna ricavare prima le performance dei modelli pre-addestrati, in modo da avere una base di riferimento costituente il punto di partenza.
-Al fine di capire le potenzialità messe a disposizione dalle varie architetture di riferimento, di seguito vengono riportati dei benchmarks riguardanti la comparazione dei Frame-per-Second (FPS) raggiunti, in fase di inferenza, da ciascuna macchina.
-In ogni dataset esistono diversi set di immagini, ognuno con diversa risoluzione. Per quanto riguarda l'inferenza, l'input sottoposto ad ogni modello proviene da sei diversi video (.mp4) e dallo streaming di due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})). Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due tipologie di campi, maggiormente discussi nel capitolo precedente:
+Sin dall'inizio, l'obiettivo principale da raggiungere riguardava lo sviluppo di un modello in grado di superare i limiti dei modelli pre-addestrati, ottenendo una di velocità di elaborazione maggiore. Per adempire a questo scopo, bisogna ricavare prima le performance\index{performance} dei modelli pre-addestrati, in modo da avere una base di riferimento costituente il punto di partenza.
+Al fine di capire le potenzialità messe a disposizione dalle varie architetture di riferimento, di seguito vengono riportati dei benchmarks\index{benchmark} riguardanti la comparazione dei Frame-per-Second (FPS)\index{frame per second (FPS)} raggiunti, in fase di inferenza\index{inferenza}, da ciascuna macchina.
+In ogni dataset esistono diversi set di immagini, ognuno con diversa risoluzione. Per quanto riguarda l'inferenza\index{inferenza}, l'input sottoposto ad ogni modello proviene da sei diversi video (.mp4) e dallo streaming di due webcam, tutti aventi diversa risoluzione e numero di FPS (Tab. (\ref{source})). Nelle tabelle seguenti, contenenti i valori ricavati dai test, sono presenti due tipologie di campi, maggiormente discussi nel capitolo precedente:
 \begin{itemize}
     \item {\bfseries{\emph{Out}}}: indica il numero di FPS visualizzabili a schermo;
-    \item {\bfseries{\emph{Net}}}: indica il numero di FPS elaborati da una specifica rete durante l'inferenza.
+    \item {\bfseries{\emph{Net}}}: indica il numero di FPS elaborati da una specifica rete durante l'inferenza\index{inferenza}.
 \end{itemize}
 
 \begin{table}
@@ -437,23 +435,23 @@ In ogni dataset esistono diversi set di immagini, ognuno con diversa risoluzione
 \end{table}
 
 \subsection{Perfomance modelli pre-addestrati}
-I primi risultati ottenuti riguardano le performance raggiunte, in fase di inferenza, dai modelli pre-addestrati. I valori ricavati rappresentano il limite minimo da raggiungere da parte del modello proposto DSSD. Le tre architetture di riferimento hanno permesso di ottenere le performance descritte nei sotto-paragrafi successivi ma, prima di osservarli, bisogna fare una premessa. 
-I risultati inerenti i benchmarks eseguiti sull'attività di object detection, sono stati effettuati solo sulla Jetson Nano. La motivazione che ha spinto a tale scelta è prettamente legato al formato dei modelli pre-addestrati.
+I primi risultati ottenuti riguardano le performance raggiunte, in fase di inferenza\index{inferenza}, dai modelli pre-addestrati. I valori ricavati rappresentano il limite minimo da raggiungere da parte del modello proposto DSSD. Le tre architetture di riferimento hanno permesso di ottenere le performance descritte nei sotto-paragrafi successivi ma, prima di osservarli, bisogna fare una premessa. 
+I risultati inerenti i benchmarks\index{benchmark} eseguiti sull'attività di object detection, sono stati effettuati solo sulla Jetson Nano\index{NVidia Jetson Nano}. La motivazione che ha spinto a tale scelta è prettamente legato al formato dei modelli pre-addestrati.
 Alcuni di questi, si presentano con le seguenti estensioni: .Onnx, .caffemodel e .Uff. Per quanto riguarda le prime due, non vengono riscontrare problematiche nell'integrazione dei test su tutte le architetture. 
 L'ultimo formato invece, ormai obsoleto, non è più compatibile con le nuove versioni di OpenCV (compresa quella utilizzata). Vani sono stati i tentativi di ricerca di un tool di conversione verso un altro formato.
-Detto ciò, sulle architetture "personal computer" e "Google Colaboratory", non vengono svolti test sui modelli pre-addestrati (forniti da NVidia) sull'attività di object detection.
+Detto ciò, sulle architetture "personal computer" e "Google Colaboratory", non vengono svolti test sui modelli pre-addestrati (forniti da NVidia) sull'attività di object detection\index{object detection}.
 
 
 \subsubsection{Benchmarks Jetson Nano}
-I test effettuati sulla scheda Jetson Nano, sono stati eseguiti utilizzando i framework ampiamente descritti nella sezione \ref{acceleratori}.
-Per ottenere una comparazione tra i due acceleratori, vengono effettuati due benchmarks distinti, uno per l'attività di object detection e il secondo per l'attività di semantic segmentation.
-Ricapitolando, le librerie sviluppate interamente da NVidia, permettono l'ottimizzazione delle performance dei sistemi embedded appartenenti alla famiglia Jetson. L'efficienza di questo set di librerie proviene dall'utilizzo dell'SDK TensorRT, utile ad offrire una bassa latenza e un throughtput elevato per inferenze deep learning ad alte prestazioni. Tutte le applicazioni basate su TensorRT raggiungono delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate di sola CPU. Solo le macchine provviste di schede grafiche NVidia possono godere di tale beneficio. A bordo di queste è presente la tecnologia CUDA, un modello di programmazione parallela specializzato nell'ottimizzazione dell'inferenza che si avvale di librerie e strumenti di sviluppo fondate su CUDA-X. Quest'ultime sono molto utilizzate  in ambiti di intelligenza artificiale, guida autonoma, elaborazioni ad alte prestazioni e gestione della grafica. 
-I benchmarks svolti con il supporto di queste librerie, riguardano le attività di object detection (Tab. \ref{obj_jetson_utils}) e semantic segmentation (Tab. \ref{sem_seg_jetson_utils}).
-Per la loro formazione, i modelli pre-addestrati sulla tecnica di semantic segmentation hanno utilizzato le immagini contenute nei dataset Cityscapes e Pascal Voc. Per quanto riguarda invece i modelli pre-addestrati nell'attività di object detection, questi si sono serviti delle immagini presenti nei restanti datasets descritti nella sezione \ref{datasets_description}.
-Per un dispositivo embedded di fascia economica, questi risultati rappresentano delle performance promettenti rispetto alla concorrenza.
-Le performance ottenute con OpenCV tramite l'utilizzo dell'acceleratore cuDNN sono visibili nella Tabella \ref{sem_seg_jetson_utils_opencv_gpu}, mentre in Tabella \ref{sem_seg_jetson_utils_opencv_cpu} vengono riportate le performance riguardanti l'inferenza avvenuta sulla CPU.
-Confrontando i risultati ottenuti con le jetson.utils, si evince che l'assenza di un ottimizzatore ad hoc, porti l'intero sistema a raggiungere delle performance inferiori.
-Per verificare la veridicità dei benchmarks effettuati con le jetson utils, è possibile svolgere una comparazione con i risultati dichiarati direttamente dal produttore \cite{performance_obj_det_jetson}.
+I test effettuati sulla scheda Jetson Nano\index{NVidia Jetson Nano}, sono stati eseguiti utilizzando i framework ampiamente descritti nella sezione \ref{acceleratori}.
+Per ottenere una comparazione tra i due acceleratori, vengono effettuati due benchmarks\index{benchmark} distinti, uno per l'attività di object detection e il secondo per l'attività di semantic segmentation\index{semantic segmentation}.
+Ricapitolando, le librerie sviluppate interamente da NVidia, permettono l'ottimizzazione delle performance\index{performance} dei sistemi embedded\index{embedded} appartenenti alla famiglia Jetson. L'efficienza di questo set di librerie proviene dall'utilizzo dell'SDK TensorRT\index{TensorRT}, utile ad offrire una bassa latenza e un throughtput elevato per inferenze deep learning\index{deep learning} ad alte prestazioni. Tutte le applicazioni basate su TensorRT\index{TensorRT} raggiungono delle prestazioni fino a 40 volte più veloci rispetto alle piattaforme dotate di sola CPU. Solo le macchine provviste di schede grafiche NVidia possono godere di tale beneficio. A bordo di queste è presente la tecnologia CUDA\index{CUDA}, un modello di programmazione parallela specializzato nell'ottimizzazione dell'inferenza\index{inferenza} che si avvale di librerie e strumenti di sviluppo fondate su CUDA-X\index{CUDA}. Quest'ultime sono molto utilizzate  in ambiti di intelligenza artificiale, guida autonoma\index{autonoma}, elaborazioni ad alte prestazioni e gestione della grafica. 
+I benchmarks svolti con il supporto di queste librerie, riguardano le attività di object detection\index{object detection} (Tab. \ref{obj_jetson_utils}) e semantic segmentation (Tab. \ref{sem_seg_jetson_utils}).
+Per la loro formazione, i modelli pre-addestrati sulla tecnica di semantic segmentation\index{semantic segmentation} hanno utilizzato le immagini contenute nei dataset Cityscapes e Pascal Voc. Per quanto riguarda invece i modelli pre-addestrati nell'attività di object detection, questi si sono serviti delle immagini presenti nei restanti datasets descritti nella sezione \ref{datasets_description}.
+Per un dispositivo embedded\index{embedded} di fascia economica, questi risultati rappresentano delle performance\index{performance} promettenti rispetto alla concorrenza.
+Le performance ottenute con OpenCV tramite l'utilizzo dell'acceleratore cuDNN\index{cuDNN} sono visibili nella Tabella \ref{sem_seg_jetson_utils_opencv_gpu}, mentre in Tabella \ref{sem_seg_jetson_utils_opencv_cpu} vengono riportate le performance\index{performance} riguardanti l'inferenza\index{inferenza} avvenuta sulla CPU.
+Confrontando i risultati ottenuti con le jetson.utils, si evince che l'assenza di un ottimizzatore ad hoc, porti l'intero sistema a raggiungere delle performance\index{performance} inferiori.
+Per verificare la veridicità dei benchmarks\index{benchmark} effettuati con le jetson utils, è possibile svolgere una comparazione con i risultati dichiarati direttamente dal produttore \cite{performance_obj_det_jetson}.
 Per entrambe le attività, nelle tabelle (\ref{average performance jetson utils obj_det}) e (\ref{average performance jetson utils sem_seg}) vengono riportate le medie degli FPS ricavate dall'utilizzo delle jetson utils, mentre nelle Tabelle (\ref{average performance jetson opencv GPU sem_seg}) e (\ref{average performance jetson opencv CPU sem_seg})  vengono riportati i corrispettivi valori medi raggiunti utilizzando OpenCV.
 
 \begin{table}
@@ -742,17 +740,17 @@ Per entrambe le attività, nelle tabelle (\ref{average performance jetson utils 
     \end{table}
 \end{landscape}
 
-\subsubsection{Benchmarks Computer}
+\subsubsection{Benchmarks Computer}\index{benchmark}
 Non disponendo di una scheda grafica NVidia, sul computer di riferimento i 
 test vengono effettuati utilizzando solo la sua CPU utilizzando quindi la 
 libreria OpenCV. I test sono riportati nella Tabella (\ref{sem_seg_perf_comp}). Comparando 
-i risultati ottenuti con quelli dello Jetson Nano, i test mostrano come 
+i risultati ottenuti con quelli dello Jetson Nano\index{NVidia Jetson Nano}, i test mostrano come 
 un tale dispositivo, di fascia economica e prestazioni alte, ottenga delle 
 performance migliori. Le considerazioni cambiano quando la comparazione 
-avviene tra le performance ottenute dalle jetson.utils e quelle del PC. In 
+avviene tra le performance\index{performance} ottenute dalle jetson.utils e quelle del PC. In 
 quest'ultimo caso si evidenziano le vere potenzialità dello Jetson Nano. Pur 
-avendo una potenza computazionale di gran lunga minore rispetto a quella 
-della CPU del computer, lo Jetson Nano riesce a raggiungere prestazioni di inferenza 
+avendo una potenza computazionale\index{computazionale} di gran lunga minore rispetto a quella 
+della CPU del computer, lo Jetson Nano\index{NVidia Jetson Nano} riesce a raggiungere prestazioni di inferenza\index{inferenza} 
 leggermente migliori, con un costo economico pari a 1/5 del costo della CPU 
 del computer. Come per il Jetson Nano, anche per il computer vengono 
 riportate le performance medie, ottenute da ogni modello, per ogni frequenza 
@@ -830,25 +828,25 @@ di FPS in input (Tab (\ref{average performance computer CPU sem_seg})).
     \end{table}
 \end{landscape}
 
-\subsubsection{Benchmarks Google Colab}
+\subsubsection{Benchmarks Google Colab}\index{benchmark}
 L'ultimo test viene svolto sulla piattaforma \emph{Google Colaboratory}. Essendo 
 creata principalmente per l'addestramento di reti neurali, e per applicazioni 
 scientifiche, \emph{Colab} riesce a contraddistinguersi rispetto alle due precedenti 
 architetture. Il merito delle performance ottenute deriva alla presenza delle 
 diverse schede grafiche NVidia messe a disposizione degli utenti. In questo caso, 
 l'architettura della scheda grafica utilizzata offre un processore in 
-grado di erogare fino 3528 CUDA cores che, comparati con i 128 offerti dallo 
-Jetson Nano, hanno portato ad ottenere le performance migliori (Tab. (\ref{sem_seg_colab_gpu})). È 
+grado di erogare fino 3528 CUDA\index{CUDA} cores che, comparati con i 128 offerti dallo 
+Jetson Nano, hanno portato ad ottenere le performance\index{performance} migliori (Tab. (\ref{sem_seg_colab_gpu})). È 
 giusto osservare che, pur avendo le più alte prestazioni, la configurazione 
 hardware ha un costo maggiore rispetto alle due precedenti, classificando, 
-ancora una volta, lo Jetson Nano come sistema embedded più economico. 
+ancora una volta, lo Jetson Nano\index{NVidia Jetson Nano} come sistema embedded\index{embedded} più economico. 
 Essendo una piattaforma online, per questa architettura sono state escluse 
 le fonti di input provenienti dalle due webcam. Come per gli altri test, anche per 
 Colab sono state ricavare le performance derivanti dalla sola CPU (Tab. (\ref{sem_seg_colab_cpu})). 
 I risultati riguardanti le performance medie invece sono visibili nelle Tabelle (\ref{average performance Colab GPU sem_seg}) e (\ref{average performance Colab CPU sem_seg}).
 Comparando questi risultati con quelli ottenuti dalla CPU del computer, 
 stranamente si evidenza la superiorità di quest'ultimo, evidenziando 
-come Colab sia stato ideato solo per l'esecuzione di modelli deep learning su 
+come Colab sia stato ideato solo per l'esecuzione di modelli deep learning\index{deep learning} su 
 hardware ad-hoc, come le sue GPU.
 
 \begin{landscape}
@@ -994,12 +992,12 @@ hardware ad-hoc, come le sue GPU.
 \end{table}
 
 \subsection{Perfomance modello proposto DSSD}
-Considerata molto probabilmente una tra le più importanti sezioni dell'elaborato, finalmente si può affrontare la questione inerente la velocità di inferenza.
-Dopo aver ottenuto tutti i risultati di base, si indaga sulle prestazioni messe a disposizione dal modello proposto DSSD su tutte e tre le architetture. Tutti i risultati mostrati finora, compresi quelli nei prossimi grafici, sono ricavati dalla media di diverse esecuzioni. Il sottoscritto ha preferito intraprendere questa via in quanto non è possibile affidarsi ai valori provenienti da una singola esecuzione a causa delle varie risorse messe a disposizione da ciascuna architettura. 
+Considerata molto probabilmente una tra le più importanti sezioni dell'elaborato, finalmente si può affrontare la questione inerente la velocità di inferenza\index{inferenza}.
+Dopo aver ottenuto tutti i risultati di base, si indaga sulle prestazioni messe a disposizione dal modello proposto DSSD su tutte e tre le architetture. Tutti i risultati mostrati finora, compresi quelli nei prossimi grafici, sono ricavati dalla media di diverse esecuzioni. Il sottoscritto ha preferito intraprendere questa via in quanto non è possibile affidarsi ai valori provenienti da una singola esecuzione a causa delle varie risorse\index{risorsa} messe a disposizione da ciascuna architettura. 
 
-\subsubsection{Benchmarks DSSD su Jetson Nano}
-La speranza di ottenere performance migliori ricade principalmente su codesta architettura. Questa volta, si fa riferimento alla comparazione tra i frames-per-second (FPS) del modello SSD-MobileNet-V1 pre-addestrato con le performance ottenute dal modello proposto DSSD. I confronti verranno effettuati sia utilizzando TensorRT che OpenCV. In quest'ultimo caso verrano confrontanti anche le differenze provenienti dall'utilizzo, e non, dell'acceleratore cuDNN.
-Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare come le performance ottenute dall'inferenza del modello DSSD, sfruttando TensorRT, eccedono quelle del modello SSD originale.
+\subsubsection{Benchmarks DSSD su Jetson Nano}\index{benchmark}
+La speranza di ottenere performance migliori ricade principalmente su codesta architettura. Questa volta, si fa riferimento alla comparazione tra i frames-per-second (FPS)\index{frame per second (FPS)} del modello SSD-MobileNet-V1\index{SSD-MobileNet-V1} pre-addestrato con le performance\index{performance} ottenute dal modello proposto DSSD. I confronti verranno effettuati sia utilizzando TensorRT\index{TensorRT} che OpenCV. In quest'ultimo caso verrano confrontanti anche le differenze provenienti dall'utilizzo, e non, dell'acceleratore cuDNN\index{cuDNN}.
+Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare come le performance ottenute dall'inferenza\index{inferenza} del modello DSSD, sfruttando TensorRT\index{TensorRT}, eccedono quelle del modello SSD\index{Single Shot Detector (SSD)} originale.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS Jetson TensorRT.png}
@@ -1007,7 +1005,7 @@ Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare co
     \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)}
     \label{bench-jet-tensorrt}
 \end{figure}
-Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con supporto CUDA (cuDNN) (Fig. \ref{bench-jet-cv2-cudnn}) e sia quando OpenCV effettua una semplice inferenza su CPU (Fig. \ref{bench-jet-cv2-CPU}).
+Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con supporto CUDA\index{CUDA} (cuDNN\index{cuDNN}) (Fig. \ref{bench-jet-cv2-cudnn}) e sia quando OpenCV effettua una semplice inferenza su CPU (Fig. \ref{bench-jet-cv2-CPU}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Difference FPS Jetson cv2 Cuda.png}
@@ -1024,7 +1022,7 @@ Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con suppo
 \end{figure}
 
 \subsubsection{Benchmarks DSSD sul Computer}
-Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ricordarsi che non è possibile utilizzare alcun acceleratore grafico in quanto non vi è un supporto CUDA. Stando a tale limitazione, i test vengono effettuati con l'utilizzo di OpenCV che esegue l'inferenza sulla sola CPU. I risultati ottenuti sono mostrati nella Figura \ref{bench-pc-cv2-CPU}.
+Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ricordarsi che non è possibile utilizzare alcun acceleratore grafico in quanto non vi è un supporto CUDA\index{CUDA}. Stando a tale limitazione, i test vengono effettuati con l'utilizzo di OpenCV che esegue l'inferenza\index{inferenza} sulla sola CPU. I risultati ottenuti sono mostrati nella Figura \ref{bench-pc-cv2-CPU}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS pc only CPU.png}
@@ -1034,8 +1032,8 @@ Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ri
 \end{figure}
 
 \subsubsection{Benchmarks DSSD su Google Colaboratory}
-Spostandoci all'ultima architettura, rispetto alle precedenti ha la possibilità di utilizzare solamente OpenCV per l'inferenza dei modelli. In questo caso, vengono effettuate due tipologie di benchmarks, entrambi utilizzando OpenCV. 
-Le performance ottenute dall'inferenza eseguita sulla GPU, e quindi utilizzando il supporto cuDNN di OpenCV, sono riportate nella Figura \ref{bench-colab-cv2-cudnn}.
+Spostandoci all'ultima architettura, rispetto alle precedenti ha la possibilità di utilizzare solamente OpenCV per l'inferenza\index{inferenza} dei modelli. In questo caso, vengono effettuate due tipologie di benchmarks\index{benchmark}, entrambi utilizzando OpenCV. 
+Le performance ottenute dall'inferenza\index{inferenza} eseguita sulla GPU, e quindi utilizzando il supporto cuDNN\index{cuDNN} di OpenCV, sono riportate nella Figura \ref{bench-colab-cv2-cudnn}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS Colab only GPU.png}
@@ -1053,10 +1051,10 @@ Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre u
 \end{figure}
 
 \section{Esempi Object Detection modello DSSD}
-Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di tale rete su varie architetture embedded e non. Dal punto di vista pratico però, non sono state ancora dimostrare le effettive funzionalità offerte dal modello. Nella seguente sezione, che termina il capitolo corrente, vengono mostrati alcuni esempi, inerenti l'attività di object detection, prodotti dal modello DSSD. Per capire meglio le differenze in tale attività, rispetto al modello insegnante SSD, vengono confrontati i risultati ottenuti sulle stesse immagini in cui saranno visibili i riquadri di delimitazione di ogni oggetto (bounding-boxes) e i corrispettivi valori percentuali attribuiti ad ogni classe predetta. 
-Le immagini utilizzate provengono dal dataset Open Images.
-Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation\index{Knowledge Distillation}, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura influenzante la generazione delle soft-labels. 
-Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca quasi a preservare l'accuratezza proveniente dal modello insegnante. 
+Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di tale rete su varie architetture embedded\index{embedded} e non. Dal punto di vista pratico però, non sono state ancora dimostrare le effettive funzionalità offerte dal modello. Nella seguente sezione, che termina il capitolo corrente, vengono mostrati alcuni esempi, inerenti l'attività di object detection\index{object detection}, prodotti dal modello DSSD. Per capire meglio le differenze in tale attività, rispetto al modello insegnante SSD\index{Single Shot Detector (SSD)}, vengono confrontati i risultati ottenuti sulle stesse immagini in cui saranno visibili i riquadri di delimitazione di ogni oggetto (bounding-boxes\index{bounding box}) e i corrispettivi valori percentuali attribuiti ad ogni classe predetta. 
+Le immagini utilizzate provengono dal dataset\index{dataset} Open Images.
+Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation\index{Knowledge Distillation}, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura\index{temperatura} influenzante la generazione delle soft-labels\index{soft targets}. 
+Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca quasi a preservare l'accuratezza\index{accuratezza} proveniente dal modello insegnante. 
 \begin{figure}[ht] 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering

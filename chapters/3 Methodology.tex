@@ -7,6 +7,7 @@
 \label{Capitolo3}
 \thispagestyle{empty}
 
+
 Nel capitolo precedente sono stati spiegati tutti i concetti principali che 
 compongono un sistema di visione artificiale\index{visione artificiale}, il quale ha lo scopo principale 
 di effettuare la comprensione della scena mediante l'utilizzo di tecniche di 
@@ -686,7 +687,7 @@ parametri dei livelli sottoposti a tale trattamento, non verranno cambiati
 durante l'allenamento. Normalmente, quando un modello è sottoposto al 
 training, il suo parametro\index{parametro} "\emph{requires\_grad}" è impostato su \emph{True}. Codesto 
 parametro è utile per fornire un modo semplice e adeguato a includere ogni 
-singolo parametro dalla rete durante la fase di back-propagation\index{back propagation}. Quando 
+singolo parametro dalla rete durante la fase di back-propagation\index{back-propagation}. Quando 
 questo flag viene impostato come "\emph{requires\_grad=False}", esso va ad 
 escludere il parametro\index{parametro} di riferimento dal ciclo di allenamento. Nello specifico, 
 un simile valore andrebbe ad escludere il calcolo del gradiente\index{gradiente}, di un 
