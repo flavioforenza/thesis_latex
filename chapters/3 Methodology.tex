@@ -235,18 +235,68 @@ raggiungere uno dei seguenti valori $p=\{224, 192, 160, 128\}$. Nel complesso,
 l'utilizzo di questo modello\index{modello} ha permesso la composizione dell'architettura di 
 rete \emph{Single-Shot-Detector (SSD)}. 
 
-\subsection{Modello Single Shot Detector}\index{Single Shot Detector (SSD)}
-Nella sezione precedente sono state riportate tutte le caratteristiche che contraddistinguono una rete MobileNet-V1\index{MobileNet-V1} rispetto alla concorrenza. Tale rete risulta sostanziale per formare l'ultima architettura\index{architettura} di rete che sarà utilizzata per ricavare i risultati attesi. Il nuovo modello di rete prende il nome di \emph{Single-Shot-Detector (SSD)}.
-Una SSD è una rete convoluzionale feed-forward\index{forward} in grado di produrre dei riquadri di delimitazione (bounding-boxes\index{bounding box} o anchor-boxes), di dimensione fissa, con i relativi punteggi associati alle istanze di ogni classe presenti in ognuno dei riquadri. L'ultima operazione applicata, che in gergo viene chiamata "Non-Maximum Suppression" (NMS), è utile per selezionare il riquadro migliore tra tutti quelli prodotti su ogni specifico oggetto. 
-L'architettura\index{architettura} una SSD\index{Single Shot Detector (SSD)} contiene nei primi livelli una "rete base" (backbone\index{backbone}), avente il livello di classificazione finale (FC) rimosso, utilizzata per la classificazione\index{classificazione} delle immagini. Oltre a questa sezione, una SSD si contraddistingue in merito all'aggiunta di ulteriori livelli a seguire, aventi lo scopo di:
+\subsection{Modello Single Shot Detector (SSD)}\index{Single Shot Detector (SSD)}
+Nella sezione precedente sono state riportate tutte le caratteristiche che 
+contraddistinguono una rete MobileNet-V1\index{MobileNet-V1} rispetto alla concorrenza. Tale 
+rete risulta sostanziale per formare l'ultima architettura\index{architettura} di rete che sarà 
+utilizzata per ricavare i risultati attesi. Il nuovo modello di rete prende il 
+nome di \emph{Single-Shot-Detector (SSD)}. Una SSD è una rete convoluzionale feed-
+forward\index{forward} in grado di produrre dei riquadri di delimitazione (bounding-boxes
+\index{bounding box} o anchor-boxes), di dimensione fissa, con i relativi punteggi associati alle 
+istanze di ogni classe presenti in ognuno dei riquadri. L'ultima operazione 
+applicata, che in gergo viene chiamata "Non-Maximum Suppression" (NMS)\index{non-maximum suppression (NMS)}, 
+è utile per selezionare il riquadro migliore tra tutti quelli prodotti su ogni 
+specifico oggetto. L'architettura\index{architettura} del modello SSD\index{Single Shot Detector (SSD)} contiene nei primi livelli 
+una "rete base" (\emph{backbone}\index{backbone}), avente il livello di classificazione finale (FC) 
+rimosso, utilizzata per la classificazione\index{classificazione} delle immagini. Oltre a questa 
+sezione, un SSD si contraddistingue in merito all'aggiunta di ulteriori livelli 
+a seguire, aventi lo scopo di:
 \begin{itemize}
-    \item \emph{Produrre feature-map multi-scala}\index{feature map}: l'idea è quella di produrre previsioni su identificazioni in più scale. Ogni strato convoluzionale aggiunto produrrà una feature map\index{feature map} sulla quale si potranno identificare\index{identificare} gli oggetti in scale diverse. Le dimensioni di questi livelli diminuiranno all'aumentare della profondità della rete;
-    \item \emph{Generare delle predizioni}: grazie all'inserimento degli ulteriori livelli, si ha la possibilità di produrre un set di predizioni sulle identificazioni tramite l'utilizzo di un insieme di filtri. Con l'applicazione di un filtro convoluzionale di dimensioni $3x3xp$, dove p sta ad indicare i canali, su ogni cella, l'intero modello riesce a produrre un punteggio per ogni categoria, con tanto di coordinate correlate alla regione di delimitazione. Ogni filtro produrrà un numero di punteggi pari al numero di classi (background\index{background} compreso). Per esempio, in Conv4\_3 (Fig. \ref{SSD_Arch}), viene applicato un filtro 3x3 utile a mappare 512 canali di input in 25 canali di output. Le coordinate prodotte, verranno confrontate rispetto a determinate anchor-boxes associate a diverse posizioni in ogni feature map\index{feature map};
-    \item \emph{Generare dei riquadri di delimitazione}: normalmente vengono associati dei riquadri standard (anchor box) ad ogni feature map\index{feature map} risultante dai livelli convoluzionali aggiunti. Il calcolo di un offset permette di generare delle nuove bounding boxes\index{bounding box} che meglio si adattano all'oggetto nell'immagine. 
+    \item \emph{Produrre feature-map multi-scala}\index{feature map}: l'idea è quella di produrre previsioni 
+    su identificazioni in più scale. Ogni strato convoluzionale aggiunto 
+    produrrà una feature map\index{feature map} sulla quale si potranno identificare\index{identificare} gli 
+    oggetti in scale diverse. Le dimensioni di questi livelli diminuiranno 
+    all'aumentare della profondità della rete;
+    \item \emph{Generare delle predizioni}: grazie all'inserimento di ulteriori livelli, si 
+    ha la possibilità di produrre un set di predizioni sulle identificazioni 
+    tramite l'utilizzo di un insieme di filtri. Con l'applicazione di un 
+    filtro convoluzionale di dimensioni $3\times{3}\times{p}$, dove $p$ sta ad indicare i 
+    canali, su ogni cella, l'intero modello riesce a produrre un punteggio 
+    per ogni categoria, con tanto di coordinate correlate alla regione di 
+    delimitazione. Ogni filtro produrrà un numero di punteggi pari al 
+    numero di classi (background\index{background} compreso). Per esempio, in Conv4\_3 
+    (Fig. \ref{SSD_Arch}), viene applicato un filtro $3\times{3}$ utile a mappare 512 canali 
+    di input in 25 canali di output. Le coordinate prodotte, verranno 
+    confrontate rispetto a determinate anchor-boxes associate a diverse 
+    posizioni in ogni feature map\index{feature map};
+    \item \emph{Generare dei riquadri di delimitazione}: normalmente vengono associati 
+    dei riquadri standard (anchor box) ad ogni feature map\index{feature map} risultante 
+    dai livelli convoluzionali aggiunti. Il calcolo di un offset permette di 
+    generare delle nuove bounding boxes\index{bounding box} che meglio si adattano all'oggetto 
+    nell'immagine. 
 \end{itemize}
-Invece di utilizzare altri metodi, come la finestra scorrevole (sliding windows), per determinare la posizione di ogni oggetto viene sovrapposta una griglia dove, all'interno di ogni cella, è possibile identificare\index{identificare} la presenza di un oggetto. Se non vi ci fosse alcun oggetto all'interno di una regione, allora tale cella sarà classificata come "background"\index{background} e la posizione verrà ignorata. A volte, all'interno di ogni cella, ci possono essere molteplici oggetti, appartenenti a diverse categorie, in forme diverse. Per poterli rilevare, bisogna introdurre i concetti di "\emph{anchor box}" e di "\emph{receptive field}". 
-Un anchor-box è un riquadro, di dimensioni predefinite, responsabile della dimensione e della forma di un oggetto all'interno di una cella che a sua volta può avere più di una anchor-box. Durante l'allenamento di una SSD\index{Single Shot Detector (SSD)}, viene eseguita una fase di corrispondenza tra il miglior l'anchor-box e il riquadro di delimitazione presente nel ground-truth\index{ground truth} delimitante uno specifico oggetto. Dopo aver trovato l'anchor-box con il più alto grado di sovrapposizione ad un oggetto, si può procedere alla predizione della classe e alla localizzazione\index{localizzazione} della sua posizione. Ogni anchor-box e determinato sia da un valore di aspect-ratio che da un livello di zoom. L'aspect-ratio determina la forma di una anchor-box in base all'oggetto sottostante. Il parametro\index{parametro} zoom invece, è utile per specificare la quantità di ridimensionamento di ogni anchor-box rispetto a ciascuna cella.
-In ogni feature map\index{feature map}, per ogni anchor-box verranno calcolati i punteggi di tutte le classi c e 4 offset complessivi relativi alla forma dell'anchor-box nel ground-truth\index{ground truth}, per un numero totale di output pari a:
+Invece di utilizzare altri metodi, come la finestra scorrevole (sliding windows), 
+per determinare la posizione di ogni oggetto viene sovrapposta una griglia 
+dove, all'interno di ogni cella, è possibile identificare\index{identificare} la presenza di un oggetto. 
+Se non vi ci fosse alcun oggetto all'interno di una regione, allora tale cella 
+sarà classificata come "background"\index{background} e la posizione verrà ignorata. A volte, 
+all'interno di ogni cella, ci possono essere molteplici oggetti, appartenenti a 
+diverse categorie, in forme diverse. Per poterli rilevare, bisogna introdurre i 
+concetti di "\emph{anchor box}" e di "\emph{receptive field}". Un anchor-box è un riquadro, 
+di dimensioni predefinite, responsabile della dimensione e della forma di 
+un oggetto all'interno di una cella che a sua volta può avere più di una 
+anchor-box. Durante l'allenamento di una SSD\index{Single Shot Detector (SSD)}, viene eseguita una fase 
+di corrispondenza tra il miglior l'anchor-box e il riquadro di delimitazione 
+presente nel ground-truth\index{ground truth}, delimitante uno specifico oggetto. Dopo aver 
+trovato l'anchor-box, con il più alto grado di sovrapposizione ad un oggetto, 
+si può procedere alla predizione della classe e alla localizzazione\index{localizzazione} della sua 
+posizione. Ogni anchor-box è determinato sia da un valore di \emph{aspect-ratio}\index{aspect ratio} che 
+da un livello di \emph{zoom}\index{zoom}. L'aspect-ratio\index{aspect ratio} determina la forma di un anchor-box in 
+base all'oggetto sottostante. Il parametro\index{parametro} zoom\index{zoom} invece, è utile per specificare 
+la quantità di ridimensionamento di ogni anchor-box rispetto a ciascuna 
+cella. In ogni feature map\index{feature map}, per ogni anchor-box verranno calcolati i punteggi 
+di tutte le classi c e 4 offset complessivi relativi alla forma dell'anchor-box 
+nel ground-truth\index{ground truth}, per un numero totale di output pari a:
 \begin{equation}
     (c+4)kmn
 \end{equation}
@@ -258,10 +308,15 @@ dove:
     \item $m \times n$: dimensione feature map\index{feature map};
     \item $(c+4)k$: numero di filtri applicati ad ogni posizione della feature map\index{feature map}.
 \end{itemize}
-Prendendo sempre in riferimento la Figura \ref{SSD_Arch}, sulla convoluzione 4\_3 di dimensioni $38x38x512$, viene applicato un filtro, di dimensioni $3x3$.
-Successivamente verranno calcolate le 4 anchor-boxes che, in maniera individuale, produrranno un numero di output pari a $(c+4)$. Pertanto, tale livello convoluzionale produrrà un output di $38x38x4x(c+4)$.
-In termini di numero di anchor-boxes, saranno prodotti $38x38x4=5776$ riquadri. Proseguendo con il calcolo, il numero totale di riquadri generati è per ogni classe è pari a 8732.
-La creazione di multiple predizioni sotto forma di riquadri e di punteggi, è chiamata multibox. 
+Prendendo sempre in riferimento la Figura \ref{SSD_Arch}, sulla convoluzione 4\_3 
+di dimensioni $38\times{38}\times{512}$, viene applicato un filtro, di dimensioni $3\times{3}$.
+Successivamente verranno calcolate le 4 anchor-boxes che, in maniera 
+individuale, produrranno un numero di output pari a $(c+4)$. Pertanto, 
+tale livello convoluzionale produrrà un output di $38\times{38}\times{4}\times{(c+4)}$. In 
+termini di numero di anchor-boxes, saranno prodotti $38\times{38}\times{4}=5776$ 
+riquadri. Proseguendo con il calcolo, il numero totale di riquadri generati 
+per ogni classe è pari a 8732. La creazione di multiple predizioni sotto 
+forma di riquadri e di punteggi, è chiamata \emph{multibox}. 
 
 \begin{figure}
     \centering
@@ -283,8 +338,8 @@ Il numero di livelli presenti in ogni parte della rete sono:
 Dopo aver inserito la nuova rete base, colleghiamo i livelli depth-wise 12 e 14 alla restante parte della rete SSD\index{Single Shot Detector (SSD)}. Entrambi i livelli hanno filtri di dimensione pari a $1x1x512x512$ , che a loro volta producono due feature map\index{feature map} aventi profondità 512. L'ultimo collegamento effettuato riguarda l'ultimo livello di convoluzione "pointwise" avente dimensioni $1x1x1024x1024$.
 La scelta di questi livelli è attribuita al loro contenuto informativo. In quella determinata posizione, i layers\index{layer} contengono sia feature\index{feature} di alto livello che di basso livello. Dal punto di vista pratico, le predizioni vengono eseguite utilizzando i livelli di classificazione\index{classificazione} e regressione\index{regressione}. Per ogni output prodotto dalla rete base, ci sono differenti livelli collegati (Fig. \ref{SSD_conn}) aventi lo scopo di rilevare gli oggetti aventi diverse dimensioni e proporzioni. Tali livelli sono formati da piccoli kernel\index{kernel} $3x3$ con uno passo (stride\index{stride}) uguale a 1 e funzionano nel seguente modo:
 \begin{itemize}
-    \item Ogni layer\index{layer} di classificazione\index{classificazione} viene associato ad una particolare anchor-box esistente e all'aspect-ratio di un particolare output della rete. Codesto, durante l'addestramento, impara a rilevare una particolare classe di oggetti;
-    \item Ogni layer\index{layer} di regressione\index{regressione} è anch'esso associato a una anchor-box e al suo aspect-ratio. Durante l'allenamento questi apprendono come definire un offset per una determinata anchor-box che è parzialmente contenuta in una anchor-box predefinita. Questa componente pertanto è responsabile di produrre i riquadri di delimitazione.
+    \item Ogni layer\index{layer} di classificazione\index{classificazione} viene associato ad una particolare anchor-box esistente e all'aspect-ratio\index{aspect ratio} di un particolare output della rete. Codesto, durante l'addestramento, impara a rilevare una particolare classe di oggetti;
+    \item Ogni layer\index{layer} di regressione\index{regressione} è anch'esso associato a una anchor-box e al suo aspect-ratio\index{aspect ratio}. Durante l'allenamento questi apprendono come definire un offset per una determinata anchor-box che è parzialmente contenuta in una anchor-box predefinita. Questa componente pertanto è responsabile di produrre i riquadri di delimitazione.
 \end{itemize}
 Nelle prossime sezioni verranno elencate tutte le operazioni riguardanti le modifiche apportate a codesta architettura\index{architettura} che hanno permesso di ottenere i risultati sperati.
 \begin{figure}

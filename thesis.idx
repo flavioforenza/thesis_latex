@@ -967,6 +967,7 @@
 \indexentry{architettura|hyperpage}{90}
 \indexentry{forward|hyperpage}{90}
 \indexentry{bounding box|hyperpage}{90}
+\indexentry{non-maximum suppression (NMS)|hyperpage}{90}
 \indexentry{architettura|hyperpage}{90}
 \indexentry{Single Shot Detector (SSD)|hyperpage}{90}
 \indexentry{backbone|hyperpage}{90}
@@ -983,7 +984,11 @@
 \indexentry{Single Shot Detector (SSD)|hyperpage}{91}
 \indexentry{ground truth|hyperpage}{91}
 \indexentry{localizzazione|hyperpage}{91}
+\indexentry{aspect ratio|hyperpage}{91}
+\indexentry{zoom|hyperpage}{91}
+\indexentry{aspect ratio|hyperpage}{91}
 \indexentry{parametro|hyperpage}{91}
+\indexentry{zoom|hyperpage}{91}
 \indexentry{feature map|hyperpage}{91}
 \indexentry{ground truth|hyperpage}{92}
 \indexentry{background|hyperpage}{92}
@@ -1011,8 +1016,10 @@
 \indexentry{stride|hyperpage}{94}
 \indexentry{layer|hyperpage}{94}
 \indexentry{classificazione|hyperpage}{94}
+\indexentry{aspect ratio|hyperpage}{94}
 \indexentry{layer|hyperpage}{94}
 \indexentry{regressione|hyperpage}{94}
+\indexentry{aspect ratio|hyperpage}{94}
 \indexentry{architettura|hyperpage}{94}
 \indexentry{compressione|hyperpage}{94}
 \indexentry{ottimizzazione|hyperpage}{94}

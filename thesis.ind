@@ -23,6 +23,7 @@
 		\hyperpage{84--86}, \hyperpage{90}, \hyperpage{93, 94}, 
 		\hyperpage{97--99}, \hyperpage{102, 103}
  \item \small Artificial Neural Networks (ANN) \hfill \hyperpage{6}
+ \item \small aspect ratio \hfill \hyperpage{91}, \hyperpage{94}
  \item \small atrous spatial pyramid pooling (ASPP) \hfill 
 		\hyperpage{47}
  \item \small automazione completa \hfill \hyperpage{54}
@@ -300,6 +301,7 @@
  \item \small neurone \hfill \hyperpage{5--9}, \hyperpage{13}, 
 		\hyperpage{15}, \hyperpage{17--19}, \hyperpage{21, 22}, 
 		\hyperpage{24, 25}, \hyperpage{69}, \hyperpage{72, 73}
+ \item \small non-maximum suppression (NMS) \hfill \hyperpage{90}
  \item \small norma L1 \hfill \hyperpage{73, 74}, \hyperpage{96}
  \item \small norma L2 \hfill \hyperpage{45}, \hyperpage{74}
  \item \small NVidia Jetson Nano \hfill \hyperpage{2}, 
@@ -463,5 +465,12 @@
 \noindent\textbf{Y}\par\nopagebreak
 
  \item \small yawning \hfill \hyperpage{63}
+
+  \indexspace
+
+\centering\large\sffamily\bfseries%
+\noindent\textbf{Z}\par\nopagebreak
+
+ \item \small zoom \hfill \hyperpage{91}
 
 \end{theindex}
