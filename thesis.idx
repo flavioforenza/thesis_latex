@@ -1006,6 +1006,7 @@
 \indexentry{funzione di attivazione|hyperpage}{93}
 \indexentry{regressione|hyperpage}{93}
 \indexentry{classificazione|hyperpage}{93}
+\indexentry{depthwise separable convolutions|hyperpage}{93}
 \indexentry{Single Shot Detector (SSD)|hyperpage}{93}
 \indexentry{feature map|hyperpage}{93}
 \indexentry{layer|hyperpage}{93}
@@ -1094,6 +1095,7 @@
 \indexentry{modello|hyperpage}{101}
 \indexentry{iperparametro|hyperpage}{101}
 \indexentry{modello|hyperpage}{101}
+\indexentry{errors rates|hyperpage}{101}
 \indexentry{apprendimento|hyperpage}{101}
 \indexentry{modello|hyperpage}{101}
 \indexentry{temperatura|hyperpage}{101}
@@ -1102,6 +1104,7 @@
 \indexentry{apprendimento|hyperpage}{101}
 \indexentry{temperatura|hyperpage}{102}
 \indexentry{Single Shot Detector (SSD)|hyperpage}{102}
+\indexentry{image classification|hyperpage}{102}
 \indexentry{autonoma|hyperpage}{102}
 \indexentry{architettura|hyperpage}{102}
 \indexentry{Single Shot Detector (SSD)|hyperpage}{102}

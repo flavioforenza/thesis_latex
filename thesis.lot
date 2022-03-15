@@ -5,8 +5,8 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di object detection.\relax }}{86}{table.caption.85}%
 \contentsline {table}{\numberline {3.2}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di semantic segmentation.\relax }}{86}{table.caption.86}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Numero di immagini per ogni cateogria.\relax }}{100}{table.caption.94}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Errors Rates dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.\relax }}{102}{table.caption.97}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Numero di immagini per ogni categoria.\relax }}{100}{table.caption.94}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Errors Rates dei modelli Insegnante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.\relax }}{102}{table.caption.97}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Specifiche tecniche delle tre architetture utilizzate.\relax }}{113}{table.caption.105}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Structuerd Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{121}{table.caption.113}%

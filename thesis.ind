@@ -112,7 +112,8 @@
 		\hyperpage{27}, \hyperpage{29, 30}, \hyperpage{35}, 
 		\hyperpage{52}, \hyperpage{66}, \hyperpage{69}, 
 		\hyperpage{82}
- \item \small depthwise separable convolutions \hfill \hyperpage{86}
+ \item \small depthwise separable convolutions \hfill \hyperpage{86}, 
+		\hyperpage{93}
  \item \small Distilled-Single-Shot-Detector (DSSD) \hfill 
 		\hyperpage{1}, \hyperpage{4}, \hyperpage{93}, 
 		\hyperpage{103}
@@ -134,6 +135,7 @@
 		\hyperpage{40}, \hyperpage{42, 43}, \hyperpage{47, 48}
  \item \small entropia \hfill \hyperpage{73}, \hyperpage{76}, 
 		\hyperpage{79, 80}
+ \item \small errors rates \hfill \hyperpage{101}
  \item \small etichetta \hfill \hyperpage{3}, \hyperpage{11, 12}, 
 		\hyperpage{27}, \hyperpage{30, 31}, \hyperpage{33}, 
 		\hyperpage{35}, \hyperpage{41}, \hyperpage{99}
@@ -217,7 +219,7 @@
 		\hyperpage{90, 91}
  \item \small IEEE-754 \hfill \hyperpage{70}
  \item \small image classification \hfill \hyperpage{27}, 
-		\hyperpage{35}
+		\hyperpage{35}, \hyperpage{102}
  \item \small image cleaning \hfill \hyperpage{56}
  \item \small image editing \hfill \hyperpage{28}
  \item \small image segmentation \hfill \hyperpage{28}, \hyperpage{34}, 

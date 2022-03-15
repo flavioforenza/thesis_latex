@@ -60,7 +60,7 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces La convoluzione standard (a) viene sostituita da due layers: depthwise convolution (b) e pointwise convolution (c) per costruire un depthwise separable filter.\relax }}{89}{figure.caption.88}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Architettura Single-Shot-Detector (SSD).\relax }}{92}{figure.caption.89}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Connessioni tra i livelli della rete base (MobileNet) e i livelli della rete SSD.\relax }}{94}{figure.caption.90}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale.\relax }}{98}{figure.caption.91}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Steps per la produzione del modello distillato finale (DSSD).\relax }}{98}{figure.caption.91}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Flusso di conversione di ogni modello.\relax }}{105}{figure.caption.100}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Ottimizzazioni si TensorRT sui modelli.\relax }}{106}{figure.caption.101}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Fusione dei livelli Convolutional, Batch e ReLU eseguita da TensorRT.\relax }}{107}{figure.caption.102}%
