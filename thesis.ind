@@ -94,6 +94,9 @@
 		\hyperpage{21, 22}, \hyperpage{37--41}, \hyperpage{45}, 
 		\hyperpage{47, 48}, \hyperpage{50}, \hyperpage{88}, 
 		\hyperpage{106}
+ \item \small CUDA \hfill \hyperpage{82}, \hyperpage{105, 106}, 
+		\hyperpage{108}, \hyperpage{110}
+ \item \small cuDNN \hfill \hyperpage{111}
 
   \indexspace
 

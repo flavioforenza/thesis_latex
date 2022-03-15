@@ -52,7 +52,7 @@ sviluppata da NVidia che rappresenta il prodotto più piccolo della
 famiglia Jetson. L'utilizzo della scheda è rivolto principalmente verso varie 
 applicazioni di intelligenza artificiale, visione artificiale\index{visione artificiale} e robotica. A bordo 
 troviamo un processore e una scheda grafica che offre una potenza di calcolo 
-pari a 128 Cuda cores. L'obiettivo di questa scheda è quello di funzionare 
+pari a 128 Cuda\index{CUDA} cores. L'obiettivo di questa scheda è quello di funzionare 
 con reti neurali e offrire le migliori prestazioni quando viene utilizzata per 
 eseguire inferenze\index{inferenza}. A differenza di altre architetture\index{architettura}, la Jetson Nano\index{NVidia Jetson Nano} utilizza 
 una precisione Floating Point (FP) a 16-bit che lo rende competitivo rispetto 
@@ -707,11 +707,27 @@ termine e che su questo verranno eseguiti diversi benchmarks\index{benchmark} pe
 benefici da esso introdotti.  
 
 \section{Conversione modello}
-Tutti i modelli, pre-addestrati e non, fin qui utilizzati, possono essere sottoposti ad inferenza\index{inferenza} solamente previa conversione del loro formato. Quando un modello\index{modello} viene addestrato, specialmente con il framework PyTorch, comunemente viene salvato con estensione ".pth". Grazie a questo formato, è possibile esportare o importare un qualsiasi modello. Tramite l'utilizzo del metodo \emph{torch.save()}, è possibile generare un modello con tale estensione che includesse il proprio \emph{state\_dict()} da importare in un secondo momento con il metodo \emph{load\_state\_dict()}.
-Dovendo utilizzare diversi tipi di acceleratori, ampiamente discussi nella prossima sezione, è opportuno trovare un formato comune da poter utilizzare in vari framework.  Il formato selezionato, pienamente utilizzato per lo scambio e per la rappresentazione dei modelli machine learning, prende il nome di \emph{ONNX (Open Neural Network Exchange)}.
-Tale formato, del tutto open, definisce un set comune di operatori in grado di garantire interoperabilità tra i diversi framework e un accesso a determinate ottimizzazioni hardware.
-La possibilità di conversione è resa disponibile sempre da PyTorch tramite il suo modulo \emph{torch.onnx.export()}.
-Oltre a questo, ONNX supporta altri tipi di framework quali TensorFlow, Caffe2, Keras, Microsoft, AWS etc. Dovendo far largo uso dell'acceleratore di inferenza\index{inferenza} come Tensor-RT, o delle librerie OpenCV, sempre discussi nella prossima sezione, possiamo immaginare che una parte dell'elaborazione segua il percorso mostrato in Figura \ref{onnx-converter}.
+Tutti i modelli, pre-addestrati e non, fin qui utilizzati, possono essere sottoposti 
+ad inferenza\index{inferenza} solamente previa conversione del loro formato. Quando 
+un modello\index{modello} viene addestrato, specialmente con il framework PyTorch, comunemente 
+viene salvato con estensione ".pth". Grazie a questo formato, è 
+possibile esportare o importare un qualsiasi modello. Tramite l'utilizzo del 
+metodo \emph{torch.save()}, è possibile generare un modello con tale estensione che 
+includesse il proprio \emph{state\_dict()} da importare in un secondo momento con 
+il metodo \emph{load\_state\_dict()}. Dovendo utilizzare diversi tipi di acceleratori, 
+ampiamente discussi nella prossima sezione, è opportuno trovare un formato 
+comune da poter utilizzare in vari framework.  Il formato selezionato, 
+pienamente utilizzato per lo scambio e per la rappresentazione dei modelli 
+machine learning, prende il nome di \emph{ONNX (Open Neural Network Exchange)}.
+Tale formato, del tutto open, definisce un set comune di operatori in 
+grado di garantire interoperabilità tra i diversi framework e un accesso a 
+determinate ottimizzazioni hardware. La possibilità di conversione è resa 
+disponibile sempre da PyTorch tramite il suo modulo \emph{torch.onnx.export()}.
+Oltre a questo, ONNX supporta altri tipi di framework quali TensorFlow, 
+Caffe2, Keras, Microsoft, AWS etc. Dovendo far largo uso dell'acceleratore 
+di inferenza\index{inferenza} come Tensor-RT, o delle librerie OpenCV, sempre discussi nella 
+prossima sezione, possiamo immaginare che una parte dell'elaborazione 
+segua il percorso mostrato in Figura \ref{onnx-converter}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{onnx convert.png}
@@ -720,14 +736,13 @@ Oltre a questo, ONNX supporta altri tipi di framework quali TensorFlow, Caffe2, 
     \label{onnx-converter}
 \end{figure}
 
-
-\section{Supporto Cuda Frameworks}\label{acceleratori}
+\section{Supporto Cuda Frameworks}\label{acceleratori}\index{CUDA}
 \subsection{TensorRT}\index{TensorRT}
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{tensorrtOpt.png}
     \centering
-    \caption{Ottimizzazioni si TensorRT sui modelli.}
+    \caption{Ottimizzazioni di TensorRT sui modelli.}
     \label{tensorrt}
 \end{figure}
 TensorRT\index{TensorRT} è un framework di machine learning, sviluppato interamente da 
@@ -751,11 +766,11 @@ basate su scheda GPU NVidia (Fig. (\ref{tensorrt})).
     piattaforma GPU di destinazione.
     \item {\bfseries{\emph{Dynamic Tensor Memory}}}: la gestione della memoria viene effettuata 
     proprio in questa ottimizzazione. TensorRT\index{TensorRT} alloca memoria 
-    solo per durante il periodo di vita di un tensore scongiurando un 
-    sovraccarico di allocazioni permettendo esecuzioni rapide ed efficienti.
+    solo durante il periodo di vita di un tensore, scongiurando un 
+    sovraccarico di allocazioni in modo da permettere esecuzioni rapide ed efficienti.
     \item {\bfseries{\emph{Multiple Stream Execution}}}: l'ultima ottimizzazione\index{ottimizzazione} riguarda l'elaborazione 
     parallela di multipli flussi di input. Fondamentalmente, 
-    questo è possibile utilizzando la libreria CUDA stream.
+    questo è possibile utilizzando la libreria CUDA\index{CUDA} stream.
 \end{enumerate}
 L'aspetto più importante da ricordarsi, quando si utilizza TensorRT\index{TensorRT}, è che 
 bisogna assicurarsi che la procedura di ottimizzazione avvenga sulla stessa 
@@ -781,7 +796,7 @@ efficiente le reti neurali sulla piattaforma Jetson utilizzata, consentendo
 un miglioramento delle prestazioni e al contempo una migliore efficienza 
 energetica. Il codice sorgente messo a disposizione, sviluppato sia in linguaggio 
 C++ che in Python (principalmente utilizzato in questo elaborato), 
-è composto da diversi scripts che mirano ad eseguire i modelli per svolgere 
+è composto da diversi script che mirano ad eseguire i modelli per svolgere 
 svariate attività:
 \begin{itemize}
     \item \emph{ImageNet.py}: per attività di Image Recognition;
@@ -791,7 +806,7 @@ svariate attività:
 \end{itemize}
 Ognuno di questi ha lo scopo di eseguire l'inferenza\index{inferenza} di una apposita rete 
 per produrre l'output inerente una specifica attività. In questa tesi sono 
-stati utilizzati i primi tre scripts in quanto coerenti con lo scopo prefissato. 
+stati utilizzati i primi tre script in quanto coerenti con lo scopo prefissato. 
 L'input è costituito da uno stream di immagini, video o dati, proveniente 
 da una sorgente esterna come per esempio una webcam esterna, collegata 
 tramite una porta usb, oppure una webcam collegata tramite interfaccia 
@@ -800,16 +815,16 @@ provenire da un file avente estensione jpeg, mp4, RTP, RTPS etc. Nel caso
 in cui l'input provenga da una fonte esterna, verrà utilizzato il protocollo 
 V4L2 che imposterà il maggior numero di frame rate\index{frame per second (FPS)} alla massima risoluzione 
 supportata dalla fonte. Per quanto riguarda l'output, questo può 
-essere distribuito nel medesimo formato di input. I codecs supportati dalla 
+essere distribuito nel medesimo formato di input. I codec supportati dalla 
 piattaforma sono i seguenti:
 \begin{itemize}
     \item \emph{Decode}: H.264, H.265, VP8, VP9, MPEG-2, MPEG-4 e MJPEG;
     \item \emph{Encode}: H.264, H.265, VP8, VP9 e MJPEG.
 \end{itemize}
-Le APIs mettono a disposizione anche alcuni scripts che utilizzano il supporto 
-CUDA in grado di gestire e manipolare le immagini, che siano di input o 
-di output. Ritornando agli scripts principali, ImageNet accetta un'immagine 
-in input e restituendone un intervallo di probabilità in output per ogni classe. 
+Le API mettono a disposizione anche alcuni script che utilizzano il supporto 
+CUDA\index{CUDA} in grado di gestire e manipolare le immagini, che siano di input o 
+di output. Ritornando agli script principali, ImageNet accetta un'immagine 
+in input e restituisce in output un intervallo di probabilità per ogni classe. 
 DetectNet, a differenza di ImageNet, oltre a permette di concentrarsi sul rilevamento\index{rilevamento} 
 di oggetti, specifica la loro posizione tramite delle bounding boxes\index{bounding box}, 
 all'interno del frame in input. Rispetto alla classificazione\index{classificazione} delle immagini, 
@@ -821,21 +836,21 @@ contraddistinguono ogni singolo oggetto di ogni classe (Fig. \ref{detectnet_resu
     \centering
     \includegraphics[width = \linewidth]{detectnet_result.png}
     \centering
-    \caption{Esempio di ouput prodotto da DetectNet sulla Jetson Nano.}
+    \caption{Esempio di output prodotto da DetectNet sulla Jetson Nano.}
     \label{detectnet_result}
 \end{figure}
 Per quanto 
 riguarda l'attività di segmentazione semantica\index{semantic segmentation}, questa viene interamente 
-svolta dallo script Python Segnet. L'output prodotto da quest'ultimo si 
+svolta dallo script python Segnet.py. L'output prodotto da quest'ultimo si 
 basa in un'immagine in cui vi è applicata una maschera sovrapposta utile a 
 classificare ogni singolo pixel presente nell'immagine di input. Ogni pixel 
-della maschera corrisponderà alla classe dell'oggetto sottostante classificato 
+della maschera, corrisponderà alla classe dell'oggetto sottostante classificato 
 (Fig. \ref{segnet_result}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{segnet_result.png}
     \centering
-    \caption{Esempio di ouput prodotto da SegNet sulla Jetson Nano.}
+    \caption{Esempio di output prodotto da SegNet sulla Jetson Nano.}
     \label{segnet_result}
 \end{figure}
 Seppur non consigliata come piattaforma su cui effettuare il 
@@ -847,17 +862,52 @@ ogni architettura presente nella famiglia Jetson \cite{Documentation_jetson}. Si
 nell'inferenza\index{inferenza} di ogni modello\index{modello}, il framework di ML utilizzato è PyTorch.
 
 \subsection{OpenCV}
-Tra le tre architetture utilizzate in questo elaborato, una è sprovvista di una componente fondamentale utile ad accelerare l'allenamento e l'inferenza di un modello. I nuovi macbook pro, nonché il computer del sottoscritto, sono macchine che montano a bordo solo schede grafiche AMD. L'assenza di una scheda grafica NVidia implica l'utilizzo di librerie diverse da TensorRT\index{TensorRT} il quale, a sua volta, fa uso delle librerie CUDA. Quando si verifica una tale limitazione, sia il training che l'inferenza vengono gestiti dalla componente principale di un computer: la CPU. Quando vi è un simile passaggio di elaborazione, le prestazioni computazionali\index{computazionale} sono nettamente inferiori rispetto a quelle ottenute su una scheda grafica. Ed eccoci giunti alla domanda principale: come può essere eseguito un modello su una piattaforma priva di una scheda grafica NVidia? A questo proposito ci viene in aiuto la nota libreria \emph{OpenCV}.
-Principalmente utilizzata per lo sviluppo di applicazioni real-time rivolte alla visione artificiale\index{visione artificiale} e all'intelligenza artificiale. É in grado di fornire molteplici funzioni in grado di acquisire, analizzare e manipolare i dati visivi provenienti da uno specifica sorgete di input. Al suo interno, OpenCV possiede un modulo \emph{Deep Neural Network (DNN)} in grado di eseguire l'inferenza di un modello pre-addestrato direttamente su una CPU.
-Questa libreria ha permesso di risolvere il problema inerente i test da svolgere sull'architettura Apple a disposizione. A partire dalla versione 4.2.0, OpenCV ha introdotto il pieno supporto alle schede grafiche GPU NVidia, sviluppando un nuovo modulo chiamato "\emph{cuDNN}".
-Come ben si intuisce, gli autori hanno permesso di aumentare le performance\index{performance} utilizzando la capacità computazionale\index{computazionale} messa a disposizione di un hardware apposito. Tutto questo ha permesso di creare una sorta di accelerazione, lato inferenza, dei modelli pre-addestrati. Il supporto si è reso interessante per tutte quelle architetture che dispongono di una scheda grafica NVidia, prive di qualunque acceleratore come TensorRT\index{TensorRT}. In questo elaborato, l'architettura che rientra in questa categoria è Google Colaboratory. A causa dell'impossibilità di installazione di TensorRT\index{TensorRT}, si è preferito utilizzare il supporto messo a disposizione da OpenCV per poter ottenere i benchmarks\index{benchmark} voluti. Relativamente facile è risultata l'implementazione di questa funzionalità che ha permesso ad OpenCV di utilizzare la GPU messa a disposizione da Google. Le uniche due righe codice da poter aggiungere alla nostra rete (net) sono le seguenti:
+Tra le tre architetture utilizzate in questo elaborato, una è sprovvista di una 
+componente fondamentale utile ad accelerare l'allenamento e l'inferenza di 
+un modello. I nuovi macbook pro, nonché il computer del sottoscritto, sono 
+macchine che montano a bordo solo schede grafiche AMD. L'assenza di una 
+scheda grafica NVidia implica l'utilizzo di librerie diverse da TensorRT\index{TensorRT} il 
+quale, a sua volta, fa uso delle librerie CUDA\index{CUDA}. Quando si verifica una tale 
+limitazione, sia il training che l'inferenza vengono gestiti dalla componente 
+principale di un computer: la CPU. Quando vi è un simile passaggio di 
+elaborazione, le prestazioni computazionali\index{computazionale} sono nettamente inferiori rispetto 
+a quelle ottenute da una scheda grafica. Ed eccoci giunti alla domanda 
+principale: come può essere eseguito un modello su una piattaforma priva 
+di una scheda grafica NVidia? A questo proposito ci viene in aiuto la nota 
+libreria \emph{OpenCV}, principalmente utilizzata per lo sviluppo di applicazioni 
+real-time rivolte alla visione artificiale\index{visione artificiale} e all'intelligenza artificiale. É in 
+grado di fornire molteplici funzioni in grado di acquisire, analizzare e manipolare 
+i dati visivi provenienti da uno specifica sorgete di input. Al suo 
+interno, OpenCV possiede un modulo \emph{Deep Neural Network (DNN)} in grado 
+di eseguire l'inferenza di un modello pre-addestrato direttamente su una 
+CPU. Questa libreria ha permesso di risolvere il problema inerente i test 
+da svolgere sull'architettura Apple a disposizione. A partire dalla versione 
+4.2.0, OpenCV ha introdotto il pieno supporto alle schede grafiche GPU 
+NVidia, sviluppando un nuovo modulo chiamato "\emph{cuDNN}\index{cuDNN}". Come ben si 
+intuisce, gli autori hanno permesso di aumentare le performance\index{performance} utilizzando 
+la capacità computazionale\index{computazionale} messa a disposizione da un hardware apposito. 
+Tutto questo ha permesso di creare una sorta di accelerazione, lato inferenza, 
+dei modelli pre-addestrati. Il supporto si è reso efficiente per tutte quelle 
+architetture che dispongono o non di una scheda grafica NVidia, prive di 
+qualunque acceleratore come TensorRT\index{TensorRT}. In questo elaborato, l'architettura 
+che rientra in questa categoria è Google Colaboratory. A causa dell'impossibilità 
+di installazione di TensorRT\index{TensorRT}, si è preferito utilizzare il supporto 
+messo a disposizione da OpenCV per poter ottenere i benchmarks\index{benchmark} voluti. 
+Relativamente facile è risultata l'implementazione di questa funzionalità 
+che ha permesso ad OpenCV di utilizzare la GPU messa a disposizione da 
+Google. Le uniche due righe codice da poter aggiungere alla nostra rete 
+(net) sono le seguenti:
 \begin{itemize}
     \item \emph{net.setPreferableBackend(cv2.dnn.DNN\_BACKEND\_CUDA)}
     \item \emph{net.setPreferableTarget(cv2.dnn.DNN\_TARGET\_CUDA)}
 \end{itemize}
 Il resto del codice è uguale a quello utilizzato per l'inferenza\index{inferenza} su CPU.
-Fondamentale risulta la conversione del modello\index{modello} pre-addestrato dal formato \emph{.pth} al formato \emph{.ONNX} per poter essere importato all'interno di OpenCV tramite la funzione \emph{readNetFromONNX()} messa sempre a disposizione nel modulo DNN.
-Il supporto fornito da OpenCV ha permesso quindi di ottenere i benchmarks\index{benchmark} su entrambi le architetture utilizzate, ovvero sul macbook pro e su Google Colaboratory.
+Fondamentale risulta la conversione del modello\index{modello} pre-addestrato dal formato 
+\emph{.pth} al formato \emph{.ONNX} per poter essere importato all'interno di OpenCV 
+tramite la funzione \emph{readNetFromONNX()} messa sempre a disposizione nel 
+modulo DNN. Il supporto fornito da OpenCV ha permesso quindi di ottenere 
+i benchmarks\index{benchmark} su entrambi le architetture utilizzate, ovvero sul macbook pro 
+e su Google Colaboratory.
 
 \section{Frames-per-Second (FPS)}\index{frame per second (FPS)}
 La velocità di inferenza\index{inferenza} rappresenta un indicatore di performance\index{performance} di ogni 
@@ -882,5 +932,5 @@ Questa misura è variabile e serve per rappresentare tre diversi elementi:
 \end{itemize}
 Tra le API messe a disposizione da NVidia, citate nella sezione \ref{utils}, 
 fondamentale è risultato l'utilizzo dei metodi incaricati di calcolare la 
-velocità d'inferenza\index{inferenza}, di input e di output raggiunta da ogni modello\index{modello} su ogni 
+velocità d'inferenza\index{inferenza}, di input e di output, raggiunta da ogni modello\index{modello} su ogni 
 attività richiesta. 

@@ -903,6 +903,7 @@
 \indexentry{NVidia Jetson Nano|hyperpage}{82}
 \indexentry{embedded|hyperpage}{82}
 \indexentry{visione artificiale|hyperpage}{82}
+\indexentry{CUDA|hyperpage}{82}
 \indexentry{inferenza|hyperpage}{82}
 \indexentry{architettura|hyperpage}{82}
 \indexentry{NVidia Jetson Nano|hyperpage}{82}
@@ -1133,6 +1134,7 @@
 \indexentry{inferenza|hyperpage}{104}
 \indexentry{modello|hyperpage}{104}
 \indexentry{inferenza|hyperpage}{105}
+\indexentry{CUDA|hyperpage}{105}
 \indexentry{TensorRT|hyperpage}{105}
 \indexentry{TensorRT|hyperpage}{105}
 \indexentry{ottimizzazione|hyperpage}{105}
@@ -1149,6 +1151,7 @@
 \indexentry{batch|hyperpage}{106}
 \indexentry{TensorRT|hyperpage}{106}
 \indexentry{ottimizzazione|hyperpage}{106}
+\indexentry{CUDA|hyperpage}{106}
 \indexentry{TensorRT|hyperpage}{107}
 \indexentry{inferenza|hyperpage}{107}
 \indexentry{TensorRT|hyperpage}{107}
@@ -1165,6 +1168,7 @@
 \indexentry{inferenza|hyperpage}{108}
 \indexentry{frame per second (FPS)|hyperpage}{108}
 \indexentry{frame per second (FPS)|hyperpage}{108}
+\indexentry{CUDA|hyperpage}{108}
 \indexentry{rilevamento|hyperpage}{108}
 \indexentry{bounding box|hyperpage}{108}
 \indexentry{classificazione|hyperpage}{108}
@@ -1172,8 +1176,10 @@
 \indexentry{inferenza|hyperpage}{109}
 \indexentry{modello|hyperpage}{109}
 \indexentry{TensorRT|hyperpage}{110}
+\indexentry{CUDA|hyperpage}{110}
 \indexentry{computazionale|hyperpage}{110}
 \indexentry{visione artificiale|hyperpage}{110}
+\indexentry{cuDNN|hyperpage}{111}
 \indexentry{performance|hyperpage}{111}
 \indexentry{computazionale|hyperpage}{111}
 \indexentry{TensorRT|hyperpage}{111}
