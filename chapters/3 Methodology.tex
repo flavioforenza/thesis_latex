@@ -26,17 +26,17 @@ un sistema autonomo implementato all'interno di una centralina dedicata,
 bisogna aver un chiaro prospetto delle potenzialità richieste da un modello di 
 visione artificiale per poter raggiungere l'obiettivo finale. Il dispositivo preso 
 in riferimento è costituito da un nota scheda di elaborazione embedded\index{embedded}, che 
-prende il nome di Nvidia Jetson Nano\index{NVidia Jetson Nano}. Le potenzialità messe a disposizione 
+prende il nome di \emph{NVidia Jetson Nano}\index{NVidia Jetson Nano}. Le potenzialità messe a disposizione 
 da questa scheda sono state comparate, in termini di Frames-per-Second\index{frame per second (FPS)} 
 (FPS), con quelle messe a disposizione sia dal computer del sottoscritto 
-che da Google Colaboratory (Colab). Avendo caratteristiche hardware ben 
+che da \emph{Google Colaboratory (Colab)}. Avendo caratteristiche hardware ben 
 differenti l'uno dall'altro, si è pensato di creare una comparazione standard 
 composta dallo stesso codice eseguito su tutte e tre le diverse architetture\index{architettura}. 
 Dopo aver ottenuto i primi risultati dai modelli pre-addestrati, messi gentilmente 
 a disposizione da NVidia, questi hanno costituito le baselines ovvero 
 i punti di riferimento da cui partire. Per poter ricavare i benchmarks\index{benchmark}, 
-tutti i modelli, pre-addestrati e proposto, saranno sottoposti al percorso di 
-elaborazione raffigurato in Figura (\ref{flow_chart}). Per la descrizione dell'inferenza\index{inferenza} e per 
+tutti i modelli, pre-addestrati e quello proposto, saranno sottoposti al percorso di 
+elaborazione riportato in Figura (\ref{flow_chart}). Per la descrizione dell'inferenza\index{inferenza} e per la
 visualizzazione dei risultati (benchmarks\index{benchmark}) ottenuti in ogni test, si rimanda la lettura al prossimo capitolo (\ref{Chapter4}).
 \begin{figure}
     \centering
@@ -47,18 +47,18 @@ visualizzazione dei risultati (benchmarks\index{benchmark}) ottenuti in ogni tes
 \end{figure}
 
 \section{NVidia Jetson Nano}
-La Jetson Nano (B01)\index{NVidia Jetson Nano}, presentata nel Marzo del 2019,  è una scheda embedded\index{embedded} 
+La Jetson Nano (B01)\index{NVidia Jetson Nano}, presentata nel Marzo del 2019, è una scheda embedded\index{embedded} 
 sviluppata da NVidia che rappresenta il prodotto più piccolo della 
 famiglia Jetson. L'utilizzo della scheda è rivolto principalmente verso varie 
 applicazioni di intelligenza artificiale, visione artificiale\index{visione artificiale} e robotica. A bordo 
-troviamo un processore e una scheda madre che offre una potenza di calcolo 
+troviamo un processore e una scheda grafica che offre una potenza di calcolo 
 pari a 128 Cuda cores. L'obiettivo di questa scheda è quello di funzionare 
 con reti neurali e offrire le migliori prestazioni quando viene utilizzata per 
-eseguire inferenze\index{inferenza}. A differenza di altre architetture\index{architettura}, lo Jetson Nano\index{NVidia Jetson Nano} utilizza 
-una precisione Floating point (FP) a 16-bit che lo rende competitivo rispetto 
+eseguire inferenze\index{inferenza}. A differenza di altre architetture\index{architettura}, la Jetson Nano\index{NVidia Jetson Nano} utilizza 
+una precisione Floating Point (FP) a 16-bit che lo rende competitivo rispetto 
 ad altri device embedded\index{embedded}. Purtroppo non supporta la precisione a 8-bit 
 ma è comunque in grado di lavorare con qualsiasi rete disponibile e con 
-qualsiasi framework di deep learning\index{deep learning} popolare (es: Pytorch, TensorFlow, 
+qualsiasi framework di deep learning\index{deep learning} popolare (es: PyTorch, TensorFlow, 
 Keras, Caffe etc.). In questo dispositivo è possibile effettuare sia il rilascio\index{rilascio} 
 (deploy) dell'applicazione che l'addestramento della rete ma, in quest'ultimo 
 caso, risulta essere lento a causa delle prestazioni computazionali\index{computazionale} ridotte. 
@@ -95,10 +95,32 @@ Nano.\index{NVidia Jetson Nano}
 \end{figure}
 
 \section{Modelli}
-Il lavoro di tesi è incentrato nello studio di diversi modelli profondi e nell'applicazione, del tutto personalizzata, di una nota tecnica di compressione/ottimizzazione\index{compressione}\index{ottimizzazione} su uno di questi. Lo scopo è quello di aumentare la velocità di inferenza\index{inferenza}, nonché i Frames-Per-Second (FPS)\index{frame per second (FPS)}, in modo da permettere la sua implementazione su diverse architetture\index{architettura} anche con limitate risorse\index{risorsa} computazionali\index{computazionale} (es: Jetson Nano\index{NVidia Jetson Nano}). Per arrivare all'obiettivo finale, si è partito dallo studio delle performance\index{performance} ottenute da diversi modelli pre-addestrati messi a disposizione dalla community di NVidia. Dopo aver ottenuto i risultati, lo studio si è incentrato sull'utilizzo di una particolare architettura\index{architettura} di rete, nota con il nome di \emph{MobileNet-V1}, con l'obiettivo di migliorarla. Successivamente il focus si è spostato nell'implementazione di tale rete in una seconda architettura\index{architettura}, quest'ultima avente il nome di \emph{Single-Shot-Detector (SSD)}. Prima di giungere ai risultati ottenuti, è fondamentale avere un'ampia visione dei modelli utilizzati e di come questi hanno evidenziato le capacità computazionali\index{computazionale} delle architetture\index{architettura} utilizzate. 
+Il lavoro di tesi è incentrato nello studio di diversi modelli profondi e 
+nell'applicazione, del tutto personalizzata, di una nota tecnica di compressione/
+ottimizzazione\index{compressione}\index{ottimizzazione} su uno di questi. Lo scopo è quello di aumentare 
+la velocità di inferenza\index{inferenza}, nonché i Frames-Per-Second (FPS)\index{frame per second (FPS)}, in modo da 
+permettere la sua implementazione su diverse architetture\index{architettura} anche con limitate 
+risorse\index{risorsa} computazionali\index{computazionale} (es: Jetson Nano\index{NVidia Jetson Nano}). Per arrivare all'obiettivo 
+finale, si è partito dallo studio delle performance\index{performance} ottenute da diversi modelli 
+pre-addestrati messi a disposizione dalla community di NVidia. Dopo aver 
+ottenuto i risultati, lo studio si è incentrato sull'utilizzo di una particolare 
+architettura\index{architettura} di rete, nota con il nome di \emph{MobileNet-V1}\index{MobileNet-V1}, con l'obiettivo di migliorarla. 
+Successivamente il focus si è spostato nell'implementazione di tale rete 
+in una seconda architettura\index{architettura}, quest'ultima avente il nome di \emph{Single-Shot-
+Detector (SSD)}\index{Single Shot Detector (SSD)}. Prima di giungere ai risultati ottenuti, è fondamentale avere 
+un'ampia visione dei modelli utilizzati e di come questi hanno evidenziato 
+le capacità computazionali\index{computazionale} delle architetture\index{architettura} utilizzate. 
 \subsection{Modelli pre-addestrati}
-I modelli messi a disposizione da NVidia hanno permesso da subito di estrarre le vere potenzialità di tutte le architetture\index{architettura} di studio. Grazie alla presenza di uno script eseguibile nelle librerie jetson utils (ref Jetson utils), sono stati reperiti diversi modelli, allenati su diverse tipologie di datasets\index{dataset}, divisi in due categorie: Object Detection\index{object detection} (Tab. \ref{pre_trained_models_obj_det}) e Semantic Segmentation\index{semantic segmentation} (Tab. \ref{pre_trained_models_sem_seg}).
-Tutti i modelli riportati sono stati testati su tutte le architetture\index{architettura} di riferimento. Nuovamente si ricorda al lettore che lo scopo della tesi è aumentare codeste performance\index{performance}. Il produttore ha eseguito alcuni test sulla velocità di inferenza\index{inferenza} solamente su alcuni dei modelli proposti. Per poter visualizzare i risultati ottenuti, si rimanda la lettura al capitolo successivo.
+I modelli messi a disposizione da NVidia hanno permesso da subito di estrarre le vere potenzialità 
+di tutte le architetture\index{architettura} di studio. Grazie alla presenza 
+di uno script eseguibile nelle librerie jetson utils (\ref{utils}), sono stati 
+reperiti diversi modelli, allenati su diverse tipologie di dataset\index{dataset}, divisi in 
+due categorie: Object Detection\index{object detection} (Tab. \ref{pre_trained_models_obj_det}) e Semantic Segmentation\index{semantic segmentation} (Tab. 
+\ref{pre_trained_models_sem_seg}). Tutti i modelli riportati sono stati testati su tutte le architetture\index{architettura} 
+di riferimento. Nuovamente si ricorda al lettore che lo scopo della tesi è 
+aumentare codeste performance\index{performance}. Il produttore ha eseguito alcuni test sulla 
+velocità di inferenza\index{inferenza} solamente su alcuni dei modelli proposti. Per poter 
+visualizzare i risultati ottenuti, si rimanda la lettura al capitolo successivo.
 \begin{table}[]
     \renewcommand{\baselinestretch}{1}
     \centering
@@ -152,8 +174,17 @@ Tutti i modelli riportati sono stati testati su tutte le architetture\index{arch
 \end{table}
 
 \subsection{Modello base di riferimento}\label{MBNET}
-Per verificare la veridicità dei risultati ottenuti e quelli dichiarati dal produttore, l'intero lavoro di tesi si è concentrato maggiormente nella ricerca e nella costruzione di un modello "from scratch". Per aver un confronto equo, dopo diversi studi focalizzati sulle varie architetture dei modelli pre-addestrati, la scelta è ricaduta sull'implementazione della rete \emph{MobileNet-V1}. Questa decisione è motivata nelle sezioni più avanti quando si discuterà delle tecniche di compressione/ottimizzazione\index{compressione}\index{ottimizzazione} adottate. 
-Approfondendo il paper scientifico \cite{howard2017mobilenets}, o scopo degli autori è quello di creare un'architettura di rete dinamica, influenzata dalla presenza di diversi iper-parametri\index{iperparametro}, adattabile in diversi dispositivi compresi quelli mobili. L'architettura\index{architettura} della rete MobileNet-V1 è raffigurata in Figura \ref{mobilenetV1}:
+Per verificare la veridicità dei risultati ottenuti e quelli dichiarati dal produttore, 
+l'intero lavoro di tesi si è concentrato maggiormente nella ricerca 
+e nella costruzione di un modello "from scratch". Per aver un confronto 
+equo, dopo diversi studi focalizzati sulle varie architetture dei modelli pre-
+addestrati, la scelta è ricaduta sull'implementazione della rete \emph{MobileNet-V1}. 
+Questa decisione è motivata nelle sezioni più avanti quando si discuterà 
+delle tecniche di compressione/ottimizzazione\index{compressione}\index{ottimizzazione} adottate. Approfondendo il 
+paper scientifico \cite{howard2017mobilenets}, lo scopo degli autori è quello di creare un'architettura 
+di rete dinamica, influenzata dalla presenza di diversi iper-parametri\index{iperparametro}, adattabile 
+in diversi dispositivi compresi quelli mobili. L'architettura\index{architettura} della rete 
+MobileNet-V1\index{MobileNet-V1} è rappresentata in Figura \ref{mobilenetV1}:
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{mobilenet_architecture.png}
@@ -161,7 +192,13 @@ Approfondendo il paper scientifico \cite{howard2017mobilenets}, o scopo degli au
     \caption{Architettura MobileNet-V1.}
     \label{mobilenetV1}
 \end{figure}
-La particolarità che contraddistingue la seguente rete dalle altre è basata sulla presenza di convoluzioni personalizzate chiamate "\emph{Depthwise Separable Convolutions}"  che, a differenza delle comuni convoluzioni, fattorizzano una convoluzione standard prima in una convoluzione profonda e successivamente in una convoluzione 1x1 chiamata "pointwise convolution", formando due layers\index{layer} distinti (Fig. \ref{depth_wise}).
+La particolarità che contraddistingue 
+la seguente rete dalle altre, è basata sulla presenza di convoluzioni 
+personalizzate chiamate "\emph{Depthwise Separable Convolutions}"\index{depthwise separable convolutions} che, a differenza 
+delle comuni convoluzioni, fattorizzano\index{fattorizzazione} una convoluzione\index{convoluzione} standard 
+prima in una convoluzione profonda e successivamente in una convoluzione 
+$1\times{1}$ chiamata "\emph{pointwise convolution}", formando due layer\index{layer} distinti (Fig. 
+\ref{depth_wise}).
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\linewidth]{depth_wise.png}
@@ -169,25 +206,46 @@ La particolarità che contraddistingue la seguente rete dalle altre è basata su
     \caption{La convoluzione standard (a) viene sostituita da due layers\index{layer}: depthwise convolution (b) e pointwise convolution (c) per costruire un depthwise separable filter.}
     \label{depth_wise}
 \end{figure}
-La prima convoluzione ha l'obiettivo di applicare un singolo filtro per ogni canale in input, mentre la seconda creare una combinazione lineare dell'output. Lo scopo della fattorizzazione è quello di ridurre drasticamente la computazione e le dimensioni del modello. Tutti i livelli sono seguiti da una normalizzazione batch e una funzione di attivazione\index{funzione di attivazione} ReLU, ad eccezione del livello finale che è un completamente connesso. Il tutto termina con una Softmax utile per la classificazione\index{classificazione}. In totale, MobileNet ha 28 livelli le costituiscono la profondità dell'intera rete. Per costruire una rete a dimensioni ridotte, con un numero di parametri inferiore, beneficiando di un incremento di velocità, gli autori hanno introdotto due tipologie di parametri, uno dei quali risultate molto importanti per raggiungere l'obiettivo di questa tesi. I  due parametri prendono il nome di: 
+La prima convoluzione ha l'obiettivo di applicare un 
+singolo filtro per ogni canale in input, mentre la seconda ha lo scopo di 
+creare una combinazione lineare dell'output. Lo scopo della fattorizzazione\index{fattorizzazione} è 
+quello di ridurre drasticamente la computazione e le dimensioni del modello. 
+Tutti i livelli sono seguiti da una normalizzazione batch\index{batch} e da una funzione 
+di attivazione\index{funzione di attivazione} ReLU, ad eccezione del livello finale che è completamente 
+connesso. Il tutto termina con una Softmax utile per la classificazione\index{classificazione}. In 
+totale, MobileNet-V1\index{MobileNet-V1} ha 28 livelli che costituiscono la profondità dell'intera 
+rete. Per costruire una rete a dimensioni ridotte, con un numero di parametri 
+inferiore, beneficiando di un incremento di velocità, gli autori hanno introdotto 
+due tipologie di parametri, uno dei quali risultante molto importante 
+per raggiungere l'obiettivo di questa tesi. I  due parametri prendono il nome 
+di: 
 \begin{enumerate}
     \item \emph{Width Multiplier ($\alpha$)}
-    \item \emph{Resolution Multiplier ($p$)}
+    \item \emph{Resolution Multiplier ($p$)}\index{resolution multiplier}
 \end{enumerate}
-Il ruolo del width multiplier $\alpha$, un valore tra 0 e 1 compreso, è quello di ridurre le dimensioni della rete in modo uniforme su ogni strato. Per quanto riguarda l'iper-parametro\index{iperparametro} Resolution multiplier $p$,  il suo scopo è quello di accelerare l'inferenza della rete andando ad agire sull'immagine in input e nella rappresentazione interna di ogni livello. In poche parole, l'intento di quest'ultimo parametro\index{parametro} è quello di ridurre la  risoluzione dell'immagine di input, e delle successive sue elaborazioni, per poter incrementare la velocità. Il decremento portato da questo parametro fa sì che la risoluzione possa raggiungere uno dei seguenti valori $p=\{224, 192, 160, 128\}$.
-Nel complesso, l'utilizzo di questa architettura\index{architettura} ha permesso la composizione dell'architettura di rete \emph{Single-Shot-Detector (SSD)}. 
+Il ruolo del Width multiplier\index{width multiplier} $\alpha$, un valore tra 0 e 1 compreso, è quello di 
+ridurre le dimensioni della rete in modo uniforme su ogni strato. Per quanto 
+riguarda l'iper-parametro\index{iperparametro} Resolution multiplier\index{resolution multiplier} $p$,  il suo scopo è quello di 
+accelerare l'inferenza della rete andando ad agire sull'immagine in input e 
+nella rappresentazione interna di ogni livello. In poche parole, l'intento di 
+quest'ultimo parametro\index{parametro} è quello di ridurre la  risoluzione dell'immagine di 
+input, e delle successive sue elaborazioni, per poter incrementare la velocità. 
+Il decremento portato da questo parametro fa sì che la risoluzione possa 
+raggiungere uno dei seguenti valori $p=\{224, 192, 160, 128\}$. Nel complesso, 
+l'utilizzo di questo modello\index{modello} ha permesso la composizione dell'architettura di 
+rete \emph{Single-Shot-Detector (SSD)}. 
 
-\subsection{Modello Single Shot Detector}
-Nella sezione precedente sono state riportate tutte le caratteristiche che contraddistinguono una rete MobileNet-V1 rispetto alla concorrenza. Tale rete risulta sostanziale per formare l'ultima architettura\index{architettura} di rete che sarà utilizzata per ricavare i risultati attesi. Il nuovo modello di rete prende il nome di \emph{Single-Shot-Detector (SSD)}.
+\subsection{Modello Single Shot Detector}\index{Single Shot Detector (SSD)}
+Nella sezione precedente sono state riportate tutte le caratteristiche che contraddistinguono una rete MobileNet-V1\index{MobileNet-V1} rispetto alla concorrenza. Tale rete risulta sostanziale per formare l'ultima architettura\index{architettura} di rete che sarà utilizzata per ricavare i risultati attesi. Il nuovo modello di rete prende il nome di \emph{Single-Shot-Detector (SSD)}.
 Una SSD è una rete convoluzionale feed-forward\index{forward} in grado di produrre dei riquadri di delimitazione (bounding-boxes\index{bounding box} o anchor-boxes), di dimensione fissa, con i relativi punteggi associati alle istanze di ogni classe presenti in ognuno dei riquadri. L'ultima operazione applicata, che in gergo viene chiamata "Non-Maximum Suppression" (NMS), è utile per selezionare il riquadro migliore tra tutti quelli prodotti su ogni specifico oggetto. 
-L'architettura\index{architettura} una SSD contiene nei primi livelli una "rete base" (backbone\index{backbone}), avente il livello di classificazione finale (FC) rimosso, utilizzata per la classificazione\index{classificazione} delle immagini. Oltre a questa sezione, una SSD si contraddistingue in merito all'aggiunta di ulteriori livelli a seguire, aventi lo scopo di:
+L'architettura\index{architettura} una SSD\index{Single Shot Detector (SSD)} contiene nei primi livelli una "rete base" (backbone\index{backbone}), avente il livello di classificazione finale (FC) rimosso, utilizzata per la classificazione\index{classificazione} delle immagini. Oltre a questa sezione, una SSD si contraddistingue in merito all'aggiunta di ulteriori livelli a seguire, aventi lo scopo di:
 \begin{itemize}
     \item \emph{Produrre feature-map multi-scala}\index{feature map}: l'idea è quella di produrre previsioni su identificazioni in più scale. Ogni strato convoluzionale aggiunto produrrà una feature map\index{feature map} sulla quale si potranno identificare\index{identificare} gli oggetti in scale diverse. Le dimensioni di questi livelli diminuiranno all'aumentare della profondità della rete;
     \item \emph{Generare delle predizioni}: grazie all'inserimento degli ulteriori livelli, si ha la possibilità di produrre un set di predizioni sulle identificazioni tramite l'utilizzo di un insieme di filtri. Con l'applicazione di un filtro convoluzionale di dimensioni $3x3xp$, dove p sta ad indicare i canali, su ogni cella, l'intero modello riesce a produrre un punteggio per ogni categoria, con tanto di coordinate correlate alla regione di delimitazione. Ogni filtro produrrà un numero di punteggi pari al numero di classi (background\index{background} compreso). Per esempio, in Conv4\_3 (Fig. \ref{SSD_Arch}), viene applicato un filtro 3x3 utile a mappare 512 canali di input in 25 canali di output. Le coordinate prodotte, verranno confrontate rispetto a determinate anchor-boxes associate a diverse posizioni in ogni feature map\index{feature map};
     \item \emph{Generare dei riquadri di delimitazione}: normalmente vengono associati dei riquadri standard (anchor box) ad ogni feature map\index{feature map} risultante dai livelli convoluzionali aggiunti. Il calcolo di un offset permette di generare delle nuove bounding boxes\index{bounding box} che meglio si adattano all'oggetto nell'immagine. 
 \end{itemize}
 Invece di utilizzare altri metodi, come la finestra scorrevole (sliding windows), per determinare la posizione di ogni oggetto viene sovrapposta una griglia dove, all'interno di ogni cella, è possibile identificare\index{identificare} la presenza di un oggetto. Se non vi ci fosse alcun oggetto all'interno di una regione, allora tale cella sarà classificata come "background"\index{background} e la posizione verrà ignorata. A volte, all'interno di ogni cella, ci possono essere molteplici oggetti, appartenenti a diverse categorie, in forme diverse. Per poterli rilevare, bisogna introdurre i concetti di "\emph{anchor box}" e di "\emph{receptive field}". 
-Un anchor-box è un riquadro, di dimensioni predefinite, responsabile della dimensione e della forma di un oggetto all'interno di una cella che a sua volta può avere più di una anchor-box. Durante l'allenamento di una SSD, viene eseguita una fase di corrispondenza tra il miglior l'anchor-box e il riquadro di delimitazione presente nel ground-truth\index{ground truth} delimitante uno specifico oggetto. Dopo aver trovato l'anchor-box con il più alto grado di sovrapposizione ad un oggetto, si può procedere alla predizione della classe e alla localizzazione\index{localizzazione} della sua posizione. Ogni anchor-box e determinato sia da un valore di aspect-ratio che da un livello di zoom. L'aspect-ratio determina la forma di una anchor-box in base all'oggetto sottostante. Il parametro\index{parametro} zoom invece, è utile per specificare la quantità di ridimensionamento di ogni anchor-box rispetto a ciascuna cella.
+Un anchor-box è un riquadro, di dimensioni predefinite, responsabile della dimensione e della forma di un oggetto all'interno di una cella che a sua volta può avere più di una anchor-box. Durante l'allenamento di una SSD\index{Single Shot Detector (SSD)}, viene eseguita una fase di corrispondenza tra il miglior l'anchor-box e il riquadro di delimitazione presente nel ground-truth\index{ground truth} delimitante uno specifico oggetto. Dopo aver trovato l'anchor-box con il più alto grado di sovrapposizione ad un oggetto, si può procedere alla predizione della classe e alla localizzazione\index{localizzazione} della sua posizione. Ogni anchor-box e determinato sia da un valore di aspect-ratio che da un livello di zoom. L'aspect-ratio determina la forma di una anchor-box in base all'oggetto sottostante. Il parametro\index{parametro} zoom invece, è utile per specificare la quantità di ridimensionamento di ogni anchor-box rispetto a ciascuna cella.
 In ogni feature map\index{feature map}, per ogni anchor-box verranno calcolati i punteggi di tutte le classi c e 4 offset complessivi relativi alla forma dell'anchor-box nel ground-truth\index{ground truth}, per un numero totale di output pari a:
 \begin{equation}
     (c+4)kmn
@@ -214,7 +272,7 @@ La creazione di multiple predizioni sotto forma di riquadri e di punteggi, è ch
 \end{figure}
 
 \subsection{Modello Distilled-Single-Shot-Detector (DSSD)}\index{Distilled-Single-Shot-Detector (DSSD)}
-Dopo aver elencato, nelle sezioni precedenti, i diversi modelli utilizzati, in questa sezione verrà definito il modello\index{modello} finale proposto su cui si concentreranno tutti gli sforzi del seguente elaborato. Come già accennato, il focus del sottoscritto si è incentrato principalmente verso l'utilizzo di due architetture\index{architettura} di rete utili a compire l'attività di object detection\index{object detection}. Il modello\index{modello} finale si basa nell'implementazione della rete MobileNet-V1 come rete base nell'architettura\index{architettura} Single-Shot-Detector. L'unione tra queste due architetture crea un unico modello nominato \emph{SSD-MobileNet-V1}\index{SSD-MobileNet-V1}.
+Dopo aver elencato, nelle sezioni precedenti, i diversi modelli utilizzati, in questa sezione verrà definito il modello\index{modello} finale proposto su cui si concentreranno tutti gli sforzi del seguente elaborato. Come già accennato, il focus del sottoscritto si è incentrato principalmente verso l'utilizzo di due architetture\index{architettura} di rete utili a compire l'attività di object detection\index{object detection}. Il modello\index{modello} finale si basa nell'implementazione della rete MobileNet-V1\index{MobileNet-V1} come rete base nell'architettura\index{architettura} Single-Shot-Detector. L'unione tra queste due architetture crea un unico modello nominato \emph{SSD-MobileNet-V1}\index{SSD-MobileNet-V1}.
 Il numero di livelli presenti in ogni parte della rete sono:
 \begin{itemize}
     \item \emph{27 livelli} (di default sono 28 escludendo l'AvgPool e il Softmax) rappresentanti la rete base (backbone\index{backbone}) da cui è stato rimosso il livello FC;
@@ -222,7 +280,7 @@ Il numero di livelli presenti in ogni parte della rete sono:
     \item \emph{6 livelli convoluzionali} utilizzati per la \emph{regressione}\index{regressione};
     \item \emph{6 livelli convoluzionali} utilizzati per la \emph{classificazione}\index{classificazione};
 \end{itemize}
-Dopo aver inserito la nuova rete base, colleghiamo i livelli depth-wise 12 e 14 alla restante parte della rete SSD. Entrambi i livelli hanno filtri di dimensione pari a $1x1x512x512$ , che a loro volta producono due feature map\index{feature map} aventi profondità 512. L'ultimo collegamento effettuato riguarda l'ultimo livello di convoluzione "pointwise" avente dimensioni $1x1x1024x1024$.
+Dopo aver inserito la nuova rete base, colleghiamo i livelli depth-wise 12 e 14 alla restante parte della rete SSD\index{Single Shot Detector (SSD)}. Entrambi i livelli hanno filtri di dimensione pari a $1x1x512x512$ , che a loro volta producono due feature map\index{feature map} aventi profondità 512. L'ultimo collegamento effettuato riguarda l'ultimo livello di convoluzione "pointwise" avente dimensioni $1x1x1024x1024$.
 La scelta di questi livelli è attribuita al loro contenuto informativo. In quella determinata posizione, i layers\index{layer} contengono sia feature\index{feature} di alto livello che di basso livello. Dal punto di vista pratico, le predizioni vengono eseguite utilizzando i livelli di classificazione\index{classificazione} e regressione\index{regressione}. Per ogni output prodotto dalla rete base, ci sono differenti livelli collegati (Fig. \ref{SSD_conn}) aventi lo scopo di rilevare gli oggetti aventi diverse dimensioni e proporzioni. Tali livelli sono formati da piccoli kernel\index{kernel} $3x3$ con uno passo (stride\index{stride}) uguale a 1 e funzionano nel seguente modo:
 \begin{itemize}
     \item Ogni layer\index{layer} di classificazione\index{classificazione} viene associato ad una particolare anchor-box esistente e all'aspect-ratio di un particolare output della rete. Codesto, durante l'addestramento, impara a rilevare una particolare classe di oggetti;
@@ -242,7 +300,7 @@ Avendo definito l'architettura\index{architettura} del modello\index{modello} pr
 
 \subsection{Pruning sul modello proposto}\label{pruning_model}
 Riprendendo il concetto cardine su cui è focalizzata la tecnica di Pruning\index{Pruning}, è stato possibile svilupparne una sua implementazione con l'aiuto del noto framework di machine learning: PyTorch. Sfortunatamente, la tecnica di pruning\index{Pruning} messa a disposizione da codesto (ancora in fase beta) non migliora i tempi di inferenza\index{inferenza} del modello\index{modello} proposto. Questa causa è da attribuirsi alla non riduzione delle dimensioni dovuta dall'utilizzo di tensori densi all'interno del modello. Un tensore del genere, se riempito di zeri, non esegue calcoli veloci ed inoltre non occupa una dimensione ridotta quando viene memorizzato sul disco. Questa rappresenta una limitazione da parte di questa tipologia di tensori. Di conseguenza, il team di PyTorch afferma che lo scopo, della tecnica messa disposizione, non è incentrato nel garantire incrementi di velocità o risparmi di memoria ma rappresenta un concetto sperimentale. Giusto per non penalizzare solamente PyTorch, anche TensorFlow presenta questa limitazione, ma entrambi hanno intenzione di proseguire lo sviluppo di tale tecnica introducendo nuove migliorie. Attualmente, l'unico fattore da cui si può trarre un vantaggio, riguarda l'applicazione dei programmi di compressione, come per esempio gzip, sui modelli\index{modello} sottoposti al \index{Pruning}. 
-Per quanto riguarda il lato implementativo, si è deciso di applicare la tecnica sul modello\index{modello} SSD-MobileNet-V1\index{SSD-MobileNet-V1} precedentemente definito. Come si è potuto notare nel sottoparagrafo apposito, la struttura del modello\index{modello} è composta da diversi livelli quali convoluzionali (Conv2D), Normalizzazione Batch (BatchNorm2D), ReLU (per l'attivazione) e Fully Connected\index{fully connected} (per l'output). Dovendo azzerare i parametri più numerosi, ci si concentrerà maggiormente sui pesi, a loro volta presenti in quantità maggiore nei livelli convoluzionali. 
+Per quanto riguarda il lato implementativo, si è deciso di applicare la tecnica sul modello\index{modello} SSD-MobileNet-V1\index{SSD-MobileNet-V1} precedentemente definito. Come si è potuto notare nel sottoparagrafo apposito, la struttura del modello\index{modello} è composta da diversi livelli quali convoluzionali (Conv2D), Normalizzazione Batch\index{batch} (BatchNorm2D), ReLU (per l'attivazione) e Fully Connected\index{fully connected} (per l'output). Dovendo azzerare i parametri più numerosi, ci si concentrerà maggiormente sui pesi, a loro volta presenti in quantità maggiore nei livelli convoluzionali. 
 La tecnica di pruning\index{Pruning} utilizzata è la one-shot.
 La funzioni di pruning\index{Pruning} messe a disposizione di PyTorch sono racchiuse nel modulo torch.nn.utils.prune. Grazie alla presenza di un parametro, chiamato "sparsity" (sparsità)\index{sparsità}, si può indicare la percentuale di parametri da azzerare. Le tecniche utilizzate sono le seguenti:
 \begin{itemize}
@@ -265,7 +323,7 @@ Terminata l'analisi sulle possibili applicazioni della tecnica di Pruning\index{
 \end{figure}
 
 \subsubsection{1. Definzione modelli Insegnante e Studente}
-Per la generazione del modello\index{modello} distillato, occorre possedere un modello Insegnante in grado di poter trasmettere la propria conoscenza verso un altro modello. Il modello insegnante utilizzato è il modello base di riferimento (Sezione \ref{MBNET}) MobileNet-V1. Prendendo in riferimento la sua architettura\index{architettura}, affinché possa essere applicato il concetto di Knowledge distillation\index{Knowledge Distillation}, che si basa nel trasferire la conoscenza da un modello di grande dimensioni verso un modello di piccole dimensioni, bisogna creare un secondo modello chiamato Studente. Secondo la letteratura, l'architettura\index{architettura} dello studente dovrà essere simile, in termini di profondità, a quella dell'insegnante. Per soddisfare il seguente vincolo,  ci viene in aiuto l'iper-parametro\index{iperparametro} "width multiplier" ($\alpha$), ideato direttamente dagli autori della rete di riferimento. L'integrazione di tale permette di non incidere sulla profondità della rete ma bensì sul suo numero di parametri, raggiungendo un costo computazionale\index{computazionale} pari a:
+Per la generazione del modello\index{modello} distillato, occorre possedere un modello Insegnante in grado di poter trasmettere la propria conoscenza verso un altro modello. Il modello insegnante utilizzato è il modello base di riferimento (Sezione \ref{MBNET}) MobileNet-V1\index{MobileNet-V1}. Prendendo in riferimento la sua architettura\index{architettura}, affinché possa essere applicato il concetto di Knowledge distillation\index{Knowledge Distillation}, che si basa nel trasferire la conoscenza da un modello di grande dimensioni verso un modello di piccole dimensioni, bisogna creare un secondo modello chiamato Studente. Secondo la letteratura, l'architettura\index{architettura} dello studente dovrà essere simile, in termini di profondità, a quella dell'insegnante. Per soddisfare il seguente vincolo,  ci viene in aiuto l'iper-parametro\index{iperparametro} "width multiplier"\index{width multiplier} ($\alpha$), ideato direttamente dagli autori della rete di riferimento. L'integrazione di tale permette di non incidere sulla profondità della rete ma bensì sul suo numero di parametri, raggiungendo un costo computazionale\index{computazionale} pari a:
 \begin{equation}
     D_K \cdot D_K \cdot \alpha M \cdot D_F \cdot D_F + \alpha M \cdot \alpha N \cdot D_F \cdot D_F
 \end{equation}
@@ -275,9 +333,9 @@ dove:
     \item $D_F$: Dimensioni spaziali feature map\index{feature map};
     \item $M$: numero di canali in input;
     \item $N$: numero di canali in output;
-    \item $\alpha$: width multiplier compreso tra 0 e 1 incluso.
+    \item $\alpha$: width multiplier\index{width multiplier} compreso tra 0 e 1 incluso.
 \end{itemize}
-Il valore del parametro\index{parametro} $\alpha$ utilizzato è pari a 0.25. Moltiplicando tale valore al numero di canali di input e di output, si ottiene un modello più piccolo, di un fattore pari a $1/4$, rispetto al modello insegnante concepito con un valore standard $\alpha=1$. Per facilitare i prossimi calcoli, non è stato ritenuto opportuno implementare anche l'iper-parametro\index{iperparametro} "resolution multiplier" (\emph{p}) in quanto interferente con le diverse dimensioni delle feature map\index{feature map} generate nel comparto SSD. Tralasciando questo elemento, gli autori di MobileNet-V1 affermano che un modello ricavato da tale parametro, oltre ad avere delle dimensioni ridotte e un costo computazionale\index{computazionale} minore, ha un livello di accuratezza\index{accuratezza} leggermente minore rispetto al modello\index{modello} più grande (insegnante). 
+Il valore del parametro\index{parametro} $\alpha$ utilizzato è pari a 0.25. Moltiplicando tale valore al numero di canali di input e di output, si ottiene un modello più piccolo, di un fattore pari a $1/4$, rispetto al modello insegnante concepito con un valore standard $\alpha=1$. Per facilitare i prossimi calcoli, non è stato ritenuto opportuno implementare anche l'iper-parametro\index{iperparametro} "resolution multiplier"\index{resolution multiplier} (\emph{p}) in quanto interferente con le diverse dimensioni delle feature map\index{feature map} generate nel comparto SSD\index{Single Shot Detector (SSD)}. Tralasciando questo elemento, gli autori di MobileNet-V1\index{MobileNet-V1} affermano che un modello ricavato da tale parametro, oltre ad avere delle dimensioni ridotte e un costo computazionale\index{computazionale} minore, ha un livello di accuratezza\index{accuratezza} leggermente minore rispetto al modello\index{modello} più grande (insegnante). 
 
 \subsubsection{2. Allenamento individuale modelli}
 Giunti a questo punto, i modelli a disposizione sono due; un modello Insegnante e un modello Studente. Per poter eseguire gli steps successivi, occorre allenare entrambi i modello\index{modello} per poter ricavare le loro accuratezze\index{accuratezza} utili in seguito. Pertanto, si il seguente step si basa nell'allenare entrambi i modelli sulle immagini fornite dal dataset\index{dataset} "\emph{Open Images}". Le categorie utilizzate, rappresentanti le etichette\index{etichetta} (labels), essendo in un contesto di guida autonoma\index{autonoma}, sono le seguenti: Bicicletta, Bus, Auto, Motociclo, Persona, Semaforo, Cartello stradale e Camion. Ogni modello verrà addestrato per un numero totale di 1000 epoche sull'intero set di allenamento (training set). Il reperimento delle immagini è avvenuto grazie a uno script in grado di creare tre diversi insiemi: allenamento, test e valutazione. In totale, il numero di immagini suddiviso per ogni categoria è riportato nella Tabella \ref{images_train}.
@@ -314,12 +372,12 @@ Giunti a questo punto, i modelli a disposizione sono due; un modello Insegnante 
     \caption{Numero di immagini per ogni cateogria.}
     \label{images_train}
 \end{table}
-La somma del numero delle immagini costituisce un insieme di 16933 elementi, tutti suddivisi nei tre insiemi. Tutti gli allenamenti sono stati eseguiti esclusivamente sull'architettura\index{architettura} Google Colaboratory Pro per una ragione legata prettamente alla velocità temporale messa a disposizione da un hardware costruito ad hoc. Oltre al parametro $\alpha$, gli iper-parametri\index{iperparametro} utilizzati durante l'allenamento riguardano: batch size = 8, learning rate = 0.1, momento = 0.9 e weigth decay = 1e-4. Per quanto riguarda la risoluzione delle immagini in input, queste venivano ridimensionate a una risoluzione pari a 224x224. Per quanto riguarda i tempi di allenamento, sempre su 1000 epoche, il modello insegnante ha impiegato circa 11 ore per concludere contro le 9 ore impiegate dal modello studente. La riduzione dei tempi di allenamento è dovuta alle ridotte dimensioni del modello studente rispetto al modello insegnante. 
+La somma del numero delle immagini costituisce un insieme di 16933 elementi, tutti suddivisi nei tre insiemi. Tutti gli allenamenti sono stati eseguiti esclusivamente sull'architettura\index{architettura} Google Colaboratory Pro per una ragione legata prettamente alla velocità temporale messa a disposizione da un hardware costruito ad hoc. Oltre al parametro $\alpha$, gli iper-parametri\index{iperparametro} utilizzati durante l'allenamento riguardano: batch\index{batch} size = 8, learning rate = 0.1, momento = 0.9 e weigth decay = 1e-4. Per quanto riguarda la risoluzione delle immagini in input, queste venivano ridimensionate a una risoluzione pari a 224x224. Per quanto riguarda i tempi di allenamento, sempre su 1000 epoche, il modello insegnante ha impiegato circa 11 ore per concludere contro le 9 ore impiegate dal modello studente. La riduzione dei tempi di allenamento è dovuta alle ridotte dimensioni del modello studente rispetto al modello insegnante. 
 
 \subsubsection{3. Distillation a temperatura variabile}
 Fino a questo punto sono stati elencati gli elementi fondamentali su cui creare una base di partenza. Avendo a disposizione i due principali modelli, si procede con la vera e propria applicazione della tecnica di Knowledge distillation\index{Knowledge Distillation}. Prendendo sempre in riferimento tutti i concetti riportati nella sezione \ref{KD_distill} del capitolo 2, l'elemento ritenuto parte integrante di tale tecnica è la temperatura T. Lo scopo è quello avvalersi delle soft-targets\index{soft targets} per realizzare diversi modelli di studenti a diverse temperature, integrando il trasferimento della conoscenza distillata. 
 Si ricorda che la nozione di temperatura\index{temperatura} è prettamente legata ad un concetto di generalizzazione\index{generalizzare}. La lista di temperature\index{temperatura} utilizzate è: $T=\{1, 2, 3, 4, 5, 10, 15\}$.
-Ogni modello generato deriva anch'esso da un allenamento, ognuno di circa 9 ore, su 1000 epoche, in cui sono stati sottoposti gli stessi insiemi di immagini (batch), sia al modello\index{modello} insegnante che al modello studente base. Il passaggio dell'intero training set ad entrambi i modelli ha permesso di migliorare la perdita generale, che ricordo essere la somma delle perdite dei due modelli. Gli iper-parametri\index{iperparametro}, così come l'intero set di immagini, utilizzati per l'allenamento sono gli stessi utilizzati per allenare i modelli base. Ricapitolando, ciò che si vuole ottenere da questo passaggio riguarda la generazione di multipli modelli di studenti su cui si baseranno i prossimi steps. 
+Ogni modello generato deriva anch'esso da un allenamento, ognuno di circa 9 ore, su 1000 epoche, in cui sono stati sottoposti gli stessi insiemi di immagini (batch\index{batch}), sia al modello\index{modello} insegnante che al modello studente base. Il passaggio dell'intero training set ad entrambi i modelli ha permesso di migliorare la perdita generale, che ricordo essere la somma delle perdite dei due modelli. Gli iper-parametri\index{iperparametro}, così come l'intero set di immagini, utilizzati per l'allenamento sono gli stessi utilizzati per allenare i modelli base. Ricapitolando, ciò che si vuole ottenere da questo passaggio riguarda la generazione di multipli modelli di studenti su cui si baseranno i prossimi steps. 
 
 \subsubsection{4. Ricerca modello migliore}
 Dopo aver generato i sette nuovi modelli\index{modello} distillati, bisogna chiedersi quale tra questi scegliere. Per ottenere una risposta, bisogna ricavare i tassi di errori (\emph{Errors rates}) sul set di validazione prodotto da ognuno di loro o, in altri termini, bisogna ricavare la curva di apprendimento\index{apprendimento} di ogni modello. Tale curva mette in risalto gli errori effettuati in fase di validazione in ogni epoca. Il valori minimi e massimi sono gli errori presi in considerazione e sono visibili nella Tabella \ref{error_rates_T}.
@@ -360,13 +418,13 @@ Dopo aver generato i sette nuovi modelli\index{modello} distillati, bisogna chie
 \end{table}
 Per la scelta del modello migliore, affinché venga soddisfatto il principio di generalizzazione, un primo vincolo ci impone di scegliere un modello\index{modello} ricavato da una temperatura\index{temperatura} maggiore di uno. La scelta quindi si restringe ad un range di modelli i cui errori, minimo e massimo, fossero compresi tra gli indici di errore del modello insegnante e del modello studente base. Sempre in riferimento alla Tabella \ref{error_rates_T}, il valore di errore minimo deve essere compreso tra io valori 32 e 40 (incluso), mentre il valore massimo deve essere minore o uguale di 76. Il primo modello che rispetta tali condizioni è quello ricavato da una temperatura\index{temperatura} T=3. Per verificare la giusta scelta del modello, bisogna rimandare la lettura al capitolo successivo dove vengono visualizzate le accuratezze\index{accuratezza} di tutti i modelli e l'andamento della loro curva di apprendimento\index{apprendimento}.
 
-\subsubsection{5. Integrazione SSD}
-Preso singolarmente, un modello studente distillato saprebbe solamente effettuare operazioni di image classification senza essere realmente utile in ambito di guida autonoma\index{autonoma} o per attività correlate. Nel seguente elaborato, le spiegazioni sull'architettura\index{architettura} Single-Shot-Detector (SSD) non sono state inserite per pura casualità, ma sono principalmente utili in questo preciso punto di ricerca. L'idea alla base è quella inserire la rete studente come rete base (backbone\index{backbone}) dell'architettura\index{architettura} SSD, costituendo uno degli aspetti centrali del seguente lavoro. In letteratura sono pochi i lavori che hanno affrontato tale tematica, pertanto attualmente rappresenta un punto caldo su cui eseguire ricerca.
-Per permettere la fusione tra le due architetture\index{architettura}, bisognava modificare il numero dei canali di input e di output dei restanti livelli convoluzionali costituenti la porzione introdotta dalla rete SSD. Tale modifica ha permesso di far combaciare il numero di canali di output dell'ultimo livello della rete base, con il numero dei canali di input del primo livello convoluzionale introdotto dalla SSD. Oltre ai livelli extra, ovviamente sono stati modificati i medesimi parametri delle convoluzioni utilizzate per il calcolo della regressione\index{regressione} e della classificazione\index{classificazione}. Tutte le modifiche fatte nella seconda parte della rete, sono avvenute utilizzando lo stesso iper-parametro\index{iperparametro} $\alpha$, utilizzato precedentemente per definire il modello studente distillato, quest'ultimo ricoprente ora il ruolo di rete base. 
+\subsubsection{5. Integrazione SSD}\index{Single Shot Detector (SSD)}
+Preso singolarmente, un modello studente distillato saprebbe solamente effettuare operazioni di image classification senza essere realmente utile in ambito di guida autonoma\index{autonoma} o per attività correlate. Nel seguente elaborato, le spiegazioni sull'architettura\index{architettura} Single-Shot-Detector (SSD)\index{Single Shot Detector (SSD)} non sono state inserite per pura casualità, ma sono principalmente utili in questo preciso punto di ricerca. L'idea alla base è quella inserire la rete studente come rete base (backbone\index{backbone}) dell'architettura\index{architettura} SSD, costituendo uno degli aspetti centrali del seguente lavoro. In letteratura sono pochi i lavori che hanno affrontato tale tematica, pertanto attualmente rappresenta un punto caldo su cui eseguire ricerca.
+Per permettere la fusione tra le due architetture\index{architettura}, bisognava modificare il numero dei canali di input e di output dei restanti livelli convoluzionali costituenti la porzione introdotta dalla rete SSD\index{Single Shot Detector (SSD)}. Tale modifica ha permesso di far combaciare il numero di canali di output dell'ultimo livello della rete base, con il numero dei canali di input del primo livello convoluzionale introdotto dalla SSD. Oltre ai livelli extra, ovviamente sono stati modificati i medesimi parametri delle convoluzioni utilizzate per il calcolo della regressione\index{regressione} e della classificazione\index{classificazione}. Tutte le modifiche fatte nella seconda parte della rete, sono avvenute utilizzando lo stesso iper-parametro\index{iperparametro} $\alpha$, utilizzato precedentemente per definire il modello studente distillato, quest'ultimo ricoprente ora il ruolo di rete base. 
 La nuova rete generata, che il sottoscritto ha deliberatamente intitolato come "{\bfseries{\emph{Disitlled-Single-Shot-Detector (DSSD)\index{Distilled-Single-Shot-Detector (DSSD)}}}}", costituisce l'emblema di tutti gli sforzi fin qui fatti. È proprio con questa rete che si cerca di abbattere le limitazioni computazionali\index{computazionale} presenti sui dispositivi aventi poche risorse\index{risorsa} a disposizione. Nel proseguire la lettura, si scopriranno tutti i benefici introdotti dalla seguente architettura\index{architettura}.
 
 \subsubsection{6. Allenamento congelato}
-Di per sé, la nuova rete DSSD\index{Distilled-Single-Shot-Detector (DSSD)} non è ancora in grado di svolgere il proprio task in quanto la seconda componente della struttura, ovvero i layers\index{layer} convoluzionali aggiunti, non sono addestrati. Per preservare l'accuratezza\index{accuratezza} della rete base distillata, segue un allenamento "esclusivo" che tiene in considerazione solo i parametri di quei livelli non ancora addestrati. Questa tecnica in letteratura prende il nome di "\emph{freeze}" (congelare). Grazie al suo utilizzo, i parametri dei livelli sottoposti a tale trattamento, non verranno cambiati durante l'allenamento. Normalmente, quando un modello è sottoposto al training, il suo parametro\index{parametro} "\emph{requires\_grad}" è impostato su \emph{True}. Codesto parametro è utile per fornire un modo semplice adeguato a includere o escludere ogni singolo parametro dalla rete durante la fase di back-propagation\index{back propagation}. Quando questo flag viene impostato come "\emph{requires\_grad=False}", esso va ad escludere il parametro\index{parametro} di riferimento dal ciclo di allenamento. Nello specifico, un simile valore andrebbe ad escludere il calcolo del gradiente\index{gradiente}, di un tensore, durante il passaggio all'indietro (backward). Applicando questo concetto a tutti i parametri di un'intera rete, si sta andando a congelare il suo allenamento. A questo punto ci si chiederebbe quale fosse il senso di addestrare una rete che in realtà non è addestrabile. Ad uno stesso input, una rete congelata risponderà con lo stesso output. Questo comportamento non fa altro che preservare l'accuratezza\index{accuratezza} di un modello e infatti è ciò che si vuol fare con la rete base distillata. Mantenendo la rete base con gli stessi valori, l'obiettivo è quello di allenare la restante parte di rete, ovvero i restanti livelli convoluzionali che seguono il modello distillato. Anche questa volta, l'allenamento è svolto interamente in Google Colaboratory, su un totale di 1000 epoche, con learning-rate=0.01, momentum=0.9 e batch-size=8. Ovviamente il dataset\index{dataset} utilizzato resta sempre Open Images. Finalmente, si può affermare che il modello finale è stato portato a termine e che su questo verranno eseguiti diversi benchmarks\index{benchmark} per ricavare i benefici da esso introdotti.  
+Di per sé, la nuova rete DSSD\index{Distilled-Single-Shot-Detector (DSSD)} non è ancora in grado di svolgere il proprio task in quanto la seconda componente della struttura, ovvero i layers\index{layer} convoluzionali aggiunti, non sono addestrati. Per preservare l'accuratezza\index{accuratezza} della rete base distillata, segue un allenamento "esclusivo" che tiene in considerazione solo i parametri di quei livelli non ancora addestrati. Questa tecnica in letteratura prende il nome di "\emph{freeze}" (congelare). Grazie al suo utilizzo, i parametri dei livelli sottoposti a tale trattamento, non verranno cambiati durante l'allenamento. Normalmente, quando un modello è sottoposto al training, il suo parametro\index{parametro} "\emph{requires\_grad}" è impostato su \emph{True}. Codesto parametro è utile per fornire un modo semplice adeguato a includere o escludere ogni singolo parametro dalla rete durante la fase di back-propagation\index{back propagation}. Quando questo flag viene impostato come "\emph{requires\_grad=False}", esso va ad escludere il parametro\index{parametro} di riferimento dal ciclo di allenamento. Nello specifico, un simile valore andrebbe ad escludere il calcolo del gradiente\index{gradiente}, di un tensore, durante il passaggio all'indietro (backward). Applicando questo concetto a tutti i parametri di un'intera rete, si sta andando a congelare il suo allenamento. A questo punto ci si chiederebbe quale fosse il senso di addestrare una rete che in realtà non è addestrabile. Ad uno stesso input, una rete congelata risponderà con lo stesso output. Questo comportamento non fa altro che preservare l'accuratezza\index{accuratezza} di un modello e infatti è ciò che si vuol fare con la rete base distillata. Mantenendo la rete base con gli stessi valori, l'obiettivo è quello di allenare la restante parte di rete, ovvero i restanti livelli convoluzionali che seguono il modello distillato. Anche questa volta, l'allenamento è svolto interamente in Google Colaboratory, su un totale di 1000 epoche, con learning-rate=0.01, momentum=0.9 e batch-size=8\index{batch}. Ovviamente il dataset\index{dataset} utilizzato resta sempre Open Images. Finalmente, si può affermare che il modello finale è stato portato a termine e che su questo verranno eseguiti diversi benchmarks\index{benchmark} per ricavare i benefici da esso introdotti.  
 
 \section{Conversione modello}
 Tutti i modelli, pre-addestrati e non, fin qui utilizzati, possono essere sottoposti ad inferenza\index{inferenza} solamente previa conversione del loro formato. Quando un modello\index{modello} viene addestrato, specialmente con il framework PyTorch, comunemente viene salvato con estensione ".pth". Grazie a questo formato, è possibile esportare o importare un qualsiasi modello. Tramite l'utilizzo del metodo \emph{torch.save()}, è possibile generare un modello con tale estensione che includesse il proprio \emph{state\_dict()} da importare in un secondo momento con il metodo \emph{load\_state\_dict()}.
@@ -403,13 +461,13 @@ basate su scheda GPU NVidia (Fig. (\ref{tensorrt})).
     \item {\bfseries{\emph{Layer \& Tensor Fusion}}}: la seconda ottimizzazione\index{ottimizzazione} riguarda l'eliminazione 
     di tutti quei layer\index{layer} che non vengono utilizzati, questo è 
     utile per poter evitare calcoli inutili. Successivamente, le operazioni 
-    di Convoluzione\index{convoluzione}, ReLU e normalizzazione Batch, vengono fuse in un 
+    di Convoluzione\index{convoluzione}, ReLU e normalizzazione Batch\index{batch}, vengono fuse in un 
     unico layer (\emph{CBR}). Questa operazione permette di eseguire calcoli 
     in una maniera più veloce ed efficace. Nella Figura (\ref{fusion_tensorrt}) si possono 
     vedere meglio quali sono tutti i layer\index{layer} che vengono fusi da TensorRT\index{TensorRT}.
     \item {\bfseries{\emph{Kernel\index{kernel} Auto-Tuning}}}: la terza ottimizzazione\index{ottimizzazione} viene effettuata direttamente 
     sui filtri utilizzati nella rete. Durante questa fase vengono 
-    selezionati i migliori layer\index{layer}, algoritmi e dimensioni di batch in base alla 
+    selezionati i migliori layer\index{layer}, algoritmi e dimensioni di batch\index{batch} in base alla 
     piattaforma GPU di destinazione.
     \item {\bfseries{\emph{Dynamic Tensor Memory}}}: la gestione della memoria viene effettuata 
     proprio in questa ottimizzazione. TensorRT\index{TensorRT} alloca memoria 

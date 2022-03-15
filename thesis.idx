@@ -929,7 +929,9 @@
 \indexentry{NVidia Jetson Nano|hyperpage}{85}
 \indexentry{performance|hyperpage}{85}
 \indexentry{architettura|hyperpage}{85}
+\indexentry{MobileNet-V1|hyperpage}{85}
 \indexentry{architettura|hyperpage}{85}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{85}
 \indexentry{computazionale|hyperpage}{85}
 \indexentry{architettura|hyperpage}{85}
 \indexentry{architettura|hyperpage}{85}
@@ -943,17 +945,30 @@
 \indexentry{ottimizzazione|hyperpage}{86}
 \indexentry{iperparametro|hyperpage}{86}
 \indexentry{architettura|hyperpage}{86}
+\indexentry{MobileNet-V1|hyperpage}{86}
+\indexentry{depthwise separable convolutions|hyperpage}{86}
+\indexentry{fattorizzazione|hyperpage}{88}
+\indexentry{convoluzione|hyperpage}{88}
 \indexentry{layer|hyperpage}{88}
+\indexentry{fattorizzazione|hyperpage}{88}
+\indexentry{batch|hyperpage}{88}
 \indexentry{funzione di attivazione|hyperpage}{88}
 \indexentry{classificazione|hyperpage}{88}
+\indexentry{MobileNet-V1|hyperpage}{88}
+\indexentry{resolution multiplier|hyperpage}{88}
+\indexentry{width multiplier|hyperpage}{88}
 \indexentry{iperparametro|hyperpage}{88}
+\indexentry{resolution multiplier|hyperpage}{88}
 \indexentry{parametro|hyperpage}{88}
-\indexentry{architettura|hyperpage}{88}
+\indexentry{modello|hyperpage}{88}
 \indexentry{layer|hyperpage}{89}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{90}
+\indexentry{MobileNet-V1|hyperpage}{90}
 \indexentry{architettura|hyperpage}{90}
 \indexentry{forward|hyperpage}{90}
 \indexentry{bounding box|hyperpage}{90}
 \indexentry{architettura|hyperpage}{90}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{90}
 \indexentry{backbone|hyperpage}{90}
 \indexentry{classificazione|hyperpage}{90}
 \indexentry{feature map|hyperpage}{90}
@@ -965,6 +980,7 @@
 \indexentry{bounding box|hyperpage}{91}
 \indexentry{identificare|hyperpage}{91}
 \indexentry{background|hyperpage}{91}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{91}
 \indexentry{ground truth|hyperpage}{91}
 \indexentry{localizzazione|hyperpage}{91}
 \indexentry{parametro|hyperpage}{91}
@@ -978,12 +994,14 @@
 \indexentry{architettura|hyperpage}{93}
 \indexentry{object detection|hyperpage}{93}
 \indexentry{modello|hyperpage}{93}
+\indexentry{MobileNet-V1|hyperpage}{93}
 \indexentry{architettura|hyperpage}{93}
 \indexentry{SSD-MobileNet-V1|hyperpage}{93}
 \indexentry{backbone|hyperpage}{93}
 \indexentry{funzione di attivazione|hyperpage}{93}
 \indexentry{regressione|hyperpage}{93}
 \indexentry{classificazione|hyperpage}{93}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{93}
 \indexentry{feature map|hyperpage}{93}
 \indexentry{layer|hyperpage}{93}
 \indexentry{feature|hyperpage}{93}
@@ -1014,6 +1032,7 @@
 \indexentry{modello|hyperpage}{95}
 \indexentry{SSD-MobileNet-V1|hyperpage}{95}
 \indexentry{modello|hyperpage}{96}
+\indexentry{batch|hyperpage}{96}
 \indexentry{fully connected|hyperpage}{96}
 \indexentry{Pruning|hyperpage}{96}
 \indexentry{Pruning|hyperpage}{96}
@@ -1032,16 +1051,22 @@
 \indexentry{ottimizzazione|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{97}
 \indexentry{modello|hyperpage}{97}
+\indexentry{MobileNet-V1|hyperpage}{97}
 \indexentry{architettura|hyperpage}{97}
 \indexentry{Knowledge Distillation|hyperpage}{97}
 \indexentry{architettura|hyperpage}{98}
 \indexentry{iperparametro|hyperpage}{98}
+\indexentry{width multiplier|hyperpage}{98}
 \indexentry{computazionale|hyperpage}{98}
 \indexentry{kernel|hyperpage}{98}
 \indexentry{feature map|hyperpage}{98}
+\indexentry{width multiplier|hyperpage}{99}
 \indexentry{parametro|hyperpage}{99}
 \indexentry{iperparametro|hyperpage}{99}
+\indexentry{resolution multiplier|hyperpage}{99}
 \indexentry{feature map|hyperpage}{99}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{99}
+\indexentry{MobileNet-V1|hyperpage}{99}
 \indexentry{computazionale|hyperpage}{99}
 \indexentry{accuratezza|hyperpage}{99}
 \indexentry{modello|hyperpage}{99}
@@ -1052,11 +1077,13 @@
 \indexentry{autonoma|hyperpage}{99}
 \indexentry{architettura|hyperpage}{99}
 \indexentry{iperparametro|hyperpage}{99}
+\indexentry{batch|hyperpage}{100}
 \indexentry{Knowledge Distillation|hyperpage}{100}
 \indexentry{soft targets|hyperpage}{100}
 \indexentry{temperatura|hyperpage}{100}
 \indexentry{generalizzare|hyperpage}{100}
 \indexentry{temperatura|hyperpage}{100}
+\indexentry{batch|hyperpage}{101}
 \indexentry{modello|hyperpage}{101}
 \indexentry{iperparametro|hyperpage}{101}
 \indexentry{modello|hyperpage}{101}
@@ -1067,11 +1094,14 @@
 \indexentry{accuratezza|hyperpage}{101}
 \indexentry{apprendimento|hyperpage}{101}
 \indexentry{temperatura|hyperpage}{102}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{102}
 \indexentry{autonoma|hyperpage}{102}
 \indexentry{architettura|hyperpage}{102}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{102}
 \indexentry{backbone|hyperpage}{102}
 \indexentry{architettura|hyperpage}{102}
 \indexentry{architettura|hyperpage}{102}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{102}
 \indexentry{regressione|hyperpage}{103}
 \indexentry{classificazione|hyperpage}{103}
 \indexentry{iperparametro|hyperpage}{103}
@@ -1087,6 +1117,7 @@
 \indexentry{parametro|hyperpage}{103}
 \indexentry{gradiente|hyperpage}{103}
 \indexentry{accuratezza|hyperpage}{104}
+\indexentry{batch|hyperpage}{104}
 \indexentry{dataset|hyperpage}{104}
 \indexentry{benchmark|hyperpage}{104}
 \indexentry{inferenza|hyperpage}{104}
@@ -1099,11 +1130,13 @@
 \indexentry{ottimizzazione|hyperpage}{105}
 \indexentry{layer|hyperpage}{105}
 \indexentry{convoluzione|hyperpage}{106}
+\indexentry{batch|hyperpage}{106}
 \indexentry{layer|hyperpage}{106}
 \indexentry{TensorRT|hyperpage}{106}
 \indexentry{kernel|hyperpage}{106}
 \indexentry{ottimizzazione|hyperpage}{106}
 \indexentry{layer|hyperpage}{106}
+\indexentry{batch|hyperpage}{106}
 \indexentry{TensorRT|hyperpage}{106}
 \indexentry{ottimizzazione|hyperpage}{106}
 \indexentry{TensorRT|hyperpage}{107}

@@ -20,9 +20,8 @@
 		\hyperpage{17}, \hyperpage{24}, \hyperpage{26}, 
 		\hyperpage{36--39}, \hyperpage{41--43}, \hyperpage{47}, 
 		\hyperpage{55}, \hyperpage{75}, \hyperpage{82}, 
-		\hyperpage{84--86}, \hyperpage{88}, \hyperpage{90}, 
-		\hyperpage{93, 94}, \hyperpage{97--99}, 
-		\hyperpage{102, 103}
+		\hyperpage{84--86}, \hyperpage{90}, \hyperpage{93, 94}, 
+		\hyperpage{97--99}, \hyperpage{102, 103}
  \item \small Artificial Neural Networks (ANN) \hfill \hyperpage{6}
  \item \small atrous spatial pyramid pooling (ASPP) \hfill 
 		\hyperpage{47}
@@ -49,6 +48,8 @@
  \item \small background \hfill \hyperpage{35}, \hyperpage{37}, 
 		\hyperpage{41}, \hyperpage{50}, \hyperpage{57}, 
 		\hyperpage{61}, \hyperpage{90--92}
+ \item \small batch \hfill \hyperpage{88}, \hyperpage{96}, 
+		\hyperpage{100, 101}, \hyperpage{104}, \hyperpage{106}
  \item \small benchmark \hfill \hyperpage{4}, \hyperpage{69}, 
 		\hyperpage{82}, \hyperpage{104}, \hyperpage{111}
  \item \small bias \hfill \hyperpage{7, 8}, \hyperpage{13}, 
@@ -90,7 +91,8 @@
 		\hyperpage{39}, \hyperpage{63}
  \item \small convoluzione \hfill \hyperpage{18, 19}, 
 		\hyperpage{21, 22}, \hyperpage{37--41}, \hyperpage{45}, 
-		\hyperpage{47, 48}, \hyperpage{50}, \hyperpage{106}
+		\hyperpage{47, 48}, \hyperpage{50}, \hyperpage{88}, 
+		\hyperpage{106}
 
   \indexspace
 
@@ -109,6 +111,7 @@
 		\hyperpage{27}, \hyperpage{29, 30}, \hyperpage{35}, 
 		\hyperpage{52}, \hyperpage{66}, \hyperpage{69}, 
 		\hyperpage{82}
+ \item \small depthwise separable convolutions \hfill \hyperpage{86}
  \item \small Distilled-Single-Shot-Detector (DSSD) \hfill 
 		\hyperpage{1}, \hyperpage{4}, \hyperpage{93}, 
 		\hyperpage{103}
@@ -146,6 +149,7 @@
  \item \small falso negativo \hfill \hyperpage{33}, \hyperpage{50}
  \item \small falso positivo \hfill \hyperpage{33}, \hyperpage{50}, 
 		\hyperpage{67}
+ \item \small fattorizzazione \hfill \hyperpage{88}
  \item \small feature \hfill \hyperpage{11}, \hyperpage{18, 19}, 
 		\hyperpage{23}, \hyperpage{30}, \hyperpage{40}, 
 		\hyperpage{44}, \hyperpage{47}, \hyperpage{50}, 
@@ -274,6 +278,9 @@
 		\hyperpage{34}
  \item \small mean intersection over union (mIoU) \hfill \hyperpage{51}
  \item \small mean pixel accuracy (mPA) \hfill \hyperpage{51}
+ \item \small MobileNet-V1 \hfill \hyperpage{85, 86}, \hyperpage{88}, 
+		\hyperpage{90}, \hyperpage{93}, \hyperpage{97}, 
+		\hyperpage{99}
  \item \small model fitting \hfill \hyperpage{56}
  \item \small modello \hfill \hyperpage{1}, \hyperpage{3, 4}, 
 		\hyperpage{6, 7}, \hyperpage{9}, \hyperpage{11--13}, 
@@ -281,7 +288,7 @@
 		\hyperpage{36}, \hyperpage{39--41}, \hyperpage{46, 47}, 
 		\hyperpage{50--52}, \hyperpage{54, 55}, 
 		\hyperpage{63, 64}, \hyperpage{68, 69}, 
-		\hyperpage{71--73}, \hyperpage{75--80}, 
+		\hyperpage{71--73}, \hyperpage{75--80}, \hyperpage{88}, 
 		\hyperpage{93--97}, \hyperpage{99}, \hyperpage{101}, 
 		\hyperpage{104}, \hyperpage{109}, \hyperpage{111, 112}
 
@@ -364,6 +371,8 @@
 		\hyperpage{58, 59}, \hyperpage{61}, \hyperpage{66}
  \item \small regressione \hfill \hyperpage{11}, \hyperpage{93, 94}, 
 		\hyperpage{103}
+ \item \small resolution multiplier \hfill \hyperpage{88}, 
+		\hyperpage{99}
  \item \small rilascio \hfill \hyperpage{3}, \hyperpage{82}, 
 		\hyperpage{97}
  \item \small rilevamento \hfill \hyperpage{3}, \hyperpage{28}, 
@@ -384,6 +393,9 @@
 		\hyperpage{81}, \hyperpage{85}, \hyperpage{108, 109}
  \item \small sinapsi \hfill \hyperpage{5, 6}
  \item \small single precision \hfill \hyperpage{70}
+ \item \small Single Shot Detector (SSD) \hfill \hyperpage{85}, 
+		\hyperpage{90, 91}, \hyperpage{93}, \hyperpage{99}, 
+		\hyperpage{102}
  \item \small Single-Shot-Detector (SSD) \hfill \hyperpage{1}
  \item \small society of automotiuve engineers (SAE) \hfill 
 		\hyperpage{52}
@@ -442,6 +454,8 @@
 \noindent\textbf{W}\par\nopagebreak
 
  \item \small wavelet Haar \hfill \hyperpage{58}, \hyperpage{68}
+ \item \small width multiplier \hfill \hyperpage{88}, 
+		\hyperpage{98, 99}
 
   \indexspace
 
