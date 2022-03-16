@@ -1279,17 +1279,19 @@
 \indexentry{MobileNet-V1|hyperpage}{131}
 \indexentry{width multiplier|hyperpage}{131}
 \indexentry{parametro|hyperpage}{131}
+\indexentry{SSD-MobileNet-V1|hyperpage}{131}
 \indexentry{modello|hyperpage}{131}
 \indexentry{compressione|hyperpage}{132}
 \indexentry{modello|hyperpage}{132}
 \indexentry{embedded|hyperpage}{132}
 \indexentry{risorsa|hyperpage}{132}
 \indexentry{compressione|hyperpage}{132}
+\indexentry{gzip|hyperpage}{133}
 \indexentry{sparsità|hyperpage}{133}
 \indexentry{Knowledge Distillation|hyperpage}{133}
-\indexentry{backbone|hyperpage}{133}
 \indexentry{computazionale|hyperpage}{133}
 \indexentry{MobileNet-V1|hyperpage}{134}
+\indexentry{benchmark|hyperpage}{134}
 \indexentry{performance|hyperpage}{134}
 \indexentry{benchmark|hyperpage}{135}
 \indexentry{frame per second (FPS)|hyperpage}{135}
@@ -1297,7 +1299,7 @@
 \indexentry{inferenza|hyperpage}{135}
 \indexentry{inferenza|hyperpage}{135}
 \indexentry{inferenza|hyperpage}{135}
-\indexentry{benchmark|hyperpage}{135}
+\indexentry{benchmark|hyperpage}{136}
 \indexentry{NVidia Jetson Nano|hyperpage}{136}
 \indexentry{object detection|hyperpage}{136}
 \indexentry{NVidia Jetson Nano|hyperpage}{136}
@@ -1305,7 +1307,7 @@
 \indexentry{semantic segmentation|hyperpage}{136}
 \indexentry{performance|hyperpage}{136}
 \indexentry{embedded|hyperpage}{136}
-\indexentry{TensorRT|hyperpage}{136}
+\indexentry{TensorRT|hyperpage}{137}
 \indexentry{deep learning|hyperpage}{137}
 \indexentry{TensorRT|hyperpage}{137}
 \indexentry{CUDA|hyperpage}{137}

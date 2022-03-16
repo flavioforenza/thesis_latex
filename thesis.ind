@@ -48,8 +48,7 @@
  \item \small back-propagation \hfill \hyperpage{10--13}, 
 		\hyperpage{16}, \hyperpage{22}, \hyperpage{103}
  \item \small backbone \hfill \hyperpage{46, 47}, \hyperpage{55}, 
-		\hyperpage{90}, \hyperpage{93}, \hyperpage{102}, 
-		\hyperpage{133}
+		\hyperpage{90}, \hyperpage{93}, \hyperpage{102}
  \item \small background \hfill \hyperpage{35}, \hyperpage{37}, 
 		\hyperpage{41}, \hyperpage{50}, \hyperpage{57}, 
 		\hyperpage{61}, \hyperpage{90--92}
@@ -57,7 +56,7 @@
 		\hyperpage{100, 101}, \hyperpage{104}, \hyperpage{106}
  \item \small benchmark \hfill \hyperpage{4}, \hyperpage{69}, 
 		\hyperpage{82}, \hyperpage{104}, \hyperpage{111}, 
-		\hyperpage{135--137}, \hyperpage{142}, \hyperpage{144}, 
+		\hyperpage{134--137}, \hyperpage{142}, \hyperpage{144}, 
 		\hyperpage{146}, \hyperpage{148}
  \item \small bias \hfill \hyperpage{7, 8}, \hyperpage{13}, 
 		\hyperpage{16}, \hyperpage{119}
@@ -217,6 +216,7 @@
 		\hyperpage{51}, \hyperpage{79}, \hyperpage{91, 92}
  \item \small guida assistita \hfill \hyperpage{53}
  \item \small guida convenzionale \hfill \hyperpage{53}
+ \item \small gzip \hfill \hyperpage{133}
 
   \indexspace
 
@@ -440,7 +440,8 @@
 		\hyperpage{96, 97}, \hyperpage{119, 120}, 
 		\hyperpage{130}, \hyperpage{133}
  \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}, \hyperpage{93}, 
-		\hyperpage{95}, \hyperpage{119}, \hyperpage{146}
+		\hyperpage{95}, \hyperpage{119}, \hyperpage{131}, 
+		\hyperpage{146}
  \item \small static quantization \hfill \hyperpage{71}
  \item \small stereo-camera \hfill \hyperpage{3}, \hyperpage{63}
  \item \small stride \hfill \hyperpage{21--23}, \hyperpage{94}
@@ -457,7 +458,7 @@
 		\hyperpage{151}
  \item \small TensorRT \hfill \hyperpage{70}, \hyperpage{84}, 
 		\hyperpage{105--107}, \hyperpage{110, 111}, 
-		\hyperpage{136, 137}, \hyperpage{146}
+		\hyperpage{137}, \hyperpage{146}
  \item \small tracking \hfill \hyperpage{52}, \hyperpage{56}, 
 		\hyperpage{61}
  \item \small traffic light detection \hfill \hyperpage{66}
