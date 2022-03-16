@@ -12,7 +12,7 @@
  \item \small action recognition \hfill \hyperpage{28}
  \item \small Adaptive Cruise Control - ACC \hfill \hyperpage{2}
  \item \small advanced driver assistance systems (ADAS) \hfill 
-		\hyperpage{2}, \hyperpage{59}
+		\hyperpage{2}, \hyperpage{59}, \hyperpage{154}
  \item \small alta automazione \hfill \hyperpage{54}
  \item \small apprendimento \hfill \hyperpage{7--9}, \hyperpage{11, 12}, 
 		\hyperpage{15}, \hyperpage{18}, \hyperpage{22}, 
@@ -37,7 +37,7 @@
 		\hyperpage{54}, \hyperpage{58, 59}, \hyperpage{62}, 
 		\hyperpage{64}, \hyperpage{66}, \hyperpage{75}, 
 		\hyperpage{99}, \hyperpage{102}, \hyperpage{114}, 
-		\hyperpage{137}
+		\hyperpage{137}, \hyperpage{153, 154}
  \item \small average precision \hfill \hyperpage{34}
 
   \indexspace
@@ -88,7 +88,8 @@
 		\hyperpage{54}, \hyperpage{57}, \hyperpage{68}, 
 		\hyperpage{75}, \hyperpage{81, 82}, \hyperpage{85}, 
 		\hyperpage{98, 99}, \hyperpage{103}, 
-		\hyperpage{110--112}, \hyperpage{133}, \hyperpage{142}
+		\hyperpage{110--112}, \hyperpage{133}, \hyperpage{142}, 
+		\hyperpage{153}
  \item \small computer vision \hfill \hyperpage{17}, \hyperpage{27}, 
 		\hyperpage{30}, \hyperpage{57}, \hyperpage{66}, 
 		\hyperpage{107}
@@ -130,7 +131,7 @@
 		\hyperpage{93}
  \item \small Distilled-Single-Shot-Detector (DSSD) \hfill 
 		\hyperpage{1}, \hyperpage{4}, \hyperpage{93}, 
-		\hyperpage{103}
+		\hyperpage{103}, \hyperpage{153}
  \item \small double precision \hfill \hyperpage{70}
  \item \small downsampling \hfill \hyperpage{22}, \hyperpage{38}
  \item \small drowsiness detection \hfill \hyperpage{62}
@@ -144,7 +145,7 @@
  \item \small embedded \hfill \hyperpage{1}, \hyperpage{68}, 
 		\hyperpage{81, 82}, \hyperpage{84}, \hyperpage{95}, 
 		\hyperpage{107}, \hyperpage{132}, \hyperpage{136, 137}, 
-		\hyperpage{144}, \hyperpage{150}
+		\hyperpage{144}, \hyperpage{150}, \hyperpage{153}
  \item \small emotion recognition \hfill \hyperpage{28}
  \item \small encoder \hfill \hyperpage{26}, \hyperpage{37, 38}, 
 		\hyperpage{40}, \hyperpage{42, 43}, \hyperpage{47, 48}
@@ -250,7 +251,8 @@
 		\hyperpage{129}, \hyperpage{135}, \hyperpage{137}, 
 		\hyperpage{142}, \hyperpage{146}, \hyperpage{148}
  \item \small intelligenza \hfill \hyperpage{2}, \hyperpage{38}, 
-		\hyperpage{52}, \hyperpage{58}, \hyperpage{66}
+		\hyperpage{52}, \hyperpage{58}, \hyperpage{66}, 
+		\hyperpage{153}
  \item \small intersection over union (IoU) \hfill \hyperpage{33}, 
 		\hyperpage{51}
  \item \small iperparametro \hfill \hyperpage{19}, \hyperpage{21, 22}, 
@@ -378,7 +380,8 @@
 		\hyperpage{37--40}, \hyperpage{43}, \hyperpage{45, 46}, 
 		\hyperpage{48}, \hyperpage{50}
  \item \small Pruning \hfill \hyperpage{1}, \hyperpage{69}, 
-		\hyperpage{72--75}, \hyperpage{95--97}
+		\hyperpage{72--75}, \hyperpage{95--97}, 
+		\hyperpage{154}
  \item \small pyramid scene parsing network (PSPNet) \hfill 
 		\hyperpage{48}
 
@@ -409,11 +412,11 @@
 		\hyperpage{97}
  \item \small rilevamento \hfill \hyperpage{3}, \hyperpage{28}, 
 		\hyperpage{30}, \hyperpage{54--59}, \hyperpage{62--64}, 
-		\hyperpage{67}, \hyperpage{108}
+		\hyperpage{67}, \hyperpage{108}, \hyperpage{154}
  \item \small risorsa \hfill \hyperpage{3}, \hyperpage{32}, 
 		\hyperpage{75}, \hyperpage{81}, \hyperpage{85}, 
 		\hyperpage{103}, \hyperpage{118}, \hyperpage{132}, 
-		\hyperpage{146}
+		\hyperpage{146}, \hyperpage{153}
  \item \small road detection \hfill \hyperpage{54}
 
   \indexspace

@@ -13,9 +13,9 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di dimensione filtro e di campo ricettivo.\relax }}{20}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Esempio di profondità composto da più filtri.\relax }}{20}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio convoluzione con kernel=3x3 e stride=1.\relax }}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Esempio convoluzione con kernel=4x, padding=2 e stride=1.\relax }}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Esempio convoluzione con kernel=4x4, padding=2 e stride=1.\relax }}{21}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Esempio funzione di attivazione ReLU sui valori di una feature map.\relax }}{22}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Esempio funzione di operazioni di pooling su una feature map.\relax }}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Esempio di operazioni di pooling su una feature map.\relax }}{23}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Esempio di neurone in una Recurrent Neural Network. A destra viene mostrata la struttura e i compiti di un singolo neurone nell'istante di tempo $t$. A sinisitra invece viene mostrata una sequenza di azioni svolte dallo stesso neurone in una sequenza temporale.\relax }}{25}{figure.caption.23}%
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Esempio di stato $h$ di un neurone in una RNN.\relax }}{25}{figure.caption.24}%
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Esempio di generatore e discriminante in una rete GAN.\relax }}{27}{figure.caption.25}%
@@ -24,13 +24,13 @@
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Problemi di riconoscimento relativi al rilevamento di automobili e pedoni: (a) Pixel-wise semantic segmentation, (b) Instance level semantic segmentation.\relax }}{30}{figure.caption.28}%
 \contentsline {figure}{\numberline {2.21}{\ignorespaces Esempio di veicoli con feature differenti ma appartenenti alla stessa categoria (automobile)\relax }}{31}{figure.caption.29}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Esempio di immagini con scarsa visibilità e a basso contenuto informativo.\relax }}{32}{figure.caption.30}%
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio Semantic segmentation.\relax }}{36}{figure.caption.33}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Esempio di Semantic segmentation.\relax }}{36}{figure.caption.33}%
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Esempio di architettura Fully Convolutional Network\relax }}{37}{figure.caption.35}%
 \contentsline {figure}{\numberline {2.25}{\ignorespaces Esempio di Deconvoluzione e di Unpooling (Upsampling).\relax }}{38}{figure.caption.36}%
 \contentsline {figure}{\numberline {2.26}{\ignorespaces Esempio derivazione delle varie architetture FCN.\relax }}{39}{figure.caption.37}%
 \contentsline {figure}{\numberline {2.27}{\ignorespaces Esempio di convoluzione standard ($l=1$)(Sinistra) e di Convoluzione Dilatata ($l=2$) (Destra).\relax }}{40}{figure.caption.40}%
 \contentsline {figure}{\numberline {2.28}{\ignorespaces Esempio architettura DeepLab.\relax }}{41}{figure.caption.42}%
-\contentsline {figure}{\numberline {2.29}{\ignorespaces Esempio architettura rete U-Net.\relax }}{42}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Esempio architettura U-Net.\relax }}{42}{figure.caption.45}%
 \contentsline {figure}{\numberline {2.30}{\ignorespaces Esempio architettura SegNet.\relax }}{44}{figure.caption.47}%
 \contentsline {figure}{\numberline {2.31}{\ignorespaces Esempio di applicazione del contesto globale alla segmentazione.\relax }}{44}{figure.caption.50}%
 \contentsline {figure}{\numberline {2.32}{\ignorespaces Modulo ParseNet.\relax }}{45}{figure.caption.51}%
@@ -49,8 +49,8 @@
 \contentsline {figure}{\numberline {2.45}{\ignorespaces Esempio di rete fully connected potata con la tecnica unstructured.\relax }}{72}{figure.caption.76}%
 \contentsline {figure}{\numberline {2.46}{\ignorespaces Esempio di rete fully connected potata con la tecnica structured.\relax }}{73}{figure.caption.77}%
 \contentsline {figure}{\numberline {2.47}{\ignorespaces Differenza tra Ustructured Pruning (sinistra) e Structured Pruning (destra) su ogni filtro e feature map nei vari layer.\relax }}{74}{figure.caption.78}%
-\contentsline {figure}{\numberline {2.48}{\ignorespaces Il quadro generico insegnante-studente per la distillazione della conoscenza\relax }}{76}{figure.caption.79}%
-\contentsline {figure}{\numberline {2.49}{\ignorespaces Numeri 1 e 7.\relax }}{77}{figure.caption.80}%
+\contentsline {figure}{\numberline {2.48}{\ignorespaces Quadro generico insegnante-studente per la distillazione della conoscenza\relax }}{76}{figure.caption.79}%
+\contentsline {figure}{\numberline {2.49}{\ignorespaces Numeri 1 e 7 presenti nel dataset MNIST.\relax }}{77}{figure.caption.80}%
 \contentsline {figure}{\numberline {2.50}{\ignorespaces Previsione di probabilità per la cifra del numero '7' a temperature variabili.\relax }}{78}{figure.caption.81}%
 \contentsline {figure}{\numberline {2.51}{\ignorespaces Generazione entropie incrociate $L_{soft}$ (in alto) e $L_{hard}$ (in basso).\relax }}{80}{figure.caption.82}%
 \addvspace {10\p@ }
@@ -70,7 +70,7 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.106}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{116}{figure.caption.107}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. In alto viene mostrata l'immagine originale mentre in basso la sua segmentazione semantica (Ground Truth).\relax }}{117}{figure.caption.108}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{118}{figure.caption.109}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono svolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{118}{figure.caption.109}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Perdita globale Structured Pruning.\relax }}{121}{figure.caption.110}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Perdita classificazione Structured Pruning.\relax }}{122}{figure.caption.111}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Perdita regressione Structured Pruning.\relax }}{122}{figure.caption.112}%
