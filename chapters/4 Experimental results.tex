@@ -6,8 +6,13 @@
 \chapter{RISULTATI SPERIMENTALI}
 \label{Capitolo4} \label{Chapter4}
 \thispagestyle{empty}
-Nel seguente capitolo vengono riportate le informazioni inerenti i vari dataset\index{dataset} utilizzati in fase di addestramento. Oltre a questi, seguiranno tutti i risultati riguardanti le performance\index{performance} e i benefici prodotti dai modelli quando questi vengono sottoposti alle tecniche di compressione\index{compressione} e non. Tutti i risultati ottenuti provengono dall'inferenza\index{inferenza} di vari modelli proiettati solo per il task di object detection\index{object detection}.
-Le specifiche delle architetture di riferimento utilizzate sono riportate nella Tabella (\ref{specifiche}).
+Nel seguente capitolo vengono riportate le informazioni inerenti i vari dataset\index{dataset} 
+utilizzati in fase di addestramento. Oltre a questi, seguiranno tutti i risultati 
+riguardanti le performance\index{performance} e i benefici prodotti dai modelli quando questi 
+vengono sottoposti alle tecniche di compressione\index{compressione} e non. Tutti i risultati 
+ottenuti provengono dall'inferenza\index{inferenza} di vari modelli proiettati solo per il 
+task di object detection\index{object detection}. Le specifiche delle architetture di riferimento 
+utilizzate sono riportate nella Tabella (\ref{specifiche}).
 \begin{table}
     \renewcommand{\baselinestretch}{1}
     \centering
@@ -29,22 +34,27 @@ Le specifiche delle architetture di riferimento utilizzate sono riportate nella 
     \caption{Specifiche tecniche delle tre architetture utilizzate.}
     \label{specifiche}
 \end{table}
-Al fine di mostrare i risultati raggiunti, il capitolo si conclude con una comparazione tra le performance dei modelli pre-addestrati e le performance del modello proposto, seguita da una carrellata di esempi prodotti da quest'ultimo.
+Al fine di mostrare i risultati 
+raggiunti, il capitolo si conclude con una comparazione tra le performance 
+dei modelli pre-addestrati e le performance del modello proposto, seguita 
+da una carrellata di esempi prodotti da quest'ultimo.
 
 
 \section{Descrizione dei dataset}\label{datasets_description}
-Diversi sono i dataset\index{dataset} utilizzati nell'ambito della guida autonoma\index{autonoma}.
-Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i seguenti datasets:
+Diversi sono i dataset\index{dataset} utilizzati nell'ambito della guida autonoma\index{autonoma}. Per 
+quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i 
+seguenti datasets:
 \begin{itemize}
-    \item {\bfseries{\emph{CityScapes (CS)}}}\cite{Cityscapes}: i dati presenti in questo dataset\index{dataset} sono composti da 
-    diversi video stereo registrati nelle strade di 50 città diverse. Esistono 
-    30 classi diverse raggruppate in otto categorie. Di queste immagini, 
-    circa 5000 hanno annotazioni di alta qualità a livello di pixel, mentre altre 
-    20.000 hanno annotazioni grossolane. Attualmente, questo dataset\index{dataset} 
-    rappresenta la pietra miliare della guida autonoma\index{autonoma} pertanto viene 
-    utilizzato in molte ricerche. Nel presente elaborato, precisamente 
-    nella sezione dei test di semantic segmentation\index{semantic segmentation}, vengono utilizzate diverse 
-    immagini appartenenti a codesto dataset\index{dataset} (Fig. (\ref{cityscapes})), ognuna opportunamente ridimensionata ad una risoluzione diversa.
+    \item {\bfseries{\emph{CityScapes (CS)}}}\cite{Cityscapes}: i dati presenti in questo dataset\index{dataset} sono composti 
+    da diversi video stereo registrati nelle strade di 50 città diverse. 
+    Esistono 30 classi diverse raggruppate in otto categorie. Di queste 
+    immagini, circa 5000 hanno annotazioni di alta qualità a livello di 
+    pixel, mentre altre 20.000 hanno annotazioni grossolane. Attualmente, 
+    questo dataset\index{dataset} rappresenta la pietra miliare della guida autonoma\index{autonoma} 
+    pertanto viene utilizzato in molte ricerche. Nel presente elaborato, 
+    precisamente nella sezione dei test di semantic segmentation\index{semantic segmentation}, vengono 
+    utilizzate diverse immagini appartenenti a codesto dataset\index{dataset} (Fig. \ref{cityscapes}), 
+    ognuna opportunamente ridimensionata ad una risoluzione diversa.
     \begin{figure}
         \centering
         \includegraphics[width = \linewidth]{cityscapes4.png}
@@ -54,11 +64,11 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     \end{figure} 
     ($512\times 256$, $1024\times 512$, $2048\times 1024$).
     \item {\bfseries{\emph{PASCAL Visual Object Classes (VOC)}}}\cite{VOC}: il seguente dataset 
-    contiene più di 10.000 immagini con all'interno un totale di più di 20.000 
-    oggetti raggruppati in 20 classi diverse (Fig. \ref{pascal}). Anche questo dataset, come 
-    il precedente, viene utilizzato nella sezione di test per il task di 
-    semantic segmentation\index{semantic segmentation} in questo elaborato. Dettagliatamente, vengono 
-    utilizzate delle sue immagini ridimensionate in formato $320\times 320$ e $512\times 320$.
+    contiene più di 10.000 immagini con all'interno un totale di più di 
+    20.000 oggetti raggruppati in 20 classi diverse (Fig. \ref{pascal}). Anche questo 
+    dataset, come il precedente, viene utilizzato nella sezione di test per il 
+    task di semantic segmentation\index{semantic segmentation} in questo elaborato. Dettagliatamente, 
+    vengono utilizzate delle sue immagini ridimensionate in formato $320\times 320$ e $512\times 320$.
     \begin{figure}
         \centering
         \includegraphics[width = 0.5\linewidth]{PascalVOC.png}
@@ -68,28 +78,46 @@ Per quanto riguarda i modelli pre-addestrati, la loro formazione avviene con i s
     \end{figure} 
     \item {\bfseries{\emph{MS Common Objects in Context (COCO)}}}\cite{COCO}: realizzato da 
     Microsoft, il dataset\index{dataset} contiene più di 300.000 immagini di cui più di 
-    200.000 sono etichettate\index{etichetta} (Fig. (\ref{MSCOCO_dataset})). Gli oggetti presenti sono più di 1.5 milioni e 
-    sono raggruppati in 150 classi diverse. Principalmente questo dataset 
-    viene utilizzato per attività di object detection\index{object detection}, infatti ritorna utile 
-    nella sezione di test successiva. La risoluzione standard delle immagini presenti è pari a 640x480.
+    200.000 sono etichettate\index{etichetta} (Fig. \ref{MSCOCO_dataset}). Gli oggetti presenti sono più di 
+    1.5 milioni e sono raggruppati in 150 classi diverse. Principalmente 
+    questo dataset viene utilizzato per attività di object detection\index{object detection}, infatti 
+    ritorna utile nella sezione di test successiva. La risoluzione standard 
+    delle immagini presenti è pari a 640x480.
     \begin{figure}
         \centering
         \includegraphics[width = \linewidth]{MSCOCO.png}
         \centering
-        \caption{Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).}
+        \caption{Esempio di immagini presenti in MS COCO. In alto viene mostrata l'immagine originale mentre in basso la sua segmentazione semantica (Ground Truth).}
         \label{MSCOCO_dataset}
     \end{figure} 
-    Sia l'allenamento del modello base che dell'intero modello proposto, avviene tramite l'utilizzo del seguente dataset:
-    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset\index{dataset} utilizzato per lo più in ambito di object detection\index{object detection} e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata nel modello proposto, pur essere concepita per svolgere attività di image classification\index{image classification}, ha utilizzato ugualmente le immagini di codesto dataset. Per il modello di riferimento invece, lo script utilizzato per il reperimento delle immagini ha fornito anche le informazioni di ogni bounding-box\index{bounding box} raffigurante il riquadro di delimitazione di ogni oggetto in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie per un totale di 9 milioni di immagini etichettate\index{etichetta}. La risoluzione delle immagini è molto variabile ma, rispetto agli altri datasets, è possibile trovare immagini ad un'alta risoluzione come 3000x2267.
-    Per quanto concerne l'attività di object detection, il dataset è in grado di fornire 16 milioni di bounding-boxes\index{bounding box} inerenti 600 categorie di oggetti su un totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima posizione come dataset\index{dataset} più numeroso. 
-    \begin{figure}
-        \centering
-        \includegraphics[width = 0.6\linewidth]{open_images_figure.png}
-        \centering
-        \caption{Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.}
-        \label{openimages_dataset}
-    \end{figure}
 \end{itemize}
+Sia l'allenamento del modello base che dell'intero modello proposto, avviene 
+tramite l'utilizzo del seguente dataset:
+\begin{itemize}
+    \item {\bfseries{\emph{Open Images}}}\cite{OpenImages2}: dataset\index{dataset} utilizzato per lo più in ambito di object 
+    detection\index{object detection} e semantic segmentation (Fig. \ref{openimages_dataset}). La rete base integrata 
+    nel modello proposto, pur essendo concepita per svolgere attività 
+    di image classification\index{image classification}, utilizza ugualmente le immagini di codesto 
+    dataset. Per il modello di riferimento invece, lo script utilizzato per il 
+    reperimento delle immagini ha fornito anche le informazioni di ogni 
+    bounding-box\index{bounding box} raffigurante il riquadro di delimitazione di ogni oggetto 
+    in ogni immagine. Attualmente, il dataset fornisce oltre 6000 categorie, 
+    per un totale di 9 milioni di immagini etichettate\index{etichetta}. La risoluzione delle 
+    immagini è molto variabile ma, rispetto agli altri datasets, è possibile 
+    trovare immagini ad un'alta risoluzione come $3000\times{2267}$. Per quanto 
+    concerne l'attività di object detection, il dataset è in grado di fornire 
+    16 milioni di bounding-boxes\index{bounding box} inerenti 600 categorie di oggetti su un 
+    totale di 1.9 milioni di immagini. Questi dati lo piazzano in prima 
+    posizione come dataset\index{dataset} più numeroso. 
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.6\linewidth]{open_images_figure.png}
+    \centering
+    \caption{Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.}
+    \label{openimages_dataset}
+\end{figure}
+
 
 \section{Accuratezza tecniche di compressione/ottimizzazione}\index{ottimizzazione}
 In questa nuova sezione verranno analizzati i livelli di accuratezza\index{accuratezza} raggiunti da entrambe le tecniche di compressione\index{compressione} utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse\index{risorsa} hardware.

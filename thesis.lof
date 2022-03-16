@@ -69,7 +69,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di immagini presenti in Cityscapes. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{115}{figure.caption.106}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di immagini presenti in Pascal VOC. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{116}{figure.caption.107}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. A destra viene mostrata l'immagine originale mentre a sinistra la sua segmentazione semantica (Ground Truth).\relax }}{117}{figure.caption.108}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esempio di immagini presenti in MS COCO. In alto viene mostrata l'immagine originale mentre in basso la sua segmentazione semantica (Ground Truth).\relax }}{117}{figure.caption.108}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Esempio di immagine presente in Open Images. Sull'immagine vengono sovolte contemporaneamente le attività di object detection e di semantic segmentation.\relax }}{118}{figure.caption.109}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Perdita globale Structuerd Pruning.\relax }}{121}{figure.caption.110}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Perdita classificazione Structuerd Pruning.\relax }}{122}{figure.caption.111}%
