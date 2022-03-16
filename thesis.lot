@@ -3,29 +3,29 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di object detection.\relax }}{86}{table.caption.85}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di semantic segmentation.\relax }}{86}{table.caption.86}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Numero di immagini per ogni categoria.\relax }}{100}{table.caption.94}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Errors Rates dei modelli Insegnante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.\relax }}{102}{table.caption.97}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di object detection.\relax }}{86}{table.caption.86}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Modelli pre-addestrati utilizzati per l'attività di semantic segmentation.\relax }}{86}{table.caption.87}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Numero di immagini per ogni categoria.\relax }}{100}{table.caption.95}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Errors Rates dei modelli Insegnante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono quelli di riferimento, mentre quelli verdi rappresentano gli errori derivanti dal modello scelto.\relax }}{102}{table.caption.98}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Specifiche tecniche delle tre architetture utilizzate.\relax }}{113}{table.caption.105}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Structured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{121}{table.caption.113}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{123}{table.caption.117}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Global Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{126}{table.caption.121}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.\relax }}{129}{table.caption.123}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Specifiche sorgenti input.\relax }}{136}{table.caption.131}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{138}{table.caption.133}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{138}{table.caption.134}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - GPU}).\relax }}{138}{table.caption.135}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - CPU}).\relax }}{139}{table.caption.136}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces FPS Performance nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{140}{table.caption.137}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces FPS Performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {utils}).\relax }}{140}{table.caption.138}%
-\contentsline {table}{\numberline {4.13}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - GPU})\relax }}{141}{table.caption.139}%
-\contentsline {table}{\numberline {4.14}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - CPU})\relax }}{141}{table.caption.140}%
-\contentsline {table}{\numberline {4.15}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Computer (\emph {OpenCV - CPU})\relax }}{143}{table.caption.142}%
-\contentsline {table}{\numberline {4.16}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer (\emph {OpenCV - CPU}).\relax }}{143}{table.caption.143}%
-\contentsline {table}{\numberline {4.17}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU})\relax }}{145}{table.caption.145}%
-\contentsline {table}{\numberline {4.18}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU})\relax }}{145}{table.caption.146}%
-\contentsline {table}{\numberline {4.19}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU}).\relax }}{146}{table.caption.147}%
-\contentsline {table}{\numberline {4.20}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU}).\relax }}{147}{table.caption.148}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Specifiche tecniche delle tre architetture utilizzate.\relax }}{113}{table.caption.106}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Structured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{121}{table.caption.114}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{123}{table.caption.118}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Global Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.\relax }}{126}{table.caption.122}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza dal modello scelto.\relax }}{129}{table.caption.124}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Specifiche sorgenti input.\relax }}{136}{table.caption.132}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Performance FPS medi nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{138}{table.caption.134}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {utils}).\relax }}{138}{table.caption.135}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - GPU}).\relax }}{138}{table.caption.136}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Jetson Nano (\emph {OpenCV - CPU}).\relax }}{139}{table.caption.137}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces FPS Performance nell'attività di Object Detection su Jetson Nano (\emph {utils}).\relax }}{140}{table.caption.138}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces FPS Performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {utils}).\relax }}{140}{table.caption.139}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - GPU})\relax }}{141}{table.caption.140}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Jetson Nano (\emph {OpenCV - CPU})\relax }}{141}{table.caption.141}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Computer (\emph {OpenCV - CPU})\relax }}{143}{table.caption.143}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation Computer (\emph {OpenCV - CPU}).\relax }}{143}{table.caption.144}%
+\contentsline {table}{\numberline {4.17}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU})\relax }}{145}{table.caption.146}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU})\relax }}{145}{table.caption.147}%
+\contentsline {table}{\numberline {4.19}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU}).\relax }}{146}{table.caption.148}%
+\contentsline {table}{\numberline {4.20}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU}).\relax }}{147}{table.caption.149}%
 \addvspace {10\p@ }
