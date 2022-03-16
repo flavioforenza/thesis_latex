@@ -120,24 +120,67 @@ tramite l'utilizzo del seguente dataset:
 
 
 \section{Accuratezza tecniche di compressione/ottimizzazione}\index{ottimizzazione}
-In questa nuova sezione verranno analizzati i livelli di accuratezza\index{accuratezza} raggiunti da entrambe le tecniche di compressione\index{compressione} utilizzate. Lo studio vuole mettere in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati a livello di risorse\index{risorsa} hardware.
-Successivamente verranno mostrati i risultati ottenuti prima sulla tecnica di Pruning e successivamente sulla tecnica di Knowledge Distillation\index{Knowledge Distillation}.
+In questa nuova sezione verranno analizzati i livelli di accuratezza\index{accuratezza} raggiunti 
+da entrambe le tecniche di compressione\index{compressione} utilizzate. Lo studio vuole mettere 
+in risalto i benefici introdotti da tali tecniche su tutti quei dispositivi limitati 
+a livello di risorse\index{risorsa} hardware. Successivamente verranno mostrati i risultati 
+ottenuti prima dalla tecnica di Pruning e successivamente dalla tecnica di 
+Knowledge Distillation\index{Knowledge Distillation}.
 
 \subsection{Accuratezza Pruning}
-Più che accuratezza\index{accuratezza}, la tecnica di pruning è utile a mostrare i risultati inerenti la funzione di perdita di un modello, che a loro volta sono strettamente correlati all'accuratezza\index{accuratezza} raggiunta. Quando l'accuratezza di un modello incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-MobileNet-V1}\index{SSD-MobileNet-V1} (Sez. \ref{MBNET}).
-Si ricorda che tale modello è stato costruito da zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, utilizzando le immagini del dataset\index{dataset} Open Images.
-Come già accennato nei capitoli precedenti, l'applicazione di tale tecnica può avvenire secondo tre metodi diversi: \emph{Structured}, \emph{Unstructured} e \emph{Global Unstructured}.
-Essendo un modello congruo per l'attività di object detection\index{object detection}, per ogni metodo vengono calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione}\index{classificazione} e di \emph{Regressione}\index{regressione}.
-Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, nonché i canali convoluzionali, tutte le perdite del modello incominciano ad aumentare quando si arriva ad utilizzare un indice di sparsità\index{sparsità} compreso tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione \ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia di pruning come inaccurata per ricavare informazioni. I valori riportati nella tabella precedente, e in quelle a seguire, dimostrano l'incremento della perdita ad ogni percentuale di sparisità. Comparando le figure con i valori riportati nelle tabelle, è importante notare come una crescita pari al 100\% equivalga al doppio del valore di perdita di partenza. La percentuale di variazione di perdita, ammessa in questo elaborato, non supera l'11\%.
-Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La seguente mira direttamente ad azzerare specifici parametri\index{parametro}, come pesi\index{peso} e bias\index{bias}, presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che l'accuratezza\index{accuratezza} diverga, l'indice di sparsità\index{sparsità} aumenta, portandosi a raggiungere un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). I risultati percentuali sono riportati in Tabella \ref{unstructered_pruning_diff_perc}. Questo sta a significare un netto aumento del numero di parametri che possono essere azzerati e di conseguenza eliminati. 
-Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global Unstructured}. La tecnica si concentra nell'applicare un'intera quantità di sparsità\index{sparsità}, un'unica volta, in tutto il modello. Considerata tra le più affidabili rispetto alle due precedenti, la tecnica rappresenta un vero e proprio set di parametri\index{parametro} che possono essere rimossi dal modello. Dai risultati mostrati, capiamo come molti dei pesi\index{peso} presenti sono in realtà superflui. Prima che l'accuratezza\index{accuratezza} degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. \ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance del modello. I corrispettivi valori percentuali della perdita sono visibili in Tabella \ref{global_unstructered_pruning_diff_perc}.
-Tirando le somme, data la significativa grandezza del modello, una tale riduzione, pari a più della metà dei parametri, dimostra come ci sia ancora tanta strada da percorrere per arrivare all'ottenimento un modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i risultati ottenuti non cambierebbero se la rete SSD\index{Single Shot Detector (SSD)} avesse avuto una rete base diversa da MobileNet-V1\index{MobileNet-V1}.
+Più che accuratezza\index{accuratezza}, la tecnica di pruning è utile a mostrare i risultati inerenti 
+la funzione di perdita di un modello, che a loro volta sono strettamente 
+correlati all'accuratezza\index{accuratezza} raggiunta. Quando l'accuratezza di un modello 
+incomincia a degradarsi, allo stesso modo peggiorerà la sua funzione di 
+perdita. Il modello su cui è stata applicata la seguente tecnica è l'\emph{SSD-
+MobileNet-V1}\index{SSD-MobileNet-V1} (Sez. \ref{MBNET}). Si ricorda che tale modello è stato costruito da 
+zero ("from scratch") ed è stato addestrato, su un totale di 1000 epoche, 
+utilizzando le immagini del dataset\index{dataset} Open Images. Come già accennato nei 
+capitoli precedenti, l'applicazione di tale tecnica può avvenire secondo tre
+metodi diversi: \emph{Structured}, \emph{Unstructured} e \emph{Global Unstructured}. Essendo un 
+modello congruo per l'attività di object detection\index{object detection}, per ogni metodo vengono 
+calcolate tre tipologie di perdite: \emph{Globale}, di \emph{Classificazione}\index{classificazione} e di \emph{Regressione}\index{regressione}.
+Partendo dal metodo \emph{Structured}, che ricordo agire solamente sui filtri, 
+nonché i canali convoluzionali, tutte le perdite del modello incominciano 
+ad aumentare quando si arriva ad utilizzare un indice di sparsità\index{sparsità} compreso 
+tra il 10-15\% (Fig. \ref{struct_loss_global_pruning}, Fig. \ref{struct_loss_class_pruning}, Fig.\ref{struct_loss_regr_pruning}). I riferimenti dettati nella sezione 
+\ref{pruning_model}, appaiono quindi essere confermati dai valori riportati nei grafici, 
+e nella Tabella (\ref{structered_pruning_diff_perc}), i quali, a loro volta, schedulano tale metodologia 
+di pruning come inaccurata per ricavare informazioni. I valori riportati 
+nella tabella precedente, e in quelle a seguire, dimostrano l'incremento 
+della perdita ad ogni percentuale di sparisità. Comparando le figure con i 
+valori riportati nelle tabelle, è importante notare come una crescita pari al 
+100\% equivalga al doppio del valore di perdita di partenza. La percentuale 
+di variazione di perdita, ammessa in questo elaborato, non supera l'11\%.
+Cambiando metodologia, ci si concentra ora sulla tecnica \emph{Unstructured}. La 
+seguente mira direttamente ad azzerare specifici parametri\index{parametro}, come pesi\index{peso} e bias\index{bias}, 
+presenti nella rete. I risultati ottenuti indicano uno scenario del tutto diverso 
+rispetto a quello risultante dalla tecnica precedente. Questa volta, prima che 
+l'accuratezza\index{accuratezza} diverga, l'indice di sparsità\index{sparsità} aumenta, portandosi a raggiungere 
+un valore del 40\% (Fig. \ref{unstr_loss_global_pruning}, Fig. \ref{unstr_loss_class_pruning} Fig. \ref{unstr_loss_regr_pruning}). I risultati percentuali 
+sono riportati in Tabella \ref{unstructered_pruning_diff_perc}. Questo sta a significare un netto aumento del 
+numero di parametri che possono essere azzerati e di conseguenza eliminati. 
+Gli ultimi risultati mostrati, riguardano quelli derivanti dalla tecnica \emph{Global 
+Unstructured}. La tecnica si concentra nell'applicare un'intera quantità 
+di sparsità\index{sparsità}, un'unica volta, in tutto il modello. Considerata tra le più 
+affidabili rispetto alle due precedenti, la tecnica indica un vero e proprio 
+set di parametri\index{parametro} che può essere rimosso dal modello. Dai risultati mostrati, 
+capiamo come molti dei pesi\index{peso} presenti sono in realtà superflui. Prima che 
+l'accuratezza\index{accuratezza} degradasse, la rimozione del 60\% (Fig. \ref{glob_loss_global_pruning}, Fig. \ref{glob_loss_class_pruning}, Fig. 
+\ref{glob_loss_regr_pruning}) dei pesi presenti porterebbe ad un balzo significativo delle performance 
+del modello. I corrispettivi valori percentuali della perdita sono visibili in 
+Tabella \ref{global_unstructered_pruning_diff_perc}. Tirando le somme, data la significativa grandezza del modello, 
+una tale riduzione, pari a più della metà dei parametri, dimostra come ci 
+sia ancora tanta strada da percorrere per arrivare all'ottenimento di un 
+modello ottimale. Secondo il parere del sottoscritto, molto probabilmente, i 
+risultati ottenuti non cambierebbero se la rete SSD\index{Single Shot Detector (SSD)} avesse avuto una rete 
+base diversa da MobileNet-V1\index{MobileNet-V1}.
 \begin{figure}
     \centering
     \hspace*{-1.5cm}
     \includegraphics[width = 1.2\linewidth]{structured_Loss.png}
     \centering
-    \caption{Perdita globale Structuerd Pruning.}
+    \caption{Perdita globale Structured Pruning.}
     \label{struct_loss_global_pruning}
 \end{figure}
 \begin{figure}
@@ -145,14 +188,14 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \hspace*{-0.5cm}
     \includegraphics[width = 1.1\linewidth]{structured_ClassLoss.png}
     \centering
-    \caption{Perdita classificazione Structuerd Pruning.}
+    \caption{Perdita classificazione Structured Pruning.}
     \label{struct_loss_class_pruning}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\linewidth]{structured_RegrLoss.png}
     \centering
-    \caption{Perdita regressione Structuerd Pruning.}
+    \caption{Perdita regressione Structured Pruning.}
     \label{struct_loss_regr_pruning}
 \end{figure}
 
@@ -184,7 +227,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     }%
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Structuerd Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
+    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Structured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
     \label{structered_pruning_diff_perc}
 \end{table}
 
@@ -193,14 +236,14 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \centering
     \includegraphics[width = \linewidth]{unstructured_Loss.png}
     \centering
-    \caption{Perdita globale Unstructuerd Pruning.}
+    \caption{Perdita globale Unstructured Pruning.}
     \label{unstr_loss_global_pruning}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\linewidth]{unstructured_ClassLoss.png}
     \centering
-    \caption{Perdita regressione Unstructuerd Pruning.}
+    \caption{Perdita regressione Unstructured Pruning.}
     \label{unstr_loss_class_pruning}
 \end{figure}
 \begin{figure}
@@ -208,7 +251,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \hspace*{-0.5cm}
     \includegraphics[width = 1.1\linewidth]{unstructured_RegrLoss.png}
     \centering
-    \caption{Perdita classificazione Unstructuerd Pruning.}
+    \caption{Perdita classificazione Unstructured Pruning.}
     \label{unstr_loss_regr_pruning}
 \end{figure}
 
@@ -242,7 +285,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     }%
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Unstructuerd Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
+    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
     \label{unstructered_pruning_diff_perc}
 \end{table}
 
@@ -252,7 +295,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \hspace*{-0.5cm}
     \includegraphics[width = 1.1\linewidth]{global_Loss.png}
     \centering
-    \caption{Perdita complessiva Global Unstructuerd Pruning.}
+    \caption{Perdita complessiva Global Unstructured Pruning.}
     \label{glob_loss_global_pruning}
 \end{figure}
 \begin{figure}
@@ -260,7 +303,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \hspace*{-0.5cm}
     \includegraphics[width = 1.1\linewidth]{global_ClassLoss.png}
     \centering
-    \caption{Perdita regressione Global Unstructuerd Pruning.}
+    \caption{Perdita regressione Global Unstructured Pruning.}
     \label{glob_loss_class_pruning}
 \end{figure}
 \begin{figure}
@@ -268,7 +311,7 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     \hspace*{-0.5cm}
     \includegraphics[width = 1.1\linewidth]{global_RegrLoss.png}
     \centering
-    \caption{Perdita classificazione Global Unstructuerd Pruning.}
+    \caption{Perdita classificazione Global Unstructured Pruning.}
     \label{glob_loss_regr_pruning}
 \end{figure}
 
@@ -300,12 +343,21 @@ Tirando le somme, data la significativa grandezza del modello, una tale riduzion
     }%
     \end{adjustbox}
     \vspace{0.5cm}
-    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Global Unstructuerd Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
+    \caption{Variazione percentuale delle perdite Globali (G), di Regressione (R) e di Classificazione (C) ottenute tramite Global Unstructured Pruning. Il valore di loss (L) è affiancato dalla differenza (D) percentuale rispetto al valore di perdita di parteza. In verde sono rappresentate le variazioni delle perdite accettabili contrariamente a quelle in rosso.}
     \label{global_unstructered_pruning_diff_perc}
 \end{table}
 
 \subsection{Accuratezza Knowledge Distillation}\index{Knowledge Distillation}
-La seconda tecnica di compressione/ottimizzazione\index{compressione}\index{ottimizzazione}, nonché la più approfondita a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello di trovare il miglior modello\index{modello} studente distillato tra quelli generati ad una temperatura\index{temperatura} variabile. L'unico modo per ricercare tale modello è mediante la comparazione dell'accuratezza\index{accuratezza} di ognuno di loro. Ricordo che il vincolo imposto obbligava a scegliere un modello la cui temperatura\index{temperatura} di generazione fosse maggiore di uno. Le accuratezze vengono calcolate corrispettivamente sulle predizioni Top-1 e Top-5 restituite e riportate sia sottoforma di grafico (Fig. \ref{accuracy_KD} che tabellare (Tab. \ref{accuracy_models_dist}).
+La seconda tecnica di compressione/ottimizzazione\index{compressione}\index{ottimizzazione}, nonché la più approfondita 
+a livello pratico, si è dimostrata da subito una sfida ardua da affrontare. 
+Stando al procedimento descritto nella sezione \ref{KD_steps}, l'obiettivo è quello 
+di trovare il miglior modello\index{modello} studente distillato tra quelli generati ad una 
+temperatura\index{temperatura} variabile. L'unico modo per ricercare tale modello è mediante 
+la comparazione dell'accuratezza\index{accuratezza} di ognuno di loro. Ricordo che il vincolo 
+imposto obbligava a scegliere un modello la cui temperatura\index{temperatura} di generazione 
+fosse maggiore di 1. Le accuratezze vengono calcolate corrispettivamente 
+sulle predizioni Top-1 e Top-5 restituite e riportate sia sottoforma di grafico 
+(Fig. \ref{accuracy_KD}) che tabellare (Tab. \ref{accuracy_models_dist}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Top1 and Top5 Accuracy.png}
@@ -348,9 +400,10 @@ La seconda tecnica di compressione/ottimizzazione\index{compressione}\index{otti
     \caption{Accuratezze Top-1 e Top-5 dei modelli Insengante, Studente base e Studente distillato (Dst) a diverse temperature T. I valori in blu sono le accuratezze di riferimento, mentre quei verdi rappresentano l'accuratezza\index{accuratezza} dal modello scelto.}
     \label{accuracy_models_dist}
 \end{table}
-
-
-Per dimostrare la veridicità di tali accuratezze, sono state riportate in un grafico le curve di apprendimento\index{apprendimento} di ogni modello\index{modello} ricavate dal numero di errori commessi, in fase di validazione, in ogni epoca (Fig \ref{lc_KD}).
+Per dimostrare la veridicità di tali 
+accuratezze, sono state riportate in un grafico le curve di apprendimento\index{apprendimento} di 
+ogni modello\index{modello} ricavate dal numero di errori commessi, in fase di validazione, 
+in ogni epoca (Fig \ref{lc_KD}).
 \begin{figure}
     \centering
     \includegraphics[width = 1.5\linewidth, height=12cm, angle=90, origin=c]{learning_curve KD.png}
@@ -358,20 +411,52 @@ Per dimostrare la veridicità di tali accuratezze, sono state riportate in un gr
     \caption{Curva di apprendimento dei modelli impiegati per la Knowledge Distillation.}
     \label{lc_KD}
 \end{figure}
-Il grafico dimostra come la scelta del modello studente distillato, ad una temperatura\index{temperatura} T=3, vada ad interporsi tra le curve di apprendimento\index{apprendimento} dell'insegnante e quelle dello studente base. Tale convergenza (linea viola) sta a significare che il modello\index{modello} studente distillato ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi al contempo dal modello studente base (linea arancione) il quale non ha ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete base nell'architettura\index{architettura} Single-Shot-Detector (SSD)\index{Single Shot Detector (SSD)}. 
+Il grafico dimostra come la scelta del modello 
+studente distillato, ad una temperatura\index{temperatura} $T=3$, vada ad interporsi tra le 
+curve di apprendimento\index{apprendimento} dell'insegnante e quelle dello studente base. Tale 
+convergenza (linea viola) sta a significare che il modello\index{modello} studente distillato 
+ha appreso la conoscenza trasmessa dall'insegnante (linea blu), discostandosi 
+al contempo dal modello studente base (linea arancione) il quale non ha 
+ricevuto alcun tipo di conoscenza. Il modello selezionato costituirà la rete 
+base nell'architettura\index{architettura} Single-Shot-Detector (SSD)\index{Single Shot Detector (SSD)}. 
 
 \section{Riduzione numero di parametri}
-Allo stato dell'arte esistono numerosi modelli deep learning\index{deep learning} che soffrono di una problematica comune: la numerosità dei parametri\index{parametro}. Non è sempre vero che un gran numero dei parametri porti all'aumento dell'accuratezza\index{accuratezza} di un modello. Questo problema non solo comporta maggior occupazione di memoria, ma ricade anche sulle prestazioni del modello, in termini di velocità di inferenza\index{inferenza}, e sul consumo energetico. In quest'ultimo caso, essendo circondati da dispostivi mobili con a bordo una batteria, difficilmente i modelli di grandi dimensioni troveranno un'implementazione. Questa rappresenta un'altra motivazione che ha consentito l'evoluzione delle tecniche di compressione\index{compressione}. Dato che nell'elaborato vengono utilizzate due di queste tecniche, di seguito vengono mostrati i risultati inerenti la riduzione del numero di parametri\index{parametro} sui modelli utilizzati.
+Allo stato dell'arte esistono numerosi modelli deep learning\index{deep learning} che soffrono 
+di una problematica comune: la numerosità dei parametri\index{parametro}. Non è sempre 
+vero che un gran numero dei parametri porti all'aumento dell'accuratezza\index{accuratezza} 
+di un modello. Questo problema non solo comporta maggior occupazione di 
+memoria, ma ricade anche sulle prestazioni del modello, in termini di velocità 
+di inferenza\index{inferenza} e consumo energetico. In quest'ultimo caso, essendo circondati 
+da dispostivi mobili con a bordo una batteria, difficilmente i modelli di grandi 
+dimensioni troveranno un'implementazione. Questa rappresenta un'altra 
+motivazione che ha consentito l'evoluzione delle tecniche di compressione\index{compressione}. 
+Dato che nell'elaborato vengono utilizzate due di queste tecniche, di seguito 
+vengono mostrati i risultati inerenti la riduzione del numero di parametri\index{parametro} 
+sui modelli utilizzati, derivante da entrambe le tecniche di compressione.
+
 \subsection{Riduzione via Pruning}
-I grafici presenti nella sezione precedente, inerenti all'applicazione della tecnica di pruning su un modello SSD\index{Single Shot Detector (SSD)}, hanno evidenziato come la maggior parte dei parametri\index{parametro} utilizzati sia del tutto insignificante. Il modello SSD\index{Single Shot Detector (SSD)} ha un quantità di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica di Unstructured pruning, i risultati ottenuti precedentemente dimostrano come il 40\% dei pesi\index{peso} possa essere eliminato senza influire sull'accuratezza\index{accuratezza} del modello. Per un tasso di sparsità\index{sparsità} variabile tra 0 (pesi\index{peso} tutti azzerati) e 100 (pesi tutti diversi da zero), viene riportata in Figura \ref{par_pruning} l'ammontare del numero di parametri allenabili, e quindi diversi da zero, del modello SSD\index{Single Shot Detector (SSD)}.
-Tenendo in considerazione la soglia del 40\% di sparsità\index{sparsità}, la struttura del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo quindi a una quantità totale di $\sim{4.60}$ milioni di parametri\index{parametro}. La significativa riduzione non può altro che rappresentare un beneficio per i dispositivi con i limiti precedentemente descritti.
+I grafici presenti nella sezione precedente, inerenti l'applicazione della tecnica 
+di pruning su un modello SSD\index{Single Shot Detector (SSD)}, hanno evidenziato come la maggior parte dei 
+parametri\index{parametro} utilizzati sia del tutto insignificante. Il modello SSD\index{Single Shot Detector (SSD)} ha un quantità 
+di parametri pari a $\sim{7.64}$ milioni. Prendendo in riferimento la tecnica 
+di Unstructured pruning, i risultati ottenuti precedentemente dimostrano 
+come il 40\% dei pesi\index{peso} possa essere eliminato senza influire sull'accuratezza\index{accuratezza} 
+del modello. Per un tasso di sparsità\index{sparsità} variabile tra 0 (pesi\index{peso} tutti azzerati) e 
+100 (pesi tutti diversi da zero), viene riportato in Figura \ref{par_pruning} l'ammontare 
+del numero di parametri allenabili, e quindi diversi da zero, del modello 
+SSD\index{Single Shot Detector (SSD)}. Tenendo in considerazione la soglia del 40\% di sparsità\index{sparsità}, la struttura 
+del modello si ritroverebbe con $\sim{3.04}$ milioni di pesi in meno, giungendo 
+quindi a una quantità totale di $\sim{4.60}$ milioni di parametri\index{parametro}. La significativa 
+riduzione non può altro che rappresentare un beneficio per i dispositivi con 
+i limiti precedentemente descritti.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Pruning_Unstructured_parameters.png}
     \centering
-    \caption{Riduzione del numero di parametri via pruning a sparistà variabile.}
+    \caption{Riduzione del numero di parametri via pruning a sparsità variabile.}
     \label{par_pruning}
 \end{figure}
+
 \subsection{Riduzione via Knowledge Distillation}\index{Knowledge Distillation}
 Al fine di verificare la veridicità della tecnica di Knowledge distillation, premeva la necessità di costruire un modello\index{modello} studente di dimensioni più piccole rispetto al modello insegnante. I meriti per la realizzazione di questa fase non sono da attribuirsi alla tecnica di compressione\index{compressione} in questione, ma vanno dati agli autori della rete MobileNet-V1\index{MobileNet-V1} grazie all'implementazione del parametro width multiplier\index{width multiplier}.
 Impostando  ($\alpha=0.25$) la rete studente ha avuto un decremento pari al 93,31\% dei parametri rispetto all'insegnante. Avendo quest'ultimo un numero di parametri\index{parametro} maggiore di 3 milioni, il nuovo modello studente si ritrova con $\sim{200}$ mila parametri allenabili (Fig. \ref{base_net_par}).
