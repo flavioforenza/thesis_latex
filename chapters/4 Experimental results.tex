@@ -1208,12 +1208,26 @@ deep learning\index{deep learning} su hardware ad-hoc, come le sue GPU.
 \end{table}
 
 \subsection{Perfomance modello proposto DSSD}
-Considerata molto probabilmente una tra le più importanti sezioni dell'elaborato, finalmente si può affrontare la questione inerente la velocità di inferenza\index{inferenza}.
-Dopo aver ottenuto tutti i risultati di base, si indaga sulle prestazioni messe a disposizione dal modello proposto DSSD su tutte e tre le architetture. Tutti i risultati mostrati finora, compresi quelli nei prossimi grafici, sono ricavati dalla media di diverse esecuzioni. Il sottoscritto ha preferito intraprendere questa via in quanto non è possibile affidarsi ai valori provenienti da una singola esecuzione a causa delle varie risorse\index{risorsa} messe a disposizione da ciascuna architettura. 
+Considerata molto probabilmente una tra le più importanti sezioni dell'elaborato, 
+finalmente si può affrontare la questione inerente la velocità 
+di inferenza\index{inferenza} raggiunta dal modello proposto. Dopo aver ottenuto tutti i 
+risultati di base, si indaga sulle prestazioni messe a disposizione dal modello 
+proposto DSSD su tutte e tre le architetture. Tutti i risultati mostrati finora, 
+compresi quelli nei prossimi grafici, sono ricavati dalla media di diverse 
+esecuzioni. Il sottoscritto ha preferito intraprendere questa via in quanto 
+non è possibile affidarsi ai valori provenienti da una singola esecuzione a 
+causa delle varie risorse\index{risorsa} messe a disposizione da ciascuna architettura. 
 
 \subsubsection{Benchmarks DSSD su Jetson Nano}\index{benchmark}
-La speranza di ottenere performance migliori ricade principalmente su codesta architettura. Questa volta, si fa riferimento alla comparazione tra i frames-per-second (FPS)\index{frame per second (FPS)} del modello SSD-MobileNet-V1\index{SSD-MobileNet-V1} pre-addestrato con le performance\index{performance} ottenute dal modello proposto DSSD. I confronti verranno effettuati sia utilizzando TensorRT\index{TensorRT} che OpenCV. In quest'ultimo caso verrano confrontanti anche le differenze provenienti dall'utilizzo, e non, dell'acceleratore cuDNN\index{cuDNN}.
-Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare come le performance ottenute dall'inferenza\index{inferenza} del modello DSSD, sfruttando TensorRT\index{TensorRT}, eccedono quelle del modello SSD\index{Single Shot Detector (SSD)} originale.
+La speranza di ottenere performance migliori ricade principalmente su 
+codesta architettura. Questa volta, si fa riferimento alla comparazione tra i 
+frames-per-second (FPS)\index{frame per second (FPS)} del modello SSD-MobileNet-V1\index{SSD-MobileNet-V1} pre-addestrato, con 
+le performance\index{performance} ottenute dal modello proposto DSSD. I confronti verranno 
+effettuati sia utilizzando TensorRT\index{TensorRT} che OpenCV. In quest'ultimo caso 
+verrano confrontante anche le differenze provenienti dall'utilizzo, e non, 
+dell'acceleratore cuDNN\index{cuDNN}. Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può 
+notare come le performance ottenute dall'inferenza\index{inferenza} del modello DSSD, 
+sfruttando TensorRT\index{TensorRT}, eccedono quelle del modello SSD\index{Single Shot Detector (SSD)} originale.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS Jetson TensorRT.png}
@@ -1221,7 +1235,10 @@ Focalizzandosi sul grafico in Figura \ref{bench-jet-tensorrt}, si può notare co
     \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Jetson Nano (TensorRT)}
     \label{bench-jet-tensorrt}
 \end{figure}
-Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con supporto CUDA\index{CUDA} (cuDNN\index{cuDNN}) (Fig. \ref{bench-jet-cv2-cudnn}) e sia quando OpenCV effettua una semplice inferenza su CPU (Fig. \ref{bench-jet-cv2-CPU}).
+Lo stesso 
+comportamento si verifica sia quando viene utilizzata OpenCV con supporto 
+CUDA\index{CUDA} (cuDNN\index{cuDNN}) (Fig. \ref{bench-jet-cv2-cudnn}) e sia quando OpenCV effettua una semplice 
+inferenza su CPU (Fig. \ref{bench-jet-cv2-CPU}).
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Difference FPS Jetson cv2 Cuda.png}
@@ -1238,7 +1255,11 @@ Lo stesso comportamento si verifica sia quando viene utilizzata OpenCV con suppo
 \end{figure}
 
 \subsubsection{Benchmarks DSSD sul Computer}
-Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ricordarsi che non è possibile utilizzare alcun acceleratore grafico in quanto non vi è un supporto CUDA\index{CUDA}. Stando a tale limitazione, i test vengono effettuati con l'utilizzo di OpenCV che esegue l'inferenza\index{inferenza} sulla sola CPU. I risultati ottenuti sono mostrati nella Figura \ref{bench-pc-cv2-CPU}.
+Cambiando tipologia di architettura, quando ci si sposta sul computer 
+bisogna ricordarsi che non è possibile utilizzare alcun acceleratore grafico 
+in quanto non vi è un supporto CUDA\index{CUDA}. Stando a tale limitazione, i test 
+vengono effettuati con l'utilizzo di OpenCV che esegue l'inferenza\index{inferenza} sulla sola 
+CPU. I risultati ottenuti sono mostrati nella Figura \ref{bench-pc-cv2-CPU}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS pc only CPU.png}
@@ -1248,8 +1269,13 @@ Cambiando tipologia di architettura, quando ci si sposta sul computer bisogna ri
 \end{figure}
 
 \subsubsection{Benchmarks DSSD su Google Colaboratory}
-Spostandoci all'ultima architettura, rispetto alle precedenti ha la possibilità di utilizzare solamente OpenCV per l'inferenza\index{inferenza} dei modelli. In questo caso, vengono effettuate due tipologie di benchmarks\index{benchmark}, entrambi utilizzando OpenCV. 
-Le performance ottenute dall'inferenza\index{inferenza} eseguita sulla GPU, e quindi utilizzando il supporto cuDNN\index{cuDNN} di OpenCV, sono riportate nella Figura \ref{bench-colab-cv2-cudnn}.
+Spostandoci all'ultima architettura, rispetto alle precedenti, come per il personal 
+computer, Google Colboratory ha la possibilità di utilizzare solamente 
+OpenCV per l'inferenza\index{inferenza} dei modelli. In questo caso, vengono effettuate 
+due tipologie di benchmarks\index{benchmark}, entrambi basandosi sempre sull'utilizzo di 
+OpenCV. Le performance ottenute dall'inferenza\index{inferenza} eseguita sulla GPU, e 
+quindi utilizzando il supporto cuDNN\index{cuDNN} di OpenCV, sono riportate nella 
+Figura \ref{bench-colab-cv2-cudnn}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS Colab only GPU.png}
@@ -1257,7 +1283,9 @@ Le performance ottenute dall'inferenza\index{inferenza} eseguita sulla GPU, e qu
     \caption{Benchmark media differenza FPS tra i modelli SSD e DSSD su architettura Google Colaboratory (OpenCV - cuDNN)}
     \label{bench-colab-cv2-cudnn}
 \end{figure}
-Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre utilizzando OpenCV senza alcun acceleratore, ottenendo delle performance visibili in Figura \ref{bench-colab-cv2-cpu}.
+Infine, l'ultimo test è stato eseguito sulla sola CPU di Google 
+Colab, sempre utilizzando OpenCV senza alcun acceleratore, ottenendo 
+delle performance visibili in Figura \ref{bench-colab-cv2-cpu}.
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{Mean Difference FPS Colab only CPU.png}
@@ -1267,44 +1295,53 @@ Infine, l'ultimo test è stato eseguito sulla sola CPU di Google Colab, sempre u
 \end{figure}
 
 \section{Esempi Object Detection modello DSSD}
-Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di tale rete su varie architetture embedded\index{embedded} e non. Dal punto di vista pratico però, non sono state ancora dimostrare le effettive funzionalità offerte dal modello. Nella seguente sezione, che termina il capitolo corrente, vengono mostrati alcuni esempi, inerenti l'attività di object detection\index{object detection}, prodotti dal modello DSSD. Per capire meglio le differenze in tale attività, rispetto al modello insegnante SSD\index{Single Shot Detector (SSD)}, vengono confrontati i risultati ottenuti sulle stesse immagini in cui saranno visibili i riquadri di delimitazione di ogni oggetto (bounding-boxes\index{bounding box}) e i corrispettivi valori percentuali attribuiti ad ogni classe predetta. 
-Le immagini utilizzate provengono dal dataset\index{dataset} Open Images.
-Guardando attentamente i punteggi generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge Distillation\index{Knowledge Distillation}, non avrà mai la stessa accuratezza dell'insegnante. Questo fattore dipende soprattutto dall'applicazione della temperatura\index{temperatura} influenzante la generazione delle soft-labels\index{soft targets}. 
-Tuttavia, il modello DSSD produce risultati che non si discostano tanto da quelli del modello insegnante. Tali risultati dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca quasi a preservare l'accuratezza\index{accuratezza} proveniente dal modello insegnante. 
+Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo 
+modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di 
+tale rete su varie architetture embedded\index{embedded} e non. Dal punto di vista pratico 
+però, non sono state ancora dimostrare le effettive funzionalità offerte dal 
+modello. Nella seguente sezione, che termina il capitolo corrente, vengono 
+mostrati alcuni esempi, inerenti l'attività di object detection\index{object detection}, prodotti dal 
+modello DSSD. Per capire meglio le differenze in tale attività, rispetto al 
+modello insegnante integrato nella rete SSD-MobileNet-V1\index{SSD-MobileNet-V1}, vengono confrontati 
+i risultati ottenuti sulle stesse immagini in cui saranno visibili i 
+riquadri di delimitazione di ogni oggetto (bounding-boxes\index{bounding box}) e i corrispettivi 
+valori percentuali attribuiti ad ogni classe predetta. Le immagini utilizzate 
+provengono dal dataset\index{dataset} Open Images. Guardando attentamente i punteggi 
+generati, il modello DSSD, essendo ricavato dalla tecnica di Knowledge 
+Distillation\index{Knowledge Distillation}, non avrà mai la stessa accuratezza dell'insegnante. Questo 
+fattore dipende soprattutto dall'applicazione della temperatura\index{temperatura} influenzante 
+la generazione delle soft-labels\index{soft targets}. Tuttavia, il modello DSSD produce risultati 
+che non si discostano tanto da quelli del modello insegnante. Tali risultati 
+(Fig. \ref{esempi_DSSD}) dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca 
+quasi a preservare l'accuratezza\index{accuratezza} del modello insegnante. 
 \begin{figure}[ht] 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
       \includegraphics[width=0.9\linewidth]{Compare 1 T.png} 
-      \label{fig7:a} 
     \end{subfigure}%% 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
       \includegraphics[width=0.9\linewidth]{Compare 1 S.png} 
-      \label{fig7:b} 
     \end{subfigure} 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
       \includegraphics[width=0.9\linewidth]{Compare 2 T.png} 
-      \label{fig7:c} 
     \end{subfigure}%%
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
       \includegraphics[width=0.9\linewidth]{Compare 2 S.png} 
-      \label{fig7:d} 
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[width=0.9\linewidth]{Compare 3 T.png} 
         \caption{Output SSD Insegnante} 
-        \label{fig7:d} 
     \end{subfigure}%%
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[width=0.9\linewidth]{Compare 3 S.png} 
         \caption{Output DSSD} 
-        \label{fig7:d} 
     \end{subfigure}
-    \caption{Comparazione visiva output SSD insegnante (a) e output DSSD (b).}
-    \label{fig7} 
+    \caption{Comparazione visiva output SSD con backbone insegnante (a) e output DSSD (b).}
+    \label{esempi_DSSD} 
 \end{figure}
 

@@ -430,8 +430,7 @@
  \item \small Single Shot Detector (SSD) \hfill \hyperpage{1}, 
 		\hyperpage{85}, \hyperpage{90, 91}, \hyperpage{93}, 
 		\hyperpage{99}, \hyperpage{102}, \hyperpage{120}, 
-		\hyperpage{127}, \hyperpage{130}, \hyperpage{146}, 
-		\hyperpage{150}
+		\hyperpage{127}, \hyperpage{130}, \hyperpage{146}
  \item \small society of automotiuve engineers (SAE) \hfill 
 		\hyperpage{52}
  \item \small soft targets \hfill \hyperpage{76, 77}, 
@@ -441,7 +440,7 @@
 		\hyperpage{130}, \hyperpage{133}
  \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}, \hyperpage{93}, 
 		\hyperpage{95}, \hyperpage{119}, \hyperpage{131}, 
-		\hyperpage{146}
+		\hyperpage{146}, \hyperpage{150}
  \item \small static quantization \hfill \hyperpage{71}
  \item \small stereo-camera \hfill \hyperpage{3}, \hyperpage{63}
  \item \small stride \hfill \hyperpage{21--23}, \hyperpage{94}
