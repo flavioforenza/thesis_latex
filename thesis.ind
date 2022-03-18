@@ -10,21 +10,20 @@
 		\hyperpage{118--120}, \hyperpage{129, 130}, 
 		\hyperpage{151}
  \item \small action recognition \hfill \hyperpage{28}
- \item \small Adaptive Cruise Control - ACC \hfill \hyperpage{2}
+ \item \small Adaptive Cruise Control - ACC \hfill \hyperpage{1}
  \item \small advanced driver assistance systems (ADAS) \hfill 
-		\hyperpage{2}, \hyperpage{59}, \hyperpage{154}
+		\hyperpage{1}, \hyperpage{59}, \hyperpage{154}
  \item \small alta automazione \hfill \hyperpage{54}
  \item \small apprendimento \hfill \hyperpage{7--9}, \hyperpage{11, 12}, 
 		\hyperpage{15}, \hyperpage{18}, \hyperpage{22}, 
 		\hyperpage{26}, \hyperpage{30}, \hyperpage{56}, 
 		\hyperpage{75}, \hyperpage{101}, \hyperpage{127}
- \item \small architettura \hfill \hyperpage{1}, \hyperpage{4}, 
-		\hyperpage{17}, \hyperpage{24}, \hyperpage{26}, 
-		\hyperpage{36--39}, \hyperpage{41--43}, \hyperpage{47}, 
-		\hyperpage{55}, \hyperpage{75}, \hyperpage{82}, 
-		\hyperpage{84--86}, \hyperpage{90}, \hyperpage{93, 94}, 
-		\hyperpage{97--99}, \hyperpage{102, 103}, 
-		\hyperpage{127}
+ \item \small architettura \hfill \hyperpage{3, 4}, \hyperpage{17}, 
+		\hyperpage{24}, \hyperpage{26}, \hyperpage{36--39}, 
+		\hyperpage{41--43}, \hyperpage{47}, \hyperpage{55}, 
+		\hyperpage{75}, \hyperpage{82}, \hyperpage{84--86}, 
+		\hyperpage{90}, \hyperpage{93, 94}, \hyperpage{97--99}, 
+		\hyperpage{102, 103}, \hyperpage{127}
  \item \small Artificial Neural Networks (ANN) \hfill \hyperpage{6}
  \item \small aspect ratio \hfill \hyperpage{91}, \hyperpage{94}
  \item \small atrous spatial pyramid pooling (ASPP) \hfill 
@@ -32,7 +31,7 @@
  \item \small automazione completa \hfill \hyperpage{54}
  \item \small automazione condizionata \hfill \hyperpage{53}
  \item \small automazione parziale \hfill \hyperpage{53}
- \item \small autonoma \hfill \hyperpage{2}, \hyperpage{5}, 
+ \item \small autonoma \hfill \hyperpage{1, 2}, \hyperpage{5}, 
 		\hyperpage{27, 28}, \hyperpage{34}, \hyperpage{52}, 
 		\hyperpage{54}, \hyperpage{58, 59}, \hyperpage{62}, 
 		\hyperpage{64}, \hyperpage{66}, \hyperpage{75}, 
@@ -78,12 +77,12 @@
 		\hyperpage{90}, \hyperpage{93, 94}, \hyperpage{103}, 
 		\hyperpage{108}, \hyperpage{119}
  \item \small collision avoidance \hfill \hyperpage{64}
- \item \small compressione \hfill \hyperpage{1}, \hyperpage{68--70}, 
+ \item \small compressione \hfill \hyperpage{3}, \hyperpage{68--70}, 
 		\hyperpage{75}, \hyperpage{81}, \hyperpage{85, 86}, 
 		\hyperpage{94, 95}, \hyperpage{97}, \hyperpage{113}, 
 		\hyperpage{118}, \hyperpage{120}, \hyperpage{129}, 
 		\hyperpage{131, 132}
- \item \small computazionale \hfill \hyperpage{3}, \hyperpage{6}, 
+ \item \small computazionale \hfill \hyperpage{2}, \hyperpage{6}, 
 		\hyperpage{30}, \hyperpage{37}, \hyperpage{48}, 
 		\hyperpage{54}, \hyperpage{57}, \hyperpage{68}, 
 		\hyperpage{75}, \hyperpage{81, 82}, \hyperpage{85}, 
@@ -94,7 +93,7 @@
 		\hyperpage{30}, \hyperpage{57}, \hyperpage{66}, 
 		\hyperpage{107}
  \item \small conditional random field (CRF) \hfill \hyperpage{41}
- \item \small Convolutional Neural Network - CNN \hfill \hyperpage{2}, 
+ \item \small Convolutional Neural Network - CNN \hfill \hyperpage{1}, 
 		\hyperpage{11}, \hyperpage{16--18}, \hyperpage{24}, 
 		\hyperpage{30}, \hyperpage{34}, \hyperpage{37}, 
 		\hyperpage{39}, \hyperpage{63}
@@ -122,7 +121,7 @@
 		\hyperpage{42--44}, \hyperpage{48}
  \item \small deconvoluzione \hfill \hyperpage{37, 38}, \hyperpage{40}, 
 		\hyperpage{43, 44}, \hyperpage{46}
- \item \small deep learning \hfill \hyperpage{2}, \hyperpage{11}, 
+ \item \small deep learning \hfill \hyperpage{1}, \hyperpage{11}, 
 		\hyperpage{27}, \hyperpage{29, 30}, \hyperpage{35}, 
 		\hyperpage{52}, \hyperpage{66}, \hyperpage{69}, 
 		\hyperpage{82}, \hyperpage{129}, \hyperpage{137}, 
@@ -130,8 +129,8 @@
  \item \small depthwise separable convolutions \hfill \hyperpage{86}, 
 		\hyperpage{93}
  \item \small Distilled-Single-Shot-Detector (DSSD) \hfill 
-		\hyperpage{1}, \hyperpage{4}, \hyperpage{93}, 
-		\hyperpage{103}, \hyperpage{153}
+		\hyperpage{3, 4}, \hyperpage{93}, \hyperpage{103}, 
+		\hyperpage{153}
  \item \small double precision \hfill \hyperpage{70}
  \item \small downsampling \hfill \hyperpage{22}, \hyperpage{38}
  \item \small drowsiness detection \hfill \hyperpage{62}
@@ -142,7 +141,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{E}\par\nopagebreak
 
- \item \small embedded \hfill \hyperpage{1}, \hyperpage{68}, 
+ \item \small embedded \hfill \hyperpage{3}, \hyperpage{68}, 
 		\hyperpage{81, 82}, \hyperpage{84}, \hyperpage{95}, 
 		\hyperpage{107}, \hyperpage{132}, \hyperpage{136, 137}, 
 		\hyperpage{144}, \hyperpage{150}, \hyperpage{153}
@@ -152,7 +151,7 @@
  \item \small entropia \hfill \hyperpage{73}, \hyperpage{76}, 
 		\hyperpage{79, 80}
  \item \small errors rates \hfill \hyperpage{101}
- \item \small etichetta \hfill \hyperpage{3}, \hyperpage{11, 12}, 
+ \item \small etichetta \hfill \hyperpage{2}, \hyperpage{11, 12}, 
 		\hyperpage{27}, \hyperpage{30, 31}, \hyperpage{33}, 
 		\hyperpage{35}, \hyperpage{41}, \hyperpage{99}, 
 		\hyperpage{114}, \hyperpage{117}
@@ -233,7 +232,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{I}\par\nopagebreak
 
- \item \small identificare \hfill \hyperpage{3}, \hyperpage{28}, 
+ \item \small identificare \hfill \hyperpage{2}, \hyperpage{28}, 
 		\hyperpage{32}, \hyperpage{60}, \hyperpage{66}, 
 		\hyperpage{90, 91}
  \item \small IEEE-754 \hfill \hyperpage{70}
@@ -244,13 +243,13 @@
  \item \small image segmentation \hfill \hyperpage{28}, \hyperpage{34}, 
 		\hyperpage{50}
  \item \small inertial measurement unit (IMU) \hfill \hyperpage{57}
- \item \small inferenza \hfill \hyperpage{1, 2}, \hyperpage{70--72}, 
+ \item \small inferenza \hfill \hyperpage{2, 3}, \hyperpage{70--72}, 
 		\hyperpage{82}, \hyperpage{85}, \hyperpage{95}, 
 		\hyperpage{97}, \hyperpage{104, 105}, 
 		\hyperpage{107--109}, \hyperpage{111--113}, 
 		\hyperpage{129}, \hyperpage{135}, \hyperpage{137}, 
 		\hyperpage{142}, \hyperpage{146}, \hyperpage{148}
- \item \small intelligenza \hfill \hyperpage{2}, \hyperpage{38}, 
+ \item \small intelligenza \hfill \hyperpage{1, 2}, \hyperpage{38}, 
 		\hyperpage{52}, \hyperpage{58}, \hyperpage{66}, 
 		\hyperpage{153}
  \item \small intersection over union (IoU) \hfill \hyperpage{33}, 
@@ -267,7 +266,7 @@
  \item \small kernel \hfill \hyperpage{19}, \hyperpage{21, 22}, 
 		\hyperpage{46}, \hyperpage{48}, \hyperpage{74}, 
 		\hyperpage{94}, \hyperpage{98}, \hyperpage{106, 107}
- \item \small Knowledge Distillation \hfill \hyperpage{1}, 
+ \item \small Knowledge Distillation \hfill \hyperpage{3}, 
 		\hyperpage{69}, \hyperpage{75, 76}, \hyperpage{79}, 
 		\hyperpage{97}, \hyperpage{100}, \hyperpage{119, 120}, 
 		\hyperpage{131}, \hyperpage{133}, \hyperpage{150, 151}, 
@@ -288,7 +287,7 @@
 		\hyperpage{105, 106}
  \item \small ligth detector and range (LIDAR) \hfill \hyperpage{55}, 
 		\hyperpage{58}
- \item \small localizzazione \hfill \hyperpage{3}, \hyperpage{38}, 
+ \item \small localizzazione \hfill \hyperpage{2}, \hyperpage{38}, 
 		\hyperpage{46, 47}, \hyperpage{52}, \hyperpage{66}, 
 		\hyperpage{91}
  \item \small logits \hfill \hyperpage{76, 77}, \hyperpage{79}
@@ -308,10 +307,10 @@
 		\hyperpage{99}, \hyperpage{120}, \hyperpage{131}, 
 		\hyperpage{134}
  \item \small model fitting \hfill \hyperpage{56}
- \item \small modello \hfill \hyperpage{1}, \hyperpage{3, 4}, 
-		\hyperpage{6, 7}, \hyperpage{9}, \hyperpage{11--13}, 
-		\hyperpage{22}, \hyperpage{30}, \hyperpage{32, 33}, 
-		\hyperpage{36}, \hyperpage{39--41}, \hyperpage{46, 47}, 
+ \item \small modello \hfill \hyperpage{2--4}, \hyperpage{6, 7}, 
+		\hyperpage{9}, \hyperpage{11--13}, \hyperpage{22}, 
+		\hyperpage{30}, \hyperpage{32, 33}, \hyperpage{36}, 
+		\hyperpage{39--41}, \hyperpage{46, 47}, 
 		\hyperpage{50--52}, \hyperpage{54, 55}, 
 		\hyperpage{63, 64}, \hyperpage{68, 69}, 
 		\hyperpage{71--73}, \hyperpage{75--80}, \hyperpage{88}, 
@@ -330,7 +329,7 @@
  \item \small non-maximum suppression (NMS) \hfill \hyperpage{90}
  \item \small norma L1 \hfill \hyperpage{73, 74}, \hyperpage{96}
  \item \small norma L2 \hfill \hyperpage{45}, \hyperpage{74}
- \item \small NVidia Jetson Nano \hfill \hyperpage{2}, 
+ \item \small NVidia Jetson Nano \hfill \hyperpage{3}, 
 		\hyperpage{81, 82}, \hyperpage{84, 85}, \hyperpage{95}, 
 		\hyperpage{107}, \hyperpage{136}, \hyperpage{142}, 
 		\hyperpage{144}
@@ -340,13 +339,13 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{O}\par\nopagebreak
 
- \item \small object detection \hfill \hyperpage{1}, \hyperpage{3}, 
+ \item \small object detection \hfill \hyperpage{2, 3}, 
 		\hyperpage{27--30}, \hyperpage{32}, \hyperpage{34, 35}, 
 		\hyperpage{50--52}, \hyperpage{58}, \hyperpage{81}, 
 		\hyperpage{85}, \hyperpage{93}, \hyperpage{108}, 
 		\hyperpage{113, 114}, \hyperpage{117}, \hyperpage{119}, 
 		\hyperpage{136, 137}, \hyperpage{150}
- \item \small ottimizzazione \hfill \hyperpage{1}, \hyperpage{32}, 
+ \item \small ottimizzazione \hfill \hyperpage{3}, \hyperpage{32}, 
 		\hyperpage{34}, \hyperpage{68, 69}, \hyperpage{75}, 
 		\hyperpage{85, 86}, \hyperpage{94, 95}, \hyperpage{97}, 
 		\hyperpage{105--107}, \hyperpage{118}, \hyperpage{120}
@@ -366,7 +365,7 @@
  \item \small pedestrian detection \hfill \hyperpage{59}
  \item \small pedestrian protection systems (PPS) \hfill \hyperpage{59}
  \item \small perclos \hfill \hyperpage{63}
- \item \small performance \hfill \hyperpage{1}, \hyperpage{12}, 
+ \item \small performance \hfill \hyperpage{3}, \hyperpage{12}, 
 		\hyperpage{47}, \hyperpage{57}, \hyperpage{69--72}, 
 		\hyperpage{74}, \hyperpage{80}, \hyperpage{84, 85}, 
 		\hyperpage{111--113}, \hyperpage{134}, 
@@ -379,7 +378,7 @@
  \item \small pooling \hfill \hyperpage{18}, \hyperpage{22, 23}, 
 		\hyperpage{37--40}, \hyperpage{43}, \hyperpage{45, 46}, 
 		\hyperpage{48}, \hyperpage{50}
- \item \small Pruning \hfill \hyperpage{1}, \hyperpage{69}, 
+ \item \small Pruning \hfill \hyperpage{3}, \hyperpage{69}, 
 		\hyperpage{72--75}, \hyperpage{95--97}, 
 		\hyperpage{154}
  \item \small pyramid scene parsing network (PSPNet) \hfill 
@@ -399,7 +398,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{R}\par\nopagebreak
 
- \item \small radar \hfill \hyperpage{3}
+ \item \small radar \hfill \hyperpage{2}
  \item \small Recurrent Neural Network (RNN) \hfill \hyperpage{24--26}, 
 		\hyperpage{65}
  \item \small region of interest (ROI) \hfill \hyperpage{56}, 
@@ -408,12 +407,12 @@
 		\hyperpage{103}, \hyperpage{119}
  \item \small resolution multiplier \hfill \hyperpage{88}, 
 		\hyperpage{99}
- \item \small rilascio \hfill \hyperpage{3}, \hyperpage{82}, 
+ \item \small rilascio \hfill \hyperpage{2}, \hyperpage{82}, 
 		\hyperpage{97}
- \item \small rilevamento \hfill \hyperpage{3}, \hyperpage{28}, 
+ \item \small rilevamento \hfill \hyperpage{2}, \hyperpage{28}, 
 		\hyperpage{30}, \hyperpage{54--59}, \hyperpage{62--64}, 
 		\hyperpage{67}, \hyperpage{108}, \hyperpage{154}
- \item \small risorsa \hfill \hyperpage{3}, \hyperpage{32}, 
+ \item \small risorsa \hfill \hyperpage{2}, \hyperpage{32}, 
 		\hyperpage{75}, \hyperpage{81}, \hyperpage{85}, 
 		\hyperpage{103}, \hyperpage{118}, \hyperpage{132}, 
 		\hyperpage{146}, \hyperpage{153}
@@ -424,13 +423,13 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{S}\par\nopagebreak
 
- \item \small semantic segmentation \hfill \hyperpage{3}, 
+ \item \small semantic segmentation \hfill \hyperpage{2}, 
 		\hyperpage{28}, \hyperpage{35}, \hyperpage{51}, 
 		\hyperpage{81}, \hyperpage{85}, \hyperpage{108, 109}, 
 		\hyperpage{114}, \hyperpage{136, 137}
  \item \small sinapsi \hfill \hyperpage{5, 6}
  \item \small single precision \hfill \hyperpage{70}
- \item \small Single Shot Detector (SSD) \hfill \hyperpage{1}, 
+ \item \small Single Shot Detector (SSD) \hfill \hyperpage{3}, 
 		\hyperpage{85}, \hyperpage{90, 91}, \hyperpage{93}, 
 		\hyperpage{99}, \hyperpage{102}, \hyperpage{120}, 
 		\hyperpage{127}, \hyperpage{130}, \hyperpage{146}
@@ -441,11 +440,11 @@
  \item \small sparsità \hfill \hyperpage{72, 73}, \hyperpage{75}, 
 		\hyperpage{96, 97}, \hyperpage{119, 120}, 
 		\hyperpage{130}, \hyperpage{133}
- \item \small SSD-MobileNet-V1 \hfill \hyperpage{1}, \hyperpage{93}, 
+ \item \small SSD-MobileNet-V1 \hfill \hyperpage{3}, \hyperpage{93}, 
 		\hyperpage{95}, \hyperpage{119}, \hyperpage{131}, 
 		\hyperpage{146}, \hyperpage{150}
  \item \small static quantization \hfill \hyperpage{71}
- \item \small stereo-camera \hfill \hyperpage{3}, \hyperpage{63}
+ \item \small stereo-camera \hfill \hyperpage{2}, \hyperpage{63}
  \item \small stride \hfill \hyperpage{21--23}, \hyperpage{94}
  \item \small subsampling \hfill \hyperpage{43}
 
@@ -454,7 +453,7 @@
 \centering\large\sffamily\bfseries%
 \noindent\textbf{T}\par\nopagebreak
 
- \item \small telecamera \hfill \hyperpage{3}, \hyperpage{57--60}
+ \item \small telecamera \hfill \hyperpage{2}, \hyperpage{57--60}
  \item \small temperatura \hfill \hyperpage{77--79}, 
 		\hyperpage{100--102}, \hyperpage{120}, \hyperpage{127}, 
 		\hyperpage{151}
@@ -485,7 +484,7 @@
  \item \small variabilità intra-classe \hfill \hyperpage{31}
  \item \small vehicle detection \hfill \hyperpage{57}
  \item \small vero positivo \hfill \hyperpage{50}
- \item \small visione artificiale \hfill \hyperpage{3}, \hyperpage{34}, 
+ \item \small visione artificiale \hfill \hyperpage{2}, \hyperpage{34}, 
 		\hyperpage{81, 82}, \hyperpage{110}
  \item \small visual relationship detection \hfill \hyperpage{28}
 

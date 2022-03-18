@@ -6,31 +6,7 @@
 \chapter{INTRODUZIONE}
 \label{Capitolo1}
 \thispagestyle{empty}
-
-\section{Lavoro di tesi}
-Lo studio della tesi si è concentrato sulla ricerca e sull'implementazione 
-di varie tecniche di compressione\index{compressione} e, allo stesso tempo, di ottimizzazione\index{ottimizzazione}. 
-Prendendo in considerazione il modello\index{modello} SSD-MobileNet-V1\index{SSD-MobileNet-V1}, ampiamente 
-conosciuto alla stato dell'arte, lo scopo è quello di creare una versione 
-personalizzata, ad alte prestazioni, derivante dall'impiego di due tecniche 
-di compressione meglio conosciute come \emph{Pruning (Potatura)}\index{Pruning} e \emph{Knowledge 
-Distillation (Conoscenza Distillata)}\index{Knowledge Distillation}. A causa della sua maturità 
-raggiunta, solo tramite quest'ultima è stato possibile concentrare la maggior parte 
-degli sforzi utili a ricavare il modello\index{modello} finale che, tramite un confronto delle 
-performance\index{performance} su tre diverse architetture\index{architettura}, ha permesso di raggiungere un 
-rendimento migliore rispetto alla sua versione originale. Dopo aver generato 
-un nuovo modello\index{modello}, un ulteriore passaggio fondamentale riguarda la 
-sua integrazione in una nota architettura adibita all'attività di object detection\index{object detection}: 
-la \emph{Single-Shot-Detector (SSD)}\index{Single Shot Detector (SSD)}. Questa fusione ha dato vita al modello\index{modello} proposto 
-intitolato \emph{Distilled-Single-Shot-Detector (DSSD)}\index{Distilled-Single-Shot-Detector (DSSD)}. Le capacità di 
-questo modello\index{modello} puntano ad ottenere prestazioni elevate, in termini di velocità di 
-inferenza\index{inferenza}, ad una dimensione notevolmente ridotta. Questi benefici, oltre a 
-consentire un risparmio energetico, trovano un'integrazione nei dispositivi 
-di tipo embedded\index{embedded}. Tra le tre architetture hardware utilizzate, compare 
-proprio una scheda embedded chiamata \emph{NVidia Jetson Nano}\index{NVidia Jetson Nano}. L'incremento 
-delle prestazioni del modello proposto, su tale architettura, rappresenta 
-il raggiungimento dell'obiettivo di tesi. Ovviamente, anche sulle restanti 
-architetture dovevano verificarsi tali tipi di miglioramenti. L'area di ricerca inerente lo sviluppo di Sistemi Avanzati di Assistenza 
+L'area di ricerca inerente lo sviluppo di Sistemi Avanzati di Assistenza 
 alla Guida (\emph{Advanced Driver Assistance Systems - ADAS})\index{advanced driver assistance systems (ADAS)} si sta diffondendo molto velocemente. 
 A causa dell'aumento del numero di automobili, crescono in contemporanea 
 il numero di incidenti stradali che ad oggi rappresentano un'importante fonte 
@@ -78,6 +54,31 @@ disponibilità energetica proveniente del proprio vano batteria, allora le sfide
 da affrontare sono davvero ardue. Bisogna quindi trovare un metodo che 
 ottimizzi il modello\index{modello} ospitato, affinché abbia un basso impatto sulle risorse\index{risorsa} 
 computazionali\index{computazionale} e energetiche preservando al contempo la sua accuratezza.
+
+\section{Lavoro di tesi}
+Lo studio della tesi si è concentrato sulla ricerca e sull'implementazione 
+di varie tecniche di compressione\index{compressione} e, allo stesso tempo, di ottimizzazione\index{ottimizzazione}. 
+Prendendo in considerazione il modello\index{modello} SSD-MobileNet-V1\index{SSD-MobileNet-V1}, ampiamente 
+conosciuto alla stato dell'arte, lo scopo è quello di creare una versione 
+personalizzata, ad alte prestazioni, derivante dall'impiego di due tecniche 
+di compressione meglio conosciute come \emph{Pruning (Potatura)}\index{Pruning} e \emph{Knowledge 
+Distillation (Conoscenza Distillata)}\index{Knowledge Distillation}. A causa della sua maturità 
+raggiunta, solo tramite quest'ultima è stato possibile concentrare la maggior parte 
+degli sforzi utili a ricavare il modello\index{modello} finale che, tramite un confronto delle 
+performance\index{performance} su tre diverse architetture\index{architettura}, ha permesso di raggiungere un 
+rendimento migliore rispetto alla sua versione originale. Dopo aver generato 
+un nuovo modello\index{modello}, un ulteriore passaggio fondamentale riguarda la 
+sua integrazione in una nota architettura adibita all'attività di object detection\index{object detection}: 
+la \emph{Single-Shot-Detector (SSD)}\index{Single Shot Detector (SSD)}. Questa fusione ha dato vita al modello\index{modello} proposto 
+intitolato \emph{Distilled-Single-Shot-Detector (DSSD)}\index{Distilled-Single-Shot-Detector (DSSD)}. Le capacità di 
+questo modello\index{modello} puntano ad ottenere prestazioni elevate, in termini di velocità di 
+inferenza\index{inferenza}, ad una dimensione notevolmente ridotta. Questi benefici, oltre a 
+consentire un risparmio energetico, trovano un'integrazione nei dispositivi 
+di tipo embedded\index{embedded}. Tra le tre architetture hardware utilizzate, compare 
+proprio una scheda embedded chiamata \emph{NVidia Jetson Nano}\index{NVidia Jetson Nano}. L'incremento 
+delle prestazioni del modello proposto, su tale architettura, rappresenta 
+il raggiungimento dell'obiettivo di tesi. Ovviamente, anche sulle restanti 
+architetture dovevano verificarsi tali tipi di miglioramenti. 
 
 \section{Struttura della tesi}
 La struttura dell'elaborato di tesi è organizzata come segue. Nel Capitolo 

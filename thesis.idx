@@ -1,46 +1,46 @@
-\indexentry{compressione|hyperpage}{1}
-\indexentry{ottimizzazione|hyperpage}{1}
-\indexentry{modello|hyperpage}{1}
-\indexentry{SSD-MobileNet-V1|hyperpage}{1}
-\indexentry{Pruning|hyperpage}{1}
-\indexentry{Knowledge Distillation|hyperpage}{1}
-\indexentry{modello|hyperpage}{1}
-\indexentry{performance|hyperpage}{1}
-\indexentry{architettura|hyperpage}{1}
-\indexentry{modello|hyperpage}{1}
-\indexentry{object detection|hyperpage}{1}
-\indexentry{Single Shot Detector (SSD)|hyperpage}{1}
-\indexentry{modello|hyperpage}{1}
-\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{1}
-\indexentry{modello|hyperpage}{1}
-\indexentry{inferenza|hyperpage}{1}
-\indexentry{embedded|hyperpage}{1}
-\indexentry{NVidia Jetson Nano|hyperpage}{2}
-\indexentry{advanced driver assistance systems (ADAS)|hyperpage}{2}
-\indexentry{intelligenza|hyperpage}{2}
-\indexentry{Adaptive Cruise Control - ACC|hyperpage}{2}
-\indexentry{Convolutional Neural Network - CNN|hyperpage}{2}
-\indexentry{autonoma|hyperpage}{2}
-\indexentry{deep learning|hyperpage}{2}
+\indexentry{advanced driver assistance systems (ADAS)|hyperpage}{1}
+\indexentry{intelligenza|hyperpage}{1}
+\indexentry{Adaptive Cruise Control - ACC|hyperpage}{1}
+\indexentry{Convolutional Neural Network - CNN|hyperpage}{1}
+\indexentry{autonoma|hyperpage}{1}
+\indexentry{deep learning|hyperpage}{1}
 \indexentry{inferenza|hyperpage}{2}
 \indexentry{intelligenza|hyperpage}{2}
 \indexentry{autonoma|hyperpage}{2}
-\indexentry{visione artificiale|hyperpage}{3}
+\indexentry{visione artificiale|hyperpage}{2}
+\indexentry{object detection|hyperpage}{2}
+\indexentry{semantic segmentation|hyperpage}{2}
+\indexentry{identificare|hyperpage}{2}
+\indexentry{localizzazione|hyperpage}{2}
+\indexentry{etichetta|hyperpage}{2}
+\indexentry{rilevamento|hyperpage}{2}
+\indexentry{telecamera|hyperpage}{2}
+\indexentry{stereo-camera|hyperpage}{2}
+\indexentry{radar|hyperpage}{2}
+\indexentry{rilascio|hyperpage}{2}
+\indexentry{modello|hyperpage}{2}
+\indexentry{computazionale|hyperpage}{2}
+\indexentry{modello|hyperpage}{2}
+\indexentry{risorsa|hyperpage}{2}
+\indexentry{computazionale|hyperpage}{2}
+\indexentry{compressione|hyperpage}{3}
+\indexentry{ottimizzazione|hyperpage}{3}
+\indexentry{modello|hyperpage}{3}
+\indexentry{SSD-MobileNet-V1|hyperpage}{3}
+\indexentry{Pruning|hyperpage}{3}
+\indexentry{Knowledge Distillation|hyperpage}{3}
+\indexentry{modello|hyperpage}{3}
+\indexentry{performance|hyperpage}{3}
+\indexentry{architettura|hyperpage}{3}
+\indexentry{modello|hyperpage}{3}
 \indexentry{object detection|hyperpage}{3}
-\indexentry{semantic segmentation|hyperpage}{3}
-\indexentry{identificare|hyperpage}{3}
-\indexentry{localizzazione|hyperpage}{3}
-\indexentry{etichetta|hyperpage}{3}
-\indexentry{rilevamento|hyperpage}{3}
-\indexentry{telecamera|hyperpage}{3}
-\indexentry{stereo-camera|hyperpage}{3}
-\indexentry{radar|hyperpage}{3}
-\indexentry{rilascio|hyperpage}{3}
+\indexentry{Single Shot Detector (SSD)|hyperpage}{3}
 \indexentry{modello|hyperpage}{3}
-\indexentry{computazionale|hyperpage}{3}
+\indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{3}
 \indexentry{modello|hyperpage}{3}
-\indexentry{risorsa|hyperpage}{3}
-\indexentry{computazionale|hyperpage}{3}
+\indexentry{inferenza|hyperpage}{3}
+\indexentry{embedded|hyperpage}{3}
+\indexentry{NVidia Jetson Nano|hyperpage}{3}
 \indexentry{modello|hyperpage}{4}
 \indexentry{Distilled-Single-Shot-Detector (DSSD)|hyperpage}{4}
 \indexentry{modello|hyperpage}{4}

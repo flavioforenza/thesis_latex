@@ -68,27 +68,12 @@
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
 
-%\usepackage[acronym]{glossaries}
-% Generate the glossary
-%\makeglossaries
-
-%\newglossaryentry{glsy}
-%{
-%    name=glossary,
-%    description={Acronyms and terms which are generally unknown or new to common readers.}
-%}
-%\newacronym{kd}{KD}{Knowledge Distillation}
-
 %\usepackage[acronym]{glossaries}   % glossario
                                         % per includerlo nel documento bisogna:
                                         % 1. compilare una prima volta tesi.tex;
                                         % 2. eseguire: makeindex -s tesi.ist -t tesi.glg -o tesi.gls tesi.glo
                                         % 3. eseguire: makeindex -s tesi.ist -t tesi.alg -o tesi.acr tesi.acn
                                         % 4. compilare due volte tesi.tex.
-%\makeglossaries
-%\newacronym{gcd}{GCD}{Greatest Common Divisor}
-%\setcounter{tocdepth}{3}
-%\setcounter{secnumdepth}{3}
 
 \captionsetup[figure]{labelsep=period}
 \captionsetup[subfigure]{labelformat=simple} % default is 'parens'
@@ -117,9 +102,6 @@
 \newpage
 \input{colophon.tex}
 \input{externals/quote.tex}
-%\input{}
-%\input{}
-%\input{}
 \cleardoublepage
 
 \renewcommand{\contentsname}{\centering Indice}
@@ -132,12 +114,6 @@
 \input{chapters/3 Methodology.tex}             
 \input{chapters/4 Experimental results.tex}             
 \input{chapters/5 Conclusions.tex} 
-
-
-%\section{Acronimi}
-%\begin{acronym}
-%  \acro{KD}{Knowledge Distillation}
-%\end{acronym}
 
 \afterpage{\blankpage}
 
