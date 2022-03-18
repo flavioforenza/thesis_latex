@@ -1,0 +1,76 @@
+\documentclass[10pt]{beamer}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{bibentry}
+\usepackage{biblatex}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage[font=scriptsize]{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[ruled]{algorithm2e}
+\usepackage{algorithmic,float}
+\usepackage{dirtytalk}
+\usepackage{marginnote}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+
+%\usepackage{garamond}
+
+\usetheme{Darmstadt}
+
+\SetKwInOut{Parameter}{parameter}
+
+\captionsetup[figure]{labelsep=period}
+\captionsetup[subfigure]{labelformat=simple}
+\renewcommand\thesubfigure{\thefigure.\alph{subfigure}.}
+
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[number]
+\bibliography{Bibliography}
+
+\graphicspath{{/Users/flavioforenza/Desktop/latex/images/}}
+\setbeamertemplate{footline}[frame number]
+
+%\title[short]{UNIVERSITÀ DEGLI STUDI DI MILANO}
+\author[Flavio Forenza]{\includegraphics[scale = 0.05]{unimilogo.png}\\ 
+                                        \vspace{0.1cm}
+                                        \fontfamily{cmr}\selectfont {\bfseries{UNIVERSITÀ DEGLI STUDI DI MILANO}}\\
+                                        \fontfamily{cmr}\selectfont \emph{Laurea magistrale in Informatica}\\
+                                        \vspace{-1cm}
+                                        %\emph{Laureando:}\\
+                                        %\centering{Flavio Forenza} 
+                                        }
+\title[]{Distilled-Single-Shot-Detector (DSSD): un nuovo modello di guida autonoma ad alta inferenza}
+\date{\tiny Aprile 2022}
+
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \begin{flushleft}
+                \emph{Relatore:}\\
+                Prof. Vincenzo Piuri\\
+                \emph{Correlatore:}\\
+                \small Dott. Angelo Genovese
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \begin{flushright}
+                \emph{Laureando:}\\
+                Flavio Forenza
+            \end{flushright}
+        \end{minipage}
+    \end{minipage}
+\end{frame}
+
+\logo{\includegraphics[width=\linewidth]{unimilogo.png}}
+
+%\input{slides_paper.tex}
+
+\end{document}
