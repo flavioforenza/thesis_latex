@@ -2,8 +2,10 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{bibentry}
-\usepackage{biblatex}
-\usepackage{multirow}
+\usepackage[style=authortitle,
+            autocite=footnote,
+            backend=biber,
+           ]{biblatex}\usepackage{multirow}
 \usepackage{adjustbox}
 \usepackage[font=scriptsize]{caption}
 \usepackage{subcaption}
@@ -20,6 +22,14 @@
 \usepackage{xcolor}
 \usepackage{wrapfig}
 \usepackage{tabularx}
+
+\renewbibmacro*{cite:title}{%
+  \printtext[bibhyperref]{%
+    \printfield[citetitle]{labeltitle}%
+    \setunit{\space}%
+    \printtext[parens]{\printdate}%
+  }%
+}
 
 
 
@@ -84,5 +94,8 @@
 \input{frames/crisis_semi.tex}
 \input{frames/thesis_job.tex}
 \input{frames/architectures.tex}
+\input{frames/dataset.tex}
+\input{frames/compression_tech.tex}
+
 
 \end{document}
