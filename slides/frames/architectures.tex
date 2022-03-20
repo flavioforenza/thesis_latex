@@ -1,5 +1,7 @@
 \begin{frame}{ARCHITETTURE DI RIFERIMENTO}
+
     Tutti i test sono stati eseguiti su tre architetture differenti in termini di performance, dimensioni e costo.
+    
     \begin{minipage}{\linewidth}
         \hspace{-1cm}
         \begin{minipage}{0.45\linewidth}
@@ -19,31 +21,33 @@
                 \includegraphics[width = 0.7\linewidth]{MacBook-Pro-16.png}
                 \caption{Macbook Pro}
             \end{figure}
-        \end{minipage}
-        \begin{minipage}{0.65\linewidth}
+        \end{minipage}%
+        \begin{minipage}{0.45\textwidth}
             \begin{table}
-                %\renewcommand{\baselinestretch}{1}
-                \centering
-                \begin{adjustbox}{max width=\textwidth}
-                {\Huge
-                \begin{tabular}{|c||c|c|c||}
+            \centering
+                \begin{tabularx}{1.55\linewidth}{|m{1.6cm}||X|X|X||}
                     \hline
-                    \multirow{2}{*}{\bfseries{ARCHITETTURE}} & \multicolumn{3}{c||}{\bfseries{SPECIFICHE TECNICHE}}\\            & \bfseries{CPU} & \bfseries{GPU} & \bfseries{RAM}\\
+                    \multirow{2}{\linewidth}{\tiny \centering{\bfseries{ARCHITETTURE}}} & \multicolumn{3}{c||}{\bfseries{SPECIFICHE TECNICHE}}\\            &  \centering{\bfseries{CPU}} & \centering{\bfseries{GPU}} & \bfseries{\ \ RAM}\\
                     \hline
                     \hline
-                    {\bfseries{JETSON NANO}} & 4 $\times$ ARM Cortex-A57 @ 1.43 GHz & NVidia Maxwell @ 921 MHz & 4 GB 1600 MHz LPDDR4\\
+                    {\multirow{4}{\linewidth}{\centering\bfseries{JETSON NANO}}} & \multirow{4}{\linewidth}{\centering{\scriptsize 4$\times$ARM Cortex-A57 @ 1.43GHz}} & \multirow{4}{\linewidth}{\centering{\scriptsize  NVidia Maxwell @ 921MHz}} & \multirow{4}{\linewidth}{\centering{\scriptsize 4GB 1600MHz LPDDR4}}\\
+                    & & & \\
+                    & & & \\
+                    & & & \\
                     \hline
-                    {\bfseries{MACBOOK PRO}} & 8 $\times$ Intel Core i9 @ 2.3 GHz & AMD Radeon Pro 5500M @ 8 GB & 32 GB 2667 MHz DDR4\\
+                    {\multirow{4}{\linewidth}{\centering{\bfseries{COLAB}}}} &  \multirow{4}{\linewidth}{\centering{\scriptsize 2$\times$Intel(R) Xeon(R) @ 2.20GHz}} &  \multirow{4}{\linewidth}{\centering{\scriptsize NVidia Tesla P-100 @ 16GB}} &  \multirow{4}{\linewidth}{\centering{\scriptsize 27GB DDR4}}\\
+                    & & & \\
+                    & & & \\
+                    & & & \\
                     \hline 
-                    {\bfseries{COLAB}} & 2 $\times$ Intel(R) Xeon(R) @ 2.20 GHz & NVidia Tesla P-100 @ 16 GB & 27 GB DDR4\\
+                    { \multirow{4}{\linewidth}{\centering{\bfseries{\footnotesize MACBOOK PRO}}}} & \multirow{4}{\linewidth}{\centering{\scriptsize 8$\times$Intel Core i9 @ 2.3GHz}} &  \multirow{4}{\linewidth}{\centering{\scriptsize AMD Radeon Pro 5500M @ 8GB}} &  \multirow{4}{\linewidth}{\centering{\scriptsize  32GB 2667MHz DDR4}}\\
+                    & & & \\
+                    & & & \\
+                    & & & \\
                     \hline
-                \end{tabular}
-                }%
-                \end{adjustbox}
-                \vspace{0.5cm}
-                \caption{Specifiche tecniche delle tre architetture utilizzate.}
-                \label{specifiche}
+                \end{tabularx}
             \end{table}
+            \vspace{0.5cm}
         \end{minipage}
     \end{minipage}
 \end{frame}
