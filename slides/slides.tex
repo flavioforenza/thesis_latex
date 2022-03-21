@@ -1,11 +1,12 @@
-\documentclass[10pt]{beamer}
+\documentclass[10pt, xcolor={dvipsnames}]{beamer}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{bibentry}
+\usepackage{booktabs}
 \usepackage[style=authortitle,
             autocite=footnote,
             backend=biber,
-           ]{biblatex}\usepackage{multirow}
+           ]{biblatex}
+\usepackage{multirow}
 \usepackage{adjustbox}
 \usepackage[font=scriptsize]{caption}
 \usepackage{subcaption}
@@ -19,17 +20,13 @@
 \usepackage{transparent}
 \usepackage{eso-pic}
 \usepackage{lipsum}
-\usepackage{xcolor}
 \usepackage{wrapfig}
 \usepackage{tabularx}
+\usepackage{soul}
+\usepackage{array}
 
-\renewbibmacro*{cite:title}{%
-  \printtext[bibhyperref]{%
-    \printfield[citetitle]{labeltitle}%
-    \setunit{\space}%
-    \printtext[parens]{\printdate}%
-  }%
-}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
 
 
 

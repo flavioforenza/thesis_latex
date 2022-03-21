@@ -1,8 +1,8 @@
 \begin{frame}{PRUNING}
     \begin{figure}
-        \includegraphics[width = 0.5\linewidth]{pruning no name.png}
+        \includegraphics[width = 0.4\linewidth]{pruning no name.png}
     \end{figure}
-    Mediante un indice di {\bfseries{\emph{sparsità}}}, è in grado di azzerare e rimuovere (teoricamente) determinati elementi presenti nella rete.
+    Mediante un indice di {\bfseries{\emph{sparsità}}}, è in grado di azzerare determinati elementi presenti nella rete.
     Il modello su cui è stata applicata tale tecnica è il \emph{Single-Shot-Detector (SSD)}.
     Esistono tre tipi di pruning:
     \begin{enumerate}
@@ -10,5 +10,6 @@
         \item {\bfseries{\emph{Unstructured}}}: rimuove i parametri (es: pesi e bias) in un layer;
         \item {\bfseries{\emph{Global-Unstructured}}}: rimuove i parametri su più layer.
     \end{enumerate}
-    Il framework utilizzato, avente già le API dedicate, è PyTorch.
+    Il framework utilizzato, avente già le API dedicate, è PyTorch.\\
+    {\textcolor{red}{\textbf{\ul{Problema}}}}: {\bfseries{Non esiste un framework in grado di eliminare le parti azzerate (TensorFlow compreso)}}.
 \end{frame}

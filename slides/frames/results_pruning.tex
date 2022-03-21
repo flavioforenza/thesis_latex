@@ -1,3 +1,43 @@
 \begin{frame}{RISULTATI SPERIMENTALI - PRUNING}
-    
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{minipage}{0.45\linewidth}
+            \begin{enumerate}
+                \item Buona velocità di inferenza
+                \item Risparmio energetico
+                \item Minor occupazione della memoria
+                \item Buona accuratezza
+                \item Gestione ottimizzata delle risorse HW/SW
+            \end{enumerate}
+        \end{minipage}
+        \begin{minipage}{0.45\linewidth}
+            \begin{center}
+                \resizebox{1.2\textwidth}{!}{%
+                  \begin{tabular}{|M{2cm}||M{2cm}|M{2cm}||M{2cm}|M{2cm}||M{2cm}|M{2cm}|} 
+                    \toprule 
+                    \multirow{2}{*}{\bfseries{SPARSITY}} & \multicolumn{2}{c||}{\bfseries{G-LOSS}} & \multicolumn{2}{c||}{\bfseries{R-LOSS}} & \multicolumn{2}{c|}{\bfseries{C-LOSS}}\\  & {\bfseries{L}} & \bfseries{D}  & \bfseries{L} & \bfseries{D} & \bfseries{L} & \bfseries{D} \\                     
+                    \hline
+                    \midrule 
+                    {\bfseries{0\%}} & 3.20 & / & 1.03 & / & 2.17 & / \\
+                    \hline
+                    {\bfseries{20\%}} & 3.20 & \color{Green}{{\bfseries{0\%}}} & 1.03 & \color{Green}{{\bfseries{0\%}}} & 2.17 & \color{Green}{{\bfseries{0\%}}}\\
+                    \hline 
+                    {\bfseries{40\%}} & 3.20 & \color{Green}{{\bfseries{0\%}}} & 1.03 & \color{Green}{{\bfseries{0\%}}} & 2.17 & \color{Green}{{\bfseries{0\%}}}\\
+                    \hline
+                    {\bfseries{60\%}} & 3.20 & \color{Green}{{\bfseries{0\%}}} & 1.06 & \color{Green}{{\bfseries{0.27\%}}} & 2.16 & \color{Green}{{\bfseries{-0.18\%}}}\\
+                    \hline
+                    \hline
+                    {\bfseries{80\%}} & 4.15 & \color{red}{{\bfseries{29.76\%}}} & 1.27 & \color{red}{{\bfseries{23.16\%}}} & 2.88 & \color{red}{{\bfseries{32.90\%}}}\\
+                    \hline
+                    {\bfseries{90\%}} & 7.07 & \color{red}{{\bfseries{120.84\%}}} & 2.17 & \color{red}{{\bfseries{110.76\%}}} & 4.89 & \color{red}{{\bfseries{125.63\%}}}\\
+                    \hline
+                    {\bfseries{100\%}} & 10.95 & \color{red}{{\bfseries{164.09\%}}} & 2.72 & \color{red}{{\bfseries{307.68\%}}} & 8.23 & \color{red}{{\bfseries{279.06\%}}}\\
+                    \hline 
+                    \bottomrule 
+                    \multicolumn{7}{l}{\textbf{Table 3.} All possible regressions of harm, unfairness, and disgust predicting punishment} \\ 
+                 \end{tabular}}
+            \end{center} 
+        \end{minipage}
+    \end{minipage}
+
 \end{frame}
