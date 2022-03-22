@@ -1,36 +1,45 @@
-\subsection{Steps 1, 2, 3 e 4}
-\begin{frame}{MODELLI INSEGNANTE E STUDENTI}
+\begin{subsection}{Steps 1, 2, 3 e 4}
+  \begin{frame}{MODELLI INSEGNANTE E STUDENTI}
     \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-    Tutti i modelli rappresentano la rete MobileNet-V1 in dimensioni originali ($\alpha=1$) e ridotte ($\alpha=0.25$). 
-    Per $T>1$, il modello distillato con temperatura $T=3$ è preferito in quanto ha la più alta accuratezza interposta tra quella dei modelli insegnante e studente base.
-    \begin{center}
-        \resizebox{0.5\textwidth}{!}{%
-          \begin{tabular}{|M{1.7cm}||M{1.3cm}|M{1.3cm}||M{1.3cm}|M{1.3cm}|} 
-            \multicolumn{5}{c}{\textbf{Tabella: } Accuratezze modelli a temperatura T variabile.} \\ 
-            \hline
-            \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ACCURATEZZA}}\\  & \bfseries{$\alpha$}\footnotemark[1] & \bfseries{T}  & \bfseries{TOP-1} & \bfseries{TOP-5} \\
-            \hline
-            \hline
-            {\multirow{2}{*}{\bfseries{Insegnante}}} & \multirow{2}{*}{1} & \multirow{2}{*}{/} & \multirow{2}{*}{\color{blue}{\bfseries{53.42}}} & \multirow{2}{*}{\color{blue}{\bfseries{98.63}}}\\
-            & & & & \\
-            \hline
-            {\bfseries{Studente base}} & 0.25 & / & \color{blue}{\bfseries{45.21}} & \color{blue}{\bfseries{95.89}}\\
-            \hline 
-            {\bfseries{Studente-Dst}} & 0.25 & 1 & \color{red}53.42 & \color{red}95.89\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}42.47 & \color{red}95.89\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & {\bfseries{3}} & \color{OliveGreen}{\bfseries{50.68}} & \color{OliveGreen}{\bfseries{98.63}}\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}34.25 & \color{red}98.63\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & 5 & \color{red}47.95 & \color{red}97.26\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & 10 & \color{red}35.62 & \color{red}89.04\\
-            \hline
-            {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}27.4 & \color{red}91.78\\
-            \hline
-         \end{tabular}}
-    \end{center}
-    \footnotetext[1]{\scriptsize \bfseries Iper-parametro \emph{widt-multiplier}. Utile alla gestione del numero dei canali, di input e di output, di ogni layer convoluzionale.}
-\end{frame}
+    \begin{minipage}{\linewidth}
+      \centering
+      \begin{minipage}{0.45\linewidth}
+        Tutti i modelli rappresentano la rete MobileNet-V1 in dimensioni originali ($\alpha=1$) e ridotte ($\alpha=0.25$).\\ 
+        Per $T>1$, il modello studente distillato con temperatura $T=3$ è preferito in quanto ha la più alta accuratezza interposta tra quelle dei modelli insegnante e studente base.
+      \end{minipage}
+      \hspace{0.3cm}
+      \begin{minipage}{0.50\linewidth}
+        \begin{center}
+          \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|M{1.7cm}||M{1.3cm}|M{1.3cm}||M{1.3cm}|M{1.3cm}|} 
+              \multicolumn{5}{c}{\textbf{Tabella: } Accuratezze modelli a temperatura T variabile.} \\ 
+              \hline
+              \multirow{2}{*}{\bfseries{MODELLI}} & \multicolumn{2}{c||}{\bfseries{IPER-PARAMETRI}} & \multicolumn{2}{c|}{\bfseries{ACCURATEZZA}}\\  & \bfseries{$\alpha$}\footnotemark[1] & \bfseries{T}  & \bfseries{TOP-1} & \bfseries{TOP-5} \\
+              \hline
+              \hline
+              {\multirow{2}{*}{\bfseries{Insegnante}}} & \multirow{2}{*}{1} & \multirow{2}{*}{/} & \multirow{2}{*}{\color{blue}{\bfseries{53.42}}} & \multirow{2}{*}{\color{blue}{\bfseries{98.63}}}\\
+              & & & & \\
+              \hline
+              {\bfseries{Studente base}} & 0.25 & / & \color{blue}{\bfseries{45.21}} & \color{blue}{\bfseries{95.89}}\\
+              \hline 
+              {\bfseries{Studente-Dst}} & 0.25 & 1 & \color{red}53.42 & \color{red}95.89\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & 2 & \color{red}42.47 & \color{red}95.89\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & {\bfseries{3}} & \color{OliveGreen}{\bfseries{50.68}} & \color{OliveGreen}{\bfseries{98.63}}\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & 4 & \color{red}34.25 & \color{red}98.63\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & 5 & \color{red}47.95 & \color{red}97.26\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & 10 & \color{red}35.62 & \color{red}89.04\\
+              \hline
+              {\bfseries{Studente-Dst}} & 0.25 & 15 & \color{red}27.4 & \color{red}91.78\\
+              \hline
+           \end{tabular}}
+      \end{center}
+      \end{minipage}
+    \end{minipage}
+    \footnotetext[1]{\scriptsize \bfseries Iper-parametro \emph{width-multiplier} ($\alpha$). Utile alla gestione del numero dei canali, di input e di output, di ogni layer convoluzionale.}
+  \end{frame}
+\end{subsection}
