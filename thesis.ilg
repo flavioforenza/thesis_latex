@@ -1,7 +1,7 @@
 This is makeindex, version 2.15 [TeX Live 2021] (kpathsea + Thai support).
 Scanning style file ./index_style.ist.......done (7 attributes redefined, 0 ignored).
 Scanning input file thesis.idx.....done (1377 entries accepted, 0 rejected).
-Sorting entries..............done (16009 comparisons).
-Generating output file thesis.ind.....done (514 lines written, 0 warnings).
+Sorting entries..............done (16412 comparisons).
+Generating output file thesis.ind.....done (516 lines written, 0 warnings).
 Output written in thesis.ind.
 Transcript written in thesis.ilg.
