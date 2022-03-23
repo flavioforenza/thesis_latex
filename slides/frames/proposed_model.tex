@@ -1,25 +1,45 @@
-\begin{subsection}{Steps 5 e 6}
-    \begin{frame}{DISTILLED-SINGLE-SHOT-DETECTOR (DSSD)}
-        \begin{figure}
-            \centering
-            \includegraphics[width = \linewidth]{SSD_architecture_freeze.png}
-            \centering
-        \end{figure}
-        \begin{minipage}{\linewidth}
-            \centering
-            \begin{minipage}{0.45\linewidth}
+\begin{frame}{DISTILLED-SINGLE-SHOT-DETECTOR (DSSD)}
+    {\bfseries{\scriptsize{(Steps 5 e 6)}}}
+    \vspace{-1.8cm}
+    \begin{figure}
+        \centering
+        \includegraphics[width = \linewidth]{SSD_architecture_freeze.png}
+        \centering
+    \end{figure}
+    \vspace{-0.5cm}
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{minipage}{0.40\linewidth}
+            {\footnotesize
+                \vspace{-0.3cm}
                 \begin{block}{\centering 5. Integrazione}
-                    \centering
                     Studente distillato come rete "{\bfseries{\emph{backbone}}}" nell'architettura {Single-Shot-Detector (SSD)}.    
                 \end{block}
-            \end{minipage}
-            \hspace{0.5cm}
-            \begin{minipage}{0.45\linewidth}
+                \vspace{-0.2cm}
                 \begin{block}{\centering 6. Freeze}
-                    \centering
-                    "{\bfseries{\emph{Congelamento}}}" livelli rete \emph{backbone} durante \emph{l'allenamento} del modello (DSSD).
+                    "{\bfseries{\emph{Congelamento}}}"della rete \emph{backbone} durante \emph{l'allenamento} del modello (DSSD).
                 \end{block}
-            \end{minipage}
-        \end{minipage}   
-    \end{frame}
-\end{subsection}
+            }%
+        \end{minipage}
+        %\hspace{0.5cm}
+        \begin{minipage}{0.55\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width = 0.8\linewidth]{Difference SSD parameters.png}
+                \centering
+            \end{figure}
+            \vspace{-0.7cm}
+            \begin{figure}
+                \centering
+                \includegraphics[width = 0.8\linewidth]{Different size SSD.png}
+                \centering
+            \end{figure}
+        \end{minipage}
+        \vspace{-2.5cm}
+        %{\vspace{-2.5cm}\hspace{-1cm}\reflectbox{\rotatebox[origin=c]{90}{\fontsize{18mm}{19mm}\selectfont{$\curvearrowleft$}}}}
+    \end{minipage}   
+    \begin{textblock}{10}(110,67)
+        \reflectbox{\rotatebox[origin=c]{90}{\fontsize{18mm}{19mm}\selectfont{$\curvearrowleft$}}}
+    \end{textblock}
+\end{frame}
+

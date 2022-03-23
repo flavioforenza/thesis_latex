@@ -24,11 +24,11 @@
 \usepackage{tabularx}
 \usepackage{soul}
 \usepackage{array}
+\usepackage[absolute,overlay]{textpos}
+  \setlength{\TPHorizModule}{1mm}
+  \setlength{\TPVertModule}{1mm}
 
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
-
-
-
 
 \SetKwInOut{Parameter}{parameter}
 
@@ -86,7 +86,8 @@
 
 \logo{\includegraphics[width=0.1\linewidth]{unimilogo.png}}
 
-\input{frames/objectives.tex}
+\section{"Distilled-Single-Shot-Detector (DSSD): un nuovo modello di guida autonoma ad alta inferenza"}
+%\input{frames/objectives.tex}
 \input{frames/crisis_semi.tex}
 \input{frames/thesis_job.tex}
 \input{frames/perfomance.tex}
