@@ -43,7 +43,18 @@
 \bibliography{Bibliography}
 
 \graphicspath{{/Users/flavioforenza/Desktop/latex/images/}}
+
+% \defbeamertemplate{footline}{left page number}
+% {%
+%   \hspace*{0.2cm}%
+%   \usebeamercolor[fg]{page number in head/foot}%
+%   \usebeamerfont{page number in head/foot}%
+%   \insertpagenumber\,/\,\insertpresentationendpage%
+%   \hspace*{0.2cm}\vskip2pt%
+% }
+% \setbeamertemplate{footline}[left page number]
 \setbeamertemplate{footline}[frame number]
+
 
 \usetheme{Darmstadt}
 
@@ -85,7 +96,8 @@
     \end{minipage}
 \end{frame}
 
-\logo{\includegraphics[width=0.1\linewidth]{unimilogo.png}}
+\logo{{\vspace{-1.5cm}\reflectbox{\hspace{-1cm}\rotatebox[origin=c]{-40}{\fontsize{20mm}{15mm}\selectfont{\transparent{0.3}\includegraphics[width=0.2\linewidth]{unimilogo_reflect.png}}}}}}
+
 
 \section{"Distilled-Single-Shot-Detector (DSSD): un nuovo modello di guida autonoma ad alta inferenza"}
 %\input{frames/objectives.tex}
@@ -102,6 +114,7 @@
 \input{frames/stud_teach.tex}
 \input{frames/proposed_model.tex}
 \input{frames/speed_DSSD.tex}
+\input{frames/example.tex}
 
 
 \end{document}
