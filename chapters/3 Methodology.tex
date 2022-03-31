@@ -683,13 +683,13 @@ seguente architettura\index{architettura}.
     \label{DSSD_archs}
 \end{figure}
 
-\subsubsection{6. Allenamento congelato}
+\subsubsection{6. Fine-Tuning}
 Di per sé, la nuova rete DSSD\index{Distilled-Single-Shot-Detector (DSSD)} non è ancora in grado di svolgere il proprio 
 task in quanto la seconda componente della struttura, ovvero i layer\index{layer} convoluzionali 
 aggiunti, non sono addestrati. Per preservare l'accuratezza\index{accuratezza} della rete 
 base distillata, segue un allenamento "esclusivo" che tiene in considerazione 
 solo i parametri di quei livelli non ancora addestrati. Questa tecnica in 
-letteratura prende il nome di "\emph{freeze}" (congelare)(Fig. \ref{DSSD_archs}). Grazie al suo utilizzo, i 
+letteratura prende il nome di "\emph{Fine-Tuning}", o \emph{Freezing} (congelamento), (Fig. \ref{DSSD_archs}). Grazie al suo utilizzo, i 
 parametri dei livelli sottoposti a tale trattamento, non verranno cambiati 
 durante l'allenamento. Normalmente, quando un modello è sottoposto al 
 training, il suo parametro\index{parametro} "\emph{requires\_grad}" è impostato su \emph{True}. Codesto 
