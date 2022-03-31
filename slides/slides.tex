@@ -1,4 +1,4 @@
-\documentclass[10pt, xcolor={dvipsnames}]{beamer}
+\documentclass[10pt, xcolor={dvipsnames, table}]{beamer}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{booktabs}
@@ -28,6 +28,8 @@
   \setlength{\TPHorizModule}{1mm}
   \setlength{\TPVertModule}{1mm}
 %\usepackage{MnSymbol}
+\usepackage{bm}
+
 
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
@@ -103,16 +105,22 @@
 %\input{frames/objectives.tex}
 \input{frames/crisis_semi.tex}
 \input{frames/thesis_job.tex}
-\input{frames/perfomance.tex}
-\input{frames/architectures.tex}
-\input{frames/dataset.tex}
+%\input{frames/perfomance.tex}
+
 \input{frames/compression_tech.tex}
 \input{frames/pruning.tex}
-\input{frames/results_pruning.tex}
 \input{frames/KD.tex}
+
 \input{frames/KD_steps.tex}
+
 \input{frames/stud_teach.tex}
 \input{frames/proposed_model.tex}
+
+\input{frames/architectures.tex}
+\input{frames/dataset.tex}
+
+\input{frames/results_pruning.tex}
+
 \input{frames/speed_DSSD.tex}
 \input{frames/example.tex}
 \input{frames/conclusion.tex}

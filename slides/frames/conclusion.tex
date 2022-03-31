@@ -1,12 +1,16 @@
 \begin{frame}{CONCLUSIONI E SVILUPPI FUTURI}
-    Il seguente elaborato di tesi è incentrato nella realizzazione di un nuovo modello di guida autonoma avente le seguenti peculiarità:
+    Il seguente elaborato di tesi è incentrato nell'applicazione di una metodologia innovativa che ha permesso di:
     \begin{itemize}
-        \item Ricavato, in parte, dalla tecnica di compressione \emph{Knowledge Distillation};
-        \item Bassa occupazione della memoria;
-        \item Possibilità di essere distribuito su sistemi a limitata capacità computazionale (embedded);
-        \item Incremento delle performance rispetto ai modelli concorrenti.
+        \item Applicare la tecnica di compressione {\bfseries{\emph{Knowledge Distillation}}} sulla rete {\bfseries{\emph{MobileNet-V1}}};
+        \item Integrare quest'ultima, come \emph{rete base}, nel modello {\bfseries{\emph{Single-Shot-Detector(SSD)}}};
+        \item Derivare e allenare in maniera congelata ({\bfseries{freeze}}) un nuovo modello, nominato {\bfseries{\emph{"Distilled-Single-Shot-Detector (DSSD)"}}}, in grado di:
+        \begin{itemize}
+            \item Avere una bassa occupazione della memoria;
+            \item Essere distribuito su sistemi a limitata capacità computazionale;
+            \item Incrementare le performance rispetto al modello di partenza.
+        \end{itemize}
     \end{itemize}
-    \vspace{0.5cm}
+    \vspace{0.3cm}
     \emph{Sviluppi futuri}:
     \begin{itemize}
         \item Applicazione della tecnica su modelli diversi;
