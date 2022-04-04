@@ -28,4 +28,5 @@
 \contentsline {table}{\numberline {4.18}{\ignorespaces FPS performance nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU})\relax }}{147}{table.caption.148}%
 \contentsline {table}{\numberline {4.19}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - GPU}).\relax }}{148}{table.caption.149}%
 \contentsline {table}{\numberline {4.20}{\ignorespaces Performance FPS medi nell'attività di Semantic Segmentation su Colab (\emph {OpenCV - CPU}).\relax }}{149}{table.caption.150}%
+\contentsline {table}{\numberline {4.21}{\ignorespaces Risultati funzioni di perdita di entrambi i modelli SSD e DSSD.\relax }}{153}{table.caption.160}%
 \addvspace {10\p@ }

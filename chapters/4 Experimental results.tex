@@ -1299,7 +1299,8 @@ Fino a questo punto sono stati mostrati tutti i benefici derivanti dal nuovo
 modello proposto DSSD. Tutti i dati sono incoraggianti per l'adozione di 
 tale rete su varie architetture embedded\index{embedded} e non. Dal punto di vista pratico 
 però, non sono state ancora dimostrare le effettive funzionalità offerte dal 
-modello. Nella seguente sezione, che termina il capitolo corrente, vengono 
+modello. Tendendo a mente i risultati ottenuti dalle funzioni di perdita di entrambi 
+i modelli (Tab. \ref{Losses_SSD_DSSD}), nella seguente sezione, che termina il capitolo corrente, vengono 
 mostrati alcuni esempi, inerenti l'attività di object detection\index{object detection}, prodotti dal 
 modello DSSD. Per capire meglio le differenze in tale attività, rispetto al 
 modello insegnante integrato nella rete SSD-MobileNet-V1\index{SSD-MobileNet-V1}, vengono confrontati 
@@ -1314,6 +1315,31 @@ la generazione delle soft-labels\index{soft targets}. Tuttavia, il modello DSSD 
 che non si discostano tanto da quelli del modello insegnante. Tali risultati 
 (Fig. \ref{esempi_DSSD}) dimostrano come la tecnica di Knowledge Distillation\index{Knowledge Distillation} riesca 
 quasi a preservare l'accuratezza\index{accuratezza} del modello insegnante. 
+
+\begin{table}
+    \centering
+    \begin{adjustbox}{max width=1.2\textwidth}
+    \begin{tabular}{|c||c|c|}
+        \hline
+        \multirow{2}{*}{\bfseries{\small LOSSES}} & \multicolumn{2}{c|}{\bfseries{MODELS}}\\  & {\bfseries{SSD}} & \bfseries{DSSD} \\                     
+        \hline
+        \hline
+        {\multirow{2}{*}{\small\bfseries{REGRESSION}}} & \multirow{2}{*}{1} & \multirow{2}{*}{1.8}\\
+        & &\\
+        \hline 
+        {\multirow{2}{*}{\footnotesize\bfseries{CLASSIFICATION}}} & \multirow{2}{*}{2.3} & \multirow{2}{*}{2.6}\\
+        & &\\
+        \hline
+        {\multirow{2}{*}{\small\bfseries{GLOBAL}}} & \multirow{2}{*}{\bfseries{3.3}} & \multirow{2}{*}{\bfseries{4.4}}\\
+        & &\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \vspace{0.5cm}
+    \caption{Risultati funzioni di perdita di entrambi i modelli SSD e DSSD.}
+    \label{Losses_SSD_DSSD}
+\end{table}
+
 \begin{figure}[ht] 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
